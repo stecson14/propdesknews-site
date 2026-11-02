@@ -1,0 +1,672 @@
+<title>Prop Firm Directory: 50 Futures &amp; Forex Prop Firms | Prop Desk</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Every major futures and forex prop firm in one place: prices, account sizes, drawdown, payout split and current sales, read from each firm's own site.">
+<meta property="og:title" content="Prop Firm Directory | Prop Desk">
+<meta property="og:description" content="Prices, drawdown rules and live sales for 50 prop firms. Trade the market, not the fine print.">
+<meta property="og:image" content="https://propdesknews.com/avatar.jpg">
+<meta name="twitter:card" content="summary"><meta name="twitter:site" content="@PropDeskNews">
+<link rel="canonical" href="https://propdesknews.com/firms/">
+<link rel="icon" href="/avatar.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a desk ledger. Navy masthead band, filter bar, then a two-column grid of firm cards, futures first. */
+:root{
+  --bg:#F3F0E6; --surface:#FFFDF7; --ink:#1A2233; --muted:#5A6275; --line:#D9D3C2;
+  --navy:#1A2233; --cream:#E9E4D4; --mustard:#B7832A; --mustard-soft:#F3E3BF;
+  --ok:#2F7A4F; --ok-soft:#DCEFE2; --warn:#9A6A12; --warn-soft:#F6E7C4; --no:#8A3B2E; --no-soft:#F4DDD7;
+  --display:"Fraunces", Georgia, "Times New Roman", serif;
+  --body:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121825; --surface:#1A2233; --ink:#E9E4D4; --muted:#A3A8B5; --line:#2E3850;
+    --navy:#0D121C; --cream:#E9E4D4; --mustard:#D9A441; --mustard-soft:#3A3220;
+    --ok:#7CC79A; --ok-soft:#1F3A2B; --warn:#E3B95C; --warn-soft:#3A3220; --no:#E39A8A; --no-soft:#3E2520;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121825; --surface:#1A2233; --ink:#E9E4D4; --muted:#A3A8B5; --line:#2E3850;
+  --navy:#0D121C; --cream:#E9E4D4; --mustard:#D9A441; --mustard-soft:#3A3220;
+  --ok:#7CC79A; --ok-soft:#1F3A2B; --warn:#E3B95C; --warn-soft:#3A3220; --no:#E39A8A; --no-soft:#3E2520;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+header.mast{background:var(--navy);color:#E9E4D4}
+header.mast .wrap{padding-block:36px 30px;display:grid;gap:10px}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#D9A441}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,5vw,54px);line-height:1.05;margin:0;text-wrap:balance}
+.lede{max-width:66ch;color:#C9C4B5;margin:0}
+.flatline{height:22px;width:100%;max-width:420px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:#C9C4B5;margin-top:4px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex:none}
+.dot.ok{background:#7CC79A}.dot.site{background:#D9A441}.dot.none{background:#E39A8A}
+
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.bar .wrap{padding-block:12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--surface)}
+.seg button{font:500 13px var(--mono);letter-spacing:.04em;padding:8px 14px;border:0;background:transparent;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.seg button:focus-visible,.search:focus-visible,.chk:focus-within,a:focus-visible{outline:2px solid var(--mustard);outline-offset:2px}
+.search{flex:1 1 220px;min-width:0;font:15px var(--body);padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
+.chk{display:inline-flex;gap:6px;align-items:center;font-size:13px;color:var(--muted)}
+.count{font-family:var(--mono);font-size:12px;color:var(--muted);margin-left:auto}
+
+main .wrap{padding-block:26px 60px;display:grid;gap:34px}
+section h2{font-family:var(--display);font-weight:500;font-size:28px;margin:0 0 4px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+section h2 small{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.secnote{color:var(--muted);margin:0 0 16px;max-width:70ch;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,460px),1fr));gap:16px}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 18px 14px;display:grid;gap:12px;min-width:0}
+.card.tier1{border-color:var(--mustard)}
+.top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.name{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.15;margin:0}
+.tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.tag{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:4px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.t1{border-color:var(--mustard);color:var(--mustard)}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.lk{display:inline-flex;align-items:center;gap:7px;font:500 13px var(--mono);text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:6px 10px;background:var(--bg);max-width:100%;overflow-wrap:anywhere}
+.lk:hover{border-color:var(--ink)}
+.lk .arr{color:var(--muted)}
+.xstat{font-size:12px;color:var(--muted);margin-top:-4px}
+dl{display:grid;grid-template-columns:96px 1fr;gap:6px 12px;margin:0;font-size:14px}
+dt{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+dd{margin:0;min-width:0;overflow-wrap:anywhere}
+dd.num{font-variant-numeric:tabular-nums}
+.deal{background:var(--mustard-soft);border-radius:6px;padding:8px 10px;font-size:13.5px}
+.deal b{font-family:var(--mono);font-weight:600}
+.note{font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
+.warnnote{color:var(--warn)}
+.empty{color:var(--muted);font-style:italic}
+
+.left{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.left ul{margin:8px 0 0;padding-left:18px;display:grid;gap:6px;font-size:14px}
+footer .wrap{padding-block:0 40px;color:var(--muted);font-size:13px;display:grid;gap:6px;max-width:80ch;margin-left:0}
+@media (max-width:520px){dl{grid-template-columns:80px 1fr}.count{margin-left:0;width:100%}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="kicker"><a href="/" style="color:inherit;text-decoration:none">← Prop Desk</a> · checked Mon Nov 2, 2026</div>
+    <h1>Prop Firm Directory</h1>
+    <svg class="flatline" viewBox="0 0 420 22" aria-hidden="true"><polyline points="0,4 90,4 120,6 150,18 175,12 200,16 420,16" fill="none" stroke="#D9A441" stroke-width="2.5"/></svg>
+    <p class="lede">Futures and forex prop firms in one place: account sizes, list prices, payout split, drawdown and current sales. Every fact is read from the firm's own website and re-checked daily. Prices change often, so the firm's checkout is the final word.</p>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="seg" role="group" aria-label="Market">
+      <button type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
+      <button type="button" id="f-fut" data-f="futures" aria-pressed="false">Futures</button>
+      <button type="button" id="f-cfd" data-f="cfd" aria-pressed="false">CFD / Forex</button>
+    </div>
+    <input class="search" id="q" type="search" placeholder="Search firm, platform, plan…" aria-label="Search firms">
+    <label class="chk" for="sale"><input type="checkbox" id="sale"> Has a sale on the site</label>
+    <span class="count" id="count"></span>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+    <section id="sec-fut">
+      <h2>Futures firms <small id="n-fut"></small></h2>
+      <p class="secnote">"Monthly" means the evaluation renews each month until you pass. Check the drawdown type before you compare prices: a cheap eval with a tight trailing drawdown can cost more in resets.</p>
+      <div class="grid" id="g-fut"></div>
+    </section>
+    <section id="sec-cfd">
+      <h2>CFD / forex firms <small id="n-cfd"></small></h2>
+      <p class="secnote">Drawdown here is usually a percent of the starting balance. FTMO prices in EUR and Lux in GBP; everything else is USD unless shown.</p>
+      <div class="grid" id="g-cfd"></div>
+    </section>
+    <section>
+      <h2>Checked and left off</h2>
+      <div class="left">
+        These came up while building the list and were left out (all re-checked Mon Nov 2):
+        <ul>
+          <li><b>FundingTicks</b> (removed Nov 1): its homepage still says it is winding down operations. Active evals and Master accounts are being refunded in full; support stays open until Jan 31.</li>
+          <li><b>Tick Tick Trader</b>: tickticktrader.com still returns a "site not found" page.</li>
+          <li><b>The Funded Trader</b>: thefundedtraderprogram.com still shows "Deployment paused".</li>
+          <li><b>Seacrest Funded</b>: seacrestfunded.com still redirects to an unrelated business-loan page.</li>
+          <li><b>Legends Trading</b>: a stock and options signals chat, not a prop firm.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Sales listed are each firm's own public offers. Some links on Prop Desk may be affiliate links, and every affiliate code is labeled as one. Profit splits and "up to" numbers are the firms' claims. Prop firm evaluations are simulated trading products. Education, not financial advice.</p>
+    <p><a href="/" style="color:inherit">propdesknews.com</a> · <a href="https://x.com/PropDeskNews" style="color:inherit">@PropDeskNews</a> · <a href="mailto:hello@propdesknews.com" style="color:inherit">hello@propdesknews.com</a></p>
+  </div>
+</footer>
+
+<script>
+const X = (h, s) => ({h, s}); // s: ok = checked on X, site = linked from firm site, none
+const FIRMS = [
+ // ---------- FUTURES ----------
+ {n:"Topstep", m:["futures"], t1:1, w:"https://www.topstep.com", x:X("Topstep","ok"),
+  plans:"Trading Combine: Standard or No Activation Fee path; Express Funded, then Live Funded",
+  sizes:"50K · 100K · 150K",
+  price:"Standard $49 / $99 / $199 per month plus $149 activation; No Activation Fee $95 / $149 / $229 per month",
+  split:"90/10 (pre–Jan 12, 2026 accounts keep 100% of first $10K)",
+  dd:"Max loss limit; optional daily loss limit raises payout caps",
+  plat:"See site",
+  deal:"No site-wide sale. Standing discount: $10 / $20 / $30 off No Activation Fee Combines when you add a daily loss limit.",
+  note:"Payout minimum $125. Topstep Labs drop #009 ($65, $3K target, $500 static max loss) was live Oct 31."},
+ {n:"Apex Trader Funding", m:["futures"], t1:1, w:"https://apextraderfunding.com", x:X("ApexTradeFund","ok"),
+  plans:"EOD Performance Accounts (products bought after Mar 1, 2026); Legacy accounts; Live program",
+  sizes:"25K · 50K · 100K · 150K",
+  price:"25K Intraday $167 ($16.70 with code); Legacy monthly 25K $177 to 300K $797 (Rithmic/WealthCharts)",
+  split:"100% on EOD Performance Account payouts; 90/10 on Live",
+  dd:"EOD trailing; safety net = drawdown + $100",
+  plat:"See site",
+  deal:"<b>SAVENOW</b>: 90% off all evals (Intraday, EOD, Legacy, any size), ends Wed Nov 4 ~11:59 PM ET per the homepage countdown. New signups only; not on resets or PA activation fees. Legacy accounts are back for a limited time (monthly billing).",
+  note:"EOD payouts: 5 qualifying days, $500 minimum, 50% consistency, max 6 payouts per account."},
+ {n:"Tradeify", m:["futures"], t1:1, w:"https://tradeify.co", x:X("tradeify","ok"),
+  plans:"Evaluation with Daily or Flex payout path",
+  sizes:"25K · 50K · 100K · 150K",
+  price:"$109 / $165 / $265 / $369 one-time",
+  split:"90/10",
+  dd:"EOD trailing; targets $1.5K / $3K / $6K / $9K",
+  plat:"See site",
+  deal:"<b>NOV</b>: 30% off, 40% off the Growth account, ends Nov 13 at 11:59 PM EST (25K $76, 50K $116, 100K $186, 150K $258 with code). 5-pack 5% off at checkout.",
+  note:"Consistency rule in the eval only. New weekly inactivity rule (Oct 24) is aggregator-reported, unconfirmed."},
+ {n:"Lucid Trading", m:["futures"], t1:1, w:"https://lucidtrading.com", x:X("TradingLucid","ok"),
+  plans:"LucidPro · LucidFlex · LucidDaily · LucidDirect",
+  sizes:"25K · 50K · 100K · 150K",
+  price:"LucidDaily $108 / $172 / $272 / $365",
+  split:"90/10",
+  dd:"EOD; LucidDaily 25K: $1,000 max loss, $600 daily loss limit",
+  plat:"See site",
+  deal:"<b>VAULT</b>: 30% off (LucidDaily 50K $172 → $120.40).",
+  note:"@LucidTrading is a different, unrelated account. LucidFlex: 5 qualifying days, $500 minimum payout, up to 5 payouts then live. LucidFlex eval consistency: largest day 40% or less of eval profit (50% with paid add-on)."},
+ {n:"MyFundedFutures (MFFU)", m:["futures"], t1:1, w:"https://myfundedfutures.com", x:X("MyFundedFutures","ok"),
+  plans:"Builder · Rapid · Rapid EOD · Pro",
+  sizes:"25K · 50K · 100K · 150K",
+  price:"50K: Builder $153, Rapid $209, Rapid EOD $225, Pro $265 (one-time, no activation fee)",
+  split:"80/20 (Builder, Pro) or 90/10 (Rapid)",
+  dd:"Intraday trailing (Rapid) or EOD (Rapid EOD); 50K target $3,000",
+  plat:"See site",
+  deal:"<b>CLUB</b>: 40% off any plan; new users get 50% off their first eval.",
+  note:"Payout minimums: Builder 25K $250, 50K $500, Rapid $500, Pro $1,000."},
+ {n:"Take Profit Trader", m:["futures"], t1:1, w:"https://takeprofittrader.com", x:X("TakeProfitLLC","ok"),
+  plans:"Test, then PRO and PRO+",
+  sizes:"25K · 50K · 75K · 100K · 150K",
+  price:"$150 / $170 / $245 / $330 / $360 per month",
+  split:"PRO 80/20, PRO+ 90/10",
+  dd:"See site",
+  plat:"See site",
+  deal:"<b>NOFEE50</b> (\"Early Black Friday Sale\"): 50% off for life plus never pay an activation fee (no end date shown; up from NOFEE40 on Nov 1).",
+  note:"Withdrawals from day one on PRO, no max. $130 one-time activation fee unless waived. Test resets $79 / $99 / $139 / $169 / $199 (25K to 150K)."},
+ {n:"Alpha Futures", m:["futures"], w:"https://alpha-futures.com", x:X("Alpha_Futures_","ok"),
+  plans:"Zero · Standard · Advanced · Direct",
+  sizes:"50K · 100K · 150K (up to $750K combined)",
+  price:"Standard $129 / $239 / $349 per month list",
+  split:"Up to 90%",
+  dd:"EOD trailing max loss limit",
+  plat:"AlphaTrader, TradingView, WealthCharts",
+  deal:"<b>ALPHA50</b>: 50% off (homepage Nov 2; 50K Standard $64.50/month). Earlier shown as MYALPHA50, so confirm at checkout.",
+  note:"Their site footer links @AlphaFutures, but @Alpha_Futures_ is the account checked on X with 35.9K followers. Trades ES, NQ and CL."},
+ {n:"FundedNext Futures", m:["futures"], w:"https://fundednext.com/futures", x:X("fnfutures","ok"),
+  plans:"Flex · Rapid · Direct",
+  sizes:"50K · 100K · 150K",
+  price:"From $74.99 Flex, $144.99 Rapid, $259.99 Direct (one-time)",
+  split:"Up to 95% (firm's claim)",
+  dd:"EOD trailing only, no buffer rule",
+  plat:"NinjaTrader, Tradovate, TradingView",
+  deal:"<b>FNFLEX</b>: up to 47% off.",
+  note:"Futures arm of FundedNext. Covers index, energy, metals, currency and ag futures."},
+ {n:"Bulenox", m:["futures"], w:"https://bulenox.com", x:X("bulenoxofficial","site"),
+  plans:"Qualification · Fast Track · Momentum",
+  sizes:"Up to $150K",
+  price:"Shown at checkout",
+  split:"Up to 90%",
+  dd:"Trailing or EOD (your choice)",
+  plat:"R | Trader Pro, NinjaTrader, Tradovate, Quantower, Sierra Chart, 20+ more",
+  deal:"",
+  note:"No minimum trading days; daily payouts."},
+ {n:"Earn2Trade", m:["futures"], w:"https://www.earn2trade.com", x:X("earn2trade","site"),
+  plans:"Trader Career Path · The Gauntlet Mini",
+  sizes:"25K · 50K · 100K · 200K (Career Path scales to $400K)",
+  price:"From $150 and from $170 shown on homepage (no sale running)",
+  split:"Profit share after funding",
+  dd:"Fixed drawdown on Career Path scaling",
+  plat:"Tradovate, NinjaTrader, TradingView, Rithmic, BlackArrow, Finamark, DeepCharts",
+  deal:"",
+  note:"One of the older futures firms."},
+ {n:"Elite Trader Funding", m:["futures"], w:"https://elitetraderfunding.com", x:X("EliteTraderFund","site"),
+  plans:"1 Step · Direct to Funded · Static · Diamond Hands · End of Day · Fast Track",
+  sizes:"$10K to $150K",
+  price:"As low as $47 one-time or $87 per month; one plan free for the first month, then $87/month",
+  split:"Up to 100% (firm's claim)",
+  dd:"Varies by plan (static, EOD and trailing options)",
+  plat:"TradingView, NinjaTrader, Rithmic, Tradovate, Tickblaze",
+  deal:"",
+  note:"Site redirects to elitetraderfunding.app. No time limits on evals. Site footer links @EliteTradersFund but its page tags say @EliteTraderFund."},
+ {n:"Top One Futures", m:["futures"], w:"https://toponefutures.com", x:X("TopOneFutures","site"),
+  plans:"Elite Daily · Elite Access · Instant Sim Funded · Ignite Instant Funding",
+  sizes:"25K · 50K · 100K · 150K",
+  price:"Evals $178 / $218 / $398 / $549 (25K to 150K, before code); resets $99",
+  split:"90/10",
+  dd:"EOD ($1,000 on the smallest account)",
+  plat:"Listed on site",
+  deal:"<b>BOGO</b>: buy one, get one free. <b>BOO</b>: 45–50% off instant funding accounts (no end date shown). The page also teases a \"mystery discount\".",
+  note:"Instant funding focus."},
+ {n:"TradeDay", m:["futures"], w:"https://www.tradeday.com", x:X("TradeDay","none"),
+  plans:"Quick Pay · Fast Pass",
+  sizes:"25K · 50K · 100K · 150K",
+  price:"$100 / $131 / $240 / $360 (25K to 150K); from $45 with TDNEW",
+  split:"50/50 under $4K net profit, 80/20 above, 90/10 on Funded Live",
+  dd:"Intraday trailing: $1K / $2K / $3K / $4.5K",
+  plat:"Tradovate, NinjaTrader, Rithmic",
+  deal:"<b>TDNEW</b>: up to 55% off for first-time users (no end date shown).",
+  note:"Chicago-based. No X link on their site."},
+ {n:"Phidias Propfirm", m:["futures"], w:"https://phidiaspropfirm.com", x:X("PhidiasPropfirm","site"),
+  plans:"Express to Live · Fundamental · Premium · 10K Challenge",
+  sizes:"25K · 50K · 100K · 150K",
+  price:"From $55",
+  split:"Up to 100% on Premium (75% rising to 100% after 5 payouts)",
+  dd:"Static and EOD options",
+  plat:"Rithmic, Tradovate, DeepCharts, TradingView, NinjaTrader",
+  deal:"<b>WINTERARC80</b>: save 80% on the 100K Express to Live (no end date shown).",
+  note:"Markets itself on fast access to live accounts."},
+ {n:"Funded Futures Network", m:["futures"], w:"https://fundedfuturesnetwork.com", x:X("Funded Futures Network","none"),
+  plans:"MAX Standard · STEADY",
+  sizes:"25K · 50K · 100K · 150K · 250K",
+  price:"Sale prices $44.40 / $53.40 / $104.40 / $122.40 / $197.40 one-time",
+  split:"Up to 90/10 on Live Funded",
+  dd:"EOD",
+  plat:"Nexus Trader, Rithmic, Quantower and others",
+  deal:"<b>NEXUS</b>: 70% off, or 50% off plus buy one get one on MAX.",
+  note:"Same-day payouts claimed. No X link on their site."},
+ {n:"Leeloo Trading", m:["futures"], w:"https://leelootrading.com", x:X("LEELOOTrading","site"),
+  plans:"Aspire · Launch · Climb · Burst · Cruise · Explode (single or bundle)",
+  sizes:"25K to 300K",
+  price:"$250 to $950 per month by account, plus a Performance Account fee",
+  split:"Set by account terms",
+  dd:"Trailing, $1,500 to $7,500 by account",
+  plat:"NinjaTrader, Rithmic, Sierra Chart, ATAS, Bookmap and many more",
+  deal:"No code shown; bundle pricing listed on the homepage.",
+  note:"Long-running futures firm."},
+ {n:"Goat Funded Futures", m:["futures"], w:"https://goatfundedfutures.com", x:X("GFFutures","site"),
+  plans:"GOAT Daily · Flex · EOD · 1-Day Pass · Instant Classic · Instant Lite",
+  sizes:"25K · 50K · 100K · 150K (up to $750K)",
+  price:"$178 / $238 / $378 / $538 one-time (before code)",
+  split:"80/20 on most plans; 90/10 on GOAT Daily and Instant Lite; Instant Classic 100% of first $10K",
+  dd:"EOD trailing (intraday on Instant Classic and GOAT Daily funded)",
+  plat:"NinjaTrader, Tradovate, TradingView, Tickblaze, DeepCharts, ATAS, Tradesea",
+  deal:"<b>AUTUMN50</b>: 50% off all plans, \"limited time\" (replaces HALLOWEEN55, which ended Nov 1).",
+  note:"No activation fees. Futures sister of Goat Funded Trader."},
+ {n:"OneUp Trader", m:["futures"], w:"https://www.oneuptrader.com", x:X("oneuptrader","site"),
+  plans:"EvaluationPro (1-step)",
+  sizes:"25K · 50K · 100K · 150K · 250K",
+  price:"$65 / $75 / $150 / $175 / $325 per month",
+  split:"100% of first $10K, then 90/10",
+  dd:"$1.5K / $2.5K / $3.5K / $5K / $5.5K",
+  plat:"NinjaTrader, R | Trader, Sierra Chart and others",
+  deal:"",
+  note:"The TestFREE trial was no longer shown on Nov 2."},
+ {n:"UProfit", m:["futures"], w:"https://uprofit.com", x:X("UProfit","none"),
+  plans:"DAY 2.0 · Day Soft",
+  sizes:"10K · 50K · 100K · 150K",
+  price:"DAY 2.0 with code: $39 (10K), $88 / $136 / $226 per month (50K / 100K / 150K); Day Soft from $29",
+  split:"Shown as 50% on the homepage; check plan terms",
+  dd:"EOD: $400 / $2K / $3K / $4.5K",
+  plat:"TradingView, Tradoverse",
+  deal:"<b>HALLOWEEN</b>: extra 10% off DAY 2.0.",
+  note:"Funding since 2019; 24-hour payouts claimed. No X link on their site."},
+ {n:"DayTraders.com", m:["futures"], w:"https://daytraders.com", x:X("DayTraders.com","none"),
+  plans:"EOD · Trail · Static · Instant · Live account types",
+  sizes:"25K · 50K · 150K · 300K",
+  price:"25K EOD $80 per account plus $5 activation; site says no codes",
+  split:"Up to 100% (firm's claim)",
+  dd:"EOD trailing; 25K: $1,000 max, $800 daily, $1,500 target",
+  plat:"ArcTrader (browser, TradingView charts); Rithmic \"coming soon\"",
+  deal:"Limited time: free demo account on ArcTrader (no code needed).",
+  note:"No X link on their site."},
+ {n:"Purdia Capital", m:["futures"], w:"https://purdia.com", x:X("Purdia Capital","none"),
+  plans:"Instant Funding · Evaluation",
+  sizes:"25K · 50K · 100K · 150K",
+  price:"Instant $349 to $2,299; evals from $179 (50K EOD), $199 (100K Pro), $299 (100K EOD)",
+  split:"90/10",
+  dd:"$3,000 shown on the 50K",
+  plat:"Tradovate, NinjaTrader, TradingView",
+  deal:"<b>OCT50</b>: 50% off every account (still on the homepage Nov 2 despite the October name).",
+  note:"No X link on their site."},
+ {n:"The Trading Pit", m:["futures","cfd"], w:"https://www.thetradingpit.com", x:X("TheTradingPit","none"),
+  plans:"TTP Challenge · Earning Account · Long Term Partnership",
+  sizes:"Scales to €5M",
+  price:"Shown at checkout",
+  split:"Up to 80%",
+  dd:"Varies by challenge",
+  plat:"TradingView, Sierra Chart, NinjaTrader and others",
+  deal:"",
+  note:"Offers both futures and CFD challenges. Their X link was broken on Oct 31."},
+
+ // ---------- CFD / FOREX ----------
+ {n:"FTMO", m:["cfd"], t1:1, w:"https://ftmo.com/en/", x:X("FTMO_com","ok"),
+  plans:"Challenge 1-Step · Challenge 2-Step · Instant Account",
+  sizes:"10K · 25K · 50K · 100K · 200K",
+  price:"From €89 / €250 / €345 / €439 / €1,080 one-time, refundable",
+  split:"Up to 90%",
+  dd:"10% max loss, 5% daily (2-Step)",
+  plat:"MT4, MT5, cTrader, TradingView",
+  deal:"No sale shown; free trial available.",
+  note:"Since 2015, Prague-based. Prices in EUR."},
+ {n:"FundedNext", m:["cfd","futures"], t1:1, w:"https://fundednext.com", x:X("FundedNext","ok"),
+  plans:"CFD challenges (one-time fee)",
+  sizes:"See site",
+  price:"From $74.99 one-time",
+  split:"Up to 95% (firm's claim)",
+  dd:"Varies by challenge; one CFD plan shown with no daily loss limit",
+  plat:"See site",
+  deal:"",
+  note:"Futures challenges listed separately above (@fnfutures)."},
+ {n:"The5ers", m:["cfd","futures"], t1:1, w:"https://the5ers.com", x:X("The5ers","ok"),
+  plans:"CFD programs plus futures programs",
+  sizes:"Scales to $4M",
+  price:"From $179 shown on homepage",
+  split:"75/25 shown, rising with scaling",
+  dd:"3% shown on the featured plan",
+  plat:"MT5",
+  deal:"Homepage banner: \"Industry's Lowest $200K Only For $249\" (program not named).",
+  note:"Display name says @the5erstrading, but @The5ers is the account. Since 2016."},
+ {n:"FundingPips", m:["cfd"], w:"https://fundingpips.com", x:X("FundingPips","site"),
+  plans:"Instant · 1 Day Pass · One Step · Flex · Classic 2 Phase · 2 Step",
+  sizes:"5K · 10K · 25K · 50K · 100K",
+  price:"$29 to $555",
+  split:"Up to 100%",
+  dd:"Daily loss 3% to 5% by challenge",
+  plat:"MT5, Match-Trader, cTrader",
+  deal:"<b>HALLOWEEN</b>: 20% off new clients, 15% off existing (banner still up Nov 2, no end date).",
+  note:""},
+ {n:"Alpha Capital", m:["cfd"], w:"https://alphacapitalgroup.uk", x:X("alphacapital","site"),
+  plans:"Direct · 1 Step · 2 Step",
+  sizes:"2.5K · 5K · 10K · 25K · 50K · 100K · 200K",
+  price:"$30 / $67 / $97 / $197 / $257 / $457 / $897 one-time",
+  split:"Up to 90%",
+  dd:"3% daily, 5% trailing max (featured plan)",
+  plat:"MT5, cTrader, DXtrade, TradeLocker, Alpha Trader",
+  deal:"<b>ALPHA20</b>: 20% off all accounts.",
+  note:"UK-based. Not related to Alpha Futures."},
+ {n:"Blue Guardian", m:["cfd","futures"], w:"https://blueguardian.com", x:X("BlueGuardian","site"),
+  plans:"CFD: Instant, 1 Step, 2 Step. Futures: Standard, Reserve, Express, Direct",
+  sizes:"Futures 25K · 50K · 100K · 150K",
+  price:"Futures $100 to $276",
+  split:"Up to 90%",
+  dd:"Futures: $3,500 shown on the largest plan",
+  plat:"MT5, TradeLocker, Match-Trader, NinjaTrader, Tradovate, DeepCharts, TradingView",
+  deal:"<b>HALLOWEEN</b>: 35% off all CFD and futures accounts (still up Nov 2, no end date).",
+  note:"Runs both CFD and futures programs."},
+ {n:"FXIFY", m:["cfd"], w:"https://fxify.com", x:X("FXIFY","site"),
+  plans:"One Phase · Two Phase · Three Phase · Instant · Lightning",
+  sizes:"5K to 400K",
+  price:"From $59",
+  split:"Up to 90%",
+  dd:"Static",
+  plat:"MT5, DXtrade, TradingView",
+  deal:"<b>FUNDED25</b>: 25% off all programs plus 2 free add-ons, ends Dec 1. <b>FUNDED40</b>: 40% off Instant Funding (not Lite), ends Nov 2. <b>ONESTEP35</b>: 35% off One Phase for new traders, ends Dec 31.",
+  note:"Footer links @FXIFY; the page's share tag says @fxifycom."},
+ {n:"Goat Funded Trader", m:["cfd"], w:"https://www.goatfundedtrader.com", x:X("GoatFunded","site"),
+  plans:"Blitz · HERO · GOAT · Standard · Premium",
+  sizes:"1K to 400K (up to $2M scaling)",
+  price:"From $15 (1K) to $1,499 (400K)",
+  split:"80% base",
+  dd:"3% daily",
+  plat:"MT5, cTrader, TradeLocker, Match-Trader",
+  deal:"<b>firstGFT</b>: 50% off for new customers; <b>BOGO40</b>: 40% off all accounts (limited time). HALLOWEEN50 is gone.",
+  note:""},
+ {n:"Instant Funding", m:["cfd"], w:"https://instantfunding.com", x:X("instantfunding","site"),
+  plans:"IF Micro · IF Evolve · One-Phase · Two-Phase",
+  sizes:"5K up to $4M with scaling",
+  price:"Varies by size and plan",
+  split:"80%, 90% with add-on",
+  dd:"10% max; no daily drawdown on instant accounts",
+  plat:"MT5, cTrader, Match-Trader",
+  deal:"<b>LITE40</b>: 40% off IF Micro Lite up to $25K.",
+  note:"Footer links @instantfunding; share tag says @instantfunding_."},
+ {n:"Hola Prime", m:["cfd","futures"], w:"https://holaprime.com", x:X("HolaPrimeGlobal","site"),
+  plans:"1-Step Prime · 2-Step Prime · 2-Step Pro · Direct",
+  sizes:"5K · 10K · 25K · 50K · 100K · 200K",
+  price:"With WELCOME: $39.20 / $71.20 / $172 / $263.20 / $463.20 / $1,049",
+  split:"Up to 95%",
+  dd:"10% max, 5% daily",
+  plat:"cTrader, Match-Trader, TradeLocker",
+  deal:"<b>WELCOME</b>: 20% off (the SPOOKY codes are gone).",
+  note:"Also runs futures accounts. 1-hour payouts claimed."},
+ {n:"Audacity Capital", m:["cfd"], w:"https://audacity.capital", x:X("audacitycap","site"),
+  plans:"Ability Challenge (2-step) · Ability One (1-step) · FTP (instant)",
+  sizes:"5K · 10K · 25K · 50K · 100K · 200K",
+  price:"List $49 / $79 / $195 / $329 / $549 / $1,049; homepage still shows $32 / $51 / $127 / $214 / $357 / $682",
+  split:"Up to 90%",
+  dd:"2-step: 7.5% daily, 15% max. 1-step and FTP: 5% daily, 10% max",
+  plat:"MT5, DXtrade",
+  deal:"",
+  note:"Since 2012, London. Old domain audacitycapital.co.uk redirects. The HALLOWEEN banner (ended Oct 31) is still on the page with sale prices; check checkout."},
+ {n:"City Traders Imperium", m:["cfd"], w:"https://citytradersimperium.com", x:X("CTI_Funding","site"),
+  plans:"1-Step · 2-Step · Instant · Direct",
+  sizes:"2.5K to 100K (scales to $4M)",
+  price:"$29 to $449 (challenges); direct funding up to $3,999",
+  split:"Up to 100%",
+  dd:"Balance-based",
+  plat:"MT5, Match-Trader",
+  deal:"",
+  note:"Since 2018."},
+ {n:"Fintokei", m:["cfd"], w:"https://www.fintokei.com", x:X("fintokei","site"),
+  plans:"StartTrader · SwiftTrader · ProTrader · ProTrader Swing",
+  sizes:"5K to 400K",
+  price:"$34 to $2,599",
+  split:"80% to 90% (up to 95% claimed)",
+  dd:"3% max open risk rule",
+  plat:"TradingView, cTrader, MT5",
+  deal:"<b>BLACKFRIDAY20</b>: 20% off all challenges (no end date shown). <b>NEW20</b>: 20% off a first challenge.",
+  note:""},
+ {n:"ThinkCapital", m:["cfd"], w:"https://www.thinkcapital.com", x:X("thinkcapitalcom","site"),
+  plans:"Lightning 1-Step · Dual Step · Nexus 3-Step · Bolt Instant",
+  sizes:"2.5K · 5K · 10K · 25K · 50K · 100K · 200K",
+  price:"From $39 (2.5K Bolt, 5K Nexus), $59 (5K Lightning or Dual Step)",
+  split:"Up to 90%",
+  dd:"Up to 6% trailing, equity-based",
+  plat:"TradingView, ThinkTrader",
+  deal:"<b>20OFF</b>: 20% off a ThinkCapital Challenge.",
+  note:"Backed by ThinkMarkets, a regulated broker."},
+ {n:"Lux Trading Firm", m:["cfd"], w:"https://luxtradingfirm.com", x:X("FirmLux","site"),
+  plans:"Instant Funding · Classic 1-Step · Prediction Markets",
+  sizes:"10K to 1M",
+  price:"From £85 (10K); £299 (100K) shown",
+  split:"80%",
+  dd:"Varies by plan",
+  plat:"MT4, TradingView, Trader Evolution, Match-Trader",
+  deal:"7-day free trial.",
+  note:"Prices in GBP."},
+ {n:"DNA Funded", m:["cfd"], w:"https://dnafunded.com", x:X("dnafunded","site"),
+  plans:"Range of challenges plus boosters",
+  sizes:"Up to $600K",
+  price:"Shown at checkout",
+  split:"80%, up to 90% with booster",
+  dd:"Varies by challenge",
+  plat:"TradeLocker",
+  deal:"",
+  note:""},
+ {n:"Atlas Funded", m:["cfd","futures"], w:"https://www.atlasfunded.com", x:X("atlasfunded","site"),
+  plans:"Instant · Access · 1-Step · 2-Step",
+  sizes:"5K · 10K · 25K · 50K · 100K · 200K",
+  price:"$31 (5K) to $434 (200K) shown",
+  split:"90%, up to 100%",
+  dd:"Varies by plan",
+  plat:"TradeLocker, Match-Trader, MT5",
+  deal:"<b>ATLAS2</b>: 50% off forex/CFD and futures; <b>NEW</b>: 50% off a first challenge, one use per trader. SPOOKY is gone.",
+  note:"Lists forex, futures and crypto."},
+ {n:"For Traders", m:["cfd","futures"], w:"https://fortraders.com", x:X("fortraderscom","site"),
+  plans:"Challenge · Instant · Pay After Pass",
+  sizes:"Up to $200K",
+  price:"$50 to $399",
+  split:"Up to 90%",
+  dd:"Varies by plan",
+  plat:"MT5, TradeLocker, cTrader",
+  deal:"No sale shown; 48-hour reward guarantee.",
+  note:"Lists forex, crypto and futures."},
+ {n:"Lark Funding", m:["cfd"], w:"https://larkfunding.com", x:X("larkfunding","site"),
+  plans:"Simulated Funded · Instant · 1-Step · 1-Step Max · 3-Step",
+  sizes:"5K to 200K",
+  price:"From $99 (1-Step Max); $400 Simulated Funded (largest shown)",
+  split:"80%",
+  dd:"Static",
+  plat:"Lark's own platform",
+  deal:"<b>DOUBLELARK</b>: buy an eligible evaluation and pass within 30 days to get a free evaluation of the same size, ends Nov 22.",
+  note:""},
+ {n:"PipFarm", m:["cfd"], w:"https://pipfarm.com", x:X("thepipfarm","site"),
+  plans:"Instant · Pay With Profits · Challenges",
+  sizes:"Shown at checkout",
+  price:"75K instant shown at $100 on sale",
+  split:"Up to 99% (firm's claim)",
+  dd:"Varies by plan",
+  plat:"cTrader",
+  deal:"<b>INSTANT50</b> 50% off instant; <b>WELCOME30</b> 30% off challenges.",
+  note:""},
+ {n:"Funded Trading Plus", m:["cfd"], w:"https://www.fundedtradingplus.com", x:X("Funded Trading Plus","none"),
+  plans:"1-Step · 2-Step · Instant",
+  sizes:"10K · 25K · 50K · 100K · 200K",
+  price:"Shown at checkout",
+  split:"Up to 100%",
+  dd:"4% daily (balance), 6% trailing max",
+  plat:"MT5, Match-Trader",
+  deal:"<b>SIZE20</b>: 20% off any challenge.",
+  note:"Their share tag names @fundedtradingplus, which is too long to be a real X handle. Find the account by search."},
+ {n:"Maven Trading", m:["cfd"], w:"https://maventrading.com", x:X("Maven Trading","none"),
+  plans:"1-Step · 2-Step · 3-Step · Instant · Mini · Buy Now Pay Later",
+  sizes:"2K to 100K",
+  price:"$14 to $900",
+  split:"80%",
+  dd:"5% to 10% max loss by plan",
+  plat:"Listed on site",
+  deal:"<b>OMO</b>: up to 40% off the Omo 2-Step. Code ROCKET also shown on the 1-, 2- and 3-Step (discount not stated).",
+  note:"No X link on their site."},
+ {n:"BrightFunded", m:["cfd","futures"], w:"https://brightfunded.com", x:X("BrightFunded","none"),
+  plans:"3 CFD plans · 2 futures plans",
+  sizes:"5K to 200K",
+  price:"€47 to €947 (CFD)",
+  split:"Up to 100%",
+  dd:"No consistency rules",
+  plat:"Web, desktop and mobile",
+  deal:"<b>HW30</b>: 30% off all plans (still up Nov 2, no end date).",
+  note:"No X link on their site."},
+ {n:"FTUK", m:["cfd"], w:"https://ftuk.com", x:X("FTUK","none"),
+  plans:"Flex Challenge · Instant Funding",
+  sizes:"5K to 200K",
+  price:"Flex accounts from $9",
+  split:"Up to 90%",
+  dd:"5% daily, 6% trailing",
+  plat:"MT5, TradeLocker, Match-Trader",
+  deal:"<b>FTUK30</b>: 30% off first purchase (limited time).",
+  note:"No X link on their site."},
+ {n:"Funding Traders", m:["cfd"], w:"https://fundingtraders.com", x:X("FundingTraders","none"),
+  plans:"Instant Funded · 2-Step Pro · 1-Step Pro",
+  sizes:"5K to 400K",
+  price:"$49 to $2,349",
+  split:"90% to 100%",
+  dd:"6% max loss",
+  plat:"MT5, TradeLocker",
+  deal:"<b>TRYFT</b>: 50% off first challenge.",
+  note:"No X link on their site."},
+ {n:"QT Funded (Quant Tekel)", m:["cfd"], w:"https://qtfunded.com", x:X("QT Funded","none"),
+  plans:"QT One · QT Two · QT Instant · QT Power · Buy Now Pay Later",
+  sizes:"5K to 200K",
+  price:"$5 to $350 one-time",
+  split:"70% to 100%",
+  dd:"6% trailing",
+  plat:"MT5, TradeLocker",
+  deal:"<b>TREAT</b>: 60% off plus buy one, get one free on same-size accounts. An old <b>60PLUS</b> banner (Oct 14 end date) is also still up; check checkout.",
+  note:"No X link on their site."},
+ {n:"AquaFunded", m:["cfd","futures"], w:"https://www.aquafunded.com", x:X("AquaFunded","none"),
+  plans:"One-Step · Two-Step · Instant",
+  sizes:"2.5K to 400K",
+  price:"From $14 (5K, on sale)",
+  split:"90%, 100% with add-on",
+  dd:"$2,000 on the featured futures plan",
+  plat:"Listed on site",
+  deal:"<b>HALLOWEEN</b>: 35% off plus 200% refund, all accounts (still up Nov 2, \"limited time\").",
+  note:"aquafutures.io redirects to AquaFunded's futures page. No X link on their site."},
+ {n:"E8 Markets", m:["cfd","futures"], w:"https://e8markets.com", x:X("E8 Markets","none"),
+  plans:"E8 One · E8 Pro",
+  sizes:"5K to 500K",
+  price:"100K Challenge $398 list ($299 with code); other sizes at checkout",
+  split:"80%",
+  dd:"6% max",
+  plat:"MT5, TradeLocker, cTrader, Match-Trader, E8 Terminal",
+  deal:"<b>E8</b>: 30% off (100K Challenge $398 → $299).",
+  note:"Rebranded around \"SimFi\", multi-asset including futures and crypto. No X link on their site."}
+];
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const xLink = x => {
+  if (x.s === "none") {
+    const q = encodeURIComponent(x.h);
+    return {href:`https://x.com/search?q=${q}&f=user`, label:`Search X for “${esc(x.h)}”`, stat:"none", text:"No handle found on their site"};
+  }
+  return {href:`https://x.com/${x.h}`, label:`@${esc(x.h)}`, stat:x.s, text: x.s === "ok" ? "Checked on X, Oct 31" : "Linked from the firm's site"};
+};
+const row = (k, v, cls="") => v ? `<dt>${k}</dt><dd class="${cls}">${v}</dd>` : "";
+function card(f){
+  const x = xLink(f.x);
+  const host = f.w.replace(/^https?:\/\/(www\.)?/,"").replace(/\/$/,"");
+  const tags = f.m.map(m => `<span class="tag">${m === "cfd" ? "CFD/FX" : "Futures"}</span>`).join("");
+  return `<article class="card">
+    <div class="top"><h3 class="name">${esc(f.n)}</h3><div class="tags">${tags}</div></div>
+    <div class="links">
+      <a class="lk" href="${f.w}" target="_blank" rel="noopener">${esc(host)} <span class="arr">↗</span></a>
+      <a class="lk" href="${x.href}" target="_blank" rel="noopener">${x.label} <span class="arr">↗</span></a>
+    </div>
+    <dl>
+      ${row("Plans", esc(f.plans))}
+      ${row("Sizes", esc(f.sizes), "num")}
+      ${row("Price", esc(f.price), "num")}
+      ${row("Split", esc(f.split))}
+      ${row("Drawdown", esc(f.dd))}
+      ${row("Platforms", esc(f.plat))}
+    </dl>
+    ${f.deal ? `<div class="deal">Firm's sale: ${f.deal}</div>` : ""}
+    ${f.note ? `<div class="note">${esc(f.note)}</div>` : ""}
+  </article>`;
+}
+
+const state = {f:"all", q:"", sale:false};
+try { const s = JSON.parse(localStorage.getItem("pd-firms") || "{}"); if (s.f) state.f = s.f; } catch(e){}
+function render(){
+  const q = state.q.trim().toLowerCase();
+  const match = f => {
+    if (state.sale && !f.deal) return false;
+    if (!q) return true;
+    return [f.n, f.plans, f.plat, f.x.h, f.w, f.note].join(" ").toLowerCase().includes(q);
+  };
+  const fut = FIRMS.filter(f => f.m[0] === "futures" && match(f));
+  const cfd = FIRMS.filter(f => f.m[0] === "cfd" && match(f));
+  document.getElementById("g-fut").innerHTML = fut.map(card).join("") || `<p class="empty">No futures firms match.</p>`;
+  document.getElementById("g-cfd").innerHTML = cfd.map(card).join("") || `<p class="empty">No CFD firms match.</p>`;
+  document.getElementById("n-fut").textContent = fut.length + " firms";
+  document.getElementById("n-cfd").textContent = cfd.length + " firms";
+  document.getElementById("sec-fut").hidden = state.f === "cfd";
+  document.getElementById("sec-cfd").hidden = state.f === "futures";
+  const shown = (state.f === "cfd" ? 0 : fut.length) + (state.f === "futures" ? 0 : cfd.length);
+  document.getElementById("count").textContent = `${shown} of ${FIRMS.length} firms`;
+  document.querySelectorAll(".seg button").forEach(b => b.setAttribute("aria-pressed", b.dataset.f === state.f));
+}
+document.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", () => {
+  state.f = b.dataset.f; try { localStorage.setItem("pd-firms", JSON.stringify({f:state.f})); } catch(e){}
+  render();
+}));
+document.getElementById("q").addEventListener("input", e => { state.q = e.target.value; render(); });
+document.getElementById("sale").addEventListener("change", e => { state.sale = e.target.checked; render(); });
+render();
+</script>
