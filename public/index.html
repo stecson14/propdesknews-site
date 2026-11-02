@@ -78,6 +78,21 @@ body{padding-top:0}
 .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,30px);opacity:0;background:var(--cream);color:var(--navy);padding:12px 16px;border-radius:12px;font-weight:600;font-size:14px;box-shadow:0 8px 30px rgba(0,0,0,.35);transition:.25s;z-index:20;max-width:calc(100% - 32px);text-align:center}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 @media (prefers-reduced-motion:reduce){.toast{transition:none}}
+
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 2px}
+.chip{font:500 11.5px "IBM Plex Mono",monospace;letter-spacing:.02em;color:var(--cream);background:rgba(217,164,65,.12);border:1px solid rgba(217,164,65,.45);border-radius:999px;padding:4px 9px}
+details.fp{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}
+details.fp summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font:600 13px "IBM Plex Mono",monospace;color:var(--mustard);letter-spacing:.04em}
+details.fp summary::-webkit-details-marker{display:none}
+details.fp summary::after{content:"+";font-size:18px;line-height:1}
+details.fp[open] summary::after{content:"–"}
+details.fp dl{display:grid;grid-template-columns:92px 1fr;gap:6px 10px;margin:10px 0 0;font-size:13.5px}
+details.fp dt{font:500 11px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+details.fp dd{margin:0;color:var(--cream)}
+details.fp .src{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted);margin-top:10px}
+details.fp .src a{color:var(--muted)}
+.hero details.fp{border-top-color:rgba(217,164,65,.4)}
+.hero .chips{margin:10px 0 2px}
 </style>
 </head>
 <body>
@@ -94,19 +109,30 @@ body{padding-top:0}
 <section id="deals" aria-label="Live deals">
 <div class="hero" id="hero" hidden></div>
 <h2>Live deals</h2>
-<p class="sub">Checked on each firm's own site · Updated <span id="upd">Nov 2, 2026</span> · USD · One tap copies the code and opens the firm</p>
+<p class="sub">Checked on each firm's own site · Updated <span id="upd">Nov 2, 2026</span> · USD · One tap copies the code and opens the firm. Every deal shows its fine print.</p>
 <div id="deal-list"></div>
 <noscript><p class="sub">Turn on JavaScript to see live deals.</p></noscript>
 </section>
-<!-- DEALS: the daily run edits only this array. Fields: firm, url, save (headline), what, code, ends (ISO with ET offset, or ""), aff (true only for Tecson's approved affiliate codes). Deals past "ends" hide themselves. -->
+<!-- DEALS: the daily run edits only this array. Fields: firm, url, save (headline), what, code, ends (ISO with ET offset, or ""), aff (true only for Tecson's approved affiliate codes), chips (2-3 short verified facts), fine ([label, text] rows read from the firm's site; omit anything unverified). Deals past "ends" hide themselves. -->
 <script>
 const UPDATED = "Nov 2, 2026";
+const CHECKED = "Nov 2, 2026";
 const DEALS = [
-  {firm:"Apex", url:"https://apextraderfunding.com", save:"90% off", what:"All evals (Intraday, EOD, Legacy). New signups only, not resets or activation fees.", code:"SAVENOW", ends:"2026-11-04T23:59:00-05:00", aff:false},
-  {firm:"Tradeify", url:"https://tradeify.co", save:"30% off", what:"40% off the Growth account. 50K $165 → $116.", code:"NOV", ends:"2026-11-13T23:59:00-05:00", aff:false},
-  {firm:"Take Profit Trader", url:"https://takeprofittrader.com", save:"50% off for life", what:"Early Black Friday sale, and no activation fee.", code:"NOFEE50", ends:"", aff:false},
-  {firm:"Lucid", url:"https://lucidtrading.com", save:"30% off", what:"LucidDaily 50K $172 → $120.40.", code:"VAULT", ends:"", aff:false},
-  {firm:"FundedNext Futures", url:"https://fundednext.com/futures", save:"Up to 47% off", what:"Flex 50K $141.99 → $74.99.", code:"FNFLEX", ends:"", aff:false}
+  {firm:"Apex", url:"https://apextraderfunding.com", save:"90% off", what:"All evals (Intraday, EOD, Legacy). 25K Intraday $167 → $16.70.", code:"SAVENOW", ends:"2026-11-04T23:59:00-05:00", aff:false,
+   chips:["EOD trailing drawdown","$500 min payout","50% consistency rule"],
+   fine:[["Drawdown","End-of-day trailing. Safety net is the drawdown plus $100."],["Payouts","100% split on EOD Performance Accounts. 5 qualifying days, $500 minimum, 50% consistency rule, max 6 payouts per account."],["What the code skips","New signups only. Not valid on resets or PA activation fees."]]},
+  {firm:"Tradeify", url:"https://tradeify.co", save:"30% off", what:"40% off the Growth account. 50K $165 → $116, one-time payment.", code:"NOV", ends:"2026-11-13T23:59:00-05:00", aff:false,
+   chips:["EOD trailing drawdown","90/10 split","One-time payment"],
+   fine:[["Drawdown","End-of-day trailing. Profit targets $1.5K / $3K / $6K / $9K for 25K to 150K."],["Payouts","90/10 split, Daily or Flex payout path."],["Consistency","Consistency rule applies in the eval only."]]},
+  {firm:"Take Profit Trader", url:"https://takeprofittrader.com", save:"50% off for life", what:"Early Black Friday sale. 50K Test $170 → $85 per month.", code:"NOFEE50", ends:"", aff:false,
+   chips:["Monthly billing","$130 activation fee waived","Resets $79 to $199"],
+   fine:[["Billing","The Test renews monthly ($150 / $170 / $245 / $330 / $360 list for 25K to 150K) until you pass."],["Fees","$130 one-time activation fee, waived for life on accounts opened with this code. Test resets $79 / $99 / $139 / $169 / $199."],["Payouts","PRO 80/20, PRO+ 90/10. Withdrawals from day one on PRO, no maximum."]]},
+  {firm:"Lucid", url:"https://lucidtrading.com", save:"30% off", what:"LucidDaily 50K $172 → $120.40.", code:"VAULT", ends:"", aff:false,
+   chips:["EOD drawdown","Daily loss limit","90/10 split"],
+   fine:[["Drawdown","End-of-day. LucidDaily 25K: $1,000 max loss and a $600 daily loss limit."],["Payouts","90/10 split. LucidFlex: 5 qualifying days, $500 minimum payout, up to 5 payouts, then live."],["Consistency","LucidFlex eval: your largest day must be 40% or less of eval profit (50% with the paid add-on)."]]},
+  {firm:"FundedNext Futures", url:"https://fundednext.com/futures", save:"Up to 47% off", what:"Flex 50K $141.99 → $74.99, one-time payment.", code:"FNFLEX", ends:"", aff:false,
+   chips:["EOD trailing drawdown","One-time payment","Up to 95% split (firm's claim)"],
+   fine:[["Drawdown","End-of-day trailing only, no buffer rule."],["Payouts","Up to 95% split is the firm's own claim."],["Platforms","NinjaTrader, Tradovate, TradingView."]]}
 ];
 </script>
 <!-- /DEALS -->
@@ -133,15 +159,19 @@ const DEALS = [
   var esc=function(t){return String(t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
   var tag=function(d){return d.aff?"Affiliate code: Prop Desk may earn a commission":"Firm's public code, not an affiliate link"};
   var fmtEnd=function(d){if(!d.ends)return "No end date";var ms=new Date(d.ends)-now(),h=ms/36e5;if(h<48)return "Ends in "+Math.max(1,Math.floor(h))+"h";return "Ends "+new Date(d.ends).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",timeZone:"America/New_York"})};
+  var chips=function(d){return d.chips&&d.chips.length?'<div class="chips">'+d.chips.map(function(c){return '<span class="chip">'+esc(c)+'</span>'}).join("")+'</div>':""};
+  var fine=function(d,open){if(!d.fine||!d.fine.length)return "";
+    return '<details class="fp"'+(open?" open":"")+'><summary>Read the fine print</summary><dl>'+d.fine.map(function(r){return '<dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd>'}).join("")+
+      '</dl><p class="src">Read from <a href="'+esc(d.url)+'" target="_blank" rel="noopener">'+esc(d.firm)+"'s site</a>, checked "+esc(CHECKED)+'. Rules change. The firm\'s page is the final word.</p></details>'};
   document.getElementById("upd").textContent=UPDATED;
   var timed=live.filter(function(d){return d.ends}).sort(function(a,b){return new Date(a.ends)-new Date(b.ends)});
   var hero=timed[0], rest=live.filter(function(d){return d!==hero});
   var H=document.getElementById("hero");
   if(hero){
     H.hidden=false;
-    H.innerHTML='<div class="lbl">ENDING SOONEST</div><div class="big">'+esc(hero.save)+'</div><div class="who">at '+esc(hero.firm)+'</div><p class="what">'+esc(hero.what)+'</p>'+
+    H.innerHTML='<div class="lbl">ENDING SOONEST</div><div class="big">'+esc(hero.save)+'</div><div class="who">at '+esc(hero.firm)+'</div><p class="what">'+esc(hero.what)+'</p>'+chips(hero)+
       '<div class="clock" aria-label="Time left"><div><b id="cd-d">0</b><span>DAYS</span></div><div><b id="cd-h">00</b><span>HRS</span></div><div><b id="cd-m">00</b><span>MIN</span></div><div><b id="cd-s">00</b><span>SEC</span></div></div>'+
-      '<button class="go" data-i="'+DEALS.indexOf(hero)+'">Copy code &amp; open '+esc(hero.firm)+' ↗<code>'+esc(hero.code)+'</code></button><p class="tag">'+tag(hero)+'</p>';
+      '<button class="go" data-i="'+DEALS.indexOf(hero)+'">Copy code &amp; open '+esc(hero.firm)+' ↗<code>'+esc(hero.code)+'</code></button><p class="tag">'+tag(hero)+'</p>'+fine(hero,true);
     var p=function(n){return n<10?"0"+n:""+n};
     var tick=function(){var ms=new Date(hero.ends)-now();if(ms<=0){location.reload();return}
       var t=Math.floor(ms/1000);document.getElementById("cd-d").textContent=Math.floor(t/86400);document.getElementById("cd-h").textContent=p(Math.floor(t%86400/3600));document.getElementById("cd-m").textContent=p(Math.floor(t%3600/60));document.getElementById("cd-s").textContent=p(t%60)};
@@ -150,9 +180,9 @@ const DEALS = [
   document.getElementById("deal-list").innerHTML=rest.map(function(d){
     var soon=d.ends&&(new Date(d.ends)-now())<72*36e5;
     return '<div class="deal"><div class="row1"><span class="save">'+esc(d.save)+'</span><span class="ends'+(soon?" soon":"")+'">'+fmtEnd(d)+'</span></div>'+
-      '<div class="firmname">'+esc(d.firm)+'</div><p class="what">'+esc(d.what)+'</p>'+
+      '<div class="firmname">'+esc(d.firm)+'</div><p class="what">'+esc(d.what)+'</p>'+chips(d)+
       '<div class="acts"><button class="go sm" data-i="'+DEALS.indexOf(d)+'">Copy &amp; open ↗<code>'+esc(d.code)+'</code></button><button class="copyonly" data-c="'+esc(d.code)+'" aria-label="Copy '+esc(d.code)+' only">Copy</button></div>'+
-      '<p class="tag">'+tag(d)+'</p></div>'}).join("")||'<p class="sub">No live deals right now. Check back tomorrow morning.</p>';
+      '<p class="tag">'+tag(d)+'</p>'+fine(d,false)+'</div>'}).join("")||'<p class="sub">No live deals right now. Check back tomorrow morning.</p>';
   var T=document.getElementById("toast"),tt;
   var toast=function(m){T.textContent=m;T.classList.add("on");clearTimeout(tt);tt=setTimeout(function(){T.classList.remove("on")},2600)};
   var copy=function(c){return navigator.clipboard&&window.isSecureContext?navigator.clipboard.writeText(c):Promise.reject()};
