@@ -93,10 +93,20 @@ details.fp .src{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(-
 details.fp .src a{color:var(--muted)}
 .hero details.fp{border-top-color:rgba(217,164,65,.4)}
 .hero .chips{margin:10px 0 2px}
+
+.latest{margin-top:28px;border:1px solid var(--line);border-radius:14px;padding:16px 16px 12px;background:var(--navy2)}
+.latest h2{font-size:22px;margin:0 0 2px}
+.latest .sub{margin-bottom:10px}
+.latest ol{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.latest li{display:grid;grid-template-columns:52px 1fr;gap:10px;font-size:14px;border-top:1px dashed var(--line);padding-top:10px}
+.latest li:first-child{border-top:0;padding-top:0}
+.latest time{font:600 12px "IBM Plex Mono",monospace;color:var(--mustard);padding-top:2px}
+.latest b{display:block;color:var(--cream)}
+.latest .all{display:inline-block;margin-top:12px;font:600 13px "IBM Plex Mono",monospace;color:var(--mustard);text-decoration:none}
 </style>
 </head>
 <body>
-<nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/avatar.jpg" alt="" width="26" height="26">Prop Desk</a><a href="/#deals" aria-current="page">Deals</a><a href="/firms/">Firm directory</a><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
+<nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/avatar.jpg" alt="" width="26" height="26">Prop Desk</a><a href="/#deals" aria-current="page">Deals</a><a href="/news/">News</a><a href="/firms/">Firm directory</a><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
 <div class="wrap">
 <header>
   <img class="avatar" src="avatar.jpg" alt="Prop Desk mascot" width="72" height="72">
@@ -113,7 +123,7 @@ details.fp .src a{color:var(--muted)}
 <div id="deal-list"></div>
 <noscript><p class="sub">Turn on JavaScript to see live deals.</p></noscript>
 </section>
-<!-- DEALS: the daily run edits only this array. Fields: firm, url, save (headline), what, code, ends (ISO with ET offset, or ""), aff (true only for Tecson's approved affiliate codes), chips (2-3 short verified facts), fine ([label, text] rows read from the firm's site; omit anything unverified). Deals past "ends" hide themselves. -->
+<!-- DEALS: the daily run edits only this array. Fields: firm, url, save (headline), what, code, ends (ISO with ET offset, or ""), aff (true only for Prop Desk's approved affiliate codes), chips (2-3 short verified facts), fine ([label, text] rows read from the firm's site; omit anything unverified). Deals past "ends" hide themselves. -->
 <script>
 const UPDATED = "Nov 2, 2026";
 const CHECKED = "Nov 2, 2026";
@@ -136,6 +146,10 @@ const DEALS = [
 ];
 </script>
 <!-- /DEALS -->
+
+<!-- NEWS -->
+<section class="latest" aria-label="Latest news"><h2>Latest from the desk</h2><p class="sub">Rule changes and news, confirmed on each firm's own site</p><ol><li><time>Nov 2</time><div><b>Tradeify</b>Funded Reset live (beta): breached Select 50K/100K/150K Daily &amp; Flex funded accounts can buy a fresh funded account of the same size, skipping the…</div></li><li><time>Nov 2</time><div><b>Take Profit Trader</b>Test reset prices are risk-adjusted since May 16: 25K $79, 50K $99, 75K $139, 100K $169, 150K $199 (were $100 flat). Activation fee $130 one-time,…</div></li><li><time>Nov 2</time><div><b>Lucid</b>LucidFlex evals need a Consistency Percentage of 40% or less to move to funded (50% with a paid add-on); pass in 3 days min (2 with add-on); eval…</div></li></ol><a class="all" href="/news/">All rule changes &amp; news →</a></section>
+<!-- /NEWS -->
 
 <div class="more">
 <a class="btn" href="https://x.com/PropDeskNews">Follow @PropDeskNews on X</a>
