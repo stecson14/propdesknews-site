@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Prop Trader Tools: Calculators, Platforms, Journals, Calendars | Prop Desk</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Free calculators for prop traders (true cost of an eval, contracts per trade, drawdown runway, days to first payout), plus the platforms, charting, journals and calendars funded traders use, with how many prop firms support each one.">
+<meta property="og:site_name" content="Prop Desk"><meta property="og:url" content="https://propdesknews.com/tools/"><meta property="og:title" content="Prop Trader Tools | Prop Desk">
+<meta property="og:description" content="Four free calculators (true cost, contracts per trade, drawdown runway, days to first payout) and the toolbox: 25 platforms, charting, journal and calendar tools, with how many of 61 prop firms support each.">
+<meta property="og:image" content="https://propdesknews.com/og/tools.png?v=b726d34c"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@PropDeskNews">
+<link rel="canonical" href="https://propdesknews.com/tools/">
+<link rel="icon" href="/avatar.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F3F0E6;--surface:#FFFDF7;--ink:#1A2233;--muted:#5A6275;--line:#D9D3C2;--navy:#1A2233;--cream:#E9E4D4;--mustard:#B7832A;--mustard-soft:#F3E3BF;--ok:#2F7A4F;--ok-soft:#DCEFE2;--display:"Fraunces",Georgia,serif;--body:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121825;--surface:#1A2233;--ink:#E9E4D4;--muted:#A3A8B5;--line:#2E3850;--navy:#0D121C;--mustard:#D9A441;--mustard-soft:#3A3220;--ok:#7CC79A;--ok-soft:#1F3A2B;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121825;--surface:#1A2233;--ink:#E9E4D4;--muted:#A3A8B5;--line:#2E3850;--navy:#0D121C;--mustard:#D9A441;--mustard-soft:#3A3220;--ok:#7CC79A;--ok-soft:#1F3A2B;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+.wrap{max-width:1060px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.sitenav{background:#1A2233;border-bottom:1px solid #33405A;font-family:"IBM Plex Mono",monospace;font-size:13px}
+.sitenav .in{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:6px 18px;flex-wrap:wrap}
+.sitenav a{color:#C9C4B5;text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
+.sitenav a:hover{color:#E9E4D4}
+.sitenav a[aria-current="page"]{color:#E9E4D4;border-bottom-color:#D9A441}
+.sitenav .brand{font-family:Fraunces,serif;font-weight:600;font-size:17px;color:#E9E4D4;margin-right:auto;display:inline-flex;align-items:center;gap:8px;border:0}
+@media (max-width:640px){.sitenav .xl{display:none}}
+@media (max-width:480px){.sitenav .in{gap:6px 12px;padding:10px 12px}.sitenav a{font-size:12.5px}.sitenav .brand{font-size:16px}}
+.sitenav .brand img{width:26px;height:26px;border-radius:50%;border:1px solid #D9A441}
+@media (max-width:400px){.sitenav .in{gap:6px 8px;padding:9px 10px}.sitenav a{font-size:12px}.sitenav .brand{font-size:15px;gap:6px}}
+@media (max-width:480px){.sitenav .brand span{display:none}.sitenav .brand{gap:0}}
+
+header.mast{background:var(--navy);color:#E9E4D4}
+header.mast .wrap{padding-block:30px 24px;display:grid;gap:10px}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#D9A441}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,5vw,52px);line-height:1.05;margin:0;text-wrap:balance}
+.lede{max-width:66ch;color:#C9C4B5;margin:0}
+.jump{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.jump .wrap{padding-block:10px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.jump .wrap::-webkit-scrollbar{display:none}
+.jump a{flex:none;font:500 12px var(--mono);color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 11px;background:var(--surface);white-space:nowrap}
+.jump a:hover{border-color:var(--mustard);color:var(--mustard)}
+main .wrap{padding-block:22px 60px;display:grid;gap:40px}
+section h2{font-family:var(--display);font-weight:500;font-size:28px;margin:0 0 4px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+section h2 small{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.secnote{color:var(--muted);margin:0 0 16px;max-width:72ch;font-size:14px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(100%,440px),1fr))}
+.grid>*,.tools>*{min-width:0}
+main .wrap>section{min-width:0;max-width:100%}
+.calc,.tool{contain:inline-size}
+.calc{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:grid;gap:12px;align-content:start}
+.calc h3{font-family:var(--display);font-weight:700;font-size:21px;margin:0;line-height:1.2}
+.calc .q{margin:0;color:var(--muted);font-size:13.5px}
+.f{display:grid;gap:10px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.f label{display:grid;gap:4px;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);min-width:0}
+.f label.w{grid-column:1/-1}
+.f input,.f select{font:500 15px var(--body);padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:100%;max-width:100%;min-width:0;text-overflow:ellipsis}
+.f input:focus-visible,.f select:focus-visible,.seg button:focus-visible,a:focus-visible{outline:2px solid var(--mustard);outline-offset:2px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--bg);width:max-content}
+.seg button{font:500 12px var(--mono);padding:7px 12px;border:0;background:transparent;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.out{background:var(--mustard-soft);border:1px solid var(--mustard);border-radius:10px;padding:12px 14px;display:grid;gap:4px}
+.out .big{font-family:var(--display);font-weight:700;font-size:30px;line-height:1.05}
+.out .big small{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
+.out ul{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:3px;font-size:13.5px}
+.out li{display:flex;justify-content:space-between;gap:10px}
+.out li span:last-child{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.out .warn{font-size:13px;color:var(--muted);margin:4px 0 0}
+.hint{font-size:12.5px;color:var(--muted);margin:0}
+.hint a{color:var(--mustard);text-decoration:none}
+.tools{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+.tool{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:6px;align-content:start}
+.tool h3{font-family:var(--display);font-weight:700;font-size:19px;margin:0;line-height:1.2}
+.tool h3 a{color:inherit;text-decoration:none;border-bottom:2px solid var(--mustard)}
+.tool p{margin:0;font-size:14px}
+.tool .free{font:500 12px var(--mono);color:var(--ok)}
+.tool .sup{font:500 12px var(--mono);color:var(--mustard);text-decoration:none}
+.tool .aff{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 6px;justify-self:start}
+.tool .code{font:600 13px var(--mono);background:var(--mustard-soft);border-radius:6px;padding:4px 8px;justify-self:start}
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line)}
+th{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.tscroll{overflow-x:auto}
+footer .wrap{padding-block:0 40px;color:var(--muted);font-size:13px;display:grid;gap:6px}
+footer p{max-width:80ch;margin:0}
+footer a{color:inherit}
+@media (max-width:420px){.f{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/avatar.jpg" alt="" width="26" height="26"><span>Prop Desk</span></a><a href="/#deals">Deals</a><a href="/news/">News</a><a href="/firms/">Directory</a><a href="/compare/">Compare</a><a href="/tools/" aria-current="page">Tools</a><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="kicker">Tools · checked Mon Nov 2, 2026</div>
+    <h1>The trader's toolbox</h1>
+    <p class="lede">Four calculators that answer the questions the sales page doesn't, then the platforms, charting, journal and calendar tools funded traders actually use, with how many of the 61 firms in the directory support each one.</p>
+  </div>
+</header>
+
+<nav class="jump" aria-label="Jump to"><div class="wrap"><a href="#calculators">Calculators</a><a href="#platforms">Trading platforms</a><a href="#charting">Charting and order flow</a><a href="#journals">Journals and review</a><a href="#calendar">Calendars and hours</a><a href="#copiers">Trade copiers</a><a href="#specs">Contract specs</a></div></nav>
+
+<main>
+  <div class="wrap">
+    <section id="calculators">
+      <h2>Calculators <small>free, nothing stored</small></h2>
+      <p class="secnote">Type your own numbers. Nothing here is advice; it is arithmetic you should do before you buy.</p>
+      <div class="grid">
+
+        <div class="calc" id="truecost">
+          <h3>True cost of an eval</h3>
+          <p class="q">What you actually pay to reach a first payout attempt: eval, renewals, resets and activation.</p>
+          <div class="f">
+            <label class="w">Start from a live deal<select id="tc-deal"><option value="">Type my own numbers</option><option value="0|25K">Apex 25K: $17.70 with SAVENOW, monthly</option><option value="0|50K">Apex 50K: $19.70 with SAVENOW, monthly</option><option value="0|100K">Apex 100K: $39.70 with SAVENOW, monthly</option><option value="0|150K">Apex 150K: $59.70 with SAVENOW, monthly</option><option value="1|25K">Tradeify 25K: $76 with NOV</option><option value="1|50K">Tradeify 50K: $116 with NOV</option><option value="1|100K">Tradeify 100K: $186 with NOV</option><option value="1|150K">Tradeify 150K: $258 with NOV</option><option value="2|25K">Take Profit Trader 25K: $75 with NOFEE50, monthly</option><option value="2|50K">Take Profit Trader 50K: $85 with NOFEE50, monthly</option><option value="2|100K">Take Profit Trader 100K: $165 with NOFEE50, monthly</option><option value="2|150K">Take Profit Trader 150K: $180 with NOFEE50, monthly</option><option value="3|25K">Lucid 25K: $75.60 with VAULT</option><option value="3|50K">Lucid 50K: $120.40 with VAULT</option><option value="3|100K">Lucid 100K: $190.40 with VAULT</option><option value="3|150K">Lucid 150K: $255.50 with VAULT</option><option value="4|50K">FundedNext Futures 50K: $74.99 with FNFLEX</option><option value="4|100K">FundedNext Futures 100K: $144.99 with FNFLEX</option><option value="4|150K">FundedNext Futures 150K: $259.99 with FNFLEX</option></select></label>
+            <label>Eval price (with code)<input id="tc-price" type="number" min="0" step="0.01" inputmode="decimal" placeholder="e.g. 116"></label>
+            <label>Billing<select id="tc-bill"><option value="one">One-time</option><option value="monthly">Monthly</option></select></label>
+            <label>Months until you pass<input id="tc-months" type="number" min="1" step="1" inputmode="numeric" value="1"></label>
+            <label>Resets you expect<input id="tc-resets" type="number" min="0" step="1" inputmode="numeric" value="1"></label>
+            <label>Reset fee<input id="tc-reset" type="number" min="0" step="0.01" inputmode="decimal" placeholder="from the firm's page"></label>
+            <label>Activation fee<input id="tc-act" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0 if none"></label>
+          </div>
+          <div class="out" id="tc-out"></div>
+          <p class="hint">Reset and activation fees are on each firm's own page; our <a href="/firms/">profiles</a> list them where the firm states them. Codes often don't apply to resets.</p>
+        </div>
+
+        <div class="calc" id="size">
+          <h3>Contracts per trade</h3>
+          <p class="q">How many contracts you can hold for a given stop without betting more than you planned.</p>
+          <div class="f">
+            <label class="w">Contract<select id="sz-c"></select></label>
+            <label>Risk on this trade<input id="sz-risk" type="number" min="0" step="1" inputmode="decimal" value="500"></label>
+            <label>Stop size<input id="sz-stop" type="number" min="0" step="0.01" inputmode="decimal" value="8"></label>
+            <label class="w">Stop unit<span class="seg" role="group" aria-label="Stop unit"><button type="button" data-u="points" aria-pressed="true">Points</button><button type="button" data-u="ticks" aria-pressed="false">Ticks</button></span></label>
+          </div>
+          <div class="out" id="sz-out"></div>
+          <p class="hint">Check the firm's contract limit for your account size; micros usually count as a fraction of a mini.</p>
+        </div>
+
+        <div class="calc" id="runway">
+          <h3>Drawdown runway</h3>
+          <p class="q">How many bad days the account can take, and how much you must make to pass.</p>
+          <div class="f">
+            <label>Max drawdown<input id="rw-dd" type="number" min="0" step="1" inputmode="decimal" value="2000"></label>
+            <label>Profit target<input id="rw-target" type="number" min="0" step="1" inputmode="decimal" value="3000"></label>
+            <label>Average losing day<input id="rw-loss" type="number" min="0" step="1" inputmode="decimal" value="400"></label>
+            <label>Daily loss limit (if any)<input id="rw-daily" type="number" min="0" step="1" inputmode="decimal" placeholder="none"></label>
+          </div>
+          <div class="out" id="rw-out"></div>
+          <p class="hint">Trailing drawdowns move the line up as you profit, so the runway shrinks after a good day. See <a href="/glossary/#drawdown">drawdown types</a>.</p>
+        </div>
+
+        <div class="calc" id="payout">
+          <h3>Days to first payout</h3>
+          <p class="q">At your pace, how long until you can ask for money.</p>
+          <div class="f">
+            <label>Profit per trading day<input id="po-day" type="number" min="0" step="1" inputmode="decimal" value="200"></label>
+            <label>Qualifying day minimum<input id="po-qmin" type="number" min="0" step="1" inputmode="decimal" value="150"></label>
+            <label>Qualifying days required<input id="po-qdays" type="number" min="0" step="1" inputmode="numeric" value="5"></label>
+            <label>Minimum payout<input id="po-min" type="number" min="0" step="1" inputmode="decimal" value="500"></label>
+            <label class="w">Buffer or safety net to clear first<input id="po-buf" type="number" min="0" step="1" inputmode="decimal" placeholder="0 if none"></label>
+          </div>
+          <div class="out" id="po-out"></div>
+          <p class="hint">Add the firm's payout cycle (weekly, every 14 days) on top. A <a href="/glossary/#consistency-rule">consistency rule</a> can hold a payout even when the numbers work.</p>
+        </div>
+
+      </div>
+    </section>
+
+<section id="platforms"><h2>Trading platforms <small>10 tools</small></h2><p class="secnote">Where you place the trades. Most futures firms hand you a login for one or more of these; CFD firms usually give you MT5, cTrader, Match-Trader or TradeLocker.</p><div class="tools"><article class="tool"><h3><a href="https://ninjatrader.com" target="_blank" rel="noopener">NinjaTrader ↗</a></h3><p>The desktop platform most futures firms support. Charting, DOM, strategy playback for replaying past sessions.</p><span class="free">Free to download and use for charting and sim trading.</span><a class="sup" href="/firms/?q=NinjaTrader">Listed as a platform by 12 of 61 firms →</a></article><article class="tool"><h3><a href="https://tradovate.com" target="_blank" rel="noopener">Tradovate ↗</a></h3><p>Browser and mobile futures platform from the same company as NinjaTrader. No install, works on a phone.</p><a class="sup" href="/firms/?q=Tradovate">Listed as a platform by 9 of 61 firms →</a></article><article class="tool"><h3><a href="https://rithmic.com" target="_blank" rel="noopener">Rithmic R | Trader Pro ↗</a></h3><p>The data and execution backbone behind many firm accounts. Bare-bones DOM and charts, fast fills.</p><a class="sup" href="/firms/?q=Rithmic">Listed as a platform by 7 of 61 firms →</a></article><article class="tool"><h3><a href="https://www.quantower.com" target="_blank" rel="noopener">Quantower ↗</a></h3><p>Connects to Rithmic, Tradovate, CQG and more from one platform. Strong DOM, volume and order-flow panels.</p><span class="free">Free plan available.</span><a class="sup" href="/firms/?q=Quantower">Listed as a platform by 2 of 61 firms →</a></article><article class="tool"><h3><a href="https://www.sierrachart.com" target="_blank" rel="noopener">Sierra Chart ↗</a></h3><p>Dense, fast, old-school. Favored for footprint charts and custom studies once you get past the learning curve.</p><a class="sup" href="/firms/?q=Sierra">Listed as a platform by 4 of 61 firms →</a></article><article class="tool"><h3><a href="https://www.metatrader5.com" target="_blank" rel="noopener">MetaTrader 5 ↗</a></h3><p>The default platform at most CFD and forex prop firms. Expert Advisors for automation.</p><a class="sup" href="/firms/?q=MT5">Listed as a platform by 18 of 61 firms →</a></article><article class="tool"><h3><a href="https://ctrader.com" target="_blank" rel="noopener">cTrader ↗</a></h3><p>CFD platform with a cleaner interface than MT5 and built-in depth of market.</p><a class="sup" href="/firms/?q=cTrader">Listed as a platform by 11 of 61 firms →</a></article><article class="tool"><h3><a href="https://match-trade.com/match-trader" target="_blank" rel="noopener">Match-Trader ↗</a></h3><p>Browser platform many newer CFD firms use instead of MT5; TradingView-style charts.</p><a class="sup" href="/firms/?q=Match-Trader">Listed as a platform by 12 of 61 firms →</a></article><article class="tool"><h3><a href="https://tradelocker.com" target="_blank" rel="noopener">TradeLocker ↗</a></h3><p>Browser and mobile CFD platform with TradingView charts built in.</p><a class="sup" href="/firms/?q=TradeLocker">Listed as a platform by 11 of 61 firms →</a></article><article class="tool"><h3><a href="https://www.dxtrade.com" target="_blank" rel="noopener">DXtrade ↗</a></h3><p>Web platform used by a handful of CFD firms.</p><a class="sup" href="/firms/?q=DXtrade">Listed as a platform by 3 of 61 firms →</a></article></div></section>
+<section id="charting"><h2>Charting and order flow <small>6 tools</small></h2><p class="secnote">Reading the market. A charting tool is where you plan; an order-flow tool shows you what is actually trading at each price.</p><div class="tools"><article class="tool"><h3><a href="https://www.tradingview.com" target="_blank" rel="noopener">TradingView ↗</a></h3><p>Charts, alerts, bar replay and a huge library of community indicators. Many firms let you trade straight from it.</p><span class="free">Free plan available; paid plans add more charts and alerts.</span><a class="sup" href="/firms/?q=TradingView">Listed as a platform by 16 of 61 firms →</a></article><article class="tool"><h3><a href="https://bookmap.com" target="_blank" rel="noopener">Bookmap ↗</a></h3><p>Heatmap of the order book over time. Shows where resting orders sit and where they pull.</p><span class="free">Free plan available.</span><a class="sup" href="/firms/?q=Bookmap">Listed as a platform by 1 of 61 firms →</a></article><article class="tool"><h3><a href="https://atas.net" target="_blank" rel="noopener">ATAS ↗</a></h3><p>Footprint and cluster charts, volume profiles, order-flow indicators.</p><a class="sup" href="/firms/?q=ATAS">Listed as a platform by 2 of 61 firms →</a></article><article class="tool"><h3><a href="https://www.jigsawtrading.com" target="_blank" rel="noopener">Jigsaw Daytradr ↗</a></h3><p>DOM-first tool built around reading the order book, with training material to go with it.</p></article><article class="tool"><h3><a href="https://www.motivewave.com" target="_blank" rel="noopener">MotiveWave ↗</a></h3><p>Charting with deep Elliott Wave, Gann and harmonic tooling, plus order flow in the higher tiers.</p></article><article class="tool"><h3><a href="https://www.volumetricatrading.com" target="_blank" rel="noopener">Volumetrica ↗</a></h3><p>Order-flow and footprint platform popular with scalpers.</p></article></div></section>
+<section id="journals"><h2>Journals and review <small>4 tools</small></h2><p class="secnote">The eval you fail teaches you nothing unless you write it down. A journal imports your fills and shows you which setups, hours and sizes actually make money.</p><div class="tools"><article class="tool"><h3><a href="https://www.tradezella.com" target="_blank" rel="noopener">TradeZella ↗</a></h3><p>Journal, analytics, backtesting and replay in one place. Imports from Tradovate, Rithmic, NinjaTrader and MT5 among others.</p></article><article class="tool"><h3><a href="https://www.tradervue.com" target="_blank" rel="noopener">Tradervue ↗</a></h3><p>One of the oldest journals. Simple, fast, good reports.</p><span class="free">Free tier available.</span></article><article class="tool"><h3><a href="https://tradersync.com" target="_blank" rel="noopener">TraderSync ↗</a></h3><p>Cloud journal with broker imports and AI-style trade reviews.</p></article><article class="tool"><h3><a href="https://edgewonk.com" target="_blank" rel="noopener">Edgewonk ↗</a></h3><p>Journal built around process metrics: tilt, discipline, missed trades.</p></article></div></section>
+<section id="calendar"><h2>Calendars and hours <small>3 tools</small></h2><p class="secnote">Most blown evals happen on a news candle. Know what is scheduled before the session, and when the exchange is closed or closing early.</p><div class="tools"><article class="tool"><h3><a href="https://www.forexfactory.com/calendar" target="_blank" rel="noopener">ForexFactory calendar ↗</a></h3><p>The calendar most futures traders keep open: red-folder events, consensus and previous numbers. Set it to your time zone.</p><span class="free">Free.</span></article><article class="tool"><h3><a href="https://www.cmegroup.com/trading-hours.html" target="_blank" rel="noopener">CME Group trading hours and holidays ↗</a></h3><p>The official word on when ES, NQ, CL and GC trade, daily maintenance breaks and holiday early closes.</p><span class="free">Free.</span></article><article class="tool"><h3><a href="https://www.investing.com/economic-calendar/" target="_blank" rel="noopener">Investing.com economic calendar ↗</a></h3><p>Alternative calendar with filters by country and importance.</p><span class="free">Free.</span></article></div></section>
+<section id="copiers"><h2>Trade copiers <small>2 tools</small></h2><p class="secnote">Mirror one account&#x27;s trades onto others. Read the firm&#x27;s rules first: many allow copying between your own accounts at the same firm, some limit it, and copying another trader&#x27;s account can break the rules outright.</p><div class="tools"><article class="tool"><h3><a href="https://tradesyncer.com" target="_blank" rel="noopener">Tradesyncer ↗</a></h3><p>Cloud copier for futures and prop accounts across platforms.</p></article><article class="tool"><h3><a href="https://www.duplikium.com" target="_blank" rel="noopener">Duplikium ↗</a></h3><p>Cloud copier across MT4, MT5, cTrader and more.</p></article></div></section>
+
+    <section id="specs">
+      <h2>Contract specs <small>CME, for the calculator above</small></h2>
+      <p class="secnote">Tick size and value per contract. A point is the whole number move; a tick is the smallest move. Confirm margins and limits with your firm; these are exchange specs, not firm rules.</p>
+      <div class="tscroll"><table id="specs-table"><thead><tr><th>Contract</th><th>Market</th><th>Tick size</th><th>Tick value</th><th>Point value</th></tr></thead><tbody></tbody></table></div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Prop Desk has no affiliate deal with any tool listed here yet. If one is added later, set aff:true and a code on that entry and the page labels it as an affiliate link. Calculators run in your browser and store nothing. Contract specs are exchange figures and can change; margins and contract limits are set by each firm. Prop firm evaluations are simulated trading products. Education, not financial advice.</p>
+    <p><a href="/">propdesknews.com</a> · <a href="/firms/">Directory</a> · <a href="/compare/">Compare</a> · <a href="/glossary/">Glossary</a> · <a href="/news/">Rule changes &amp; news</a> · <a href="https://x.com/PropDeskNews">@PropDeskNews</a></p>
+  </div>
+</footer>
+
+<script>
+const CALC_DEALS = [{"firm": "Apex", "code": "SAVENOW", "billing": "monthly", "prices": {"25K": [177, 17.7], "50K": [197, 19.7], "100K": [397, 39.7], "150K": [597, 59.7]}}, {"firm": "Tradeify", "code": "NOV", "billing": "one-time", "prices": {"25K": [109, 76], "50K": [165, 116], "100K": [265, 186], "150K": [369, 258]}}, {"firm": "Take Profit Trader", "code": "NOFEE50", "billing": "monthly", "prices": {"25K": [150, 75], "50K": [170, 85], "100K": [330, 165], "150K": [360, 180]}}, {"firm": "Lucid", "code": "VAULT", "billing": "", "prices": {"25K": [108, 75.6], "50K": [172, 120.4], "100K": [272, 190.4], "150K": [365, 255.5]}}, {"firm": "FundedNext Futures", "code": "FNFLEX", "billing": "one-time", "prices": {"50K": [141.99, 74.99], "100K": [273.99, 144.99], "150K": [490.99, 259.99]}}];
+const SPECS = [
+  ["ES","E-mini S&P 500",0.25,12.5],["MES","Micro E-mini S&P 500",0.25,1.25],
+  ["NQ","E-mini Nasdaq-100",0.25,5],["MNQ","Micro E-mini Nasdaq-100",0.25,0.5],
+  ["YM","E-mini Dow",1,5],["MYM","Micro E-mini Dow",1,0.5],
+  ["RTY","E-mini Russell 2000",0.1,5],["M2K","Micro E-mini Russell 2000",0.1,0.5],
+  ["CL","Crude oil",0.01,10],["MCL","Micro crude oil",0.01,1],
+  ["GC","Gold",0.1,10],["MGC","Micro gold",0.1,1],
+  ["SI","Silver",0.005,25],["NG","Natural gas",0.001,10],
+  ["6E","Euro FX",0.00005,6.25],["ZB","30-year T-bond",0.03125,31.25],["ZN","10-year T-note",0.015625,15.625]
+];
+const $ = id => document.getElementById(id);
+const money = n => (n < 0 ? "-" : "") + "$" + Math.abs(n).toLocaleString("en-US", {minimumFractionDigits: Math.abs(n) % 1 ? 2 : 0, maximumFractionDigits: 2});
+const num = id => { const v = parseFloat($(id).value); return isNaN(v) ? null : v; };
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+// True cost
+function trueCost(){
+  const price = num("tc-price"), bill = $("tc-bill").value, months = Math.max(1, num("tc-months") || 1), resets = Math.max(0, num("tc-resets") || 0), rfee = num("tc-reset"), act = num("tc-act") || 0;
+  const o = $("tc-out");
+  if (price == null) { o.innerHTML = '<div class="big"><small>True cost</small>Enter an eval price</div>'; return; }
+  const renew = bill === "monthly" ? price * (months - 1) : 0;
+  const resetCost = rfee == null ? null : resets * rfee;
+  const total = price + renew + (resetCost || 0) + act;
+  o.innerHTML = `<div class="big"><small>True cost to a first payout attempt</small>${money(total)}${resetCost == null && resets > 0 ? " + resets" : ""}</div><ul>` +
+    `<li><span>Eval price</span><span>${money(price)}</span></li>` +
+    (bill === "monthly" ? `<li><span>Renewals (${months - 1} more month${months - 1 === 1 ? "" : "s"})</span><span>${money(renew)}</span></li>` : "") +
+    (resets > 0 ? `<li><span>${resets} reset${resets === 1 ? "" : "s"}${rfee == null ? " (fee not entered)" : " × " + money(rfee)}</span><span>${resetCost == null ? "?" : money(resetCost)}</span></li>` : "") +
+    (act > 0 ? `<li><span>Activation fee</span><span>${money(act)}</span></li>` : "") +
+    `<li><span><b>Hidden cost above the sticker price</b></span><span><b>${money(total - price)}</b></span></li></ul>` +
+    (bill === "monthly" && months === 1 ? '<p class="warn">Monthly billing: if it takes you more than a month, add a renewal per extra month above.</p>' : "");
+}
+(function(){
+  const sel = $("tc-deal");
+  sel.addEventListener("change", () => {
+    const [i, size] = sel.value.split("|"); const d = CALC_DEALS[+i]; if (!d) { trueCost(); return; }
+    $("tc-price").value = d.prices[size][1]; $("tc-bill").value = d.billing === "monthly" ? "monthly" : "one"; trueCost();
+  });
+  ["tc-price","tc-bill","tc-months","tc-resets","tc-reset","tc-act"].forEach(id => $(id).addEventListener("input", trueCost));
+  trueCost();
+})();
+
+// Contracts per trade
+let unit = "points";
+(function(){
+  const c = $("sz-c"); c.innerHTML = SPECS.map((s, i) => `<option value="${i}">${s[0]} · ${esc(s[1])}</option>`).join("");
+  document.querySelectorAll('#size .seg button').forEach(b => b.addEventListener("click", () => { unit = b.dataset.u; document.querySelectorAll('#size .seg button').forEach(x => x.setAttribute("aria-pressed", x === b)); sizeCalc(); }));
+  ["sz-c","sz-risk","sz-stop"].forEach(id => $(id).addEventListener("input", sizeCalc));
+})();
+function sizeCalc(){
+  const s = SPECS[+$("sz-c").value], risk = num("sz-risk"), stop = num("sz-stop"), o = $("sz-out");
+  const tickVal = s[3], pointVal = s[3] / s[2];
+  if (!risk || !stop) { o.innerHTML = `<div class="big"><small>${s[0]}</small>${money(tickVal)} per tick · ${money(pointVal)} per point</div>`; return; }
+  const ticks = unit === "ticks" ? stop : stop / s[2];
+  const perContract = ticks * tickVal;
+  const n = Math.floor(risk / perContract);
+  o.innerHTML = `<div class="big"><small>${s[0]} · stop of ${stop} ${unit} (${Math.round(ticks)} ticks)</small>${n} contract${n === 1 ? "" : "s"}</div><ul>` +
+    `<li><span>Risk per contract at that stop</span><span>${money(perContract)}</span></li>` +
+    `<li><span>Actual risk with ${n} contract${n === 1 ? "" : "s"}</span><span>${money(n * perContract)}</span></li>` +
+    `<li><span>1 tick / 1 point</span><span>${money(tickVal)} / ${money(pointVal)}</span></li></ul>` +
+    (n === 0 ? '<p class="warn">One contract already risks more than you planned. Tighten the stop, trade the micro, or raise the risk.</p>' : "");
+}
+sizeCalc();
+
+// Drawdown runway
+function runway(){
+  const dd = num("rw-dd"), target = num("rw-target"), loss = num("rw-loss"), daily = num("rw-daily"), o = $("rw-out");
+  if (!dd) { o.innerHTML = '<div class="big"><small>Runway</small>Enter the drawdown</div>'; return; }
+  const worst = daily && daily < dd ? daily : null;
+  const days = loss ? Math.floor(dd / loss) : null;
+  const worstDays = worst ? Math.ceil(dd / worst) : null;
+  const ratio = target ? (target / dd) : null;
+  o.innerHTML = `<div class="big"><small>Average losing days before breach</small>${days == null ? "–" : days}</div><ul>` +
+    (worstDays ? `<li><span>Max-loss days at the ${money(worst)} daily limit</span><span>${worstDays}</span></li>` : "") +
+    (ratio ? `<li><span>Target ÷ drawdown</span><span>${ratio.toFixed(2)}×</span></li>` : "") +
+    (ratio ? `<li><span>Profit needed per $1 of risk allowed</span><span>${money(ratio)}</span></li>` : "") + `</ul>` +
+    (ratio && ratio >= 1.5 ? '<p class="warn">A target above 1.5× the drawdown means one full drawdown of losses needs more than one and a half drawdowns of wins to recover and pass.</p>' : "");
+}
+["rw-dd","rw-target","rw-loss","rw-daily"].forEach(id => $(id).addEventListener("input", runway)); runway();
+
+// Days to first payout
+function payout(){
+  const day = num("po-day"), qmin = num("po-qmin") || 0, qdays = num("po-qdays") || 0, min = num("po-min") || 0, buf = num("po-buf") || 0, o = $("po-out");
+  if (!day) { o.innerHTML = '<div class="big"><small>Days to first payout</small>Enter a daily profit</div>'; return; }
+  const counts = day >= qmin;
+  const needed = min + buf;
+  const byMoney = Math.ceil(needed / day);
+  const byDays = counts ? qdays : Infinity;
+  const days = Math.max(byMoney, byDays);
+  o.innerHTML = `<div class="big"><small>Trading days to a first payout request</small>${isFinite(days) ? days : "–"}</div><ul>` +
+    `<li><span>Days to reach ${money(needed)}${buf ? " (minimum + buffer)" : " minimum"}</span><span>${byMoney}</span></li>` +
+    `<li><span>Qualifying days required</span><span>${qdays}${counts ? "" : " (your days don't qualify)"}</span></li>` +
+    `<li><span>Profit at request</span><span>${isFinite(days) ? money(days * day) : "–"}</span></li></ul>` +
+    (!counts ? `<p class="warn">Your daily goal is under the ${money(qmin)} qualifying minimum, so none of those days count. Raise the goal or plan more days.</p>` : "");
+}
+["po-day","po-qmin","po-qdays","po-min","po-buf"].forEach(id => $(id).addEventListener("input", payout)); payout();
+
+// Specs table
+$("specs-table").querySelector("tbody").innerHTML = SPECS.map(s => `<tr><td><b>${s[0]}</b></td><td>${esc(s[1])}</td><td class="n">${s[2]}</td><td class="n">${money(s[3])}</td><td class="n">${money(s[3] / s[2])}</td></tr>`).join("");
+</script>
+</body>
+</html>
