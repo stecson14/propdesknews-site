@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Prop Firm Directory: 50 Futures &amp; Forex Prop Firms | Prop Desk</title>
+<title>Prop Firm Directory: 61 Futures, Forex &amp; Perps Prop Firms | Prop Desk</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Every major futures and forex prop firm in one place: prices, account sizes, drawdown, payout split and current sales, read from each firm's own site.">
+<meta name="description" content="Every major futures, forex and perps prop firm in one place: prices, account sizes, drawdown, payout split and current sales, read from each firm's own site.">
 <meta property="og:title" content="Prop Firm Directory | Prop Desk">
-<meta property="og:description" content="Prices, drawdown rules and live sales for 50 prop firms. Trade the market, not the fine print.">
+<meta property="og:description" content="Prices, drawdown rules and live sales for 61 prop firms. Trade the market, not the fine print.">
 <meta property="og:image" content="https://propdesknews.com/avatar.jpg">
 <meta name="twitter:card" content="summary"><meta name="twitter:site" content="@PropDeskNews">
 <link rel="canonical" href="https://propdesknews.com/firms/">
@@ -117,7 +117,7 @@ footer .wrap{padding-block:0 40px;color:var(--muted);font-size:13px;display:grid
     <div class="kicker">checked Mon Nov 2, 2026</div>
     <h1>Prop Firm Directory</h1>
     <svg class="flatline" viewBox="0 0 420 22" aria-hidden="true"><polyline points="0,4 90,4 120,6 150,18 175,12 200,16 420,16" fill="none" stroke="#D9A441" stroke-width="2.5"/></svg>
-    <p class="lede">Futures and forex prop firms in one place: account sizes, list prices, payout split, drawdown and current sales. Every fact is read from the firm's own website and re-checked daily. Prices change often, so the firm's checkout is the final word.</p>
+    <p class="lede">Futures, forex and perps prop firms in one place: account sizes, list prices, payout split, drawdown and current sales. Every fact is read from the firm's own website and re-checked daily. Prices change often, so the firm's checkout is the final word.</p>
   </div>
 </header>
 
@@ -127,6 +127,7 @@ footer .wrap{padding-block:0 40px;color:var(--muted);font-size:13px;display:grid
       <button type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
       <button type="button" id="f-fut" data-f="futures" aria-pressed="false">Futures</button>
       <button type="button" id="f-cfd" data-f="cfd" aria-pressed="false">CFD / Forex</button>
+      <button type="button" id="f-perps" data-f="perps" aria-pressed="false">Perps</button>
     </div>
     <input class="search" id="q" type="search" placeholder="Search firm, platform, plan…" aria-label="Search firms">
     <label class="chk" for="sale"><input type="checkbox" id="sale"> Has a sale on the site</label>
@@ -145,6 +146,11 @@ footer .wrap{padding-block:0 40px;color:var(--muted);font-size:13px;display:grid
       <h2>CFD / forex firms <small id="n-cfd"></small></h2>
       <p class="secnote">Drawdown here is usually a percent of the starting balance. FTMO prices in EUR and Lux in GBP; everything else is USD unless shown.</p>
       <div class="grid" id="g-cfd"></div>
+    </section>
+    <section id="sec-perps">
+      <h2>Perps firms <small id="n-perps"></small></h2>
+      <p class="secnote">Perpetual futures (perps) have no expiry and trade 24/7. Funding payments and trading fees can count against your drawdown, so read each firm's rules before you compare prices. Most perps accounts are simulated, priced from exchanges like Hyperliquid, Bybit or Kraken.</p>
+      <div class="grid" id="g-perps"></div>
     </section>
   </div>
 </main>
@@ -611,7 +617,107 @@ const FIRMS = [
   dd:"6% max",
   plat:"MT5, TradeLocker, cTrader, Match-Trader, E8 Terminal",
   deal:"<b>E8</b>: 30% off (100K Challenge $398 → $299).",
-  note:"Rebranded around \"SimFi\", multi-asset including futures and crypto. No X link on their site."}
+  note:"Rebranded around \"SimFi\", multi-asset including futures and crypto. No X link on their site."},
+ // ---------- PERPS (perpetual futures; added Nov 2) ----------
+ {n:"MyFundedPerps", m:["perps"], w:"https://myfundedperpetuals.com", x:X("MyFundedPerps","none"),
+  plans:"1-Step challenges (Elite, Prime, Signature and other tiers); from the MyFundedFutures team",
+  sizes:"5K · 10K · 25K · 50K (up to $300K total, $100K per model)",
+  price:"From $36 (5K); 10K $71, 25K $186, 50K $371 on the plan shown (confirm at checkout)",
+  split:"Up to 90%",
+  dd:"5% static max drawdown, 3% daily loss limit (plan shown)",
+  plat:"Own web terminal",
+  deal:"<b>ELITE</b>: 25% off your first two purchases, 20% off after (firm's homepage).",
+  note:"Crypto perps across hundreds of markets. One payout request per funded account per day; Elite accounts have no daily limit."},
+ {n:"Propr", m:["perps"], w:"https://www.propr.xyz", x:X("proprxyz","site"),
+  plans:"Classic, Turbo and Pro challenges (1-step and 2-step)",
+  sizes:"5K · 10K · 25K · 50K · 100K · 200K (up to $300K funded)",
+  price:"See site",
+  split:"80%",
+  dd:"6% static max drawdown",
+  plat:"Propr terminal and API on Hyperliquid markets",
+  deal:"",
+  note:"Built on Hyperliquid: 160+ crypto, stock, index, commodity and forex perps, up to 10x. Payouts in USDC onchain, on demand."},
+ {n:"Vest Markets", m:["perps"], w:"https://next.vestmarkets.com/vest-capital", x:X("vestexchange","site"),
+  plans:"Instant Accounts and Evaluation Accounts (Vest Capital)",
+  sizes:"Up to $50K",
+  price:"Instant Accounts one-time $10 / $200 / $400 / $1,000 / $2,000",
+  split:"Up to 95% on Instant Accounts; 80% on Evaluation Accounts",
+  dd:"Max drawdown on every plan; daily loss limit optional on a Bespoke Account",
+  plat:"Vest's own perps exchange app",
+  deal:"",
+  note:"60+ markets: crypto 24/7, stocks, indices, commodities and FX 24/5. On-demand payouts processed in 24 hours."},
+ {n:"E8 Perpetuals", m:["perps"], w:"https://e8markets.com/e8-one?market=perpetual", x:X("E8 Markets","none"),
+  plans:"E8 One single-phase challenge with a Perpetuals market option (also E8 Pro)",
+  sizes:"5K to 500K",
+  price:"100K $488 list (perps option shown)",
+  split:"80%, 90% or 100%, chosen at checkout",
+  dd:"4% to 14% customizable, trails on closed profits; daily loss 3% to 9.2%",
+  plat:"E8 Terminal (Hyperliquid data)",
+  deal:"Homepage shows 50% off a first order (code , confirm at checkout).",
+  note:"Perps arm of E8 Markets (CFD side listed separately). First payout after 3 calendar days, then on demand."},
+ {n:"Kraken Prop", m:["perps"], w:"https://www.kraken.com/pro/prop", x:X("krakenfx","site"),
+  plans:"Starter, Intermediate, Advanced evaluations, inside Kraken Pro",
+  sizes:"5K · 10K · 25K · 50K · 100K · 200K",
+  price:"Evaluations $20 to $1,090 depending on plan and size",
+  split:"80% to 90%",
+  dd:"Max daily loss and max drawdown, set by plan and size",
+  plat:"Kraken Pro",
+  deal:"",
+  note:"Kraken's own prop program (Kraken bought Breakout in 2025). 60+ crypto pairs, up to 5x, payouts within 24 hours to your Kraken account."},
+ {n:"Breakout", m:["perps"], w:"https://www.breakoutprop.com", x:X("breakoutprop","site"),
+  plans:"1-Step Classic, 1-Step Pro, 1-Step Turbo",
+  sizes:"5K · 10K · 25K · 50K · 100K · 200K",
+  price:"From $85 Classic / $65 Pro / $40 Turbo (smallest size)",
+  split:"80%, 90/10 as an upgrade",
+  dd:"3% to 6% static, set at account start",
+  plat:"Breakout terminal",
+  deal:"",
+  note:"Owned by Kraken. Crypto plus index, metals and energy markets (S&P 500, gold, silver, Brent, natural gas, copper), up to 10x. 24/7 on-demand payouts."},
+ {n:"Crypto Fund Trader", m:["perps"], w:"https://cryptofundtrader.com", x:X("cftradercom","site"),
+  plans:"1-phase or 2-phase challenges; Bybit option runs on Bybit USDT perpetuals",
+  sizes:"5K · 10K · 25K · 50K · 100K · 200K (up to $300K)",
+  price:"5K $110, 10K $240, 100K $660 on the plan shown (confirm at checkout)",
+  split:"80%",
+  dd:"4% daily, 6% overall on the plan shown",
+  plat:"Bybit, MetaTrader 5, Match-Trader",
+  deal:"",
+  note:"Swiss-based crypto prop firm and Bybit partner. Also lists forex, indices, commodities and stocks on MT5. On-demand payouts."},
+ {n:"HyroTrader", m:["perps"], w:"https://www.hyrotrader.com", x:X("hyrotrader","site"),
+  plans:"Zero-Step, One-Step, Two-Step",
+  sizes:"Up to $200K",
+  price:"From $59 Two-Step / $69 One-Step / $89 Zero-Step",
+  split:"80%, up to 90% on One-Step and Two-Step",
+  dd:"Daily 3% to 5% by challenge type, plus an overall limit",
+  plat:"HyroTrader platform on live Bybit data; Bybit or BloFin demo accounts",
+  deal:"",
+  note:"700+ USDT perpetual pairs; up to 150x on BTC and ETH, lower on most pairs. Paid in USDT or USDC within 24 hours."},
+ {n:"FFN Perps", m:["perps"], w:"https://ffnperps.com", x:X("FFNFunding","site"),
+  plans:"Core, Pro, Max one-step evaluations; from the Funded Futures Network team",
+  sizes:"10K · 25K · 50K · 100K",
+  price:"Core $35 / $69 / $119 / $199 (10K to 100K)",
+  split:"100%",
+  dd:"Core 3% end-of-day trailing; Pro 4% static; Max 5% static",
+  plat:"Nexus",
+  deal:"<b>BOGO</b>: buy one, get one free (homepage).",
+  note:"134 perp markets 24/7: 52 crypto, 58 stocks, 10 forex, 8 commodities, 6 indices. Up to 40x by market. On-demand payouts, 4 per funded account. Launched October 2026."},
+ {n:"FFOne Perps", m:["perps"], w:"https://www.fundedfuturesfamily.com/ffone-perps-trutik/", x:X("fundedfamily","site"),
+  plans:"Build-your-own evaluation (beta), from Funded Futures Family",
+  sizes:"5K · 10K · 25K · 50K",
+  price:"From $15; $25 list for the smallest build",
+  split:"80%, 90% with add-on",
+  dd:"Fees and funding count against drawdown; daily loss limit closes the account",
+  plat:"TruTik",
+  deal:"",
+  note:"Beta. One payout a day, $100 minimum, $10,000 gross per user per month. Up to 10x BTC/ETH, 5x other perps."},
+ {n:"Tradeify Perps", m:["perps"], w:"https://www.tradeifyperps.co", x:X("tradeify","ok"),
+  plans:"Waitlist only (beta keys); replaces Tradeify 247",
+  sizes:"Not published yet",
+  price:"Not published yet",
+  split:"",
+  dd:"",
+  plat:"",
+  deal:"",
+  note:"Tradeify's site says Tradeify 247 is \"morphing\" into Tradeify Perps; sign up for a beta key for early access. Rules not published yet."}
 ];
 
 const slug = n => n.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
@@ -627,7 +733,7 @@ const row = (k, v, cls="") => v ? `<dt>${k}</dt><dd class="${cls}">${v}</dd>` : 
 function card(f){
   const x = xLink(f.x);
   const host = f.w.replace(/^https?:\/\/(www\.)?/,"").replace(/\/$/,"");
-  const tags = f.m.map(m => `<span class="tag">${m === "cfd" ? "CFD/FX" : "Futures"}</span>`).join("");
+  const tags = f.m.map(m => `<span class="tag">${m === "cfd" ? "CFD/FX" : m === "perps" ? "Perps" : "Futures"}</span>`).join("");
   return `<article class="card">
     <div class="top"><h3 class="name"><a href="/firms/${slug(f.n)}/">${esc(f.n)}</a></h3><div class="tags">${tags}</div></div>
     <div class="links">
@@ -659,13 +765,18 @@ function render(){
   };
   const fut = FIRMS.filter(f => f.m[0] === "futures" && match(f));
   const cfd = FIRMS.filter(f => f.m[0] === "cfd" && match(f));
+  const perps = FIRMS.filter(f => f.m[0] === "perps" && match(f));
   document.getElementById("g-fut").innerHTML = fut.map(card).join("") || `<p class="empty">No futures firms match.</p>`;
   document.getElementById("g-cfd").innerHTML = cfd.map(card).join("") || `<p class="empty">No CFD firms match.</p>`;
+  document.getElementById("g-perps").innerHTML = perps.map(card).join("") || `<p class="empty">No perps firms match.</p>`;
   document.getElementById("n-fut").textContent = fut.length + " firms";
   document.getElementById("n-cfd").textContent = cfd.length + " firms";
-  document.getElementById("sec-fut").hidden = state.f === "cfd";
-  document.getElementById("sec-cfd").hidden = state.f === "futures";
-  const shown = (state.f === "cfd" ? 0 : fut.length) + (state.f === "futures" ? 0 : cfd.length);
+  document.getElementById("n-perps").textContent = perps.length + " firms";
+  const on = k => state.f === "all" || state.f === k;
+  document.getElementById("sec-fut").hidden = !on("futures");
+  document.getElementById("sec-cfd").hidden = !on("cfd");
+  document.getElementById("sec-perps").hidden = !on("perps");
+  const shown = (on("futures") ? fut.length : 0) + (on("cfd") ? cfd.length : 0) + (on("perps") ? perps.length : 0);
   document.getElementById("count").textContent = `${shown} of ${FIRMS.length} firms`;
   document.querySelectorAll(".seg button").forEach(b => b.setAttribute("aria-pressed", b.dataset.f === state.f));
 }
