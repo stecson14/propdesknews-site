@@ -142,6 +142,7 @@ body.hastray{padding-bottom:92px}
     <h1>Prop Firm Directory</h1>
     <svg class="flatline" viewBox="0 0 420 22" aria-hidden="true"><polyline points="0,4 90,4 120,6 150,18 175,12 200,16 420,16" fill="none" stroke="#D9A441" stroke-width="2.5"/></svg>
     <p class="lede">Futures, forex and perps prop firms in one place: account sizes, list prices, payout split, drawdown and current sales. Every fact is read from the firm's own website and re-checked daily. Prices change often, so the firm's checkout is the final word.</p>
+    <p class="lede" style="margin-top:2px"><a href="/finder/" style="color:#D9A441;font-family:var(--mono);font-size:13px;text-decoration:none;border-bottom:1px dotted #D9A441">Not sure which? Find my firm in four taps →</a></p>
   </div>
 </header>
 
@@ -184,7 +185,7 @@ body.hastray{padding-bottom:92px}
 <footer>
   <div class="wrap">
     <p>Sales listed are each firm's own public offers. Some links on Prop Desk may be affiliate links, and every affiliate code is labeled as one. Profit splits and "up to" numbers are the firms' claims. Prop firm evaluations are simulated trading products. Education, not financial advice.</p>
-    <p><a href="/" style="color:inherit">propdesknews.com</a> · <a href="/glossary/" style="color:inherit">Glossary</a> · <a href="/start/" style="color:inherit">Start here</a> · <a href="/calendar/" style="color:inherit">Calendar</a> · <a href="https://x.com/PropDeskNews" style="color:inherit">@PropDeskNews</a> · <a href="mailto:hello@propdesknews.com" style="color:inherit">hello@propdesknews.com</a></p>
+    <p><a href="/" style="color:inherit">propdesknews.com</a> · <a href="/glossary/" style="color:inherit">Glossary</a> · <a href="/start/" style="color:inherit">Start here</a> · <a href="/finder/" style="color:inherit">Find my firm</a> · <a href="/calendar/" style="color:inherit">Calendar</a> · <a href="https://x.com/PropDeskNews" style="color:inherit">@PropDeskNews</a> · <a href="mailto:hello@propdesknews.com" style="color:inherit">hello@propdesknews.com</a></p>
   </div>
 </footer>
 
@@ -816,6 +817,7 @@ document.querySelectorAll(".seg button").forEach(b => b.addEventListener("click"
 }));
 document.getElementById("q").addEventListener("input", e => { state.q = e.target.value; render(); });
 try { const qp = new URLSearchParams(location.search).get("q"); if (qp) { state.q = qp; state.f = "all"; document.getElementById("q").value = qp; } } catch(e){}
+try { const mp = new URLSearchParams(location.search).get("m"); if (mp && ["futures","cfd","perps"].includes(mp)) { state.f = mp; } } catch(e){}
 document.getElementById("sale").addEventListener("change", e => { state.sale = e.target.checked; render(); });
 render();
 // Compare tray: tick up to three cards, then open them side by side on /compare/

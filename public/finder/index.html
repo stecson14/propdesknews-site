@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<title>Find My Firm: Which Prop Firm Fits You, in Four Taps | Prop Desk</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Pick your market, account size, drawdown type and profit split. Prop Desk matches 61 prop firms on what each firm's own site says, shows why each one fits, and tells you when a firm's page didn't say.">
+<meta property="og:site_name" content="Prop Desk"><meta property="og:url" content="https://propdesknews.com/finder/"><meta property="og:title" content="Find my firm: which prop firm fits you? | Prop Desk">
+<meta property="og:description" content="Four taps: market, size, drawdown, split. Matched from each firm's own site, with the reasons shown.">
+<meta property="og:image" content="https://propdesknews.com/og/finder.png?v=771213e5"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@PropDeskNews">
+<link rel="canonical" href="https://propdesknews.com/finder/">
+<link rel="icon" href="/avatar.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F3F0E6;--surface:#FFFDF7;--ink:#1A2233;--muted:#5A6275;--line:#D9D3C2;--navy:#1A2233;--cream:#E9E4D4;--mustard:#B7832A;--mustard-soft:#F3E3BF;--no:#8A3B2E;--no-soft:#F4DDD7;--ok:#3E7A4F;--display:"Fraunces",Georgia,serif;--body:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121825;--surface:#1A2233;--ink:#E9E4D4;--muted:#A3A8B5;--line:#2E3850;--navy:#0D121C;--mustard:#D9A441;--mustard-soft:#3A3220;--no:#E39A8A;--no-soft:#3E2520;--ok:#8CC9A0;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121825;--surface:#1A2233;--ink:#E9E4D4;--muted:#A3A8B5;--line:#2E3850;--navy:#0D121C;--mustard:#D9A441;--mustard-soft:#3A3220;--no:#E39A8A;--no-soft:#3E2520;--ok:#8CC9A0;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15.5px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.sitenav{background:#1A2233;border-bottom:1px solid #33405A;font-family:"IBM Plex Mono",monospace;font-size:13px}
+.sitenav .in{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:6px 18px;flex-wrap:wrap}
+.sitenav a{color:#C9C4B5;text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
+.sitenav a:hover{color:#E9E4D4}
+.sitenav a[aria-current="page"]{color:#E9E4D4;border-bottom-color:#D9A441}
+.sitenav .brand{font-family:Fraunces,serif;font-weight:600;font-size:17px;color:#E9E4D4;margin-right:auto;display:inline-flex;align-items:center;gap:8px;border:0}
+@media (max-width:700px){.sitenav .xl{display:none}}
+@media (max-width:480px){.sitenav .in{gap:6px 12px;padding:10px 12px}.sitenav a{font-size:12.5px}.sitenav .brand{font-size:16px}}
+.sitenav .brand img{width:26px;height:26px;border-radius:50%;border:1px solid #D9A441}
+.sitenav .sb{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1px solid #33405A;color:#C9C4B5;border-radius:999px;padding:4px 10px;font:inherit;font-size:12.5px;cursor:pointer;line-height:1}.sitenav .sb:hover{color:#E9E4D4;border-color:#D9A441}.sitenav .sb kbd{font:11px "IBM Plex Mono",monospace;border:1px solid #33405A;border-radius:4px;padding:1px 4px;color:#A3A8B5}@media (max-width:900px){.sitenav .sb kbd{display:none}}@media (max-width:760px){.sitenav .sb span{display:none}.sitenav .sb{padding:5px 7px}}@media (max-width:640px){.sitenav .sb{border-color:transparent}}
+@media (max-width:400px){.sitenav .in{gap:6px 8px;padding:9px 10px}.sitenav a{font-size:12px}.sitenav .brand{font-size:15px;gap:6px}}
+@media (max-width:560px){.sitenav .brand span{display:none}.sitenav .brand{gap:0}}
+
+header.mast{background:var(--navy);color:#E9E4D4}
+header.mast .wrap{padding-block:30px 24px;display:grid;gap:10px}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#D9A441}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,5vw,52px);line-height:1.05;margin:0;text-wrap:balance}
+.lede{max-width:62ch;color:#C9C4B5;margin:0}
+main .wrap{padding-block:22px 60px;display:grid;gap:18px}
+
+/* answer chips */
+.answers{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.answers:empty{display:none}
+.answers button{font:500 12.5px var(--mono);background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:7px 12px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.answers button b{color:var(--mustard);font-weight:600}
+.answers button:hover{border-color:var(--mustard)}
+.answers .reset{background:transparent;color:var(--muted);border-style:dashed}
+
+/* question */
+.q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px}
+.q[hidden]{display:none}
+.q .n{font:600 11.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mustard);margin-bottom:4px}
+.q h2{font-family:var(--display);font-weight:700;font-size:26px;line-height:1.15;margin:0 0 4px}
+.q p.sub{margin:0 0 14px;color:var(--muted);font-size:14px}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opt{display:grid;gap:3px;text-align:left;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:13px 14px;cursor:pointer;font:inherit;min-height:74px}
+.opt b{font-size:16px;font-weight:600;line-height:1.2}
+.opt span{font-size:13px;color:var(--muted);line-height:1.35}
+.opt:hover{border-color:var(--mustard)}
+.opt[aria-pressed="true"]{border-color:var(--mustard);background:var(--mustard-soft)}
+.opt.wide{grid-column:1/-1;min-height:0}
+@media (max-width:420px){.opts{grid-template-columns:1fr}.opt{min-height:0}}
+
+/* results */
+.res[hidden]{display:none}
+.res .head{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;justify-content:space-between}
+.res h2{font-family:var(--display);font-weight:700;font-size:28px;line-height:1.1;margin:0}
+.res .tally{font:500 13px var(--mono);color:var(--muted)}
+.res .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.res .actions a,.res .actions button{font:600 13px var(--mono);border-radius:10px;padding:10px 14px;text-decoration:none;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.res .actions a.primary{background:var(--navy);color:#E9E4D4;border-color:var(--navy)}
+:root[data-theme="dark"] .res .actions a.primary{background:#E9E4D4;color:#1A2233;border-color:#E9E4D4}
+.res .actions a:hover,.res .actions button:hover{border-color:var(--mustard)}
+.grp{display:grid;gap:10px}
+.grp h3{font:600 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:14px 0 0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:grid;gap:8px}
+.card.fit{border-left:3px solid var(--mustard)}
+.card .top{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline}
+.card .top a.name{font-family:var(--display);font-weight:700;font-size:21px;color:var(--ink);text-decoration:none;line-height:1.15}
+.card .top a.name:hover{color:var(--mustard)}
+.card .tag{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 8px}
+.card .score{margin-left:auto;font:600 12px var(--mono);color:var(--mustard)}
+.card ul{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:14px}
+.card li{display:grid;grid-template-columns:18px 86px 1fr;gap:6px;align-items:start}
+.card li i{font-style:normal;font-weight:700;text-align:center}
+.card li.ok i{color:var(--ok)}
+.card li.no i{color:var(--no)}
+.card li.unk i{color:var(--muted)}
+.card li.info i{color:var(--muted)}
+.card li b{font:600 11.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+.card li span{min-width:0;overflow-wrap:anywhere}
+.card li.unk span,.card li.no span{color:var(--muted)}
+.card .deal{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:2px;padding-top:8px;border-top:1px dashed var(--line);font-size:13.5px}
+.card .deal code{font:600 14px var(--mono);background:var(--mustard-soft);color:var(--ink);border-radius:6px;padding:3px 8px}
+.card .deal .lab{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.card .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+.card .links a{font:600 12.5px var(--mono);text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 11px}
+.card .links a:hover{border-color:var(--mustard)}
+.card .links a.go{background:var(--navy);color:#E9E4D4;border-color:var(--navy)}
+:root[data-theme="dark"] .card .links a.go{background:#E9E4D4;color:#1A2233;border-color:#E9E4D4}
+details.nofit{border:1px solid var(--line);border-radius:12px;padding:0 14px;background:transparent}
+details.nofit summary{cursor:pointer;padding:12px 0;font:600 13px var(--mono);color:var(--muted)}
+details.nofit ul{margin:0 0 12px;padding:0;list-style:none;display:grid;gap:6px;font-size:14px}
+details.nofit li a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--mustard)}
+details.nofit li span{color:var(--muted)}
+.empty{background:var(--no-soft);border:1px solid var(--no);border-radius:12px;padding:14px 16px;font-size:14.5px}
+.note{color:var(--muted);font-size:13px;max-width:70ch}
+.note a{color:inherit}
+@media (max-width:480px){.card li{grid-template-columns:16px 72px 1fr}.card .top a.name{font-size:19px}}
+footer .wrap{padding-block:0 40px;color:var(--muted);font-size:13px;display:grid;gap:6px}
+footer p{max-width:80ch;margin:0}
+footer a{color:inherit}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+<script src="/search.js" defer></script>
+</head>
+<body>
+<nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/avatar.jpg" alt="" width="26" height="26"><span>Prop Desk</span></a><a href="/#deals">Deals</a><a href="/news/">News</a><a href="/firms/">Directory</a><a href="/compare/">Compare</a><a href="/tools/">Tools</a><button class="sb" type="button" aria-label="Search the site (press /)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span><kbd>/</kbd></button><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="kicker">Find my firm · 61 firms · checked Mon Nov 2, 2026</div>
+    <h1>Which prop firm fits you?</h1>
+    <p class="lede">Four taps: market, account size, drawdown type, profit split. We match what each firm's own site says, show you why each one fits, and say so when a firm's page didn't say.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="answers" id="answers" aria-label="Your answers"></div>
+
+    <section class="q" id="q-market">
+      <div class="n">1 of 4</div>
+      <h2>What do you trade?</h2>
+      <p class="sub">Each market has its own firms, platforms and price range.</p>
+      <div class="opts" role="group" aria-label="Market">
+        <button class="opt" type="button" data-q="market" data-v="futures"><b>Futures</b><span>ES, NQ, CL, GC on NinjaTrader, Tradovate, Rithmic and similar</span></button>
+        <button class="opt" type="button" data-q="market" data-v="cfd"><b>CFD / forex</b><span>Pairs, indices and metals on MT5, cTrader, Match-Trader</span></button>
+        <button class="opt" type="button" data-q="market" data-v="perps"><b>Perps</b><span>Crypto perpetuals, 24/7, usually on the firm's own terminal</span></button>
+      </div>
+    </section>
+
+    <section class="q" id="q-size" hidden>
+      <div class="n">2 of 4</div>
+      <h2>What account size?</h2>
+      <p class="sub">Matched against the sizes listed on the firm's site.</p>
+      <div class="opts" role="group" aria-label="Account size" id="size-opts"></div>
+    </section>
+
+    <section class="q" id="q-dd" hidden>
+      <div class="n">3 of 4</div>
+      <h2>Which drawdown will you accept?</h2>
+      <p class="sub">The drawdown type matters more than the price. <a href="/glossary/#drawdown" style="color:var(--mustard)">What the types mean</a>.</p>
+      <div class="opts" role="group" aria-label="Drawdown">
+        <button class="opt" type="button" data-q="dd" data-v="noint"><b>End-of-day or static only</b><span>No intraday trailing. The line moves at the close, or never.</span></button>
+        <button class="opt" type="button" data-q="dd" data-v="static"><b>Static only</b><span>A fixed max-loss line that never trails up.</span></button>
+        <button class="opt wide" type="button" data-q="dd" data-v="any"><b>Any drawdown</b><span>Intraday trailing is fine with me.</span></button>
+      </div>
+    </section>
+
+    <section class="q" id="q-split" hidden>
+      <div class="n">4 of 4</div>
+      <h2>What profit split do you want?</h2>
+      <p class="sub">The share of funded-account profit the firm pays you. <a href="/glossary/#profit-split" style="color:var(--mustard)">How splits work</a>.</p>
+      <div class="opts" role="group" aria-label="Profit split">
+        <button class="opt" type="button" data-q="split" data-v="100"><b>100% first</b><span>Keep all of the first payouts.</span></button>
+        <button class="opt" type="button" data-q="split" data-v="90"><b>90% or more</b><span>Standard at most futures firms.</span></button>
+        <button class="opt wide" type="button" data-q="split" data-v="any"><b>Any split</b><span>I'll judge the split with the rest of the rules.</span></button>
+      </div>
+    </section>
+
+    <section class="res" id="res" hidden aria-live="polite">
+      <div class="head"><h2 id="res-h">Your matches</h2><span class="tally" id="tally"></span></div>
+      <div class="actions" id="actions"></div>
+      <div class="grp" id="fits"></div>
+      <div class="grp" id="maybes"></div>
+      <details class="nofit" id="nofits" hidden><summary></summary><ul></ul></details>
+      <p class="note">Matched on what each firm's own site showed when we checked on Mon Nov 2, 2026. "Not stated" means the page we read didn't say, not that the firm doesn't offer it. Rules and prices change often; the firm's page is the final word. Codes marked as affiliate codes may pay Prop Desk a commission.</p>
+    </section>
+
+    <noscript><p class="empty">Turn on JavaScript to use the finder, or browse the <a href="/firms/">directory</a>.</p></noscript>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <p>General guidance, not advice. Each firm sets its own rules, and they change often; the firm's own page is the final word. Some links on Prop Desk may be affiliate links, and every affiliate code is labeled as one. Prop firm evaluations are simulated trading products, and most traders do not pass. Education, not financial advice.</p>
+    <p><a href="/">propdesknews.com</a> · <a href="/firms/">Directory</a> · <a href="/compare/">Compare</a> · <a href="/tools/">Tools</a> · <a href="/glossary/">Glossary</a> · <a href="/start/">Start here</a> · <a href="/calendar/">Calendar</a> · <a href="/news/">Rule changes &amp; news</a> · <a href="https://x.com/PropDeskNews">@PropDeskNews</a></p>
+  </div>
+</footer>
+<script>const FIRMS = [{"n":"Topstep","s":"topstep","m":["futures"],"w":"https://www.topstep.com","host":"topstep.com","sz":{"raw":"50K · 100K · 150K","list":[50.0,100.0,150.0]},"dd":{"raw":"Max loss limit; optional daily loss limit raises payout caps","unk":true},"sp":{"raw":"90/10 (pre–Jan 12, 2026 accounts keep 100% of first $10K)","first":90},"price":"Standard $49 / $99 / $199 per month plus $149 activation; No Activation Fee $95 / $149 / $229 per month","plat":"","code":"","save":"","aff":false},{"n":"Apex Trader Funding","s":"apex-trader-funding","m":["futures"],"w":"https://apextraderfunding.com","host":"apextraderfunding.com","sz":{"raw":"25K · 50K · 100K · 150K","list":[25.0,50.0,100.0,150.0]},"dd":{"raw":"EOD trailing; safety net = drawdown + $100","eod":true,"trailing":true},"sp":{"raw":"100% on EOD Performance Account payouts; 90/10 on Live","first":100},"price":"25K Intraday $167 ($16.70 with code); Legacy monthly 25K $177 to 300K $797 (Rithmic/WealthCharts)","plat":"","code":"SAVENOW","save":"90% off","aff":false},{"n":"Tradeify","s":"tradeify","m":["futures"],"w":"https://tradeify.co","host":"tradeify.co","sz":{"raw":"25K · 50K · 100K · 150K","list":[25.0,50.0,100.0,150.0]},"dd":{"raw":"EOD trailing; targets $1.5K / $3K / $6K / $9K","eod":true,"trailing":true},"sp":{"raw":"90/10","first":90},"price":"$109 / $165 / $265 / $369 one-time","plat":"","code":"NOV","save":"30% off","aff":false},{"n":"Lucid Trading","s":"lucid-trading","m":["futures"],"w":"https://lucidtrading.com","host":"lucidtrading.com","sz":{"raw":"25K · 50K · 100K · 150K","list":[25.0,50.0,100.0,150.0]},"dd":{"raw":"EOD; LucidDaily 25K: $1,000 max loss, $600 daily loss limit","eod":true},"sp":{"raw":"90/10","first":90},"price":"LucidDaily $108 / $172 / $272 / $365","plat":"","code":"VAULT","save":"30% off","aff":false},{"n":"MyFundedFutures (MFFU)","s":"myfundedfutures-mffu","m":["futures"],"w":"https://myfundedfutures.com","host":"myfundedfutures.com","sz":{"raw":"25K · 50K · 100K · 150K","list":[25.0,50.0,100.0,150.0]},"dd":{"raw":"Intraday trailing (Rapid) or EOD (Rapid EOD); 50K target $3,000","intraday":true,"eod":true,"trailing":true},"sp":{"raw":"80/20 (Builder, Pro) or 90/10 (Rapid)","first":80},"price":"50K: Builder $153, Rapid $209, Rapid EOD $225, Pro $265 (one-time, no activation fee)","plat":"","code":"CLUB","save":"40% off any plan","aff":false},{"n":"Take Profit Trader","s":"take-profit-trader","m":["futures"],"w":"https://takeprofittrader.com","host":"takeprofittrader.com","sz":{"raw":"25K · 50K · 75K · 100K · 150K","list":[25.0,50.0,75.0,100.0,150.0]},"dd":{"raw":"See site","unk":true},"sp":{"raw":"PRO 80/20, PRO+ 90/10","first":80},"price":"$150 / $170 / $245 / $330 / $360 per month","plat":"","code":"NOFEE50","save":"50% off for life","aff":false},{"n":"Alpha Futures","s":"alpha-futures","m":["futures"],"w":"https://alpha-futures.com","host":"alpha-futures.com","sz":{"raw":"50K · 100K · 150K (up to $750K combined)","list":[50.0,100.0,150.0]},"dd":{"raw":"EOD trailing max loss limit","eod":true,"trailing":true},"sp":{"raw":"Up to 90%","first":90},"price":"Standard $129 / $239 / $349 per month list","plat":"AlphaTrader, TradingView, WealthCharts","code":"ALPHA50","save":"50% off","aff":false},{"n":"FundedNext Futures","s":"fundednext-futures","m":["futures"],"w":"https://fundednext.com/futures","host":"fundednext.com/futures","sz":{"raw":"50K · 100K · 150K","list":[50.0,100.0,150.0]},"dd":{"raw":"EOD trailing only, no buffer rule","eod":true,"trailing":true},"sp":{"raw":"Up to 95% (firm's claim)","first":95},"price":"From $74.99 Flex, $144.99 Rapid, $259.99 Direct (one-time)","plat":"NinjaTrader, Tradovate, TradingView","code":"FNFLEX","save":"Up to 47% off","aff":false},{"n":"Bulenox","s":"bulenox","m":["futures"],"w":"https://bulenox.com","host":"bulenox.com","sz":{"raw":"Up to $150K","min":0,"max":150.0},"dd":{"raw":"Trailing or EOD (your choice)","eod":true,"trailing":true},"sp":{"raw":"Up to 90%","first":90},"price":"","plat":"R | Trader Pro, NinjaTrader, Tradovate, Quantower, Sierra Chart, 20+ more","code":"","save":"","aff":false},{"n":"Earn2Trade","s":"earn2trade","m":["futures"],"w":"https://www.earn2trade.com","host":"earn2trade.com","sz":{"raw":"25K · 50K · 100K · 200K (Career Path scales to $400K)","list":[25.0,50.0,100.0,200.0]},"dd":{"raw":"Fixed drawdown on Career Path scaling","static":true},"sp":{"raw":"Profit share after funding","first":null},"price":"From $150 and from $170 shown on homepage (no sale running)","plat":"Tradovate, NinjaTrader, TradingView, Rithmic, BlackArrow, Finamark, DeepCharts","code":"","save":"","aff":false},{"n":"Elite Trader Funding","s":"elite-trader-funding","m":["futures"],"w":"https://elitetraderfunding.com","host":"elitetraderfunding.com","sz":{"raw":"$10K to $150K","min":10.0,"max":150.0},"dd":{"raw":"Varies by plan (static, EOD and trailing options)","eod":true,"static":true,"trailing":true},"sp":{"raw":"Up to 100% (firm's claim)","first":100},"price":"As low as $47 one-time or $87 per month; one plan free for the first month, then $87/month","plat":"TradingView, NinjaTrader, Rithmic, Tradovate, Tickblaze","code":"","save":"","aff":false},{"n":"Top One Futures","s":"top-one-futures","m":["futures"],"w":"https://toponefutures.com","host":"toponefutures.com","sz":{"raw":"25K · 50K · 100K · 150K","list":[25.0,50.0,100.0,150.0]},"dd":{"raw":"EOD ($1,000 on the smallest account)","eod":true},"sp":{"raw":"90/10","first":90},"price":"Evals $178 / $218 / $398 / $549 (25K to 150K, before code); resets $99","plat":"","code":"BOGO","save":"buy one, get one free","aff":false},{"n":"TradeDay","s":"tradeday","m":["futures"],"w":"https://www.tradeday.com","host":"tradeday.com","sz":{"raw":"25K · 50K · 100K · 150K","list":[25.0,50.0,100.0,150.0]},"dd":{"raw":"Intraday trailing: $1K / $2K / $3K / $4.5K","intraday":true,"trailing":true},"sp":{"raw":"50/50 under $4K net profit, 80/20 above, 90/10 on Funded Live","first":50},"price":"$100 / $131 / $240 / $360 (25K to 150K); from $45 with TDNEW","plat":"Tradovate, NinjaTrader, Rithmic","code":"TDNEW","save":"up to 55% off for first-time users (no end date shown)","aff":false},{"n":"Phidias Propfirm","s":"phidias-propfirm","m":["futures"],"w":"https://phidiaspropfirm.com","host":"phidiaspropfirm.com","sz":{"raw":"25K · 50K · 100K · 150K","list":[25.0,50.0,100.0,150.0]},"dd":{"raw":"Static and EOD options","eod":true,"static":true},"sp":{"raw":"Up to 100% on Premium (75% rising to 100% after 5 payouts)","first":100},"price":"From $55","plat":"Rithmic, Tradovate, DeepCharts, TradingView, NinjaTrader","code":"WINTERARC80","save":"save 80% on the 100K Express to Live (no end date shown)","aff":false},{"n":"Funded Futures Network","s":"funded-futures-network","m":["futures"],"w":"https://fundedfuturesnetwork.com","host":"fundedfuturesnetwork.com","sz":{"raw":"25K · 50K · 100K · 150K · 250K","list":[25.0,50.0,100.0,150.0,250.0]},"dd":{"raw":"EOD","eod":true},"sp":{"raw":"Up to 90/10 on Live Funded","first":90},"price":"Sale prices $44.40 / $53.40 / $104.40 / $122.40 / $197.40 one-time","plat":"Nexus Trader, Rithmic, Quantower and others","code":"NEXUS","save":"70% off, or 50% off plus buy one get one on MAX","aff":false},{"n":"Leeloo Trading","s":"leeloo-trading","m":["futures"],"w":"https://leelootrading.com","host":"leelootrading.com","sz":{"raw":"25K to 300K","min":25.0,"max":300.0},"dd":{"raw":"Trailing, $1,500 to $7,500 by account","trailing":true},"sp":{"raw":"Set by account terms","first":null},"price":"$250 to $950 per month by account, plus a Performance Account fee","plat":"NinjaTrader, Rithmic, Sierra Chart, ATAS, Bookmap and many more","code":"","save":"","aff":false},{"n":"Goat Funded Futures","s":"goat-funded-futures","m":["futures"],"w":"https://goatfundedfutures.com","host":"goatfundedfutures.com","sz":{"raw":"25K · 50K · 100K · 150K (up to $750K)","list":[25.0,50.0,100.0,150.0]},"dd":{"raw":"EOD trailing (intraday on Instant Classic and GOAT Daily funded)","intraday":true,"eod":true,"trailing":true},"sp":{"raw":"80/20 on most plans; 90/10 on GOAT Daily and Instant Lite; Instant Classic 100% of first $10K","first":80},"price":"$178 / $238 / $378 / $538 one-time (before code)","plat":"NinjaTrader, Tradovate, TradingView, Tickblaze, DeepCharts, ATAS, Tradesea","code":"AUTUMN50","save":"50% off all plans, \"limited time\" (replaces HALLOWEEN55, which ended Nov 1)","aff":false},{"n":"OneUp Trader","s":"oneup-trader","m":["futures"],"w":"https://www.oneuptrader.com","host":"oneuptrader.com","sz":{"raw":"25K · 50K · 100K · 150K · 250K","list":[25.0,50.0,100.0,150.0,250.0]},"dd":{"raw":"$1.5K / $2.5K / $3.5K / $5K / $5.5K","unk":true},"sp":{"raw":"100% of first $10K, then 90/10","first":100},"price":"$65 / $75 / $150 / $175 / $325 per month","plat":"NinjaTrader, R | Trader, Sierra Chart and others","code":"","save":"","aff":false},{"n":"UProfit","s":"uprofit","m":["futures"],"w":"https://uprofit.com","host":"uprofit.com","sz":{"raw":"10K · 50K · 100K · 150K","list":[10.0,50.0,100.0,150.0]},"dd":{"raw":"EOD: $400 / $2K / $3K / $4.5K","eod":true},"sp":{"raw":"Shown as 50% on the homepage; check plan terms","first":50},"price":"DAY 2.0 with code: $39 (10K), $88 / $136 / $226 per month (50K / 100K / 150K); Day Soft from $29","plat":"TradingView, Tradoverse","code":"HALLOWEEN","save":"extra 10% off DAY 2.0","aff":false},{"n":"DayTraders.com","s":"daytraders-com","m":["futures"],"w":"https://daytraders.com","host":"daytraders.com","sz":{"raw":"25K · 50K · 150K · 300K","list":[25.0,50.0,150.0,300.0]},"dd":{"raw":"EOD trailing; 25K: $1,000 max, $800 daily, $1,500 target","eod":true,"trailing":true},"sp":{"raw":"Up to 100% (firm's claim)","first":100},"price":"25K EOD $80 per account plus $5 activation; site says no codes","plat":"ArcTrader (browser, TradingView charts); Rithmic \"coming soon\"","code":"","save":"","aff":false},{"n":"Purdia Capital","s":"purdia-capital","m":["futures"],"w":"https://purdia.com","host":"purdia.com","sz":{"raw":"25K · 50K · 100K · 150K","list":[25.0,50.0,100.0,150.0]},"dd":{"raw":"$3,000 shown on the 50K","unk":true},"sp":{"raw":"90/10","first":90},"price":"Instant $349 to $2,299; evals from $179 (50K EOD), $199 (100K Pro), $299 (100K EOD)","plat":"Tradovate, NinjaTrader, TradingView","code":"OCT50","save":"50% off every account (still on the homepage Nov 2 despite the October name)","aff":false},{"n":"The Trading Pit","s":"the-trading-pit","m":["futures","cfd"],"w":"https://www.thetradingpit.com","host":"thetradingpit.com","sz":{"raw":"Scales to €5M","unk":true},"dd":{"raw":"Varies by challenge","unk":true},"sp":{"raw":"Up to 80%","first":80},"price":"","plat":"TradingView, Sierra Chart, NinjaTrader and others","code":"","save":"","aff":false},{"n":"FTMO","s":"ftmo","m":["cfd"],"w":"https://ftmo.com/en/","host":"ftmo.com/en","sz":{"raw":"10K · 25K · 50K · 100K · 200K","list":[10.0,25.0,50.0,100.0,200.0]},"dd":{"raw":"10% max loss, 5% daily (2-Step)","static":true},"sp":{"raw":"Up to 90%","first":90},"price":"From €89 / €250 / €345 / €439 / €1,080 one-time, refundable","plat":"MT4, MT5, cTrader, TradingView","code":"","save":"","aff":false},{"n":"FundedNext","s":"fundednext","m":["cfd","futures"],"w":"https://fundednext.com","host":"fundednext.com","sz":{"raw":"See site","unk":true},"dd":{"raw":"Varies by challenge; one CFD plan shown with no daily loss limit","unk":true},"sp":{"raw":"Up to 95% (firm's claim)","first":95},"price":"From $74.99 one-time","plat":"","code":"","save":"","aff":false},{"n":"The5ers","s":"the5ers","m":["cfd","futures"],"w":"https://the5ers.com","host":"the5ers.com","sz":{"raw":"Scales to $4M","unk":true},"dd":{"raw":"3% shown on the featured plan","unk":true},"sp":{"raw":"75/25 shown, rising with scaling","first":75},"price":"From $179 shown on homepage","plat":"MT5","code":"","save":"","aff":false},{"n":"FundingPips","s":"fundingpips","m":["cfd"],"w":"https://fundingpips.com","host":"fundingpips.com","sz":{"raw":"5K · 10K · 25K · 50K · 100K","list":[5.0,10.0,25.0,50.0,100.0]},"dd":{"raw":"Daily loss 3% to 5% by challenge","static":true},"sp":{"raw":"Up to 100%","first":100},"price":"$29 to $555","plat":"MT5, Match-Trader, cTrader","code":"HALLOWEEN","save":"20% off new clients, 15% off existing (banner still up Nov 2, no end date)","aff":false},{"n":"Alpha Capital","s":"alpha-capital","m":["cfd"],"w":"https://alphacapitalgroup.uk","host":"alphacapitalgroup.uk","sz":{"raw":"2.5K · 5K · 10K · 25K · 50K · 100K · 200K","list":[2.5,5.0,10.0,25.0,50.0,100.0,200.0]},"dd":{"raw":"3% daily, 5% trailing max (featured plan)","trailing":true},"sp":{"raw":"Up to 90%","first":90},"price":"$30 / $67 / $97 / $197 / $257 / $457 / $897 one-time","plat":"MT5, cTrader, DXtrade, TradeLocker, Alpha Trader","code":"ALPHA20","save":"20% off all accounts","aff":false},{"n":"Blue Guardian","s":"blue-guardian","m":["cfd","futures"],"w":"https://blueguardian.com","host":"blueguardian.com","sz":{"raw":"Futures 25K · 50K · 100K · 150K","list":[25.0,50.0,100.0,150.0]},"dd":{"raw":"Futures: $3,500 shown on the largest plan","unk":true},"sp":{"raw":"Up to 90%","first":90},"price":"Futures $100 to $276","plat":"MT5, TradeLocker, Match-Trader, NinjaTrader, Tradovate, DeepCharts, TradingView","code":"HALLOWEEN","save":"35% off all CFD and futures accounts (still up Nov 2, no end date)","aff":false},{"n":"FXIFY","s":"fxify","m":["cfd"],"w":"https://fxify.com","host":"fxify.com","sz":{"raw":"5K to 400K","min":5.0,"max":400.0},"dd":{"raw":"Static","static":true},"sp":{"raw":"Up to 90%","first":90},"price":"From $59","plat":"MT5, DXtrade, TradingView","code":"FUNDED25","save":"25% off all programs plus 2 free add-ons, ends Dec 1","aff":false},{"n":"Goat Funded Trader","s":"goat-funded-trader","m":["cfd"],"w":"https://www.goatfundedtrader.com","host":"goatfundedtrader.com","sz":{"raw":"1K to 400K (up to $2M scaling)","min":1.0,"max":400.0},"dd":{"raw":"3% daily","static":true},"sp":{"raw":"80% base","first":80},"price":"From $15 (1K) to $1,499 (400K)","plat":"MT5, cTrader, TradeLocker, Match-Trader","code":"firstGFT","save":"50% off for new customers","aff":false},{"n":"Instant Funding","s":"instant-funding","m":["cfd"],"w":"https://instantfunding.com","host":"instantfunding.com","sz":{"raw":"5K up to $4M with scaling","min":5.0,"max":4000.0},"dd":{"raw":"10% max; no daily drawdown on instant accounts","static":true},"sp":{"raw":"80%, 90% with add-on","first":80},"price":"Varies by size and plan","plat":"MT5, cTrader, Match-Trader","code":"LITE40","save":"40% off IF Micro Lite up to $25K","aff":false},{"n":"Hola Prime","s":"hola-prime","m":["cfd","futures"],"w":"https://holaprime.com","host":"holaprime.com","sz":{"raw":"5K · 10K · 25K · 50K · 100K · 200K","list":[5.0,10.0,25.0,50.0,100.0,200.0]},"dd":{"raw":"10% max, 5% daily","static":true},"sp":{"raw":"Up to 95%","first":95},"price":"With WELCOME: $39.20 / $71.20 / $172 / $263.20 / $463.20 / $1,049","plat":"cTrader, Match-Trader, TradeLocker","code":"WELCOME","save":"20% off (the SPOOKY codes are gone)","aff":false},{"n":"Audacity Capital","s":"audacity-capital","m":["cfd"],"w":"https://audacity.capital","host":"audacity.capital","sz":{"raw":"5K · 10K · 25K · 50K · 100K · 200K","list":[5.0,10.0,25.0,50.0,100.0,200.0]},"dd":{"raw":"2-step: 7.5% daily, 15% max. 1-step and FTP: 5% daily, 10% max","static":true},"sp":{"raw":"Up to 90%","first":90},"price":"List $49 / $79 / $195 / $329 / $549 / $1,049; homepage still shows $32 / $51 / $127 / $214 / $357 / $682","plat":"MT5, DXtrade","code":"","save":"","aff":false},{"n":"City Traders Imperium","s":"city-traders-imperium","m":["cfd"],"w":"https://citytradersimperium.com","host":"citytradersimperium.com","sz":{"raw":"2.5K to 100K (scales to $4M)","min":2.5,"max":100.0},"dd":{"raw":"Balance-based","static":true},"sp":{"raw":"Up to 100%","first":100},"price":"$29 to $449 (challenges); direct funding up to $3,999","plat":"MT5, Match-Trader","code":"","save":"","aff":false},{"n":"Fintokei","s":"fintokei","m":["cfd"],"w":"https://www.fintokei.com","host":"fintokei.com","sz":{"raw":"5K to 400K","min":5.0,"max":400.0},"dd":{"raw":"3% max open risk rule","static":true},"sp":{"raw":"80% to 90% (up to 95% claimed)","first":80},"price":"$34 to $2,599","plat":"TradingView, cTrader, MT5","code":"BLACKFRIDAY20","save":"20% off all challenges (no end date shown)","aff":false},{"n":"ThinkCapital","s":"thinkcapital","m":["cfd"],"w":"https://www.thinkcapital.com","host":"thinkcapital.com","sz":{"raw":"2.5K · 5K · 10K · 25K · 50K · 100K · 200K","list":[2.5,5.0,10.0,25.0,50.0,100.0,200.0]},"dd":{"raw":"Up to 6% trailing, equity-based","trailing":true},"sp":{"raw":"Up to 90%","first":90},"price":"From $39 (2.5K Bolt, 5K Nexus), $59 (5K Lightning or Dual Step)","plat":"TradingView, ThinkTrader","code":"20OFF","save":"20% off a ThinkCapital Challenge","aff":false},{"n":"Lux Trading Firm","s":"lux-trading-firm","m":["cfd"],"w":"https://luxtradingfirm.com","host":"luxtradingfirm.com","sz":{"raw":"10K to 1M","min":10.0,"max":1000.0},"dd":{"raw":"Varies by plan","unk":true},"sp":{"raw":"80%","first":80},"price":"From £85 (10K); £299 (100K) shown","plat":"MT4, TradingView, Trader Evolution, Match-Trader","code":"","save":"","aff":false},{"n":"DNA Funded","s":"dna-funded","m":["cfd"],"w":"https://dnafunded.com","host":"dnafunded.com","sz":{"raw":"Up to $600K","min":0,"max":600.0},"dd":{"raw":"Varies by challenge","unk":true},"sp":{"raw":"80%, up to 90% with booster","first":80},"price":"","plat":"TradeLocker","code":"","save":"","aff":false},{"n":"Atlas Funded","s":"atlas-funded","m":["cfd","futures"],"w":"https://www.atlasfunded.com","host":"atlasfunded.com","sz":{"raw":"5K · 10K · 25K · 50K · 100K · 200K","list":[5.0,10.0,25.0,50.0,100.0,200.0]},"dd":{"raw":"Varies by plan","unk":true},"sp":{"raw":"90%, up to 100%","first":90},"price":"$31 (5K) to $434 (200K) shown","plat":"TradeLocker, Match-Trader, MT5","code":"ATLAS2","save":"50% off forex/CFD and futures","aff":false},{"n":"For Traders","s":"for-traders","m":["cfd","futures"],"w":"https://fortraders.com","host":"fortraders.com","sz":{"raw":"Up to $200K","min":0,"max":200.0},"dd":{"raw":"Varies by plan","unk":true},"sp":{"raw":"Up to 90%","first":90},"price":"$50 to $399","plat":"MT5, TradeLocker, cTrader","code":"","save":"","aff":false},{"n":"Lark Funding","s":"lark-funding","m":["cfd"],"w":"https://larkfunding.com","host":"larkfunding.com","sz":{"raw":"5K to 200K","min":5.0,"max":200.0},"dd":{"raw":"Static","static":true},"sp":{"raw":"80%","first":80},"price":"From $99 (1-Step Max); $400 Simulated Funded (largest shown)","plat":"Lark's own platform","code":"DOUBLELARK","save":"buy an eligible evaluation and pass within 30 days to get a free evaluation of the same…","aff":false},{"n":"PipFarm","s":"pipfarm","m":["cfd"],"w":"https://pipfarm.com","host":"pipfarm.com","sz":{"raw":"Shown at checkout","unk":true},"dd":{"raw":"Varies by plan","unk":true},"sp":{"raw":"Up to 99% (firm's claim)","first":99},"price":"75K instant shown at $100 on sale","plat":"cTrader","code":"INSTANT50","save":"INSTANT50 50% off instant","aff":false},{"n":"Funded Trading Plus","s":"funded-trading-plus","m":["cfd"],"w":"https://www.fundedtradingplus.com","host":"fundedtradingplus.com","sz":{"raw":"10K · 25K · 50K · 100K · 200K","list":[10.0,25.0,50.0,100.0,200.0]},"dd":{"raw":"4% daily (balance), 6% trailing max","trailing":true},"sp":{"raw":"Up to 100%","first":100},"price":"","plat":"MT5, Match-Trader","code":"SIZE20","save":"20% off any challenge","aff":false},{"n":"Maven Trading","s":"maven-trading","m":["cfd"],"w":"https://maventrading.com","host":"maventrading.com","sz":{"raw":"2K to 100K","min":2.0,"max":100.0},"dd":{"raw":"5% to 10% max loss by plan","static":true},"sp":{"raw":"80%","first":80},"price":"$14 to $900","plat":"","code":"OMO","save":"up to 40% off the Omo 2-Step","aff":false},{"n":"BrightFunded","s":"brightfunded","m":["cfd","futures"],"w":"https://brightfunded.com","host":"brightfunded.com","sz":{"raw":"5K to 200K","min":5.0,"max":200.0},"dd":{"raw":"No consistency rules","unk":true},"sp":{"raw":"Up to 100%","first":100},"price":"€47 to €947 (CFD)","plat":"Web, desktop and mobile","code":"HW30","save":"30% off all plans (still up Nov 2, no end date)","aff":false},{"n":"FTUK","s":"ftuk","m":["cfd"],"w":"https://ftuk.com","host":"ftuk.com","sz":{"raw":"5K to 200K","min":5.0,"max":200.0},"dd":{"raw":"5% daily, 6% trailing","trailing":true},"sp":{"raw":"Up to 90%","first":90},"price":"Flex accounts from $9","plat":"MT5, TradeLocker, Match-Trader","code":"FTUK30","save":"30% off first purchase (limited time)","aff":false},{"n":"Funding Traders","s":"funding-traders","m":["cfd"],"w":"https://fundingtraders.com","host":"fundingtraders.com","sz":{"raw":"5K to 400K","min":5.0,"max":400.0},"dd":{"raw":"6% max loss","static":true},"sp":{"raw":"90% to 100%","first":90},"price":"$49 to $2,349","plat":"MT5, TradeLocker","code":"TRYFT","save":"50% off first challenge","aff":false},{"n":"QT Funded (Quant Tekel)","s":"qt-funded-quant-tekel","m":["cfd"],"w":"https://qtfunded.com","host":"qtfunded.com","sz":{"raw":"5K to 200K","min":5.0,"max":200.0},"dd":{"raw":"6% trailing","trailing":true},"sp":{"raw":"70% to 100%","first":70},"price":"$5 to $350 one-time","plat":"MT5, TradeLocker","code":"TREAT","save":"60% off plus buy one, get one free on same-size accounts","aff":false},{"n":"AquaFunded","s":"aquafunded","m":["cfd","futures"],"w":"https://www.aquafunded.com","host":"aquafunded.com","sz":{"raw":"2.5K to 400K","min":2.5,"max":400.0},"dd":{"raw":"$2,000 on the featured futures plan","unk":true},"sp":{"raw":"90%, 100% with add-on","first":90},"price":"From $14 (5K, on sale)","plat":"","code":"HALLOWEEN","save":"35% off plus 200% refund, all accounts (still up Nov 2, \"limited time\")","aff":false},{"n":"E8 Markets","s":"e8-markets","m":["cfd","futures"],"w":"https://e8markets.com","host":"e8markets.com","sz":{"raw":"5K to 500K","min":5.0,"max":500.0},"dd":{"raw":"6% max","static":true},"sp":{"raw":"80%","first":80},"price":"100K Challenge $398 list ($299 with code); other sizes at checkout","plat":"MT5, TradeLocker, cTrader, Match-Trader, E8 Terminal","code":"E8","save":"30% off (100K Challenge $398 → $299)","aff":false},{"n":"MyFundedPerps","s":"myfundedperps","m":["perps"],"w":"https://myfundedperpetuals.com","host":"myfundedperpetuals.com","sz":{"raw":"5K · 10K · 25K · 50K (up to $300K total, $100K per model)","list":[5.0,10.0,25.0,50.0]},"dd":{"raw":"5% static max drawdown, 3% daily loss limit (plan shown)","static":true},"sp":{"raw":"Up to 90%","first":90},"price":"From $36 (5K); 10K $71, 25K $186, 50K $371 on the plan shown (confirm at checkout)","plat":"Own web terminal","code":"ELITE","save":"25% off your first two purchases, 20% off after (firm's homepage)","aff":false},{"n":"Propr","s":"propr","m":["perps"],"w":"https://www.propr.xyz","host":"propr.xyz","sz":{"raw":"5K · 10K · 25K · 50K · 100K · 200K (up to $300K funded)","list":[5.0,10.0,25.0,50.0,100.0,200.0]},"dd":{"raw":"6% static max drawdown","static":true},"sp":{"raw":"80%","first":80},"price":"","plat":"Propr terminal and API on Hyperliquid markets","code":"","save":"","aff":false},{"n":"Vest Markets","s":"vest-markets","m":["perps"],"w":"https://next.vestmarkets.com/vest-capital","host":"next.vestmarkets.com/vest-capital","sz":{"raw":"Up to $50K","min":0,"max":50.0},"dd":{"raw":"Max drawdown on every plan; daily loss limit optional on a Bespoke Account","unk":true},"sp":{"raw":"Up to 95% on Instant Accounts; 80% on Evaluation Accounts","first":95},"price":"Instant Accounts one-time $10 / $200 / $400 / $1,000 / $2,000","plat":"Vest's own perps exchange app","code":"","save":"","aff":false},{"n":"E8 Perpetuals","s":"e8-perpetuals","m":["perps"],"w":"https://e8markets.com/e8-one?market=perpetual","host":"e8markets.com/e8-one?market=perpetual","sz":{"raw":"5K to 500K","min":5.0,"max":500.0},"dd":{"raw":"4% to 14% customizable, trails on closed profits; daily loss 3% to 9.2%","trailing":true},"sp":{"raw":"80%, 90% or 100%, chosen at checkout","first":80},"price":"100K $488 list (perps option shown)","plat":"E8 Terminal (Hyperliquid data)","code":"","save":"","aff":false},{"n":"Kraken Prop","s":"kraken-prop","m":["perps"],"w":"https://www.kraken.com/pro/prop","host":"kraken.com/pro/prop","sz":{"raw":"5K · 10K · 25K · 50K · 100K · 200K","list":[5.0,10.0,25.0,50.0,100.0,200.0]},"dd":{"raw":"Max daily loss and max drawdown, set by plan and size","unk":true},"sp":{"raw":"80% to 90%","first":80},"price":"Evaluations $20 to $1,090 depending on plan and size","plat":"Kraken Pro","code":"","save":"","aff":false},{"n":"Breakout","s":"breakout","m":["perps"],"w":"https://www.breakoutprop.com","host":"breakoutprop.com","sz":{"raw":"5K · 10K · 25K · 50K · 100K · 200K","list":[5.0,10.0,25.0,50.0,100.0,200.0]},"dd":{"raw":"3% to 6% static, set at account start","static":true},"sp":{"raw":"80%, 90/10 as an upgrade","first":80},"price":"From $85 Classic / $65 Pro / $40 Turbo (smallest size)","plat":"Breakout terminal","code":"","save":"","aff":false},{"n":"Crypto Fund Trader","s":"crypto-fund-trader","m":["perps"],"w":"https://cryptofundtrader.com","host":"cryptofundtrader.com","sz":{"raw":"5K · 10K · 25K · 50K · 100K · 200K (up to $300K)","list":[5.0,10.0,25.0,50.0,100.0,200.0]},"dd":{"raw":"4% daily, 6% overall on the plan shown","static":true},"sp":{"raw":"80%","first":80},"price":"5K $110, 10K $240, 100K $660 on the plan shown (confirm at checkout)","plat":"Bybit, MetaTrader 5, Match-Trader","code":"","save":"","aff":false},{"n":"HyroTrader","s":"hyrotrader","m":["perps"],"w":"https://www.hyrotrader.com","host":"hyrotrader.com","sz":{"raw":"Up to $200K","min":0,"max":200.0},"dd":{"raw":"Daily 3% to 5% by challenge type, plus an overall limit","static":true},"sp":{"raw":"80%, up to 90% on One-Step and Two-Step","first":80},"price":"From $59 Two-Step / $69 One-Step / $89 Zero-Step","plat":"HyroTrader platform on live Bybit data; Bybit or BloFin demo accounts","code":"","save":"","aff":false},{"n":"FFN Perps","s":"ffn-perps","m":["perps"],"w":"https://ffnperps.com","host":"ffnperps.com","sz":{"raw":"10K · 25K · 50K · 100K","list":[10.0,25.0,50.0,100.0]},"dd":{"raw":"Core 3% end-of-day trailing; Pro 4% static; Max 5% static","eod":true,"static":true,"trailing":true},"sp":{"raw":"100%","first":100},"price":"Core $35 / $69 / $119 / $199 (10K to 100K)","plat":"Nexus","code":"BOGO","save":"buy one, get one free (homepage)","aff":false},{"n":"FFOne Perps","s":"ffone-perps","m":["perps"],"w":"https://www.fundedfuturesfamily.com/ffone-perps-trutik/","host":"fundedfuturesfamily.com/ffone-perps-trutik","sz":{"raw":"5K · 10K · 25K · 50K","list":[5.0,10.0,25.0,50.0]},"dd":{"raw":"Fees and funding count against drawdown; daily loss limit closes the account","unk":true},"sp":{"raw":"80%, 90% with add-on","first":80},"price":"From $15; $25 list for the smallest build","plat":"TruTik","code":"","save":"","aff":false},{"n":"Tradeify Perps","s":"tradeify-perps","m":["perps"],"w":"https://www.tradeifyperps.co","host":"tradeifyperps.co","sz":{"raw":"Not published yet","unk":true},"dd":{"raw":"","unk":true},"sp":{"raw":"","first":null},"price":"","plat":"","code":"","save":"","aff":false}];</script>
+<script>
+(function(){
+  var SIZES = {
+    futures: [["25","25K or under","Starter sizes"],["50","50K","The most common size"],["100","100K","Bigger target, bigger drawdown"],["150","150K or more","Largest evals"]],
+    cfd: [["10","10K or under","Cheapest way in"],["25","25K",""],["50","50K",""],["100","100K","The usual flagship"],["200","200K or more","Largest challenges"]],
+    perps: [["10","10K or under","Cheapest way in"],["25","25K",""],["50","50K",""],["100","100K or more","Largest plans"]]
+  };
+  var BUCKET = {"25":[0,25],"50":[50,50],"100":[100,100],"150":[150,1e9],"10":[0,10],"200":[200,1e9]};
+  var MK = {futures:"Futures",cfd:"CFD / forex",perps:"Perps"};
+  var DDL = {noint:"End-of-day or static",static:"Static only",any:"Any drawdown"};
+  var SPL = {"100":"100% first","90":"90% or more",any:"Any split"};
+  var ORDER = ["market","size","dd","split"];
+  var ans = {market:null,size:null,dd:null,split:null};
+  var $ = function(s,r){ return (r||document).querySelector(s); };
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+  function sizeLabel(v){ if (v==="any") return "Any size"; var m = ans.market||"futures"; var l = SIZES[m].filter(function(o){return o[0]===v;})[0]; return l ? l[1] : v+"K"; }
+  function perMarket(){
+    // perps bucket for 100 means 100K or more
+    var m = ans.market, s = ans.size;
+    if (!s || s==="any") return null;
+    var b = BUCKET[s].slice();
+    if (m==="perps" && s==="100") b = [100,1e9];
+    if (m!=="futures" && s==="25") b = [25,25];
+    if (m==="futures" && s==="100") b = [100,100];
+    return b;
+  }
+  function buildSizes(){
+    var m = ans.market||"futures", box = $("#size-opts"); box.innerHTML = "";
+    SIZES[m].forEach(function(o){ var b = document.createElement("button"); b.type="button"; b.className="opt"; b.dataset.q="size"; b.dataset.v=o[0]; b.innerHTML = "<b>"+esc(o[1])+"</b>"+(o[2]?"<span>"+esc(o[2])+"</span>":""); box.appendChild(b); });
+    var any = document.createElement("button"); any.type="button"; any.className="opt wide"; any.dataset.q="size"; any.dataset.v="any"; any.innerHTML="<b>Any size</b><span>Show every size the firm lists.</span>"; box.appendChild(any);
+  }
+  function sizeMatch(f){
+    var b = perMarket(); if (!b) return "na";
+    var z = f.sz; if (!z || z.unk) return "unk";
+    if (z.list) return z.list.some(function(v){ return v>=b[0] && v<=b[1]; }) ? "ok" : "no";
+    return (z.max>=b[0] && z.min<=b[1]) ? "ok" : "no";
+  }
+  function ddMatch(f){
+    var p = ans.dd; if (!p || p==="any") return "na";
+    var d = f.dd; if (!d || d.unk) return "unk";
+    if (p==="noint") { if (d.eod||d.static) return "ok"; if (d.intraday) return "no"; return "unk"; }
+    if (p==="static") { if (d.static) return "ok"; if (d.intraday||d.eod||d.trailing) return "no"; return "unk"; }
+    return "na";
+  }
+  function splitMatch(f){
+    var p = ans.split; if (!p || p==="any") return "na";
+    var s = f.sp; if (!s || s.first==null) return "unk";
+    return s.first >= parseInt(p,10) ? "ok" : "no";
+  }
+  function evaluate(){
+    var fits=[], maybes=[], nos=[];
+    FIRMS.forEach(function(f){
+      if (f.m.indexOf(ans.market) < 0) return;
+      var r = {f:f, size:sizeMatch(f), dd:ddMatch(f), split:splitMatch(f)};
+      var vals = [r.size,r.dd,r.split];
+      r.ok = vals.filter(function(v){return v==="ok";}).length;
+      r.unk = vals.filter(function(v){return v==="unk";}).length;
+      r.no = vals.filter(function(v){return v==="no";}).length;
+      r.asked = vals.filter(function(v){return v!=="na";}).length;
+      r.score = r.ok*10 + (f.code?3:0) - r.unk;
+      if (r.no) nos.push(r); else if (r.unk >= 2) maybes.push(r); else fits.push(r);
+    });
+    var by = function(a,b){ return b.score-a.score || a.f.n.localeCompare(b.f.n); };
+    fits.sort(by); maybes.sort(by); nos.sort(function(a,b){return a.f.n.localeCompare(b.f.n);});
+    return {fits:fits, maybes:maybes, nos:nos};
+  }
+  function row(cls, label, text){
+    var ic = cls==="ok"?"✓":cls==="no"?"✕":cls==="unk"?"?":"·";
+    return '<li class="'+cls+'"><i aria-hidden="true">'+ic+'</i><b>'+label+'</b><span>'+esc(text)+'</span></li>';
+  }
+  function srText(cls){ return cls==="ok"?"matches: ":cls==="no"?"does not match: ":cls==="unk"?"not stated: ":""; }
+  function card(r, fit){
+    var f = r.f, h = '';
+    h += '<article class="card'+(fit?' fit':'')+'"><div class="top"><a class="name" href="/firms/'+f.s+'/">'+esc(f.n)+'</a>';
+    f.m.forEach(function(m){ h += '<span class="tag">'+MK[m]+'</span>'; });
+    h += '<span class="score">'+(r.asked ? (r.ok+' of '+r.asked+(r.unk?' · '+r.unk+' not stated':'')) : 'All '+MK[ans.market]+' firms')+'</span></div><ul>';
+    if (r.size!=="na") h += row(r.size, "Sizes", f.sz && f.sz.raw ? f.sz.raw : "Not listed on the page we read");
+    else if (f.sz && f.sz.raw) h += row("info","Sizes", f.sz.raw);
+    if (r.dd!=="na") h += row(r.dd, "Drawdown", f.dd && f.dd.raw ? f.dd.raw + (r.dd==="unk" && f.dd.trailing ? " (says trailing, not whether it trails intraday)" : "") : "Not stated on the page we read");
+    else if (f.dd && f.dd.raw) h += row("info","Drawdown", f.dd.raw);
+    if (r.split!=="na") h += row(r.split, "Split", f.sp && f.sp.raw ? f.sp.raw : "Not stated on the page we read");
+    else if (f.sp && f.sp.raw) h += row("info","Split", f.sp.raw);
+    if (f.price) h += row("info","Price", f.price);
+    if (f.plat) h += row("info","Platforms", f.plat);
+    h += '</ul>';
+    if (f.code) h += '<div class="deal"><span class="lab">'+(f.aff?'Affiliate code':'Code on the firm\'s site')+'</span><code>'+esc(f.code)+'</code><span>'+esc(f.save)+'</span></div>';
+    h += '<div class="links"><a class="go" href="'+esc(f.w)+'" target="_blank" rel="'+(f.aff?'sponsored noopener':'noopener')+'">Open '+esc(f.host)+' ↗</a><a href="/firms/'+f.s+'/">Profile and rule changes</a></div></article>';
+    return h;
+  }
+  function chipText(){
+    var parts = [MK[ans.market], sizeLabel(ans.size), DDL[ans.dd], SPL[ans.split]];
+    return parts.join(" · ");
+  }
+  function render(){
+    var out = evaluate();
+    var res = $("#res"); res.hidden = false;
+    var full = out.fits.filter(function(r){ return !r.unk; }), part = out.fits.filter(function(r){ return r.unk; });
+    $("#tally").textContent = [full.length + " on every answer", part.length ? part.length + " with one thing not stated" : "", out.maybes.length ? out.maybes.length + " could fit" : "", out.nos.length + " don't fit"].filter(Boolean).join(" · ");
+    $("#res-h").textContent = out.fits.length ? (out.fits.length === 1 ? "1 firm fits" : out.fits.length + " firms fit") : "No firm fits all of that";
+    var acts = '';
+    var top = out.fits.slice(0,3).map(function(r){return r.f.s;});
+    if (top.length >= 2) acts += '<a class="primary" href="/compare/#'+top.join(",")+'">Compare the top '+top.length+' side by side →</a>';
+    acts += '<button type="button" id="copy">Copy link to these results</button><a href="/firms/?m='+ans.market+'">All '+MK[ans.market]+' firms in the directory</a>';
+    $("#actions").innerHTML = acts;
+    $("#copy").addEventListener("click", function(){ var u = location.href; var b = this; (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(function(){ b.textContent = "Link copied"; setTimeout(function(){ b.textContent = "Copy link to these results"; }, 1800); }, function(){ prompt("Copy this link", u); }); });
+    var fh = '';
+    if (full.length) { if (part.length || out.maybes.length) fh += '<h3>Fits every answer</h3>'; full.forEach(function(r){ fh += card(r, true); }); }
+    if (part.length) { fh += '<h3>Fits, with one thing the page didn\'t state</h3>'; part.forEach(function(r){ fh += card(r, true); }); }
+    if (!out.fits.length) fh = '';
+    if (!out.fits.length) fh = '<p class="empty">Nothing on our pages matches every answer. Loosen one: tap an answer above to change it. The "could fit" firms below didn\'t say enough on their pages to rule in or out.</p>';
+    $("#fits").innerHTML = fh;
+    var mh = '';
+    if (out.maybes.length) { mh = '<h3>Could fit · the page didn\'t say enough</h3>'; out.maybes.forEach(function(r){ mh += card(r, false); }); }
+    $("#maybes").innerHTML = mh;
+    var nf = $("#nofits");
+    if (out.nos.length) {
+      nf.hidden = false;
+      $("summary", nf).textContent = out.nos.length + " " + MK[ans.market] + " firm" + (out.nos.length===1?"":"s") + " don't fit (tap to see why)";
+      $("ul", nf).innerHTML = out.nos.map(function(r){
+        var why = [];
+        if (r.size==="no") why.push("sizes: " + r.f.sz.raw);
+        if (r.dd==="no") why.push("drawdown: " + r.f.dd.raw);
+        if (r.split==="no") why.push("split: " + r.f.sp.raw);
+        return '<li><a href="/firms/'+r.f.s+'/">'+esc(r.f.n)+'</a> <span>· '+esc(why.join(" · "))+'</span></li>';
+      }).join("");
+    } else nf.hidden = true;
+    document.title = chipText() + " · Find my firm | Prop Desk";
+  }
+  function paintAnswers(){
+    var a = $("#answers"), h = '';
+    ORDER.forEach(function(k){
+      if (!ans[k]) return;
+      var lab = k==="market"?MK[ans[k]]:k==="size"?sizeLabel(ans[k]):k==="dd"?DDL[ans[k]]:SPL[ans[k]];
+      h += '<button type="button" data-edit="'+k+'" aria-label="Change answer: '+esc(lab)+'">'+esc(lab)+' <b>✎</b></button>';
+    });
+    if (ans.market) h += '<button type="button" class="reset" data-reset="1">Start over</button>';
+    a.innerHTML = h;
+  }
+  function show(){
+    var next = null;
+    ORDER.forEach(function(k){ if (!next && !ans[k]) next = k; });
+    ORDER.forEach(function(k){ $("#q-"+k).hidden = (k !== next); });
+    document.querySelectorAll(".opt").forEach(function(b){ b.setAttribute("aria-pressed", ans[b.dataset.q]===b.dataset.v ? "true" : "false"); });
+    paintAnswers();
+    if (!next) { render(); setTimeout(function(){ $("#res").scrollIntoView({behavior:"smooth",block:"start"}); }, 40); }
+    else { $("#res").hidden = true; }
+    var hash = ORDER.map(function(k){ return ans[k]||""; }).join("/").replace(/\/+$/,"");
+    if (hash) history.replaceState(null, "", "#"+hash); else history.replaceState(null, "", location.pathname);
+  }
+  document.addEventListener("click", function(e){
+    var o = e.target.closest(".opt");
+    if (o) {
+      var q = o.dataset.q, v = o.dataset.v;
+      if (q==="market" && ans.market !== v) { ans.size = null; }
+      ans[q] = v;
+      if (q==="market") buildSizes();
+      // a later unanswered question becomes the next step; keep later answers if the user is editing one
+      show(); return;
+    }
+    var ed = e.target.closest("[data-edit]");
+    if (ed) { var k = ed.dataset.edit; var keep = ans[k]; ans[k] = null; if (k==="market") { ans.size=null; } ORDER.forEach(function(kk){ $("#q-"+kk).hidden = (kk !== k); }); $("#res").hidden = true; paintAnswers(); $("#q-"+k).scrollIntoView({behavior:"smooth",block:"start"}); return; }
+    var rs = e.target.closest("[data-reset]");
+    if (rs) { ans = {market:null,size:null,dd:null,split:null}; show(); window.scrollTo({top:0,behavior:"smooth"}); }
+  });
+  // restore from a shared link: #futures/50/noint/90 (also when the hash changes while the page is open)
+  function fromHash(){
+    var h = location.hash.replace(/^#/,"").split("/");
+    ans = {market:null,size:null,dd:null,split:null};
+    if (h[0] && MK[h[0]]) {
+      ans.market = h[0]; buildSizes();
+      if (h[1] && (h[1]==="any" || SIZES[h[0]].some(function(o){return o[0]===h[1];}))) ans.size = h[1];
+      if (h[2] && DDL[h[2]]) ans.dd = h[2];
+      if (h[3] && SPL[h[3]]) ans.split = h[3];
+    }
+    show();
+  }
+  window.addEventListener("hashchange", fromHash);
+  fromHash();
+})();
+</script>
+</body>
+</html>
