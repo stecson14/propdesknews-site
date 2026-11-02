@@ -49,6 +49,8 @@ main .wrap{padding-block:24px 60px;display:grid;gap:22px}
 .cmpbox select{font:600 15px var(--body);padding:10px 34px 10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg) no-repeat right 12px center/10px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%235A6275' stroke-width='1.6'/%3E%3C/svg%3E");color:var(--ink);width:100%;appearance:none;-webkit-appearance:none}
 .cmpbox select:focus-visible{outline:2px solid var(--mustard);outline-offset:2px}
 .cmphint{margin:0;font-size:13px;color:var(--muted)}
+.gl{color:inherit;text-decoration:none;border-bottom:1px dotted var(--muted)}
+.gl:hover{color:var(--mustard);border-bottom-color:var(--mustard)}
 .cmphint a{color:var(--mustard);text-decoration:none;font-family:var(--mono);font-size:12.5px}
 section h2{font-family:var(--display);font-weight:500;font-size:26px;margin:0 0 10px}
 .sale{background:var(--mustard-soft);border:1px solid var(--mustard);border-radius:12px;padding:14px 16px}
@@ -98,7 +100,7 @@ footer a{color:inherit}
 </section>
 <section>
   <h2>The rules</h2>
-  <div class="card"><dl><dt>Plans</dt><dd>StartTrader · SwiftTrader · ProTrader · ProTrader Swing</dd><dt>Sizes</dt><dd>5K to 400K</dd><dt>Price</dt><dd>$34 to $2,599</dd><dt>Split</dt><dd>80% to 90% (up to 95% claimed)</dd><dt>Drawdown</dt><dd>3% max open risk rule</dd><dt>Platforms</dt><dd>TradingView, cTrader, MT5</dd></dl></div>
+  <div class="card"><dl><dt><a class="gl" href="/glossary/#evaluation" title="What this means">Plans</a></dt><dd>StartTrader · SwiftTrader · ProTrader · ProTrader Swing</dd><dt>Sizes</dt><dd>5K to 400K</dd><dt><a class="gl" href="/glossary/#billing" title="What this means">Price</a></dt><dd>$34 to $2,599</dd><dt><a class="gl" href="/glossary/#profit-split" title="What this means">Split</a></dt><dd>80% to 90% (up to 95% claimed)</dd><dt><a class="gl" href="/glossary/#drawdown" title="What this means">Drawdown</a></dt><dd>3% max open risk rule</dd><dt>Platforms</dt><dd>TradingView, cTrader, MT5</dd></dl></div>
 </section>
 <section>
   <h2>Confirmed changes</h2>
@@ -109,7 +111,7 @@ footer a{color:inherit}
 <footer>
   <div class="wrap">
     <p>Every fact above was read from Fintokei's own website, X account or email, last checked Mon Nov 2, 2026. Prices and rules change often; the firm's own page is the final word. Profit splits and "up to" numbers are the firm's claims. Some links on Prop Desk may be affiliate links, and every affiliate code is labeled as one. Education, not financial advice.</p>
-    <p><a href="/">propdesknews.com</a> · <a href="/firms/">Directory</a> · <a href="/news/">Rule changes &amp; news</a> · <a href="https://x.com/PropDeskNews">@PropDeskNews</a></p>
+    <p><a href="/">propdesknews.com</a> · <a href="/firms/">Directory</a> · <a href="/news/">Rule changes &amp; news</a> · <a href="/glossary/">Glossary</a> · <a href="https://x.com/PropDeskNews">@PropDeskNews</a></p>
   </div>
 </footer>
 <script>document.getElementById('cmp').addEventListener('change',function(){if(this.value)location.href='/compare/#fintokei,'+this.value});</script>

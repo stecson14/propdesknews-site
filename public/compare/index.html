@@ -55,6 +55,8 @@ main .wrap{padding-block:18px 70px;display:grid;gap:18px}
 .row{display:grid;gap:6px}
 .lbl{font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px}
 .lbl::after{content:"";flex:1;height:1px;background:var(--line)}
+.lbl .gl{color:inherit;text-decoration:none;border-bottom:1px dotted var(--muted)}
+.lbl .gl:hover{color:var(--mustard)}
 .vals{display:grid;grid-template-columns:repeat(var(--n,2),minmax(0,1fr));gap:8px}
 .v{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:9px 10px;font-size:13.5px;min-width:0;overflow-wrap:anywhere}
 .v.num{font-variant-numeric:tabular-nums}
@@ -127,7 +129,7 @@ footer a{color:inherit}
 <footer>
   <div class="wrap">
     <p>Sales listed are each firm's own public offers. Some links on Prop Desk may be affiliate links, and every affiliate code is labeled as one. Profit splits and "up to" numbers are the firms' claims. Prop firm evaluations are simulated trading products. Education, not financial advice.</p>
-    <p><a href="/">propdesknews.com</a> · <a href="/firms/">Directory</a> · <a href="/news/">Rule changes &amp; news</a> · <a href="https://x.com/PropDeskNews">@PropDeskNews</a></p>
+    <p><a href="/">propdesknews.com</a> · <a href="/firms/">Directory</a> · <a href="/news/">Rule changes &amp; news</a> · <a href="/glossary/">Glossary</a> · <a href="https://x.com/PropDeskNews">@PropDeskNews</a></p>
   </div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -692,6 +694,7 @@ const FIRMS = [
 const DEALS = {"apex-trader-funding": {"code": "SAVENOW", "save": "90% off", "what": "All evals (Intraday, EOD, Legacy). 25K Intraday $167 → $16.70.", "ends": "2026-11-04T23:59:00-05:00", "aff": false}, "tradeify": {"code": "NOV", "save": "30% off", "what": "40% off the Growth account. 50K $165 → $116, one-time payment.", "ends": "2026-11-13T23:59:00-05:00", "aff": false}, "take-profit-trader": {"code": "NOFEE50", "save": "50% off for life", "what": "Early Black Friday sale. 50K Test $170 → $85 per month.", "ends": "", "aff": false}, "lucid-trading": {"code": "VAULT", "save": "30% off", "what": "LucidDaily 50K $172 → $120.40.", "ends": "", "aff": false}, "fundednext-futures": {"code": "FNFLEX", "save": "Up to 47% off", "what": "Flex 50K $141.99 → $74.99, one-time payment.", "ends": "", "aff": false}};
 const slug = n => n.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const gl = (k, t) => `<a class="gl" href="/glossary/#${t}" title="What this means">${k}</a>`;
 const MK = m => m === "cfd" ? "CFD / forex" : m === "perps" ? "Perps" : "Futures";
 const BY = {}; FIRMS.forEach(f => { f.s = slug(f.n); BY[f.s] = f; });
 const MAX = 3;
@@ -755,11 +758,11 @@ function render(){
     return `<span class="c">${esc(d.code)}</span><span class="s">${esc(d.save)}${d.ends ? ", " + esc(fmtEnd(d.ends)) : ""}</span><button type="button" class="cp" data-c="${esc(d.code)}" data-f="${esc(f.n)}">Copy code</button>${d.aff ? `<span class="aff">Affiliate code, labeled as one</span>` : `<span class="aff">The firm's public code</span>`}`;
   }, "code")]);
   rows.push(["Sale on the firm's site", cell(f => f.deal ? f.deal : `<span style="color:var(--muted)">No sale shown</span>`, "sale")]);
-  rows.push(["Plans", cell(txt("plans"))]);
+  rows.push([gl("Plans","evaluation"), cell(txt("plans"))]);
   rows.push(["Sizes", cell(txt("sizes"), "num")]);
-  rows.push(["Price", cell(txt("price"), "num")]);
-  rows.push(["Split", cell(txt("split"))]);
-  rows.push(["Drawdown", cell(txt("dd"))]);
+  rows.push([gl("Price","billing"), cell(txt("price"), "num")]);
+  rows.push([gl("Split","profit-split"), cell(txt("split"))]);
+  rows.push([gl("Drawdown","drawdown"), cell(txt("dd"))]);
   rows.push(["Platforms", cell(txt("plat"))]);
   if (fs.some(f => f && f.note)) rows.push(["Notes", cell(f => f.note ? esc(f.note) : `<span style="color:var(--muted)">—</span>`)]);
   rows.push(["", cell(f => `<a href="/firms/${f.s}/">Full profile: rules, sale, confirmed changes →</a><a href="${esc(f.w)}" target="_blank" rel="noopener">Open ${esc(f.n)} ↗</a>`, "go")]);

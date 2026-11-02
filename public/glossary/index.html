@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Prop Firm Glossary: Drawdown, Resets, Payouts Explained | Prop Desk</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Plain-English prop firm glossary: trailing vs end-of-day drawdown, resets, activation fees, consistency rules, payout rules, profit splits, perps funding and what to check on the firm's own page before you buy.">
+<meta property="og:site_name" content="Prop Desk"><meta property="og:url" content="https://propdesknews.com/glossary/"><meta property="og:title" content="Prop Firm Glossary | Prop Desk">
+<meta property="og:description" content="18 fine-print terms decoded: drawdown types, resets, activation fees, consistency rules, payouts, perps. What each one costs you and what to check.">
+<meta property="og:image" content="https://propdesknews.com/og/glossary.png?v=60d03b3e"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@PropDeskNews">
+<link rel="canonical" href="https://propdesknews.com/glossary/">
+<link rel="icon" href="/avatar.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F3F0E6;--surface:#FFFDF7;--ink:#1A2233;--muted:#5A6275;--line:#D9D3C2;--navy:#1A2233;--cream:#E9E4D4;--mustard:#B7832A;--mustard-soft:#F3E3BF;--display:"Fraunces",Georgia,serif;--body:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121825;--surface:#1A2233;--ink:#E9E4D4;--muted:#A3A8B5;--line:#2E3850;--navy:#0D121C;--mustard:#D9A441;--mustard-soft:#3A3220;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121825;--surface:#1A2233;--ink:#E9E4D4;--muted:#A3A8B5;--line:#2E3850;--navy:#0D121C;--mustard:#D9A441;--mustard-soft:#3A3220;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+.wrap{max-width:820px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.sitenav{background:#1A2233;border-bottom:1px solid #33405A;font-family:"IBM Plex Mono",monospace;font-size:13px}
+.sitenav .in{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:6px 18px;flex-wrap:wrap}
+.sitenav a{color:#C9C4B5;text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
+.sitenav a:hover{color:#E9E4D4}
+.sitenav a[aria-current="page"]{color:#E9E4D4;border-bottom-color:#D9A441}
+.sitenav .brand{font-family:Fraunces,serif;font-weight:600;font-size:17px;color:#E9E4D4;margin-right:auto;display:inline-flex;align-items:center;gap:8px;border:0}
+@media (max-width:480px){.sitenav .xl{display:none}}
+@media (max-width:480px){.sitenav .in{gap:6px 12px;padding:10px 12px}.sitenav a{font-size:12.5px}.sitenav .brand{font-size:16px}}
+.sitenav .brand img{width:26px;height:26px;border-radius:50%;border:1px solid #D9A441}
+@media (max-width:400px){.sitenav .in{gap:6px 8px;padding:9px 10px}.sitenav a{font-size:12px}.sitenav .brand{font-size:15px;gap:6px}}
+
+header.mast{background:var(--navy);color:#E9E4D4}
+header.mast .wrap{padding-block:30px 24px;display:grid;gap:10px}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14px;letter-spacing:.14em;text-transform:uppercase;color:#D9A441}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,5vw,52px);line-height:1.05;margin:0;text-wrap:balance}
+.lede{max-width:64ch;color:#C9C4B5;margin:0}
+.jump{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.jump .wrap{padding-block:10px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.jump .wrap::-webkit-scrollbar{display:none}
+.jump a{flex:none;font:500 12px var(--mono);color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 11px;background:var(--surface);white-space:nowrap}
+.jump a:hover{border-color:var(--mustard);color:var(--mustard)}
+main .wrap{padding-block:22px 60px;display:grid;gap:34px}
+.group h2{font-family:var(--display);font-weight:500;font-size:28px;margin:0 0 4px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.group h2 small{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.group>p{margin:0 0 14px;color:var(--muted);font-size:14px;max-width:70ch}
+.terms{display:grid;gap:12px}
+.term{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:grid;gap:10px;position:relative;scroll-margin-top:70px}
+.term:target{border-color:var(--mustard);box-shadow:0 0 0 1px var(--mustard)}
+.term h3{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.2;margin:0;padding-right:28px}
+.term h3 a{color:inherit;text-decoration:none}
+.term .short{margin:0;font-size:15px}
+.term .two{display:grid;gap:10px}
+@media (min-width:640px){.term .two{grid-template-columns:1fr 1fr}}
+.term .two div{background:var(--bg);border-radius:8px;padding:10px 12px;font-size:13.5px}
+.term .two b{display:block;font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mustard);margin-bottom:4px}
+.term .two p{margin:0}
+.term .anchor{position:absolute;top:14px;right:14px;font:500 13px var(--mono);color:var(--muted);text-decoration:none}
+.cta{display:grid;gap:8px}
+.cta a{display:block;background:var(--navy);color:#E9E4D4;text-decoration:none;border-radius:10px;padding:14px 16px;font:600 14px var(--mono)}
+.cta a.alt{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+footer .wrap{padding-block:0 40px;color:var(--muted);font-size:13px;display:grid;gap:6px;max-width:80ch;margin-left:0}
+footer a{color:inherit}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/avatar.jpg" alt="" width="26" height="26">Prop Desk</a><a href="/#deals">Deals</a><a href="/news/">News</a><a href="/firms/">Directory</a><a href="/compare/">Compare</a><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="kicker">Fine print, decoded · 18 terms</div>
+    <h1>Prop firm glossary</h1>
+    <p class="lede">Every term the firms use in their rules, in plain English, with what it costs you and what to check on the firm's own page before you buy. Tap any chip or rule label on Prop Desk to open the matching entry.</p>
+  </div>
+</header>
+
+<nav class="jump" aria-label="Jump to a term"><div class="wrap"><a href="#funded">Getting funded</a><a href="#drawdown">Drawdown types</a><a href="#paying">What you pay</a><a href="#paid">Getting paid</a><a href="#other">Also worth knowing</a></div></nav>
+
+<main>
+  <div class="wrap">
+<section class="group" id="funded"><h2>Getting funded <small>4 terms</small></h2><p>The test and what comes after it.</p><div class="terms">
+<article class="term" id="evaluation"><h3><a href="#evaluation">Evaluation (eval, challenge, combine)</a></h3><p class="short">The paid test you trade first. You trade a simulated account and must hit a profit target without breaking the firm&#x27;s rules before you get a funded account.</p><div class="two"><div><b>Why it matters</b><p>The eval fee is only the sticker price. Most traders don&#x27;t pass on the first try, so resets, activation fees and monthly renewals decide what you really pay.</p></div><div><b>Check on the firm's page</b><p>Profit target, drawdown type, time limit (if any), and whether the fee is one-time or renews monthly.</p></div></div><a class="anchor" href="#evaluation" aria-label="Link to this term">#</a></article>
+<article class="term" id="profit-target"><h3><a href="#profit-target">Profit target</a></h3><p class="short">The profit you need to close the eval, usually 6% to 10% of the account size (for example $3,000 on a 50K).</p><div class="two"><div><b>Why it matters</b><p>Target divided by drawdown tells you how hard the test is. A $3,000 target with a $2,000 drawdown means you have to make 1.5 times what you are allowed to lose.</p></div><div><b>Check on the firm's page</b><p>Target size, minimum trading days, and whether there is a time limit.</p></div></div><a class="anchor" href="#profit-target" aria-label="Link to this term">#</a></article>
+<article class="term" id="funded-account"><h3><a href="#funded-account">Funded account (PA, sim-funded, express, live)</a></h3><p class="short">The account you get after passing. At most futures firms it is still simulated (often called a Performance Account, PA, or sim-funded), and the firm pays you from its own pocket. A &#x27;live&#x27; account places real orders in the market, usually only after a run of payouts.</p><div class="two"><div><b>Why it matters</b><p>Sim-funded accounts can have different rules from the eval: new drawdown, consistency rules, payout minimums and contract limits. The rules that matter most start here.</p></div><div><b>Check on the firm's page</b><p>Activation fee, payout rules on the funded stage, and when (or if) you move to a live account.</p></div></div><a class="anchor" href="#funded-account" aria-label="Link to this term">#</a></article>
+<article class="term" id="scaling"><h3><a href="#scaling">Scaling plan / contract limits</a></h3><p class="short">How many contracts you may trade, often tied to your balance, and how the limit grows as you earn.</p><div class="two"><div><b>Why it matters</b><p>A small contract limit makes a big profit target slower to reach, and breaking the limit is a rule violation at most firms.</p></div><div><b>Check on the firm's page</b><p>Max contracts at the start, how scaling works, and whether micros count differently.</p></div></div><a class="anchor" href="#scaling" aria-label="Link to this term">#</a></article>
+</div></section>
+<section class="group" id="drawdown"><h2>Drawdown types <small>5 terms</small></h2><p>The rule that ends most accounts. Same size, very different products.</p><div class="terms">
+<article class="term" id="trailing-drawdown"><h3><a href="#trailing-drawdown">Trailing drawdown (intraday)</a></h3><p class="short">Your maximum loss line follows your account balance up as you make money, including open, unrealized profit during a trade. If your balance ever falls back to that line, the account is closed.</p><div class="two"><div><b>Why it matters</b><p>The strictest type. A trade that runs $1,000 in your favor and comes back to break-even has moved your loss line up by $1,000, so you can be stopped out while sitting at your starting balance.</p></div><div><b>Check on the firm's page</b><p>Whether the firm says &#x27;intraday&#x27;, &#x27;real-time&#x27; or &#x27;end of day&#x27; for the trailing calculation, and whether it stops trailing once you are a set amount above the start.</p></div></div><a class="anchor" href="#trailing-drawdown" aria-label="Link to this term">#</a></article>
+<article class="term" id="eod-trailing-drawdown"><h3><a href="#eod-trailing-drawdown">End-of-day (EOD) trailing drawdown</a></h3><p class="short">The loss line only moves up once a day, based on your closed balance at the end of the trading day. Open profit during the day doesn&#x27;t move it.</p><div class="two"><div><b>Why it matters</b><p>Much more forgiving than intraday trailing: a winner that comes back to break-even doesn&#x27;t raise your loss line. Two firms with the same price and drawdown size are not the same product if one is intraday and one is EOD.</p></div><div><b>Check on the firm's page</b><p>What time &#x27;end of day&#x27; means (usually the exchange settlement), and whether the drawdown locks in place after you earn a buffer.</p></div></div><a class="anchor" href="#eod-trailing-drawdown" aria-label="Link to this term">#</a></article>
+<article class="term" id="static-drawdown"><h3><a href="#static-drawdown">Static drawdown / max loss limit</a></h3><p class="short">A fixed loss line that never moves. If the account starts at $50,000 with a $2,000 static drawdown, you are out at $48,000 whatever you make in between.</p><div class="two"><div><b>Why it matters</b><p>The simplest rule to trade around, and usually the most generous, which is why static accounts often cost more or come with a smaller size.</p></div><div><b>Check on the firm's page</b><p>That the limit really is static, not &#x27;static after you reach X&#x27;.</p></div></div><a class="anchor" href="#static-drawdown" aria-label="Link to this term">#</a></article>
+<article class="term" id="daily-loss-limit"><h3><a href="#daily-loss-limit">Daily loss limit</a></h3><p class="short">The most you may lose in one day, on top of the overall drawdown. Hitting it usually locks you out until the next session, and at some firms it ends the account.</p><div class="two"><div><b>Why it matters</b><p>It caps a bad day, which some traders like, but a tight daily limit on a volatile day can end a run that the overall drawdown would have survived.</p></div><div><b>Check on the firm's page</b><p>Whether hitting it is a lockout or a failure, and whether it is optional (some firms let you add one in exchange for a bigger payout).</p></div></div><a class="anchor" href="#daily-loss-limit" aria-label="Link to this term">#</a></article>
+<article class="term" id="safety-net"><h3><a href="#safety-net">Safety net / buffer</a></h3><p class="short">A cushion you must build above the original drawdown line before you can take a payout, or an extra amount added to the drawdown.</p><div class="two"><div><b>Why it matters</b><p>It changes how far your first payout is. A $100 safety net is small; a rule that the drawdown must be fully &#x27;cleared&#x27; before withdrawing means you need the whole drawdown amount in profit first.</p></div><div><b>Check on the firm's page</b><p>The exact number and whether it applies to every payout or just the first.</p></div></div><a class="anchor" href="#safety-net" aria-label="Link to this term">#</a></article>
+</div></section>
+<section class="group" id="paying"><h2>What you pay <small>4 terms</small></h2><p>The sticker price is the smallest number.</p><div class="terms">
+<article class="term" id="activation-fee"><h3><a href="#activation-fee">Activation fee</a></h3><p class="short">A one-time or monthly charge to open the funded account after you pass. Common at futures firms; some waive it or offer a &#x27;no activation fee&#x27; plan that costs more upfront.</p><div class="two"><div><b>Why it matters</b><p>It can be larger than the eval itself. A $50 eval with a $150 activation fee costs more than a $120 eval with none, if you pass.</p></div><div><b>Check on the firm's page</b><p>Amount, whether it is per account, and whether a &#x27;lifetime&#x27; or &#x27;no activation&#x27; option exists.</p></div></div><a class="anchor" href="#activation-fee" aria-label="Link to this term">#</a></article>
+<article class="term" id="reset"><h3><a href="#reset">Reset</a></h3><p class="short">Paying to start a failed eval over with a fresh balance and drawdown instead of buying a new account.</p><div class="two"><div><b>Why it matters</b><p>Resets are where the real money goes. If you expect to need two resets, a $79 reset fee on a cheap eval can beat a free reset on an expensive one, or not. Do the math for your own pass rate.</p></div><div><b>Check on the firm's page</b><p>Reset price per size, whether resets are allowed on funded accounts, and whether discount codes apply to resets (they often don&#x27;t).</p></div></div><a class="anchor" href="#reset" aria-label="Link to this term">#</a></article>
+<article class="term" id="billing"><h3><a href="#billing">One-time vs monthly billing</a></h3><p class="short">A one-time eval is paid once and stays open until you pass or fail. A monthly eval renews every month you are still in it.</p><div class="two"><div><b>Why it matters</b><p>A &#x27;cheaper&#x27; monthly eval that takes you three months costs three times its sticker price. Prop Desk labels each deal&#x27;s billing type next to its price.</p></div><div><b>Check on the firm's page</b><p>The renewal date, how to cancel, and whether a sale price applies to renewals or only the first month.</p></div></div><a class="anchor" href="#billing" aria-label="Link to this term">#</a></article>
+<article class="term" id="true-cost"><h3><a href="#true-cost">True cost</a></h3><p class="short">What you actually pay to reach your first payout: eval fee plus likely resets plus activation fee plus any monthly renewals, minus the discount.</p><div class="two"><div><b>Why it matters</b><p>It is the number the sticker price hides. Two deals with the same &#x27;50% off&#x27; headline can be hundreds of dollars apart once you add activation and a reset.</p></div><div><b>Check on the firm's page</b><p>Add it up for your own expected attempts before you compare headline discounts.</p></div></div><a class="anchor" href="#true-cost" aria-label="Link to this term">#</a></article>
+</div></section>
+<section class="group" id="paid"><h2>Getting paid <small>3 terms</small></h2><p>The rules between a green account and money in your bank.</p><div class="terms">
+<article class="term" id="profit-split"><h3><a href="#profit-split">Profit split (90/10, &#x27;up to 100%&#x27;)</a></h3><p class="short">How withdrawn profit is shared. 90/10 means you keep 90%. &#x27;Up to&#x27; and &#x27;100% of the first $10K&#x27; are the firm&#x27;s best case, usually with conditions.</p><div class="two"><div><b>Why it matters</b><p>The split matters less than the rules that control when you can withdraw at all. A 100% split with a long payout cycle can pay you less, sooner, than a 90% split with weekly payouts.</p></div><div><b>Check on the firm's page</b><p>The split at each stage (funded vs live), what &#x27;up to&#x27; depends on, and any cap on total withdrawals.</p></div></div><a class="anchor" href="#profit-split" aria-label="Link to this term">#</a></article>
+<article class="term" id="payouts"><h3><a href="#payouts">Payout rules (minimum, cycle, qualifying days)</a></h3><p class="short">The conditions for withdrawing: a minimum amount, a payout cycle (daily, weekly, every 14 days), a number of qualifying trading days, and sometimes a cap on your first payouts.</p><div class="two"><div><b>Why it matters</b><p>This is the path to money. Count the days and the minimum before you buy: 5 qualifying days at $150 profit each plus a $500 minimum is a very different product from &#x27;withdraw from day one&#x27;.</p></div><div><b>Check on the firm's page</b><p>Minimum payout, qualifying day definition, payout cycle, caps, and the consistency rule at payout time.</p></div></div><a class="anchor" href="#payouts" aria-label="Link to this term">#</a></article>
+<article class="term" id="consistency-rule"><h3><a href="#consistency-rule">Consistency rule</a></h3><p class="short">Your best day (or your profits around a payout) may not be more than a set share of total profit, for example 40% or 50%. Breaking it usually delays a payout rather than failing the account.</p><div class="two"><div><b>Why it matters</b><p>It stops one lucky day from carrying you to a payout. If you trade big on news days, a 30% rule can hold your money for weeks.</p></div><div><b>Check on the firm's page</b><p>The percentage, whether it applies in the eval, the funded stage or both, and what happens when you break it.</p></div></div><a class="anchor" href="#consistency-rule" aria-label="Link to this term">#</a></article>
+</div></section>
+<section class="group" id="other"><h2>Also worth knowing <small>2 terms</small></h2><div class="terms">
+<article class="term" id="perps"><h3><a href="#perps">Perps (perpetual futures) and funding rates</a></h3><p class="short">Crypto futures with no expiry that trade 24/7. Every few hours, longs and shorts pay each other a &#x27;funding&#x27; rate to keep the contract near the spot price.</p><div class="two"><div><b>Why it matters</b><p>Funding payments and exchange-style trading fees can count against your drawdown at perps prop firms, and 24/7 trading means your end-of-day line may be defined differently.</p></div><div><b>Check on the firm's page</b><p>Whether fees and funding hit your drawdown, which exchange prices are used, and the maximum leverage.</p></div></div><a class="anchor" href="#perps" aria-label="Link to this term">#</a></article>
+<article class="term" id="affiliate-codes"><h3><a href="#affiliate-codes">Affiliate code vs the firm&#x27;s public code</a></h3><p class="short">A public code is the firm&#x27;s own promotion, open to anyone. An affiliate code is tied to a partner who earns a commission when you use it, at no extra cost to you.</p><div class="two"><div><b>Why it matters</b><p>Prop Desk labels every code. Where a code is an affiliate code it says so, and we still report bad rule changes from the same firm.</p></div><div><b>Check on the firm's page</b><p>That the code works at checkout on the firm&#x27;s own site; prices and codes change often.</p></div></div><a class="anchor" href="#affiliate-codes" aria-label="Link to this term">#</a></article>
+</div></section>
+    <div class="cta">
+      <a href="/#deals">See the live deals with the fine print spelled out →</a>
+      <a class="alt" href="/compare/">Put two firms side by side →</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>General definitions. Each firm defines its own rules, and they change often; the firm's own page is the final word. Some links on Prop Desk may be affiliate links, and every affiliate code is labeled as one. Prop firm evaluations are simulated trading products. Education, not financial advice.</p>
+    <p><a href="/">propdesknews.com</a> · <a href="/firms/">Directory</a> · <a href="/compare/">Compare</a> · <a href="/news/">Rule changes &amp; news</a> · <a href="https://x.com/PropDeskNews">@PropDeskNews</a></p>
+  </div>
+</footer>
+</body>
+</html>

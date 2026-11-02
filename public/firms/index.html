@@ -86,6 +86,8 @@ section h2 small{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text
 .xstat{font-size:12px;color:var(--muted);margin-top:-4px}
 dl{display:grid;grid-template-columns:96px 1fr;gap:6px 12px;margin:0;font-size:14px}
 dt{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.gl{color:inherit;text-decoration:none;border-bottom:1px dotted var(--muted)}
+.gl:hover{color:var(--mustard);border-bottom-color:var(--mustard)}
 dd{margin:0;min-width:0;overflow-wrap:anywhere}
 dd.num{font-variant-numeric:tabular-nums}
 .deal{background:var(--mustard-soft);border-radius:6px;padding:8px 10px;font-size:13.5px}
@@ -178,7 +180,7 @@ body.hastray{padding-bottom:92px}
 <footer>
   <div class="wrap">
     <p>Sales listed are each firm's own public offers. Some links on Prop Desk may be affiliate links, and every affiliate code is labeled as one. Profit splits and "up to" numbers are the firms' claims. Prop firm evaluations are simulated trading products. Education, not financial advice.</p>
-    <p><a href="/" style="color:inherit">propdesknews.com</a> · <a href="https://x.com/PropDeskNews" style="color:inherit">@PropDeskNews</a> · <a href="mailto:hello@propdesknews.com" style="color:inherit">hello@propdesknews.com</a></p>
+    <p><a href="/" style="color:inherit">propdesknews.com</a> · <a href="/glossary/" style="color:inherit">Glossary</a> · <a href="https://x.com/PropDeskNews" style="color:inherit">@PropDeskNews</a> · <a href="mailto:hello@propdesknews.com" style="color:inherit">hello@propdesknews.com</a></p>
   </div>
 </footer>
 
@@ -753,6 +755,7 @@ const xLink = x => {
   return {href:`https://x.com/${x.h}`, label:`@${esc(x.h)}`, stat:x.s, text: x.s === "ok" ? "Checked on X, Oct 31" : "Linked from the firm's site"};
 };
 const row = (k, v, cls="") => v ? `<dt>${k}</dt><dd class="${cls}">${v}</dd>` : "";
+const gl = (k, t) => `<a class="gl" href="/glossary/#${t}" title="What this means">${k}</a>`;
 function card(f){
   const x = xLink(f.x);
   const host = f.w.replace(/^https?:\/\/(www\.)?/,"").replace(/\/$/,"");
@@ -764,11 +767,11 @@ function card(f){
       <a class="lk" href="${x.href}" target="_blank" rel="noopener">${x.label} <span class="arr">↗</span></a>
     </div>
     <dl>
-      ${row("Plans", esc(f.plans))}
+      ${row(gl("Plans","evaluation"), esc(f.plans))}
       ${row("Sizes", esc(f.sizes), "num")}
-      ${row("Price", esc(f.price), "num")}
-      ${row("Split", esc(f.split))}
-      ${row("Drawdown", esc(f.dd))}
+      ${row(gl("Price","billing"), esc(f.price), "num")}
+      ${row(gl("Split","profit-split"), esc(f.split))}
+      ${row(gl("Drawdown","drawdown"), esc(f.dd))}
       ${row("Platforms", esc(f.plat))}
     </dl>
     ${f.deal ? `<div class="deal">Firm's sale: ${f.deal}</div>` : ""}
