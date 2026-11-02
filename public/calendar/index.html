@@ -51,13 +51,14 @@ section h2 small{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text
 .fallback{padding:18px 16px;display:grid;gap:8px;font-size:14px}
 .fallback a{color:var(--mustard);text-decoration:none;font-family:var(--mono)}
 .tscroll{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th:nth-child(1){width:21%}th:nth-child(2){width:25%}th:nth-child(3){width:15%}th:nth-child(4){width:39%}
 th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
 th{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
-td.t{font-family:var(--mono);white-space:nowrap}
-td.m{font-family:var(--mono);font-size:12.5px;white-space:nowrap}
+td.t{font-family:var(--mono);font-size:13px}
+td.m{font-family:var(--mono);font-size:12.5px}
 tr:last-child td{border-bottom:0}
-@media (max-width:640px){td.t,td.m{white-space:normal}table{font-size:14px}thead{display:none}table,tbody,tr,td{display:block;width:100%;box-sizing:border-box}tr{padding:10px 12px;border-bottom:1px solid var(--line)}tr:last-child{border-bottom:0}td{border:0;padding:2px 0}td:first-child{font-size:15px}td.t::before{content:"When (ET): ";color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}td.m::before{content:"Moves: ";color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}td:last-child{color:var(--muted);font-size:13.5px;padding-top:4px}}
+@media (max-width:640px){table{font-size:14px;table-layout:auto}thead{display:none}table,tbody,tr,td{display:block;width:100%;box-sizing:border-box}tr{padding:10px 12px;border-bottom:1px solid var(--line)}tr:last-child{border-bottom:0}td{border:0;padding:2px 0}td:first-child{font-size:15px}td.t::before{content:"When (ET): ";color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}td.m::before{content:"Moves: ";color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}td:last-child{color:var(--muted);font-size:13.5px;padding-top:4px}}
 .rule{display:grid;gap:10px}
 .rule article{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
 .rule h3{font-family:var(--display);font-weight:700;font-size:19px;margin:0 0 4px}
