@@ -73,6 +73,9 @@ section h2 small{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text
 .card.tier1{border-color:var(--mustard)}
 .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
 .name{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.15;margin:0}
+.name a{color:inherit;text-decoration:none;border-bottom:2px solid var(--mustard)}
+.name a:hover{color:var(--mustard)}
+.more{font:500 12px var(--mono);color:var(--mustard);text-decoration:none;justify-self:start}
 .tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .tag{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:4px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
 .tag.t1{border-color:var(--mustard);color:var(--mustard)}
@@ -611,6 +614,7 @@ const FIRMS = [
   note:"Rebranded around \"SimFi\", multi-asset including futures and crypto. No X link on their site."}
 ];
 
+const slug = n => n.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const xLink = x => {
   if (x.s === "none") {
@@ -625,7 +629,7 @@ function card(f){
   const host = f.w.replace(/^https?:\/\/(www\.)?/,"").replace(/\/$/,"");
   const tags = f.m.map(m => `<span class="tag">${m === "cfd" ? "CFD/FX" : "Futures"}</span>`).join("");
   return `<article class="card">
-    <div class="top"><h3 class="name">${esc(f.n)}</h3><div class="tags">${tags}</div></div>
+    <div class="top"><h3 class="name"><a href="/firms/${slug(f.n)}/">${esc(f.n)}</a></h3><div class="tags">${tags}</div></div>
     <div class="links">
       <a class="lk" href="${f.w}" target="_blank" rel="noopener">${esc(host)} <span class="arr">↗</span></a>
       <a class="lk" href="${x.href}" target="_blank" rel="noopener">${x.label} <span class="arr">↗</span></a>
@@ -640,6 +644,7 @@ function card(f){
     </dl>
     ${f.deal ? `<div class="deal">Firm's sale: ${f.deal}</div>` : ""}
     ${f.note ? `<div class="note">${esc(f.note)}</div>` : ""}
+    <a class="more" href="/firms/${slug(f.n)}/">Full profile: rules, sale and every confirmed change →</a>
   </article>`;
 }
 

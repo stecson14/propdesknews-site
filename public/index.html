@@ -123,24 +123,24 @@ details.fp .src a{color:var(--muted)}
 <div id="deal-list"></div>
 <noscript><p class="sub">Turn on JavaScript to see live deals.</p></noscript>
 </section>
-<!-- DEALS: the daily run edits only this array. Fields: firm, url, save (headline), what, code, ends (ISO with ET offset, or ""), aff (true only for Prop Desk's approved affiliate codes), chips (2-3 short verified facts), fine ([label, text] rows read from the firm's site; omit anything unverified). Deals past "ends" hide themselves. -->
+<!-- DEALS: the daily run edits only this array. Fields: firm, page (profile URL /firms/<slug>/), url, save (headline), what, code, ends (ISO with ET offset, or ""), aff (true only for Prop Desk's approved affiliate codes), chips (2-3 short verified facts), fine ([label, text] rows read from the firm's site; omit anything unverified). Deals past "ends" hide themselves. -->
 <script>
 const UPDATED = "Nov 2, 2026";
 const CHECKED = "Nov 2, 2026";
 const DEALS = [
-  {firm:"Apex", url:"https://apextraderfunding.com", save:"90% off", what:"All evals (Intraday, EOD, Legacy). 25K Intraday $167 → $16.70.", code:"SAVENOW", ends:"2026-11-04T23:59:00-05:00", aff:false,
+  {firm:"Apex", page:"/firms/apex-trader-funding/", url:"https://apextraderfunding.com", save:"90% off", what:"All evals (Intraday, EOD, Legacy). 25K Intraday $167 → $16.70.", code:"SAVENOW", ends:"2026-11-04T23:59:00-05:00", aff:false,
    chips:["EOD trailing drawdown","$500 min payout","50% consistency rule"],
    fine:[["Drawdown","End-of-day trailing. Safety net is the drawdown plus $100."],["Payouts","100% split on EOD Performance Accounts. 5 qualifying days, $500 minimum, 50% consistency rule, max 6 payouts per account."],["What the code skips","New signups only. Not valid on resets or PA activation fees."]]},
-  {firm:"Tradeify", url:"https://tradeify.co", save:"30% off", what:"40% off the Growth account. 50K $165 → $116, one-time payment.", code:"NOV", ends:"2026-11-13T23:59:00-05:00", aff:false,
+  {firm:"Tradeify", page:"/firms/tradeify/", url:"https://tradeify.co", save:"30% off", what:"40% off the Growth account. 50K $165 → $116, one-time payment.", code:"NOV", ends:"2026-11-13T23:59:00-05:00", aff:false,
    chips:["EOD trailing drawdown","90/10 split","One-time payment"],
    fine:[["Drawdown","End-of-day trailing. Profit targets $1.5K / $3K / $6K / $9K for 25K to 150K."],["Payouts","90/10 split, Daily or Flex payout path."],["Consistency","Consistency rule applies in the eval only."]]},
-  {firm:"Take Profit Trader", url:"https://takeprofittrader.com", save:"50% off for life", what:"Early Black Friday sale. 50K Test $170 → $85 per month.", code:"NOFEE50", ends:"", aff:false,
+  {firm:"Take Profit Trader", page:"/firms/take-profit-trader/", url:"https://takeprofittrader.com", save:"50% off for life", what:"Early Black Friday sale. 50K Test $170 → $85 per month.", code:"NOFEE50", ends:"", aff:false,
    chips:["Monthly billing","$130 activation fee waived","Resets $79 to $199"],
    fine:[["Billing","The Test renews monthly ($150 / $170 / $245 / $330 / $360 list for 25K to 150K) until you pass."],["Fees","$130 one-time activation fee, waived for life on accounts opened with this code. Test resets $79 / $99 / $139 / $169 / $199."],["Payouts","PRO 80/20, PRO+ 90/10. Withdrawals from day one on PRO, no maximum."]]},
-  {firm:"Lucid", url:"https://lucidtrading.com", save:"30% off", what:"LucidDaily 50K $172 → $120.40.", code:"VAULT", ends:"", aff:false,
+  {firm:"Lucid", page:"/firms/lucid-trading/", url:"https://lucidtrading.com", save:"30% off", what:"LucidDaily 50K $172 → $120.40.", code:"VAULT", ends:"", aff:false,
    chips:["EOD drawdown","Daily loss limit","90/10 split"],
    fine:[["Drawdown","End-of-day. LucidDaily 25K: $1,000 max loss and a $600 daily loss limit."],["Payouts","90/10 split. LucidFlex: 5 qualifying days, $500 minimum payout, up to 5 payouts, then live."],["Consistency","LucidFlex eval: your largest day must be 40% or less of eval profit (50% with the paid add-on)."]]},
-  {firm:"FundedNext Futures", url:"https://fundednext.com/futures", save:"Up to 47% off", what:"Flex 50K $141.99 → $74.99, one-time payment.", code:"FNFLEX", ends:"", aff:false,
+  {firm:"FundedNext Futures", page:"/firms/fundednext-futures/", url:"https://fundednext.com/futures", save:"Up to 47% off", what:"Flex 50K $141.99 → $74.99, one-time payment.", code:"FNFLEX", ends:"", aff:false,
    chips:["EOD trailing drawdown","One-time payment","Up to 95% split (firm's claim)"],
    fine:[["Drawdown","End-of-day trailing only, no buffer rule."],["Payouts","Up to 95% split is the firm's own claim."],["Platforms","NinjaTrader, Tradovate, TradingView."]]}
 ];
@@ -176,7 +176,7 @@ const DEALS = [
   var chips=function(d){return d.chips&&d.chips.length?'<div class="chips">'+d.chips.map(function(c){return '<span class="chip">'+esc(c)+'</span>'}).join("")+'</div>':""};
   var fine=function(d,open){if(!d.fine||!d.fine.length)return "";
     return '<details class="fp"'+(open?" open":"")+'><summary>Read the fine print</summary><dl>'+d.fine.map(function(r){return '<dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd>'}).join("")+
-      '</dl><p class="src">Read from <a href="'+esc(d.url)+'" target="_blank" rel="noopener">'+esc(d.firm)+"'s site</a>, checked "+esc(CHECKED)+'. Rules change. The firm\'s page is the final word.</p></details>'};
+      '</dl><p class="src">Read from <a href="'+esc(d.url)+'" target="_blank" rel="noopener">'+esc(d.firm)+"'s site</a>, checked "+esc(CHECKED)+'. Rules change. The firm\'s page is the final word.'+(d.page?' <a href="'+esc(d.page)+'">Full '+esc(d.firm)+' profile: rules, sale and every confirmed change →</a>':'')+'</p></details>'};
   document.getElementById("upd").textContent=UPDATED;
   var timed=live.filter(function(d){return d.ends}).sort(function(a,b){return new Date(a.ends)-new Date(b.ends)});
   var hero=timed[0], rest=live.filter(function(d){return d!==hero});
