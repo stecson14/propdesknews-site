@@ -43,9 +43,20 @@ h2{font-family:Fraunces,serif;font-weight:600;font-size:24px;margin:36px 0 4px}
 .fine strong{color:var(--cream)}
 .fine a{color:var(--cream)}
 footer{text-align:center;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);margin-top:28px}
+.sitenav{background:#1A2233;border-bottom:1px solid #33405A;font-family:"IBM Plex Mono",monospace;font-size:13px}
+.sitenav .in{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:6px 18px;flex-wrap:wrap}
+.sitenav a{color:#C9C4B5;text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
+.sitenav a:hover{color:#E9E4D4}
+.sitenav a[aria-current="page"]{color:#E9E4D4;border-bottom-color:#D9A441}
+.sitenav .brand{font-family:Fraunces,serif;font-weight:600;font-size:17px;color:#E9E4D4;margin-right:auto;display:inline-flex;align-items:center;gap:8px;border:0}
+@media (max-width:480px){.sitenav .xl{display:none}}
+.sitenav .brand img{width:26px;height:26px;border-radius:50%;border:1px solid #D9A441}
+body{padding-top:0}
+.sitenav{margin:0 -16px 32px}
 </style>
 </head>
 <body>
+<nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/avatar.jpg" alt="" width="26" height="26">Prop Desk</a><a href="/#deals" aria-current="page">Deals</a><a href="/firms/">Firm directory</a><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
 <div class="wrap">
 <header>
   <img class="avatar" src="avatar.jpg" alt="Prop Desk mascot" width="96" height="96">
@@ -59,7 +70,7 @@ footer{text-align:center;font-family:"IBM Plex Mono",monospace;font-size:12px;co
 <a class="btn alt" href="/firms/">Prop Firm Directory: 50 firms compared</a>
 <a class="btn alt" href="mailto:hello@propdesknews.com">Email: hello@propdesknews.com</a>
 
-<h2>Live deals</h2>
+<h2 id="deals">Live deals</h2>
 <p class="sub">Checked on each firm's own site · Updated Nov 2, 2026 · USD</p>
 
 <!-- DEALS: edit below. Add class/label "Affiliate code" once your own codes are approved. -->
