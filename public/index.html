@@ -19,11 +19,11 @@
 body{background:var(--navy);color:var(--cream);font-family:"IBM Plex Sans",system-ui,sans-serif;line-height:1.5;padding:40px 16px 56px}
 .wrap{max-width:560px;margin:0 auto}
 header{text-align:center}
-.avatar{width:96px;height:96px;border-radius:50%;border:2px solid var(--mustard);display:block;margin:0 auto 16px}
+.avatar{width:72px;height:72px;border-radius:50%;border:2px solid var(--mustard);display:block;margin:0 auto 16px}
 .kicker{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.14em;color:var(--mustard)}
-h1{font-family:Fraunces,serif;font-weight:600;font-size:44px;line-height:1.1;margin:6px 0 8px}
+h1{font-family:Fraunces,serif;font-weight:600;font-size:36px;line-height:1.1;margin:4px 0 6px}
 .slogan{font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--muted)}
-svg.line{display:block;margin:20px auto 28px;width:100%;max-width:320px;height:36px}
+svg.line{display:block;margin:14px auto 18px;width:100%;max-width:320px;height:36px}
 .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:14px 16px;margin:10px 0;border-radius:12px;background:var(--cream);color:var(--navy);font-weight:600;text-decoration:none;font-size:16px}
 .btn.alt{background:transparent;color:var(--cream);border:1px solid var(--line)}
 .btn:hover{filter:brightness(1.05)}
@@ -53,58 +53,69 @@ footer{text-align:center;font-family:"IBM Plex Mono",monospace;font-size:12px;co
 .sitenav .brand img{width:26px;height:26px;border-radius:50%;border:1px solid #D9A441}
 body{padding-top:0}
 .sitenav{margin:0 -16px 32px}
+
+.hero{position:relative;background:linear-gradient(160deg,#2A3550,#1F2840);border:1px solid var(--mustard);border-radius:16px;padding:18px 18px 16px;margin:4px 0 8px;overflow:hidden}
+.hero .lbl{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--mustard)}
+.hero .big{font-family:Fraunces,serif;font-size:34px;font-weight:600;line-height:1.05;margin:6px 0 2px}
+.hero .who{font-size:16px;color:var(--cream)}
+.hero .what{color:var(--muted);font-size:14px;margin:6px 0 12px}
+.clock{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0 0 14px}
+.clock div{background:var(--navy);border:1px solid var(--line);border-radius:10px;text-align:center;padding:8px 0 6px}
+.clock b{display:block;font:600 24px "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;color:var(--cream)}
+.clock span{font:11px "IBM Plex Mono",monospace;color:var(--muted);letter-spacing:.08em}
+.go{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;border:0;border-radius:12px;background:var(--mustard);color:var(--navy);padding:14px 16px;font:600 16px "IBM Plex Sans",sans-serif;cursor:pointer;text-align:left}
+.go code{font:600 15px "IBM Plex Mono",monospace;background:rgba(26,34,51,.14);padding:4px 8px;border-radius:6px;letter-spacing:.06em}
+.go:active{transform:translateY(1px)}
+.go.sm{background:var(--cream);padding:12px 14px;font-size:15px}
+.deal .row1{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.deal .save{font-family:Fraunces,serif;font-size:22px;font-weight:600;color:var(--cream)}
+.deal .firmname{font-weight:600}
+.deal .ends.soon{color:#E39A8A}
+.deal .acts{display:flex;gap:8px;align-items:center;margin-top:10px}
+.deal .acts .go{flex:1}
+.copyonly{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:10px;padding:12px 12px;font:600 12px "IBM Plex Mono",monospace;cursor:pointer}
+.more{margin-top:28px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,30px);opacity:0;background:var(--cream);color:var(--navy);padding:12px 16px;border-radius:12px;font-weight:600;font-size:14px;box-shadow:0 8px 30px rgba(0,0,0,.35);transition:.25s;z-index:20;max-width:calc(100% - 32px);text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.toast{transition:none}}
 </style>
 </head>
 <body>
 <nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/avatar.jpg" alt="" width="26" height="26">Prop Desk</a><a href="/#deals" aria-current="page">Deals</a><a href="/firms/">Firm directory</a><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
 <div class="wrap">
 <header>
-  <img class="avatar" src="avatar.jpg" alt="Prop Desk mascot" width="96" height="96">
+  <img class="avatar" src="avatar.jpg" alt="Prop Desk mascot" width="72" height="72">
   <div class="kicker">PROP FIRM NEWS &amp; DEALS</div>
   <h1>Prop Desk</h1>
   <p class="slogan">Trade the market, not the fine print.</p>
   <svg class="line" viewBox="0 0 320 36" aria-hidden="true"><polyline fill="none" stroke="#D9A441" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" points="2,10 40,8 70,12 100,6 130,9 150,30 175,26 200,27 240,27 280,27 318,27"/></svg>
 </header>
 
+<section id="deals" aria-label="Live deals">
+<div class="hero" id="hero" hidden></div>
+<h2>Live deals</h2>
+<p class="sub">Checked on each firm's own site · Updated <span id="upd">Nov 2, 2026</span> · USD · One tap copies the code and opens the firm</p>
+<div id="deal-list"></div>
+<noscript><p class="sub">Turn on JavaScript to see live deals.</p></noscript>
+</section>
+<!-- DEALS: the daily run edits only this array. Fields: firm, url, save (headline), what, code, ends (ISO with ET offset, or ""), aff (true only for Tecson's approved affiliate codes). Deals past "ends" hide themselves. -->
+<script>
+const UPDATED = "Nov 2, 2026";
+const DEALS = [
+  {firm:"Apex", url:"https://apextraderfunding.com", save:"90% off", what:"All evals (Intraday, EOD, Legacy). New signups only, not resets or activation fees.", code:"SAVENOW", ends:"2026-11-04T23:59:00-05:00", aff:false},
+  {firm:"Tradeify", url:"https://tradeify.co", save:"30% off", what:"40% off the Growth account. 50K $165 → $116.", code:"NOV", ends:"2026-11-13T23:59:00-05:00", aff:false},
+  {firm:"Take Profit Trader", url:"https://takeprofittrader.com", save:"50% off for life", what:"Early Black Friday sale, and no activation fee.", code:"NOFEE50", ends:"", aff:false},
+  {firm:"Lucid", url:"https://lucidtrading.com", save:"30% off", what:"LucidDaily 50K $172 → $120.40.", code:"VAULT", ends:"", aff:false},
+  {firm:"FundedNext Futures", url:"https://fundednext.com/futures", save:"Up to 47% off", what:"Flex 50K $141.99 → $74.99.", code:"FNFLEX", ends:"", aff:false}
+];
+</script>
+<!-- /DEALS -->
+
+<div class="more">
 <a class="btn" href="https://x.com/PropDeskNews">Follow @PropDeskNews on X</a>
 <a class="btn alt" href="/firms/">Prop Firm Directory: 50 firms compared</a>
 <a class="btn alt" href="mailto:hello@propdesknews.com">Email: hello@propdesknews.com</a>
-
-<h2 id="deals">Live deals</h2>
-<p class="sub">Checked on each firm's own site · Updated Nov 2, 2026 · USD</p>
-
-<!-- DEALS: edit below. Add class/label "Affiliate code" once your own codes are approved. -->
-<div class="deal">
-  <div class="top"><span class="firm"><a href="https://apextraderfunding.com">Apex</a></span><span class="ends">Ends Wed Nov 4</span></div>
-  <p class="what">90% off all evals (Intraday, EOD, Legacy). New signups only, not resets or activation fees.</p>
-  <div class="code"><span>SAVENOW</span><button data-code="SAVENOW">Copy</button></div>
-  <p class="tag">Firm's public code, not an affiliate link</p>
 </div>
-<div class="deal">
-  <div class="top"><span class="firm"><a href="https://tradeify.co">Tradeify</a></span><span class="ends">Ends Nov 13</span></div>
-  <p class="what">30% off (40% off Growth). 50K $165 → $116.</p>
-  <div class="code"><span>NOV</span><button data-code="NOV">Copy</button></div>
-  <p class="tag">Firm's public code, not an affiliate link</p>
-</div>
-<div class="deal">
-  <div class="top"><span class="firm"><a href="https://takeprofittrader.com">Take Profit Trader</a></span><span class="ends">No end date</span></div>
-  <p class="what">Early Black Friday: 50% off for life and no activation fee.</p>
-  <div class="code"><span>NOFEE50</span><button data-code="NOFEE50">Copy</button></div>
-  <p class="tag">Firm's public code, not an affiliate link</p>
-</div>
-<div class="deal">
-  <div class="top"><span class="firm"><a href="https://lucidtrading.com">Lucid</a></span><span class="ends">No end date</span></div>
-  <p class="what">30% off. LucidDaily 50K $172 → $120.40.</p>
-  <div class="code"><span>VAULT</span><button data-code="VAULT">Copy</button></div>
-  <p class="tag">Firm's public code, not an affiliate link</p>
-</div>
-<div class="deal">
-  <div class="top"><span class="firm"><a href="https://fundednext.com/futures">FundedNext Futures</a></span><span class="ends">No end date</span></div>
-  <p class="what">Up to 47% off. Flex 50K $141.99 → $74.99.</p>
-  <div class="code"><span>FNFLEX</span><button data-code="FNFLEX">Copy</button></div>
-  <p class="tag">Firm's public code, not an affiliate link</p>
-</div>
-<!-- /DEALS -->
 
 <div class="fine">
   <p><strong>Read the rules before you buy.</strong> A cheap eval with a tight trailing drawdown can cost more than a full-price one. Check the drawdown type, activation fee and payout rules on the firm's own site.</p>
@@ -114,13 +125,44 @@ body{padding-top:0}
 </div>
 <footer>© 2026 Prop Desk · propdesknews.com</footer>
 </div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
-document.querySelectorAll('.code button').forEach(function(b){
-  b.addEventListener('click',function(){
-    var c=b.getAttribute('data-code');
-    (navigator.clipboard?navigator.clipboard.writeText(c):Promise.reject()).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1500)}).catch(function(){prompt('Copy this code:',c)});
+(function(){
+  var now=function(){return Date.now()};
+  var live=DEALS.filter(function(d){return !d.ends||new Date(d.ends).getTime()>now()});
+  var esc=function(t){return String(t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
+  var tag=function(d){return d.aff?"Affiliate code: Prop Desk may earn a commission":"Firm's public code, not an affiliate link"};
+  var fmtEnd=function(d){if(!d.ends)return "No end date";var ms=new Date(d.ends)-now(),h=ms/36e5;if(h<48)return "Ends in "+Math.max(1,Math.floor(h))+"h";return "Ends "+new Date(d.ends).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",timeZone:"America/New_York"})};
+  document.getElementById("upd").textContent=UPDATED;
+  var timed=live.filter(function(d){return d.ends}).sort(function(a,b){return new Date(a.ends)-new Date(b.ends)});
+  var hero=timed[0], rest=live.filter(function(d){return d!==hero});
+  var H=document.getElementById("hero");
+  if(hero){
+    H.hidden=false;
+    H.innerHTML='<div class="lbl">ENDING SOONEST</div><div class="big">'+esc(hero.save)+'</div><div class="who">at '+esc(hero.firm)+'</div><p class="what">'+esc(hero.what)+'</p>'+
+      '<div class="clock" aria-label="Time left"><div><b id="cd-d">0</b><span>DAYS</span></div><div><b id="cd-h">00</b><span>HRS</span></div><div><b id="cd-m">00</b><span>MIN</span></div><div><b id="cd-s">00</b><span>SEC</span></div></div>'+
+      '<button class="go" data-i="'+DEALS.indexOf(hero)+'">Copy code &amp; open '+esc(hero.firm)+' ↗<code>'+esc(hero.code)+'</code></button><p class="tag">'+tag(hero)+'</p>';
+    var p=function(n){return n<10?"0"+n:""+n};
+    var tick=function(){var ms=new Date(hero.ends)-now();if(ms<=0){location.reload();return}
+      var t=Math.floor(ms/1000);document.getElementById("cd-d").textContent=Math.floor(t/86400);document.getElementById("cd-h").textContent=p(Math.floor(t%86400/3600));document.getElementById("cd-m").textContent=p(Math.floor(t%3600/60));document.getElementById("cd-s").textContent=p(t%60)};
+    tick();setInterval(tick,1000);
+  }
+  document.getElementById("deal-list").innerHTML=rest.map(function(d){
+    var soon=d.ends&&(new Date(d.ends)-now())<72*36e5;
+    return '<div class="deal"><div class="row1"><span class="save">'+esc(d.save)+'</span><span class="ends'+(soon?" soon":"")+'">'+fmtEnd(d)+'</span></div>'+
+      '<div class="firmname">'+esc(d.firm)+'</div><p class="what">'+esc(d.what)+'</p>'+
+      '<div class="acts"><button class="go sm" data-i="'+DEALS.indexOf(d)+'">Copy &amp; open ↗<code>'+esc(d.code)+'</code></button><button class="copyonly" data-c="'+esc(d.code)+'" aria-label="Copy '+esc(d.code)+' only">Copy</button></div>'+
+      '<p class="tag">'+tag(d)+'</p></div>'}).join("")||'<p class="sub">No live deals right now. Check back tomorrow morning.</p>';
+  var T=document.getElementById("toast"),tt;
+  var toast=function(m){T.textContent=m;T.classList.add("on");clearTimeout(tt);tt=setTimeout(function(){T.classList.remove("on")},2600)};
+  var copy=function(c){return navigator.clipboard&&window.isSecureContext?navigator.clipboard.writeText(c):Promise.reject()};
+  document.addEventListener("click",function(e){
+    var g=e.target.closest(".go"),o=e.target.closest(".copyonly");
+    if(g){var d=DEALS[+g.dataset.i];copy(d.code).then(function(){toast(d.code+" copied. Paste it at checkout on "+d.firm+".")}).catch(function(){toast("Your code is "+d.code+". Enter it at checkout.")});
+      window.open(d.url,"_blank","noopener");}
+    if(o){copy(o.dataset.c).then(function(){toast(o.dataset.c+" copied")}).catch(function(){prompt("Copy this code:",o.dataset.c)})}
   });
-});
+})();
 </script>
 </body>
 </html>
