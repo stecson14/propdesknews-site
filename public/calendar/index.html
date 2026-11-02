@@ -157,7 +157,7 @@ footer a{color:inherit}
   var fb = document.getElementById("tv-fallback"), tries = 0;
   var poll = setInterval(function(){
     tries++;
-    if (host.querySelector("iframe")) { fb.hidden = true; clearInterval(poll); return; }
+    if (host.querySelector("iframe, [src*=\"tradingview\"]")) { fb.hidden = true; clearInterval(poll); return; }
     if (tries >= 40) { fb.hidden = false; box.style.height = "0"; host.style.minHeight = "0"; clearInterval(poll); }
   }, 500);
 })();
