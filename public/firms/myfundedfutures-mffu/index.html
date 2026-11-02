@@ -30,6 +30,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font
 @media (max-width:480px){.sitenav .xl{display:none}}
 @media (max-width:480px){.sitenav .in{gap:6px 12px;padding:10px 12px}.sitenav a{font-size:12.5px}.sitenav .brand{font-size:16px}}
 .sitenav .brand img{width:26px;height:26px;border-radius:50%;border:1px solid #D9A441}
+@media (max-width:400px){.sitenav .in{gap:6px 8px;padding:9px 10px}.sitenav a{font-size:12px}.sitenav .brand{font-size:15px;gap:6px}}
 
 header.mast{background:var(--navy);color:#E9E4D4}
 header.mast .wrap{padding-block:30px 26px;display:grid;gap:10px}
@@ -43,6 +44,12 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,5vw,50px);lin
 .lk{display:inline-flex;align-items:center;gap:7px;font:500 13px var(--mono);text-decoration:none;color:#E9E4D4;border:1px solid #33405A;border-radius:6px;padding:7px 11px;background:#232D42}
 .lk:hover{border-color:#D9A441}
 main .wrap{padding-block:24px 60px;display:grid;gap:22px}
+.cmpbox{display:grid;gap:8px}
+.cmpbox label{font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.cmpbox select{font:600 15px var(--body);padding:10px 34px 10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg) no-repeat right 12px center/10px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%235A6275' stroke-width='1.6'/%3E%3C/svg%3E");color:var(--ink);width:100%;appearance:none;-webkit-appearance:none}
+.cmpbox select:focus-visible{outline:2px solid var(--mustard);outline-offset:2px}
+.cmphint{margin:0;font-size:13px;color:var(--muted)}
+.cmphint a{color:var(--mustard);text-decoration:none;font-family:var(--mono);font-size:12.5px}
 section h2{font-family:var(--display);font-weight:500;font-size:26px;margin:0 0 10px}
 .sale{background:var(--mustard-soft);border:1px solid var(--mustard);border-radius:12px;padding:14px 16px}
 .sale .lbl{font:600 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mustard);margin-bottom:4px}
@@ -70,7 +77,7 @@ footer a{color:inherit}
 </style>
 </head>
 <body>
-<nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/avatar.jpg" alt="" width="26" height="26">Prop Desk</a><a href="/#deals">Deals</a><a href="/news/">News</a><a href="/firms/" aria-current="page">Directory</a><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
+<nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/avatar.jpg" alt="" width="26" height="26">Prop Desk</a><a href="/#deals">Deals</a><a href="/news/">News</a><a href="/firms/" aria-current="page">Directory</a><a href="/compare/">Compare</a><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
 <header class="mast">
   <div class="wrap">
     <div class="crumb"><a href="/firms/">← All 61 firms</a></div>
@@ -84,6 +91,10 @@ footer a{color:inherit}
 <section>
   <h2>Current sale</h2>
   <div class="sale"><div class="lbl">On the firm's site, checked Mon Nov 2, 2026</div><p><b>CLUB</b>: 40% off any plan; new users get 50% off their first eval.</p></div>
+</section>
+<section>
+  <h2>Compare</h2>
+  <div class="card cmpbox"><label for="cmp">Put MyFundedFutures (MFFU) next to another firm</label><select id="cmp"><option value="">Pick a firm…</option><optgroup label="Futures"><option value="topstep">Topstep</option><option value="apex-trader-funding">Apex Trader Funding</option><option value="tradeify">Tradeify</option><option value="lucid-trading">Lucid Trading</option><option value="take-profit-trader">Take Profit Trader</option><option value="alpha-futures">Alpha Futures</option><option value="fundednext-futures">FundedNext Futures</option><option value="bulenox">Bulenox</option><option value="earn2trade">Earn2Trade</option><option value="elite-trader-funding">Elite Trader Funding</option><option value="top-one-futures">Top One Futures</option><option value="tradeday">TradeDay</option><option value="phidias-propfirm">Phidias Propfirm</option><option value="funded-futures-network">Funded Futures Network</option><option value="leeloo-trading">Leeloo Trading</option><option value="goat-funded-futures">Goat Funded Futures</option><option value="oneup-trader">OneUp Trader</option><option value="uprofit">UProfit</option><option value="daytraders-com">DayTraders.com</option><option value="purdia-capital">Purdia Capital</option><option value="the-trading-pit">The Trading Pit</option></optgroup><optgroup label="CFD / forex"><option value="ftmo">FTMO</option><option value="fundednext">FundedNext</option><option value="the5ers">The5ers</option><option value="fundingpips">FundingPips</option><option value="alpha-capital">Alpha Capital</option><option value="blue-guardian">Blue Guardian</option><option value="fxify">FXIFY</option><option value="goat-funded-trader">Goat Funded Trader</option><option value="instant-funding">Instant Funding</option><option value="hola-prime">Hola Prime</option><option value="audacity-capital">Audacity Capital</option><option value="city-traders-imperium">City Traders Imperium</option><option value="fintokei">Fintokei</option><option value="thinkcapital">ThinkCapital</option><option value="lux-trading-firm">Lux Trading Firm</option><option value="dna-funded">DNA Funded</option><option value="atlas-funded">Atlas Funded</option><option value="for-traders">For Traders</option><option value="lark-funding">Lark Funding</option><option value="pipfarm">PipFarm</option><option value="funded-trading-plus">Funded Trading Plus</option><option value="maven-trading">Maven Trading</option><option value="brightfunded">BrightFunded</option><option value="ftuk">FTUK</option><option value="funding-traders">Funding Traders</option><option value="qt-funded-quant-tekel">QT Funded (Quant Tekel)</option><option value="aquafunded">AquaFunded</option><option value="e8-markets">E8 Markets</option></optgroup><optgroup label="Perps"><option value="myfundedperps">MyFundedPerps</option><option value="propr">Propr</option><option value="vest-markets">Vest Markets</option><option value="e8-perpetuals">E8 Perpetuals</option><option value="kraken-prop">Kraken Prop</option><option value="breakout">Breakout</option><option value="crypto-fund-trader">Crypto Fund Trader</option><option value="hyrotrader">HyroTrader</option><option value="ffn-perps">FFN Perps</option><option value="ffone-perps">FFOne Perps</option><option value="tradeify-perps">Tradeify Perps</option></optgroup></select><p class="cmphint">Price, split, drawdown, platforms and the live code, side by side. <a href="/compare/">Open the compare page →</a></p></div>
 </section>
 <section>
   <h2>The rules</h2>
@@ -101,5 +112,6 @@ footer a{color:inherit}
     <p><a href="/">propdesknews.com</a> · <a href="/firms/">Directory</a> · <a href="/news/">Rule changes &amp; news</a> · <a href="https://x.com/PropDeskNews">@PropDeskNews</a></p>
   </div>
 </footer>
+<script>document.getElementById('cmp').addEventListener('change',function(){if(this.value)location.href='/compare/#myfundedfutures-mffu,'+this.value});</script>
 </body>
 </html>

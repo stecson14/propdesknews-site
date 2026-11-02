@@ -39,7 +39,7 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
 .wrap{max-width:1180px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
 header.mast{background:var(--navy);color:#E9E4D4}
 header.mast .wrap{padding-block:36px 30px;display:grid;gap:10px}
@@ -97,6 +97,22 @@ dd.num{font-variant-numeric:tabular-nums}
 .left{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
 .left ul{margin:8px 0 0;padding-left:18px;display:grid;gap:6px;font-size:14px}
 footer .wrap{padding-block:0 40px;color:var(--muted);font-size:13px;display:grid;gap:6px;max-width:80ch;margin-left:0}
+.cmp{display:inline-flex;align-items:center;gap:6px;font:500 11.5px var(--mono);color:var(--muted);cursor:pointer;user-select:none;padding:3px 7px;border:1px solid var(--line);border-radius:4px;white-space:nowrap}
+.cmp:hover{border-color:var(--mustard);color:var(--mustard)}
+.cmp input{accent-color:var(--mustard);width:14px;height:14px;margin:0}
+.card.picked{border-color:var(--mustard);box-shadow:0 0 0 1px var(--mustard)}
+.card.picked .cmp{border-color:var(--mustard);color:var(--mustard)}
+.tray{position:fixed;left:0;right:0;bottom:0;z-index:9;background:#1A2233;color:#E9E4D4;border-top:1px solid #33405A;transform:translateY(110%);transition:transform .2s;box-shadow:0 -8px 24px -12px rgba(0,0,0,.6)}
+.tray.on{transform:none}
+.tray .in{max-width:1180px;margin:0 auto;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.tray .names{font:500 13px var(--mono);color:#C9C4B5;flex:1 1 180px;min-width:0;line-height:1.35}
+.tray .names b{color:#E9E4D4;font-weight:600}
+.tray a.go{font:600 13px var(--mono);background:#D9A441;color:#1A2233;padding:9px 14px;border-radius:8px;text-decoration:none;white-space:nowrap}
+.tray a.go[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.tray button{font:500 12px var(--mono);background:transparent;color:#C9C4B5;border:1px solid #33405A;border-radius:8px;padding:8px 10px;cursor:pointer}
+body.hastray{padding-bottom:92px}
+.toast{position:fixed;left:50%;bottom:calc(100px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);font:500 13px var(--mono);padding:10px 14px;border-radius:8px;opacity:0;transition:.2s;pointer-events:none;max-width:calc(100vw - 32px);text-align:center;z-index:20}
+.toast.on{opacity:1}
 @media (max-width:520px){dl{grid-template-columns:80px 1fr}.count{margin-left:0;width:100%}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 .sitenav{background:#1A2233;border-bottom:1px solid #33405A;font-family:"IBM Plex Mono",monospace;font-size:13px}
@@ -108,10 +124,11 @@ footer .wrap{padding-block:0 40px;color:var(--muted);font-size:13px;display:grid
 @media (max-width:480px){.sitenav .xl{display:none}}
 @media (max-width:480px){.sitenav .in{gap:6px 12px;padding:10px 12px}.sitenav a{font-size:12.5px}.sitenav .brand{font-size:16px}}
 .sitenav .brand img{width:26px;height:26px;border-radius:50%;border:1px solid #D9A441}
+@media (max-width:400px){.sitenav .in{gap:6px 8px;padding:9px 10px}.sitenav a{font-size:12px}.sitenav .brand{font-size:15px;gap:6px}}
 </style>
 </head>
 <body>
-<nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/avatar.jpg" alt="" width="26" height="26">Prop Desk</a><a href="/#deals">Deals</a><a href="/news/">News</a><a href="/firms/" aria-current="page">Directory</a><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
+<nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/avatar.jpg" alt="" width="26" height="26">Prop Desk</a><a href="/#deals">Deals</a><a href="/news/">News</a><a href="/firms/" aria-current="page">Directory</a><a href="/compare/">Compare</a><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
 
 <header class="mast">
   <div class="wrap">
@@ -156,6 +173,8 @@ footer .wrap{padding-block:0 40px;color:var(--muted);font-size:13px;display:grid
   </div>
 </main>
 
+<div class="tray" id="tray"><div class="in"><div class="names" id="traynames"></div><a class="go" id="traygo" href="/compare/" aria-disabled="true">Compare →</a><button type="button" id="trayclear">Clear</button></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <footer>
   <div class="wrap">
     <p>Sales listed are each firm's own public offers. Some links on Prop Desk may be affiliate links, and every affiliate code is labeled as one. Profit splits and "up to" numbers are the firms' claims. Prop firm evaluations are simulated trading products. Education, not financial advice.</p>
@@ -723,6 +742,9 @@ const FIRMS = [
 
 const slug = n => n.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const BY = {}; FIRMS.forEach(f => BY[slug(f.n)] = f);
+let cmp = []; try { cmp = JSON.parse(localStorage.getItem("pd-cmp") || "[]"); } catch(e){}
+cmp = (Array.isArray(cmp) ? cmp : []).filter(s => BY[s]).slice(0, 3);
 const xLink = x => {
   if (x.s === "none") {
     const q = encodeURIComponent(x.h);
@@ -735,8 +757,8 @@ function card(f){
   const x = xLink(f.x);
   const host = f.w.replace(/^https?:\/\/(www\.)?/,"").replace(/\/$/,"");
   const tags = f.m.map(m => `<span class="tag">${m === "cfd" ? "CFD/FX" : m === "perps" ? "Perps" : "Futures"}</span>`).join("");
-  return `<article class="card">
-    <div class="top"><h3 class="name"><a href="/firms/${slug(f.n)}/">${esc(f.n)}</a></h3><div class="tags">${tags}</div></div>
+  return `<article class="card${cmp.includes(slug(f.n)) ? " picked" : ""}" data-s="${slug(f.n)}">
+    <div class="top"><h3 class="name"><a href="/firms/${slug(f.n)}/">${esc(f.n)}</a></h3><div class="tags"><label class="cmp"><input type="checkbox" data-s="${slug(f.n)}" ${cmp.includes(slug(f.n)) ? "checked" : ""}> Compare</label>${tags}</div></div>
     <div class="links">
       <a class="lk" href="${f.w}" target="_blank" rel="noopener">${esc(host)} <span class="arr">↗</span></a>
       <a class="lk" href="${x.href}" target="_blank" rel="noopener">${x.label} <span class="arr">↗</span></a>
@@ -788,6 +810,24 @@ document.querySelectorAll(".seg button").forEach(b => b.addEventListener("click"
 document.getElementById("q").addEventListener("input", e => { state.q = e.target.value; render(); });
 document.getElementById("sale").addEventListener("change", e => { state.sale = e.target.checked; render(); });
 render();
+// Compare tray: tick up to three cards, then open them side by side on /compare/
+let tt; function toast(m){ const t = document.getElementById("toast"); t.textContent = m; t.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("on"), 2200); }
+function tray(){
+  const el = document.getElementById("tray"), go = document.getElementById("traygo");
+  el.classList.toggle("on", cmp.length > 0); document.body.classList.toggle("hastray", cmp.length > 0);
+  document.getElementById("traynames").innerHTML = cmp.length ? `Comparing: <b>${cmp.map(s => esc(BY[s].n)).join("</b> · <b>")}</b>${cmp.length < 2 ? " · tick one more" : cmp.length < 3 ? " · room for one more" : ""}` : "";
+  go.href = "/compare/#" + cmp.join(","); go.setAttribute("aria-disabled", cmp.length < 2); go.textContent = cmp.length >= 2 ? `Compare ${cmp.length} firms →` : "Compare →";
+  try { localStorage.setItem("pd-cmp", JSON.stringify(cmp)); } catch(e){}
+}
+document.querySelector("main").addEventListener("change", e => {
+  const c = e.target.closest(".cmp input"); if (!c) return;
+  const s = c.dataset.s, card = c.closest(".card");
+  if (c.checked) { if (cmp.length >= 3) { c.checked = false; toast("Three at a time. Untick one to add " + BY[s].n + "."); return; } cmp.push(s); }
+  else cmp = cmp.filter(x => x !== s);
+  card.classList.toggle("picked", c.checked); tray();
+});
+document.getElementById("trayclear").addEventListener("click", () => { cmp = []; document.querySelectorAll(".cmp input").forEach(i => { i.checked = false; i.closest(".card").classList.remove("picked"); }); tray(); });
+tray();
 </script>
 </body>
 </html>
