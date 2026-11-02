@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>High-Impact News Calendar for Futures Traders | Prop Desk</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="This week's high-impact US releases, the recurring release rhythm in ET (CPI, NFP, FOMC, jobless claims, ISM, crude inventories), which futures contracts each one moves, and how prop firm rules treat news days.">
+<meta property="og:site_name" content="Prop Desk"><meta property="og:url" content="https://propdesknews.com/calendar/"><meta property="og:title" content="News calendar for futures traders | Prop Desk">
+<meta property="og:description" content="The red folders that end evals: this week's high-impact US releases, the weekly rhythm in ET, what each one moves, and the prop firm rules around news.">
+<meta property="og:image" content="https://propdesknews.com/og/calendar.png?v=2bf32867"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@PropDeskNews">
+<link rel="canonical" href="https://propdesknews.com/calendar/">
+<link rel="icon" href="/avatar.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F3F0E6;--surface:#FFFDF7;--ink:#1A2233;--muted:#5A6275;--line:#D9D3C2;--navy:#1A2233;--cream:#E9E4D4;--mustard:#B7832A;--mustard-soft:#F3E3BF;--no:#8A3B2E;--no-soft:#F4DDD7;--display:"Fraunces",Georgia,serif;--body:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121825;--surface:#1A2233;--ink:#E9E4D4;--muted:#A3A8B5;--line:#2E3850;--navy:#0D121C;--mustard:#D9A441;--mustard-soft:#3A3220;--no:#E39A8A;--no-soft:#3E2520;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121825;--surface:#1A2233;--ink:#E9E4D4;--muted:#A3A8B5;--line:#2E3850;--navy:#0D121C;--mustard:#D9A441;--mustard-soft:#3A3220;--no:#E39A8A;--no-soft:#3E2520;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+.wrap{max-width:900px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.sitenav{background:#1A2233;border-bottom:1px solid #33405A;font-family:"IBM Plex Mono",monospace;font-size:13px}
+.sitenav .in{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:6px 18px;flex-wrap:wrap}
+.sitenav a{color:#C9C4B5;text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
+.sitenav a:hover{color:#E9E4D4}
+.sitenav a[aria-current="page"]{color:#E9E4D4;border-bottom-color:#D9A441}
+.sitenav .brand{font-family:Fraunces,serif;font-weight:600;font-size:17px;color:#E9E4D4;margin-right:auto;display:inline-flex;align-items:center;gap:8px;border:0}
+@media (max-width:640px){.sitenav .xl{display:none}}
+@media (max-width:480px){.sitenav .in{gap:6px 12px;padding:10px 12px}.sitenav a{font-size:12.5px}.sitenav .brand{font-size:16px}}
+.sitenav .brand img{width:26px;height:26px;border-radius:50%;border:1px solid #D9A441}
+@media (max-width:400px){.sitenav .in{gap:6px 8px;padding:9px 10px}.sitenav a{font-size:12px}.sitenav .brand{font-size:15px;gap:6px}}
+@media (max-width:480px){.sitenav .brand span{display:none}.sitenav .brand{gap:0}}
+
+header.mast{background:var(--navy);color:#E9E4D4}
+header.mast .wrap{padding-block:30px 24px;display:grid;gap:10px}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#D9A441}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,5vw,52px);line-height:1.05;margin:0;text-wrap:balance}
+.lede{max-width:64ch;color:#C9C4B5;margin:0}
+main .wrap{padding-block:24px 60px;display:grid;grid-template-columns:minmax(0,1fr);gap:34px}
+main .wrap>section{min-width:0;max-width:100%}
+section h2{font-family:var(--display);font-weight:500;font-size:28px;margin:0 0 4px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+section h2 small{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.secnote{color:var(--muted);margin:0 0 14px;max-width:72ch;font-size:14px}
+.live{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.live .tv{min-height:560px}
+.live .foot{display:flex;flex-wrap:wrap;gap:6px 14px;padding:10px 14px;border-top:1px solid var(--line);font:12px var(--mono);color:var(--muted)}
+.live .foot a{color:var(--mustard);text-decoration:none}
+.fallback{padding:18px 16px;display:grid;gap:8px;font-size:14px}
+.fallback a{color:var(--mustard);text-decoration:none;font-family:var(--mono)}
+.tscroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+td.t{font-family:var(--mono);white-space:nowrap}
+td.m{font-family:var(--mono);font-size:12.5px;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+@media (max-width:640px){td.t,td.m{white-space:normal}table{font-size:14px}thead{display:none}table,tbody,tr,td{display:block;width:100%;box-sizing:border-box}tr{padding:10px 12px;border-bottom:1px solid var(--line)}tr:last-child{border-bottom:0}td{border:0;padding:2px 0}td:first-child{font-size:15px}td.t::before{content:"When (ET): ";color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}td.m::before{content:"Moves: ";color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}td:last-child{color:var(--muted);font-size:13.5px;padding-top:4px}}
+.rule{display:grid;gap:10px}
+.rule article{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.rule h3{font-family:var(--display);font-weight:700;font-size:19px;margin:0 0 4px}
+.rule p{margin:0;font-size:14.5px}
+.rule a{color:var(--mustard);text-decoration:none;border-bottom:1px dotted var(--mustard)}
+.hours{background:var(--mustard-soft);border:1px solid var(--mustard);border-radius:10px;padding:14px 16px;font-size:14.5px;display:grid;gap:4px}
+.hours b{font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mustard)}
+.hours a{color:inherit}
+footer .wrap{padding-block:0 40px;color:var(--muted);font-size:13px;display:grid;gap:6px}
+footer p{max-width:80ch;margin:0}
+footer a{color:inherit}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/avatar.jpg" alt="" width="26" height="26"><span>Prop Desk</span></a><a href="/#deals">Deals</a><a href="/news/">News</a><a href="/firms/">Directory</a><a href="/compare/">Compare</a><a href="/tools/">Tools</a><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="kicker">News calendar · times in ET</div>
+    <h1>The red folders that end evals</h1>
+    <p class="lede">High-impact US releases move ES, NQ, CL and GC in seconds, and a trailing drawdown doesn't wait for your stop to fill. This week's schedule, the recurring rhythm, and what the prop firms say about trading through it.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section id="week">
+      <h2>This week <small>US · medium and high impact</small></h2>
+      <p class="secnote">Live calendar from TradingView. Times show in your device's time zone; the tables below are in Eastern Time (ET), which is what the firms use.</p>
+      <div class="live">
+        <div class="tv" id="tv"><div class="fallback" id="tv-fallback" hidden><span>The live calendar didn't load. Open it directly:</span><a href="https://www.forexfactory.com/calendar" target="_blank" rel="noopener">ForexFactory calendar ↗</a><a href="https://www.investing.com/economic-calendar/" target="_blank" rel="noopener">Investing.com calendar ↗</a></div></div>
+        <div class="foot"><span>Set your firm's time zone in the platform too; "end of day" for the drawdown is usually 5:00 PM ET.</span><a href="https://www.forexfactory.com/calendar" target="_blank" rel="noopener">ForexFactory ↗</a><a href="https://www.cmegroup.com/trading-hours.html" target="_blank" rel="noopener">CME hours ↗</a></div>
+      </div>
+    </section>
+
+    <section id="rhythm">
+      <h2>The weekly rhythm <small>recurring US releases, ET</small></h2>
+      <p class="secnote">Dates move with the calendar, but the clock rarely does. If you only remember one line: 8:30 AM ET on a Friday at the start of the month is jobs day.</p>
+      <div class="tscroll"><table>
+        <thead><tr><th>Release</th><th>When (ET)</th><th>Moves</th><th>Why it matters</th></tr></thead>
+        <tbody>
+          <tr><td><b>Nonfarm payrolls (NFP)</b></td><td class="t">8:30 AM · usually the first Friday of the month</td><td class="m">ES NQ YM RTY · ZN ZB · 6E · GC</td><td>The single biggest scheduled move of the month in index futures. Spreads widen and stops slip.</td></tr>
+          <tr><td><b>CPI (inflation)</b></td><td class="t">8:30 AM · mid-month, see calendar</td><td class="m">ES NQ · ZN ZB · GC · 6E</td><td>Sets rate expectations. A surprise either way can run 1% in NQ before the open.</td></tr>
+          <tr><td><b>FOMC decision and press conference</b></td><td class="t">2:00 PM statement, 2:30 PM presser · 8 times a year</td><td class="m">Everything</td><td>Two moves: the statement at 2:00 and the chair's answers from 2:30. The afternoon is not a normal session.</td></tr>
+          <tr><td><b>PCE prices</b></td><td class="t">8:30 AM · last week of the month</td><td class="m">ES NQ · ZN · GC</td><td>The inflation gauge the Fed says it watches. Smaller than CPI but still a red folder.</td></tr>
+          <tr><td><b>PPI</b></td><td class="t">8:30 AM · the day after or before CPI</td><td class="m">ES NQ · ZN</td><td>Producer prices. Usually a smaller move unless CPI was a surprise.</td></tr>
+          <tr><td><b>Retail sales</b></td><td class="t">8:30 AM · mid-month</td><td class="m">ES NQ YM · ZN</td><td>Consumer demand. Big misses hit YM and RTY hardest.</td></tr>
+          <tr><td><b>GDP</b></td><td class="t">8:30 AM · end of month, quarterly with revisions</td><td class="m">ES NQ · ZN · 6E</td><td>Advance estimate moves the most; revisions rarely do.</td></tr>
+          <tr><td><b>Initial jobless claims</b></td><td class="t">8:30 AM · every Thursday</td><td class="m">ES NQ · ZN</td><td>Weekly. Normally quiet, loud when the labor market is the story.</td></tr>
+          <tr><td><b>ISM manufacturing / services PMI</b></td><td class="t">10:00 AM · first and third business day of the month</td><td class="m">ES NQ YM · CL</td><td>A 10:00 release while the cash session is already moving. Watch for the second leg.</td></tr>
+          <tr><td><b>Consumer sentiment (UMich)</b></td><td class="t">10:00 AM · two Fridays a month</td><td class="m">ES NQ</td><td>Inflation expectations inside it are what the market reads.</td></tr>
+          <tr><td><b>EIA crude inventories</b></td><td class="t">10:30 AM · Wednesdays</td><td class="m">CL MCL · RB HO</td><td>The crude trader's NFP. Expect a fast spike and reversal in CL.</td></tr>
+          <tr><td><b>EIA natural gas storage</b></td><td class="t">10:30 AM · Thursdays</td><td class="m">NG</td><td>Same pattern for NG.</td></tr>
+          <tr><td><b>Treasury auctions (3, 10, 30-year)</b></td><td class="t">1:00 PM · auction weeks</td><td class="m">ZN ZB · ES NQ</td><td>A weak auction can reprice bonds and drag indexes in the early afternoon.</td></tr>
+          <tr><td><b>Fed speakers</b></td><td class="t">Any time, see calendar</td><td class="m">ZN · ES NQ</td><td>Mostly noise, occasionally the move of the day. The chair outranks everyone.</td></tr>
+          <tr><td><b>Monthly options expiration (OPEX)</b></td><td class="t">Third Friday · pinning into 4:00 PM close</td><td class="m">ES NQ</td><td>Not a release, but index behavior changes around big strikes.</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="rules">
+      <h2>News days and prop firm rules</h2>
+      <p class="secnote">Three ways a release can end an account even when your trade idea was fine. Every firm words these differently, so read the firm's page; the <a href="/glossary/" style="color:inherit">glossary</a> explains each term.</p>
+      <div class="rule">
+        <article><h3>Some firms ban trading around high-impact news</h3><p>Common at CFD and forex firms: no opening or closing positions in a window (often 2 minutes) either side of a red-folder release, sometimes only on funded accounts. Futures firms usually allow it. A trade inside the window can be voided or counted as a breach. Find the exact rule on the firm's page before the week starts.</p></article>
+        <article><h3>Trailing drawdowns don't wait for your stop</h3><p>A spike through your stop fills where liquidity is, not where you placed it. With an <a href="/glossary/#trailing-drawdown">intraday trailing drawdown</a>, a wick that runs in your favor first can also lift your loss line before the reversal. Size smaller into a release or flatten before it.</p></article>
+        <article><h3>Daily loss limits and consistency rules bite on news days</h3><p>A news-day winner can be your biggest day of the eval, and a <a href="/glossary/#consistency-rule">consistency rule</a> then caps how much of it counts. A news-day loser can hit the <a href="/glossary/#daily-loss-limit">daily loss limit</a> in one candle. Both are survivable if you planned the size in advance. Use the <a href="/tools/#size">contracts per trade</a> calculator with a wider stop for release days.</p></article>
+      </div>
+    </section>
+
+    <section id="hours">
+      <h2>Hours that matter</h2>
+      <div class="hours">
+        <span><b>CME equity index and most futures</b></span>
+        <span>Trade Sunday 6:00 PM ET to Friday 5:00 PM ET, with a daily maintenance break 5:00 to 6:00 PM ET. The US cash session, where most volume and most prop firm "end of day" calculations sit, is 9:30 AM to 4:00 PM ET.</span>
+        <span>Holiday schedules and early closes change by the year; the exchange publishes them at <a href="https://www.cmegroup.com/trading-hours.html" target="_blank" rel="noopener">cmegroup.com/trading-hours</a>. Daylight saving changes in the US and Europe shift the London overlap by an hour twice a year.</span>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Release times are the usual published schedule and can change; the live calendar and the issuing agency are the final word. Nothing here is a trading recommendation. Some links on Prop Desk may be affiliate links, and every affiliate code is labeled as one. Education, not financial advice.</p>
+    <p><a href="/">propdesknews.com</a> · <a href="/start/">Start here</a> · <a href="/firms/">Directory</a> · <a href="/compare/">Compare</a> · <a href="/tools/">Tools</a> · <a href="/glossary/">Glossary</a> · <a href="/news/">Rule changes &amp; news</a> · <a href="https://x.com/PropDeskNews">@PropDeskNews</a></p>
+  </div>
+</footer>
+<script>
+(function(){
+  var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  var host = document.getElementById("tv"), box = document.createElement("div"); box.className = "tradingview-widget-container"; box.style.height = "560px";
+  var inner = document.createElement("div"); inner.className = "tradingview-widget-container__widget"; inner.style.height = "560px"; box.appendChild(inner);
+  var s = document.createElement("script"); s.type = "text/javascript"; s.async = true; s.src = "https://s3.tradingview.com/external-embedding/embed-widget-events.js";
+  s.text = JSON.stringify({colorTheme: dark ? "dark" : "light", isTransparent: true, width: "100%", height: 560, locale: "en", importanceFilter: "0,1", countryFilter: "us"});
+  box.appendChild(s); host.insertBefore(box, host.firstChild);
+  setTimeout(function(){ if (!host.querySelector("iframe")) { document.getElementById("tv-fallback").hidden = false; box.style.height = "0"; host.style.minHeight = "0"; } }, 6000);
+})();
+</script>
+</body>
+</html>
