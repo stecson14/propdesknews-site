@@ -78,8 +78,63 @@ dd{margin:0;min-width:0;overflow-wrap:anywhere}
 footer .wrap{padding-block:0 40px;color:var(--muted);font-size:13px;display:grid;gap:6px;max-width:80ch}
 footer a{color:inherit}
 @media (max-width:520px){dl{grid-template-columns:84px 1fr}}
+
+/* app shell: on phones the top links give way to a bottom tab bar (app.js) */
+.tabbar{display:none}.moresheet{display:none}
+@media (max-width:760px){
+.sitenav .in>a:not(.brand){display:none}
+.sitenav .brand span{display:inline!important}.sitenav .brand{gap:8px!important}
+body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+.tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:8;background:#1A2233;border-top:1px solid #33405A;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px))}
+.tabbar a,.tabbar button{display:flex;flex-direction:column;align-items:center;gap:3px;font:500 10.5px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.04em;color:#A3A8B5;text-decoration:none;background:none;border:0;padding:4px 0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.tabbar svg{width:22px;height:22px}
+.tabbar .on{color:#D9A441}
+.moresheet{position:fixed;inset:0;z-index:7;background:rgba(10,14,22,.6);display:flex;align-items:flex-end;justify-content:center}
+.moresheet[hidden]{display:none}
+.moresheet .in{background:#1A2233;color:#E9E4D4;width:100%;max-width:560px;border-radius:16px 16px 0 0;border:1px solid #33405A;border-bottom:0;padding:14px 16px calc(76px + env(safe-area-inset-bottom,0px));display:grid;gap:0;max-height:82vh;overflow:auto}
+.moresheet .k{font:600 11px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:#D9A441;margin:4px 0 6px}
+.moresheet a,.moresheet button{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#E9E4D4;text-decoration:none;font:500 15px "IBM Plex Sans",system-ui,sans-serif;padding:11px 2px;border:0;border-bottom:1px solid #2E3850;background:none;text-align:left;cursor:pointer;width:100%}
+.moresheet a small,.moresheet button small{font:12px "IBM Plex Mono",ui-monospace,monospace;color:#A3A8B5;text-align:right}
+.moresheet button.inst{color:#D9A441}
+.moresheet .ios{font-size:13.5px;color:#C9C4B5;margin:10px 0 0;line-height:1.5}
+.moresheet .ios b{color:#E9E4D4}
+.tray{bottom:calc(62px + env(safe-area-inset-bottom,0px))!important}
+body.hastray{padding-bottom:calc(160px + env(safe-area-inset-bottom,0px))!important}
+}
 </style>
 <script src="/search.js" defer></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#1A2233">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Prop Desk">
+<meta name="mobile-web-app-capable" content="yes">
+<script src="/app.js" defer></script>
+<noscript><style>@media (max-width:760px){.sitenav .in>a:not(.brand){display:inline!important}.tabbar [data-tab="more"]{display:none}}
+/* app shell: on phones the top links give way to a bottom tab bar (app.js) */
+.tabbar{display:none}.moresheet{display:none}
+@media (max-width:760px){
+.sitenav .in>a:not(.brand){display:none}
+.sitenav .brand span{display:inline!important}.sitenav .brand{gap:8px!important}
+body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+.tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:8;background:#1A2233;border-top:1px solid #33405A;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px))}
+.tabbar a,.tabbar button{display:flex;flex-direction:column;align-items:center;gap:3px;font:500 10.5px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.04em;color:#A3A8B5;text-decoration:none;background:none;border:0;padding:4px 0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.tabbar svg{width:22px;height:22px}
+.tabbar .on{color:#D9A441}
+.moresheet{position:fixed;inset:0;z-index:7;background:rgba(10,14,22,.6);display:flex;align-items:flex-end;justify-content:center}
+.moresheet[hidden]{display:none}
+.moresheet .in{background:#1A2233;color:#E9E4D4;width:100%;max-width:560px;border-radius:16px 16px 0 0;border:1px solid #33405A;border-bottom:0;padding:14px 16px calc(76px + env(safe-area-inset-bottom,0px));display:grid;gap:0;max-height:82vh;overflow:auto}
+.moresheet .k{font:600 11px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:#D9A441;margin:4px 0 6px}
+.moresheet a,.moresheet button{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#E9E4D4;text-decoration:none;font:500 15px "IBM Plex Sans",system-ui,sans-serif;padding:11px 2px;border:0;border-bottom:1px solid #2E3850;background:none;text-align:left;cursor:pointer;width:100%}
+.moresheet a small,.moresheet button small{font:12px "IBM Plex Mono",ui-monospace,monospace;color:#A3A8B5;text-align:right}
+.moresheet button.inst{color:#D9A441}
+.moresheet .ios{font-size:13.5px;color:#C9C4B5;margin:10px 0 0;line-height:1.5}
+.moresheet .ios b{color:#E9E4D4}
+.tray{bottom:calc(62px + env(safe-area-inset-bottom,0px))!important}
+body.hastray{padding-bottom:calc(160px + env(safe-area-inset-bottom,0px))!important}
+}
+</style></noscript>
 </head>
 <body>
 <nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/avatar.jpg" alt="" width="26" height="26"><span>Prop Desk</span></a><a href="/#deals">Deals</a><a href="/news/">News</a><a href="/firms/" aria-current="page">Directory</a><a href="/compare/">Compare</a><a href="/tools/">Tools</a><button class="sb" type="button" aria-label="Search the site (press /)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span><kbd>/</kbd></button><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
@@ -118,5 +173,25 @@ footer a{color:inherit}
   </div>
 </footer>
 <script>document.getElementById('cmp').addEventListener('change',function(){if(this.value)location.href='/compare/#traders-launch,'+this.value});</script>
+<nav class="tabbar" aria-label="Quick navigation">
+<a href="/#deals" data-tab="deals"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg><span>Deals</span></a>
+<a href="/finder/" data-tab="finder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.6"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><span>Find</span></a>
+<a href="/firms/" data-tab="firms"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg><span>Firms</span></a>
+<a href="/news/" data-tab="news"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8.5h10M7 12h10M7 15.5h6"/></svg><span>News</span></a>
+<button type="button" data-tab="more" aria-expanded="false" aria-controls="moresheet"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg><span>More</span></button>
+</nav>
+<div class="moresheet" id="moresheet" hidden role="dialog" aria-modal="true" aria-label="More"><div class="in">
+<div class="k">More</div>
+<a href="/compare/">Compare firms <small>side by side</small></a>
+<a href="/tools/">Tools and calculators <small>true cost, sizing</small></a>
+<a href="/glossary/">Glossary <small>fine print, decoded</small></a>
+<a href="/start/">Start here <small>how an eval works</small></a>
+<a href="/calendar/">News calendar <small>red folders, ET</small></a>
+<button type="button" data-search>Search the site <small>firms, codes, terms</small></button>
+<a href="https://x.com/PropDeskNews">@PropDeskNews on X <small>↗</small></a>
+<a href="mailto:hello@propdesknews.com">Email the desk <small>hello@</small></a>
+<button type="button" class="inst" id="pd-install" hidden>Install Prop Desk as an app <small>free, 1 tap</small></button>
+<p class="ios" id="pd-ios" hidden>Want this as an app? Tap <b>Share</b> in Safari, then <b>Add to Home Screen</b>. You get an icon and full-screen Prop Desk.</p>
+</div></div>
 </body>
 </html>
