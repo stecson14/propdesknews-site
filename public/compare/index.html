@@ -20,6 +20,7 @@
 @font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/ibmplexmono-400.woff2) format("woff2")}
 @font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/ibmplexmono-500.woff2) format("woff2")}
 @font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/ibmplexmono-600.woff2) format("woff2")}
+.affl{font:500 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 6px;white-space:nowrap;align-self:center;display:inline-block;vertical-align:middle}
 </style>
 <script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/og/*"}},{"not":{"selector_matches":"a[href*=\"#\"]"}}]},"eagerness":"moderate"}],"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/og/*"}}]},"eagerness":"moderate"}]}</script>
 <style>@media (prefers-reduced-motion:no-preference){@view-transition{navigation:auto}::view-transition-old(root){animation:150ms ease-out both pd-vt-out}::view-transition-new(root){animation:220ms ease-out both pd-vt-in}@keyframes pd-vt-out{to{opacity:0}}@keyframes pd-vt-in{from{opacity:0;transform:translateY(8px)}}.sitenav{view-transition-name:pd-nav}.tabbar{view-transition-name:pd-tabbar}}</style>
@@ -880,6 +881,7 @@ const FIRMS = [
   deal:"",
   note:"Tradeify's site says Tradeify 247 is \"morphing\" into Tradeify Perps; sign up for a beta key for early access. Rules not published yet."}
 ];
+const FIRMAFF = {"alpha-futures": "https://app.alpha-futures.com/signup/prop_desk030313/"};
 const DEALS = {"apex-trader-funding": {"code": "SAVENOW", "save": "90% off", "what": "All evals (Intraday, EOD, Legacy). 25K Intraday $167 → $16.70.", "ends": "2026-11-04T23:59:00-05:00", "aff": false}, "tradeify": {"code": "NOV", "save": "30% off", "what": "40% off the Growth account. 50K $165 → $116, one-time payment.", "ends": "2026-11-13T23:59:00-05:00", "aff": false}, "take-profit-trader": {"code": "NOFEE50", "save": "50% off for life", "what": "Early Black Friday sale, ends Mon Nov 9 (per TPT). 50K Test $170 → $85 per month.", "ends": "", "aff": false}, "lucid-trading": {"code": "VAULT", "save": "30% off", "what": "LucidDaily 50K $172 → $120.40.", "ends": "", "aff": false}, "fundednext-futures": {"code": "FNFLEX", "save": "Up to 47% off", "what": "Flex 50K $141.99 → $74.99, one-time payment.", "ends": "", "aff": false}};
 const slug = n => n.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -939,7 +941,7 @@ function render(){
   const rows = [];
   rows.push(["", cell(f => {
     const host = f.w.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
-    return `<h2 class="name"><a href="/firms/${f.s}/">${esc(f.n)}</a></h2><div class="tags">${f.m.map(m => `<span class="tag">${MK(m)}</span>`).join("")}</div><a class="lk" href="${esc(f.w)}" target="_blank" rel="noopener">${esc(host)} ↗</a>`;
+    return `<h2 class="name"><a href="/firms/${f.s}/">${esc(f.n)}</a></h2><div class="tags">${f.m.map(m => `<span class="tag">${MK(m)}</span>`).join("")}</div><a class="lk" href="${esc(FIRMAFF[f.s] || f.w)}" target="_blank" rel="${FIRMAFF[f.s] ? "sponsored noopener" : "noopener"}">${esc(host)} ↗</a>${FIRMAFF[f.s] ? '<span class="affl">Affiliate link</span>' : ""}`;
   }, "head")]);
   const anyDeal = fs.some(f => f && liveDeal(f.s));
   if (anyDeal) rows.push(["Live code on Prop Desk", cell(f => {
@@ -954,7 +956,7 @@ function render(){
   rows.push([gl("Drawdown","drawdown"), cell(txt("dd"))]);
   rows.push(["Platforms", cell(txt("plat"))]);
   if (fs.some(f => f && f.note)) rows.push(["Notes", cell(f => f.note ? esc(f.note) : `<span style="color:var(--muted)">—</span>`)]);
-  rows.push(["", cell(f => `<a href="/firms/${f.s}/">Full profile: rules, sale, confirmed changes →</a><a href="${esc(f.w)}" target="_blank" rel="noopener">Open ${esc(f.n)} ↗</a>`, "go")]);
+  rows.push(["", cell(f => `<a href="/firms/${f.s}/">Full profile: rules, sale, confirmed changes →</a><a href="${esc(FIRMAFF[f.s] || f.w)}" target="_blank" rel="${FIRMAFF[f.s] ? "sponsored noopener" : "noopener"}">Open ${esc(f.n)} ↗${FIRMAFF[f.s] ? " (affiliate link)" : ""}</a>`, "go")]);
   if (!sel.length) rows.length = 1;
   document.getElementById("rows").innerHTML = rows.map(([lab, cells]) => `<div class="row">${lab ? `<div class="lbl">${lab}</div>` : ""}<div class="vals">${cells}</div></div>`).join("");
   document.title = (fs.length >= 2 ? fs.map(f => f.n).join(" vs ") + " | Prop Desk" : "Compare Prop Firms Side by Side | Prop Desk");

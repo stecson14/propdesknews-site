@@ -20,6 +20,7 @@
 @font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/ibmplexmono-400.woff2) format("woff2")}
 @font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/ibmplexmono-500.woff2) format("woff2")}
 @font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/ibmplexmono-600.woff2) format("woff2")}
+.affl{font:500 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 6px;white-space:nowrap;align-self:center;display:inline-block;vertical-align:middle}
 </style>
 <script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/og/*"}},{"not":{"selector_matches":"a[href*=\"#\"]"}}]},"eagerness":"moderate"}],"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/og/*"}}]},"eagerness":"moderate"}]}</script>
 <style>@media (prefers-reduced-motion:no-preference){@view-transition{navigation:auto}::view-transition-old(root){animation:150ms ease-out both pd-vt-out}::view-transition-new(root){animation:220ms ease-out both pd-vt-in}@keyframes pd-vt-out{to{opacity:0}}@keyframes pd-vt-in{from{opacity:0;transform:translateY(8px)}}.sitenav{view-transition-name:pd-nav}.tabbar{view-transition-name:pd-tabbar}}</style>
@@ -931,6 +932,7 @@ const FIRMS = [
   deal:"",
   note:"Tradeify's site says Tradeify 247 is \"morphing\" into Tradeify Perps; sign up for a beta key for early access. Rules not published yet."}
 ];
+const FIRMAFF = {"alpha-futures": "https://app.alpha-futures.com/signup/prop_desk030313/"};
 
 const slug = n => n.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -953,7 +955,7 @@ function card(f){
   return `<article class="card${cmp.includes(slug(f.n)) ? " picked" : ""}" data-s="${slug(f.n)}">
     <div class="top"><h3 class="name"><a href="/firms/${slug(f.n)}/">${esc(f.n)}</a></h3><div class="tags"><label class="cmp"><input type="checkbox" data-s="${slug(f.n)}" ${cmp.includes(slug(f.n)) ? "checked" : ""}> Compare</label>${tags}</div></div>
     <div class="links">
-      <a class="lk" href="${f.w}" target="_blank" rel="noopener">${esc(host)} <span class="arr">↗</span></a>
+      <a class="lk" href="${FIRMAFF[slug(f.n)] || f.w}" target="_blank" rel="${FIRMAFF[slug(f.n)] ? "sponsored noopener" : "noopener"}">${esc(host)} <span class="arr">↗</span></a>${FIRMAFF[slug(f.n)] ? '<span class="affl">Affiliate link</span>' : ""}
       <a class="lk" href="${x.href}" target="_blank" rel="noopener">${x.label} <span class="arr">↗</span></a>
     </div>
     <dl>
