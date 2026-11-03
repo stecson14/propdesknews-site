@@ -19,7 +19,7 @@
     });
     if (moreLit && more) more.classList.add('on');
   }
-  // Top "Menu" dropdown on phones (Tecson, Nov 3): visible on landing, in the top nav, so first-time visitors
+  // Top "Menu" dropdown on phones: visible on landing, in the top nav, so first-time visitors
   // see every section before they discover the bottom bar. The nav is not sticky, so it scrolls away with the page.
   var tmBtn = null, tm = null;
   function closeTop() { if (!tm || tm.hidden) return; tm.hidden = true; tmBtn.setAttribute('aria-expanded', 'false'); }
