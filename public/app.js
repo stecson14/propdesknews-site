@@ -6,24 +6,42 @@
   var tab = path === '/' || path === '/index.html' ? 'deals'
           : path.indexOf('/finder/') === 0 ? 'finder'
           : path.indexOf('/firms/') === 0 ? 'firms'
-          : path.indexOf('/news/') === 0 ? 'news' : '';
+          : path.indexOf('/news/') === 0 ? 'news'
+          : path.indexOf('/compare/') === 0 ? 'compare'
+          : path.indexOf('/tools/') === 0 ? 'tools' : '';
   var bar = document.querySelector('.tabbar');
   var sheet = document.getElementById('moresheet');
   var more = bar && bar.querySelector('[data-tab="more"]');
+  var moreLit = !tab || tab === 'compare' || tab === 'tools';   // phone: these pages live in the More sheet
   if (bar) {
     bar.querySelectorAll('[data-tab]').forEach(function (a) {
       if (a.dataset.tab === tab) { a.classList.add('on'); a.setAttribute('aria-current', 'page'); }
     });
-    if (!tab && more) more.classList.add('on');
+    if (moreLit && more) more.classList.add('on');
   }
   function openMore() { if (!sheet) return; sheet.hidden = false; more.setAttribute('aria-expanded', 'true'); more.classList.add('on'); }
-  function closeMore() { if (!sheet) return; sheet.hidden = true; more.setAttribute('aria-expanded', 'false'); if (tab) more.classList.remove('on'); }
+  function closeMore() { if (!sheet) return; sheet.hidden = true; more.setAttribute('aria-expanded', 'false'); if (!moreLit) more.classList.remove('on'); }
   if (more && sheet) {
     more.addEventListener('click', function () { sheet.hidden ? openMore() : closeMore(); });
     sheet.addEventListener('click', function (e) { if (e.target === sheet) closeMore(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !sheet.hidden) closeMore(); });
     var s = sheet.querySelector('[data-search]');
     if (s) s.addEventListener('click', function () { closeMore(); if (window.pdsOpen) window.pdsOpen(); });
+  }
+  if (bar) {
+    var ds = bar.querySelector('[data-search]');
+    if (ds) ds.addEventListener('click', function () { if (window.pdsOpen) window.pdsOpen(); });
+    // Desktop dock: the same bar, floating, shown only while the top nav is scrolled out of view.
+    var top = document.querySelector('.sitenav');
+    var desk = window.matchMedia ? matchMedia('(min-width: 761px)') : null;
+    if (top && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) {
+        var away = !es[0].isIntersecting;
+        bar.classList.toggle('show', away && (!desk || desk.matches));
+      }, { threshold: 0 }).observe(top);
+    } else {
+      bar.classList.add('show');
+    }
   }
 
   // Install as an app. Android/desktop Chrome fire beforeinstallprompt; iOS needs Share > Add to Home Screen.
