@@ -294,8 +294,10 @@ body.hastray{padding-bottom:calc(160px + env(safe-area-inset-bottom,0px))!import
       var i = S.res[r[0]]; if (i === null || i > upto) return;
       ctx.fillStyle = r[1]; ctx.beginPath(); ctx.arc(X(i), Y(S.pts[i]), 6, 0, Math.PI * 2); ctx.fill();
       ctx.strokeStyle = '#1A2233'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(i)-3, Y(S.pts[i])-3); ctx.lineTo(X(i)+3, Y(S.pts[i])+3); ctx.moveTo(X(i)+3, Y(S.pts[i])-3); ctx.lineTo(X(i)-3, Y(S.pts[i])+3); ctx.stroke();
-      ctx.font = '600 11px "IBM Plex Mono", ui-monospace, monospace'; ctx.textAlign = X(i) > W * .7 ? 'right' : 'left'; ctx.fillStyle = r[1];
-      ctx.fillText(r[2] + ' out, day ' + Math.ceil(i / 3), X(i) + (X(i) > W * .7 ? -10 : 10), Y(S.pts[i]) + 14 + k * 0);
+      ctx.font = '600 11px "IBM Plex Mono", ui-monospace, monospace'; ctx.textAlign = X(i) > W * .7 ? 'right' : 'left';
+      var lx = X(i) + (X(i) > W * .7 ? -10 : 10), ly = Y(S.pts[i]) + 18, lt = r[2] + ' out, day ' + Math.ceil(i / 3);
+      ctx.lineWidth = 4; ctx.strokeStyle = '#0D121C'; ctx.lineJoin = 'round'; ctx.strokeText(lt, lx, ly);   // halo so the label reads over the lines
+      ctx.fillStyle = r[1]; ctx.fillText(lt, lx, ly);
     });
   }
   function tiles(){
