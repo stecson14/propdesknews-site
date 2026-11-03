@@ -151,6 +151,23 @@ table.px s{color:var(--muted)}
 .glance .note2{margin-top:8px}
 h2 small{font:500 12px var(--mono);color:var(--muted);letter-spacing:.06em;margin-left:6px}
 footer .trust a{color:var(--mustard);text-decoration:none}
+/* rules pages (/firms/<slug>/rules/): short version, jump links, tables, consistency calculator */
+.tldr ul{margin:0;padding-left:20px}.tldr li{margin:0 0 7px;line-height:1.55}.tldr li:last-child{margin-bottom:0}
+.toc{display:flex;flex-wrap:wrap;gap:6px 14px;font:500 12.5px var(--mono)}.toc a{color:var(--mustard);text-decoration:none}.toc a:hover{text-decoration:underline}
+.tw{padding:6px 16px 4px;overflow-x:auto}.tw table.px tr:last-child td{border-bottom:0}
+section>.card+.card,section>.card+p,section>p+.card{margin-top:10px}
+main .wrap>section,.calc,.calc .row{min-width:0}.calc select{max-width:100%;text-overflow:ellipsis}
+.calc{display:grid;gap:10px;margin-top:10px}.calc .ch{margin:0;font:600 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mustard)}
+.calc .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.calc label{display:grid;gap:5px;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);min-width:0}
+.calc input,.calc select{font:600 16px var(--body);padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:100%;box-sizing:border-box;min-height:44px;letter-spacing:0;text-transform:none}
+.calc input:focus-visible,.calc select:focus-visible{outline:2px solid var(--mustard);outline-offset:1px}
+.calc output{display:block;font-size:15.5px;line-height:1.5}.calc .ok{color:var(--ok)}.calc .no{color:var(--mustard)}.calc .note2{margin:0}
+[id]{scroll-margin-top:12px}
+table.lab td:first-child{font:500 13px var(--body);color:var(--muted)}
+.item p a{color:var(--ink);text-decoration-color:var(--line);text-underline-offset:3px}.item p a:hover{color:var(--mustard)}
+table.txt td{font-family:var(--body);font-size:14px;line-height:1.45}table.txt td:first-child b{font-weight:600}
+@media (max-width:480px){.tw{padding:4px 8px 2px}table.px{font-size:12.5px}table.px th{font-size:10px;letter-spacing:.03em;padding-right:6px}table.px td{padding-right:6px}.calc .row{grid-template-columns:1fr}}
 
 /* app shell: on phones the top links give way to a bottom tab bar; on desktop a floating dock slides in after the top nav scrolls away (app.js) */
 .tabbar{display:none}.moresheet{display:none}
@@ -211,7 +228,7 @@ body.hastray{padding-bottom:calc(160px + env(safe-area-inset-bottom,0px))!import
   </div>
 </header>
 <main><div class="wrap">
-<section class="card prose"><p class="answer"><b><a href="/firms/take-profit-trader/">Take Profit Trader</a></b>: &quot;Early Black Friday Sale&quot;: code NOFEE50, 50% off for life + no activation fee (replaces NOFEE40, 40%)</p><p><span class="badge">Confirmed by the firm</span></p><p class="src">Source: <a href="https://takeprofittrader.com" target="_blank" rel="noopener">takeprofittrader.com</a> banner (screenshot Nov 2). Confirmed on the firm's own site, help center, X account or email on Nov 2, 2026.</p></section><section><h2>Related</h2><div class="links2"><a href="/firms/take-profit-trader/">Take Profit Trader profile: rules, prices, every change</a><a href="/firms/take-profit-trader/promo-code/">Take Profit Trader promo code</a><a href="/glossary/#activation-fee">What &quot;activation fee&quot; means</a><a href="/deals/">Every live prop firm code</a></div></section><section><h2>More Take Profit Trader news</h2><article class="item"><div class="top"><time>Nov 3</time></div><p><a href="/news/2026/11/take-profit-trader-nofee50-ends-nov-9/">Take Profit Trader&#x27;s NOFEE50 code ends Monday, Nov 9</a></p></article><article class="item"><div class="top"><time>Nov 2</time></div><p><a href="/news/2026/11/take-profit-trader-reset-prices-by-size/">Take Profit Trader reset prices run $79 to $199 by account size</a></p></article></section><a class="cta" href="/news/">All confirmed rule changes &amp; news →</a>
+<section class="card prose"><p class="answer"><b><a href="/firms/take-profit-trader/">Take Profit Trader</a></b>: &quot;Early Black Friday Sale&quot;: code NOFEE50, 50% off for life + no activation fee (replaces NOFEE40, 40%)</p><p><span class="badge">Confirmed by the firm</span></p><p class="src">Source: <a href="https://takeprofittrader.com" target="_blank" rel="noopener">takeprofittrader.com</a> banner (screenshot Nov 2). Confirmed on the firm's own site, help center, X account or email on Nov 2, 2026.</p></section><section><h2>Related</h2><div class="links2"><a href="/firms/take-profit-trader/">Take Profit Trader profile: rules, prices, every change</a><a href="/firms/take-profit-trader/rules/">Take Profit Trader payout and consistency rules</a><a href="/firms/take-profit-trader/promo-code/">Take Profit Trader promo code</a><a href="/glossary/#activation-fee">What &quot;activation fee&quot; means</a><a href="/deals/">Every live prop firm code</a></div></section><section><h2>More Take Profit Trader news</h2><article class="item"><div class="top"><time>Nov 3</time></div><p><a href="/news/2026/11/take-profit-trader-nofee50-ends-nov-9/">Take Profit Trader&#x27;s NOFEE50 code ends Monday, Nov 9</a></p></article><article class="item"><div class="top"><time>Nov 2</time></div><p><a href="/news/2026/11/take-profit-trader-reset-prices-by-size/">Take Profit Trader reset prices run $79 to $199 by account size</a></p></article></section><a class="cta" href="/news/">All confirmed rule changes &amp; news →</a>
 </div></main>
 <footer>
   <div class="wrap">
