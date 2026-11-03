@@ -35,6 +35,7 @@
     { t: 'True cost of an eval', s: 'Eval plus resets plus activation, before you buy', u: '/tools/#truecost', k: 'page' },
     { t: "This week's red folders", s: 'High-impact news calendar in ET', u: '/calendar/', k: 'page' },
     { t: 'Find my firm', s: 'Four taps: market, size, drawdown, split', u: '/finder/', k: 'page' },
+    { t: 'Drawdown Lab', s: 'Watch the three drawdown types move', u: '/drawdown/', k: 'page' },
     { t: 'Start here', s: 'How a prop firm eval works, in five steps', u: '/start/', k: 'page' },
     { t: 'Glossary', s: 'Fine print, decoded', u: '/glossary/', k: 'page' }
   ];
