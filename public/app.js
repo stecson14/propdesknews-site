@@ -19,7 +19,47 @@
     });
     if (moreLit && more) more.classList.add('on');
   }
-  function openMore() { if (!sheet) return; sheet.hidden = false; more.setAttribute('aria-expanded', 'true'); more.classList.add('on'); }
+  // Top "Menu" dropdown on phones (Tecson, Nov 3): visible on landing, in the top nav, so first-time visitors
+  // see every section before they discover the bottom bar. The nav is not sticky, so it scrolls away with the page.
+  var tmBtn = null, tm = null;
+  function closeTop() { if (!tm || tm.hidden) return; tm.hidden = true; tmBtn.setAttribute('aria-expanded', 'false'); }
+  function openTop() { if (!tm) return; closeMore(); tm.hidden = false; tmBtn.setAttribute('aria-expanded', 'true'); }
+  (function buildTop() {
+    var nav = document.querySelector('.sitenav .in'); if (!nav || !bar) return;
+    var css = document.createElement('style');
+    css.textContent = '@media (max-width:760px){.sitenav{position:relative;z-index:30}' +
+      '.tm-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border-radius:999px;border:1px solid #4A5878;background:#232D42;color:#E9E4D4;font:500 12.5px "IBM Plex Mono",ui-monospace,monospace;cursor:pointer;-webkit-tap-highlight-color:transparent}' +
+      '.tm-btn svg{width:14px;height:14px;transition:transform .18s}.tm-btn[aria-expanded="true"]{background:#D9A441;border-color:#D9A441;color:#1A2233}.tm-btn[aria-expanded="true"] svg{transform:rotate(180deg)}' +
+      '.tm{position:absolute;left:0;right:0;top:100%;z-index:9;background:#1A2233;border-bottom:1px solid #33405A;box-shadow:0 22px 40px -16px rgba(0,0,0,.75);padding:10px 12px 14px;display:grid;grid-template-columns:1fr 1fr;gap:8px}' +
+      '.tm[hidden]{display:none}.tm a,.tm button{display:flex;align-items:center;gap:9px;min-height:44px;padding:9px 12px;border-radius:10px;border:1px solid #33405A;background:#121825;color:#E9E4D4;font:500 13px "IBM Plex Mono",ui-monospace,monospace;text-decoration:none;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}' +
+      '.tm svg{width:18px;height:18px;flex:none;color:#A3A8B5}.tm .on{border-color:#D9A441;color:#D9A441}.tm .on svg{color:#D9A441}}' +
+      '@media (min-width:761px){.tm-btn,.tm{display:none!important}}';
+    document.head.appendChild(css);
+    var items = [['/', 'Deals', 'deals'], ['/finder/', 'Find my firm', 'finder'], ['/firms/', 'Directory', 'firms'], ['/news/', 'News', 'news'],
+                 ['/compare/', 'Compare', 'compare'], ['/tools/', 'Tools', 'tools'], ['/glossary/', 'Glossary', ''], ['/drawdown/', 'Drawdown Lab', ''],
+                 ['/start/', 'Start here', ''], ['/calendar/', 'Calendar', '']];
+    tm = document.createElement('div'); tm.className = 'tm'; tm.id = 'topmenu'; tm.hidden = true; tm.setAttribute('aria-label', 'Site menu');
+    items.forEach(function (it) {
+      var a = document.createElement('a'); a.href = it[0]; a.textContent = it[1];
+      var src = it[2] && bar.querySelector('[data-tab="' + it[2] + '"] svg');
+      if (src) a.insertBefore(src.cloneNode(true), a.firstChild);
+      if ((it[2] && it[2] === tab) || (!it[2] && path.indexOf(it[0]) === 0)) { a.classList.add('on'); a.setAttribute('aria-current', 'page'); }
+      tm.appendChild(a);
+    });
+    var sb = document.createElement('button'); sb.type = 'button'; sb.textContent = 'Search the site';
+    sb.addEventListener('click', function () { closeTop(); if (window.pdsOpen) window.pdsOpen(); });
+    tm.appendChild(sb);
+    tmBtn = document.createElement('button'); tmBtn.type = 'button'; tmBtn.className = 'tm-btn';
+    tmBtn.setAttribute('aria-expanded', 'false'); tmBtn.setAttribute('aria-controls', 'topmenu');
+    tmBtn.innerHTML = 'Menu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
+    tmBtn.addEventListener('click', function () { tm.hidden ? openTop() : closeTop(); });
+    var after = nav.querySelector('.sb');
+    if (after && after.nextSibling) nav.insertBefore(tmBtn, after.nextSibling); else nav.appendChild(tmBtn);
+    nav.parentNode.appendChild(tm);   // .sitenav is the positioning box
+    document.addEventListener('click', function (e) { if (!tm.hidden && !tm.contains(e.target) && e.target !== tmBtn && !tmBtn.contains(e.target)) closeTop(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeTop(); });
+  })();
+  function openMore() { if (!sheet) return; closeTop(); sheet.hidden = false; more.setAttribute('aria-expanded', 'true'); more.classList.add('on'); }
   function closeMore() { if (!sheet) return; sheet.hidden = true; more.setAttribute('aria-expanded', 'false'); if (!moreLit) more.classList.remove('on'); }
   if (more && sheet) {
     more.addEventListener('click', function () { sheet.hidden ? openMore() : closeMore(); });
@@ -37,6 +77,7 @@
     if (top && 'IntersectionObserver' in window) {
       new IntersectionObserver(function (es) {
         var away = !es[0].isIntersecting;
+        if (away) closeTop();
         bar.classList.toggle('show', away && (!desk || desk.matches));
       }, { threshold: 0 }).observe(top);
     } else {
