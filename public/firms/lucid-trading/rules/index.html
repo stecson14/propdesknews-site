@@ -177,6 +177,41 @@ table.lab td:first-child{font:500 13px var(--body);color:var(--muted)}
 .tl{list-style:none;margin:0;padding:0}.tl li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px;padding:8px 0;border-top:1px solid var(--line);line-height:1.5}.tl li:first-child{border-top:0;padding-top:0}.tl time{font:600 12px var(--mono);color:var(--mustard);padding-top:2px}.tl a{color:var(--ink);text-decoration-color:var(--line);text-underline-offset:3px}.tl li.past{opacity:.55}.tl li.now span{font-weight:600}.tl li.now time{color:var(--ink)}
 @media (max-width:380px){.tl li{grid-template-columns:78px minmax(0,1fr);gap:8px}}
 .rbtn{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.cta2{font:600 14px var(--body);background:var(--mustard);color:#1A2233!important;text-decoration:none;border-radius:8px;padding:0 16px;min-height:44px;display:inline-flex;align-items:center}
+/* monthly report (/reports/): numbers, month-at-a-glance calendar (tap a day to filter), citation */
+.tldr .ch2{margin:0 0 8px;font:600 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mustard)}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 12px 10px;min-width:0}
+.tile b{display:block;font:600 32px/1 var(--display);color:var(--ink)}
+.tile span{display:block;margin-top:6px;font:500 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);overflow-wrap:anywhere}
+@media (max-width:560px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.calc2{padding:14px}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}
+.cal .wd{font:600 10.5px var(--mono);text-align:center;color:var(--muted);letter-spacing:.06em;padding-bottom:2px}
+.cal .d{min-height:46px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--muted);font:500 13px var(--mono);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;min-width:0}
+.cal button.d{cursor:pointer;color:var(--ink);font-weight:600;background:var(--surface);border-color:var(--muted)}
+.cal button.d:hover{border-color:var(--mustard)}
+.cal button.d:focus-visible{outline:2px solid var(--mustard);outline-offset:1px}
+.cal .d.fut{opacity:.35}
+.cal .d.now{box-shadow:inset 0 0 0 2px var(--mustard)}
+.cal button.d[aria-pressed="true"]{background:var(--mustard);color:#1A2233;border-color:var(--mustard)}
+.cal button.d[aria-pressed="true"] .dots i{background:#1A2233}.cal button.d[aria-pressed="true"] .dots i.n{background:transparent;box-shadow:inset 0 0 0 1.5px #1A2233}
+.cal .pad{visibility:hidden}
+.dots{display:flex;gap:3px;height:6px}
+.dots i,.leg i{width:6px;height:6px;border-radius:50%;background:var(--mustard);display:inline-block}
+.dots i.n,.leg i.n{background:transparent;box-shadow:inset 0 0 0 1.5px var(--mustard)}
+.dots i.s,.leg i.s{background:var(--muted)}
+.leg{display:flex;flex-wrap:wrap;gap:4px 14px;margin:12px 0 0;font:500 11.5px var(--mono);color:var(--muted)}.leg span{display:inline-flex;align-items:center;gap:6px}
+@media (max-width:400px){.calc2{padding:10px}.cal{gap:3px}.cal .d{min-height:40px;font-size:12px}}
+.rrbar{margin:0 0 12px;padding:10px 14px;border:1px solid var(--mustard);border-radius:10px;background:var(--mustard-soft);font-size:14px}
+.rrbar button{font:inherit;color:var(--mustard);background:none;border:0;padding:0;text-decoration:underline;cursor:pointer;min-height:24px}.rrbar a{color:var(--mustard)}
+#log{display:grid;gap:22px}#log>.rrbar{margin:0}
+.rr-why{margin:-4px 0 10px}
+.rrs summary{cursor:pointer;font:600 14px var(--body);color:var(--mustard);padding:10px 0;list-style:none}.rrs summary::-webkit-details-marker{display:none}
+.rrs summary::before{content:"+ ";font-family:var(--mono)}.rrs[open] summary::before{content:"\2013 "}
+.rrs .note2{margin:0 0 10px}
+.rrt td+td,.rrt th+th{text-align:right;white-space:nowrap}.rrt a{color:var(--ink);text-decoration-color:var(--line);text-underline-offset:3px}.rrt a:hover{color:var(--mustard)}
+.rrb{display:grid;gap:3px;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--mustard);box-shadow:inset 3px 0 0 var(--mustard);border-radius:10px;padding:12px 16px}.rrb b{font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mustard)}.rrb span{font-size:14.5px}.rrb:hover span{text-decoration:underline}
+.cite{margin:0;font:13.5px/1.55 var(--mono);overflow-wrap:anywhere;padding:10px 12px;background:var(--bg);border:1px dashed var(--line);border-radius:8px}
 table.txt td{font-family:var(--body);font-size:14px;line-height:1.45}table.txt td:first-child b{font-weight:600}
 @media (max-width:480px){.tw{padding:4px 8px 2px}table.px{font-size:12.5px}table.px th{font-size:10px;letter-spacing:.03em;padding-right:6px}table.px td{padding-right:6px}.calc .row{grid-template-columns:1fr}}
 
@@ -245,7 +280,7 @@ body.hastray{padding-bottom:calc(160px + env(safe-area-inset-bottom,0px))!import
 <footer>
   <div class="wrap">
     <p>Rules here are read from the firm's own help center, re-checked every week and the same day the firm announces a change. The firm's own page is the final word. Education, not financial advice.</p>
-    <p><a href="/">propdesknews.com</a> · <a href="/firms/">Directory</a> · <a href="/news/">Rule changes &amp; news</a> · <a href="/deals/">All live codes</a> · <a href="/best/">Firm lists</a> · <a href="/glossary/">Glossary</a> · <a href="/start/">Start here</a> · <a href="https://x.com/PropDeskNews">@PropDeskNews</a></p>
+    <p><a href="/">propdesknews.com</a> · <a href="/firms/">Directory</a> · <a href="/news/">Rule changes &amp; news</a> · <a href="/deals/">All live codes</a> · <a href="/best/">Firm lists</a> · <a href="/reports/">Monthly report</a> · <a href="/glossary/">Glossary</a> · <a href="/start/">Start here</a> · <a href="https://x.com/PropDeskNews">@PropDeskNews</a></p>
       <p class="trust"><a href="/about/">About Prop Desk</a> · <a href="/editorial-standards/">How we check</a> · <a href="/affiliate-disclosure/">Affiliate disclosure</a> · <a href="mailto:hello@propdesknews.com">Corrections</a></p>
   </div>
 </footer>
