@@ -8,7 +8,7 @@
 <meta name="description" content="Prop firm news, rule changes and live deals. We read the fine print so you can trade the market.">
 <meta property="og:site_name" content="Prop Desk"><meta property="og:url" content="https://propdesknews.com/"><meta property="og:title" content="Prop Desk | Prop Firm News & Deals">
 <meta property="og:description" content="Live prop firm discount codes with the fine print spelled out, a directory of 75 firms compared, and rule changes confirmed on each firm's own site. Checked every morning.">
-<meta property="og:image" content="https://propdesknews.com/og/home.png?v=e8436dd8"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image" content="https://propdesknews.com/og/home.png?v=aa206051"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@PropDeskNews">
 <link rel="icon" href="/icons/icon-48.png" type="image/png" sizes="48x48">
@@ -303,13 +303,13 @@ header.top .lead{color:#C9C4B5;font-size:16px;max-width:540px}
       <div><b data-stat="firms">75</b><span>firms tracked</span></div>
       <div><b id="st-live">6</b><span>live codes today</span></div>
       <div><b data-stat="changes">38</b><span>confirmed updates in <span data-stat="month">November</span></span></div>
-      <div><b>Updated</b><span>daily</span></div>
+      <div><b>Updated</b><span>every. single. day.</span></div>
     </div>
     <div class="ctas"><a class="btn" href="#deals">See today's deals</a><a class="btn alt" href="/firms/">Compare all firms</a><button type="button" class="btn alt" id="pd-search-cta">Search</button></div>
   </div>
   <div class="side">
     <div class="hero" id="hero" hidden></div>
-    <div class="why" id="why" hidden><h2>How we check</h2><ul><li>Every code and rule is read on the firm's own site, never from coupon sites.</li><li>Updated daily.</li><li>Affiliate codes are always labeled. We still call out bad rule changes.</li></ul></div>
+    <div class="why" id="why" hidden><h2>How we check</h2><ul><li>Every code and rule is read on the firm's own site, never from coupon sites.</li><li>Updated every single day.</li><li>Affiliate codes are always labeled. We still call out bad rule changes.</li></ul></div>
   </div>
 </header>
 <div class="ticker" id="ticker" hidden aria-label="Latest news"><span class="lb">LATEST</span><div class="vp"><div class="tr" id="ticker-tr"></div></div></div>
@@ -351,6 +351,9 @@ const DEALS = [
   {firm:"Lucid", pricesNote:"LucidDaily", prices:{"25K":[108,75.60],"50K":[172,120.40],"100K":[272,190.40],"150K":[365,255.50]}, page:"/firms/lucid-trading/", url:"https://lucidtrading.com", save:"30% off", what:"LucidDaily 50K $172 → $120.40.", code:"VAULT", ends:"", aff:false,
    chips:["EOD drawdown","Daily loss limit","90/10 split"],
    fine:[["Drawdown","End-of-day. LucidDaily 25K: $1,000 max loss and a $600 daily loss limit."],["Payouts","90/10 split. LucidFlex: 5 qualifying days, $500 minimum payout, up to 5 payouts, then live."],["Consistency","LucidFlex eval: your largest day must be 40% or less of eval profit (50% with the paid add-on)."]]},
+  {firm:"IQ Capital", billing:"one-time", pricesNote:"Futures Core challenge", prices:{"50K":[245,36.75],"100K":[475,71.25]}, url:"https://checkout.iqcapital.io/products?aff=propdesk", save:"85% off", what:"Black Friday: 85% off everything, for a limited time (per IQ Capital). 50K futures challenge $245 → $36.75.", code:"PROPDESK", ends:"", endsNote:"Limited time", aff:true,
+   chips:["Futures, CFD & crypto","No minimum days","Up to 90% split"],
+   fine:[["Futures 50K","$3,000 profit target, $2,000 max drawdown and a $1,000 daily loss limit."],["Challenge","No consistency rule during the challenge and no minimum trading days to pass, per IQ Capital."],["Payouts","Up to 90% split, no minimum payout, paid in crypto or by bank transfer."],["About the code","PROPDESK is Prop Desk's affiliate code. At IQ Capital's checkout on Nov 4 it took 85% off the 50K futures challenge ($245 → $36.75), the same 85% as the site-wide Black Friday sale."]]},
   {firm:"FundedNext Futures", billing:"one-time", pricesNote:"Flex account", prices:{"50K":[141.99,74.99],"100K":[273.99,144.99],"150K":[490.99,259.99]}, page:"/firms/fundednext-futures/", url:"https://fundednext.com/?fpr=PROPDESK", save:"Up to 47% off", what:"Flex 50K $141.99 → $74.99, one-time payment.", code:"PROPDESK", ends:"", aff:true,
    chips:["EOD trailing drawdown","One-time payment","Up to 95% split (firm's claim)"],
    fine:[["Drawdown","End-of-day trailing only, no buffer rule."],["Payouts","Up to 95% split is the firm's own claim."],["Platforms","NinjaTrader, Tradovate, TradingView."],["About the code","PROPDESK is Prop Desk's affiliate code. FundedNext's help center says partner codes match the best available official FundedNext discount, so it gives the same discount as FundedNext's public code FNFLEX."]]},
