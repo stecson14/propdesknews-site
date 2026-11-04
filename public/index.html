@@ -86,6 +86,8 @@ body{padding-top:0}
 .deal .save{font-family:Fraunces,serif;font-size:22px;font-weight:600;color:var(--cream)}
 .deal .firmname{font-weight:600}
 .deal .ends.soon{color:#E39A8A}
+.pw .actf{display:block;font:11px "IBM Plex Mono",monospace;color:#E39A8A}
+.cost{font:13px "IBM Plex Mono",monospace;color:var(--muted);margin:2px 0 8px}.cost b{color:var(--cream,#EDE6D3);font-weight:600}
 .deal .acts{display:flex;gap:8px;align-items:center;margin-top:10px}
 .deal .acts .go{flex:1}
 .copyonly{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:10px;padding:12px 12px;font:600 12px "IBM Plex Mono",monospace;cursor:pointer}
@@ -322,8 +324,8 @@ header.top .lead{color:#C9C4B5;font-size:16px;max-width:540px}
   <div class="seg"><button type="button" data-size="25K">25K</button><button type="button" data-size="50K" aria-pressed="true">50K</button><button type="button" data-size="100K">100K</button><button type="button" data-size="150K">150K</button></div>
   <span class="grow"></span>
   <div class="seg view" role="group" aria-label="View"><button type="button" data-view="cards" aria-pressed="true">Cards</button><button type="button" data-view="table" aria-pressed="false">Price table</button></div>
-  <div class="seg sort" role="group" aria-label="Sort deals"><button type="button" data-sort="best" aria-pressed="true">Best deal</button><button type="button" data-sort="ending" aria-pressed="false">Ending soon</button></div>
-  <span class="hint" id="sizehint">Best deal first: lowest price after the code</span>
+  <div class="seg sort" role="group" aria-label="Sort deals"><button type="button" data-sort="best" aria-pressed="true">Lowest cost</button><button type="button" data-sort="ending" aria-pressed="false">Ending soon</button></div>
+  <span class="hint" id="sizehint">Lowest cost to get funded first: eval after the code plus any activation fee</span>
 </div>
 <div id="deal-list"></div>
 <div id="deal-table" hidden></div>
@@ -340,25 +342,25 @@ header.top .lead{color:#C9C4B5;font-size:16px;max-width:540px}
 const UPDATED = "Nov 4, 2026";
 const CHECKED = "Nov 4, 2026";
 const DEALS = [
-  {firm:"Apex", billing:"monthly", pricesNote:"Legacy accounts, Rithmic/WealthCharts", prices:{"25K":[177,17.70],"50K":[197,19.70],"100K":[397,39.70],"150K":[597,59.70]}, page:"/firms/apex-trader-funding/", url:"https://apextraderfunding.com", save:"90% off", what:"All evals (Intraday, EOD, Legacy). 25K Intraday $167 → $16.70.", code:"SAVENOW", ends:"", endsNote:"Site timer runs to ~Nov 10", aff:false,
+  {firm:"Apex", billing:"monthly", pricesNote:"Legacy accounts, Rithmic/WealthCharts", prices:{"25K":[177,17.70],"50K":[197,19.70],"100K":[397,39.70],"150K":[597,59.70]}, page:"/firms/apex-trader-funding/", url:"https://apextraderfunding.com", save:"90% off", what:"All evals (Intraday, EOD, Legacy). 25K Intraday $167 → $16.70.", act:{"25K":99,"50K":125,"100K":149,"150K":179}, actNote:"One-time PA activation fee after you pass (Rithmic/WealthCharts legacy); SAVENOW doesn't cover it", code:"SAVENOW", ends:"", endsNote:"Site timer runs to ~Nov 10", aff:false,
    chips:["EOD trailing drawdown","$500 min payout","50% consistency rule"],
    fine:[["Drawdown","End-of-day trailing. Safety net is the drawdown plus $100."],["Payouts","100% split on EOD Performance Accounts. 5 qualifying days, $500 minimum, 50% consistency rule, max 6 payouts per account."],["What the code skips","New signups only. Not valid on resets or PA activation fees."]]},
-  {firm:"Tradeify", billing:"one-time", prices:{"25K":[109,76],"50K":[165,116],"100K":[265,186],"150K":[369,258]}, page:"/firms/tradeify/", url:"https://tradeify.co", save:"30% off", what:"40% off the Growth account. 50K $165 → $116, one-time payment.", code:"NOV", ends:"2026-11-13T23:59:00-05:00", aff:false,
+  {firm:"Tradeify", billing:"one-time", prices:{"25K":[109,76],"50K":[165,116],"100K":[265,186],"150K":[369,258]}, page:"/firms/tradeify/", url:"https://tradeify.co", save:"30% off", what:"40% off the Growth account. 50K $165 → $116, one-time payment.", act:0, code:"NOV", ends:"2026-11-13T23:59:00-05:00", aff:false,
    chips:["EOD trailing drawdown","90/10 split","One-time payment"],
    fine:[["Drawdown","End-of-day trailing. Profit targets $1.5K / $3K / $6K / $9K for 25K to 150K."],["Payouts","90/10 split, Daily or Flex payout path."],["Consistency","Consistency rule applies in the eval only."]]},
-  {firm:"Take Profit Trader", billing:"monthly", pricesNote:"Test account", prices:{"25K":[150,75],"50K":[170,85],"100K":[330,165],"150K":[360,180]}, page:"/firms/take-profit-trader/", url:"https://takeprofittrader.com", save:"50% off for life", what:"Early Black Friday sale, ends Mon Nov 9 (per TPT). 50K Test $170 → $85 per month.", code:"NOFEE50", ends:"", endsNote:"Ends Mon Nov 9", aff:false,
+  {firm:"Take Profit Trader", billing:"monthly", pricesNote:"Test account", prices:{"25K":[150,75],"50K":[170,85],"100K":[330,165],"150K":[360,180]}, page:"/firms/take-profit-trader/", url:"https://takeprofittrader.com", save:"50% off for life", what:"Early Black Friday sale, ends Mon Nov 9 (per TPT). 50K Test $170 → $85 per month.", act:0, actNote:"$130 activation fee waived with NOFEE50", code:"NOFEE50", ends:"", endsNote:"Ends Mon Nov 9", aff:false,
    chips:["$130 activation fee waived","Resets $79 to $199","PRO 80/20, PRO+ 90/10"],
    fine:[["Billing","The Test renews monthly ($150 / $170 / $245 / $330 / $360 list for 25K to 150K) until you pass."],["Fees","$130 one-time activation fee, waived for life on accounts opened with this code. Test resets $79 / $99 / $139 / $169 / $199."],["Payouts","PRO 80/20, PRO+ 90/10. Withdrawals from day one on PRO, no maximum."]]},
-  {firm:"Lucid", pricesNote:"LucidDaily", prices:{"25K":[108,75.60],"50K":[172,120.40],"100K":[272,190.40],"150K":[365,255.50]}, page:"/firms/lucid-trading/", url:"https://lucidtrading.com", save:"30% off", what:"LucidDaily 50K $172 → $120.40.", code:"VAULT", ends:"", aff:false,
+  {firm:"Lucid", pricesNote:"LucidDaily", prices:{"25K":[108,75.60],"50K":[172,120.40],"100K":[272,190.40],"150K":[365,255.50]}, page:"/firms/lucid-trading/", url:"https://lucidtrading.com", save:"30% off", what:"LucidDaily 50K $172 → $120.40.", act:0, code:"VAULT", ends:"", aff:false,
    chips:["EOD drawdown","Daily loss limit","90/10 split"],
    fine:[["Drawdown","End-of-day. LucidDaily 25K: $1,000 max loss and a $600 daily loss limit."],["Payouts","90/10 split. LucidFlex: 5 qualifying days, $500 minimum payout, up to 5 payouts, then live."],["Consistency","LucidFlex eval: your largest day must be 40% or less of eval profit (50% with the paid add-on)."]]},
-  {firm:"IQ Capital", billing:"one-time", pricesNote:"Futures Core challenge", prices:{"50K":[245,36.75],"100K":[475,71.25]}, page:"/firms/iq-capital/", url:"https://checkout.iqcapital.io/products?aff=propdesk", save:"85% off", what:"Black Friday: 85% off everything, for a limited time (per IQ Capital). 50K futures challenge $245 → $36.75.", code:"PROPDESK", ends:"", endsNote:"Limited time", aff:true,
+  {firm:"IQ Capital", billing:"one-time", pricesNote:"Futures Core challenge", prices:{"50K":[245,36.75],"100K":[475,71.25]}, page:"/firms/iq-capital/", url:"https://checkout.iqcapital.io/products?aff=propdesk", save:"85% off", what:"Black Friday: 85% off everything, for a limited time (per IQ Capital). 50K futures challenge $245 → $36.75.", act:null, actNote:"No activation fee listed on IQ Capital's page", code:"PROPDESK", ends:"", endsNote:"Limited time", aff:true,
    chips:["Futures, CFD & crypto","No minimum days","Up to 90% split"],
    fine:[["Futures 50K","$3,000 profit target, $2,000 max drawdown and a $1,000 daily loss limit."],["Challenge","No consistency rule during the challenge and no minimum trading days to pass, per IQ Capital."],["Payouts","Up to 90% split, no minimum payout, paid in crypto or by bank transfer."],["About the code","PROPDESK is Prop Desk's affiliate code. At IQ Capital's checkout on Nov 4 it took 85% off the 50K futures challenge ($245 → $36.75), the same 85% as the site-wide Black Friday sale."]]},
-  {firm:"FundedNext Futures", billing:"one-time", pricesNote:"Flex account", prices:{"50K":[141.99,74.99],"100K":[273.99,144.99],"150K":[490.99,259.99]}, page:"/firms/fundednext-futures/", url:"https://fundednext.com/?fpr=PROPDESK", save:"Up to 47% off", what:"Flex 50K $141.99 → $74.99, one-time payment.", code:"PROPDESK", ends:"", aff:true,
+  {firm:"FundedNext Futures", billing:"one-time", pricesNote:"Flex account", prices:{"50K":[141.99,74.99],"100K":[273.99,144.99],"150K":[490.99,259.99]}, page:"/firms/fundednext-futures/", url:"https://fundednext.com/?fpr=PROPDESK", save:"Up to 47% off", what:"Flex 50K $141.99 → $74.99, one-time payment.", act:0, code:"PROPDESK", ends:"", aff:true,
    chips:["EOD trailing drawdown","One-time payment","Up to 95% split (firm's claim)"],
    fine:[["Drawdown","End-of-day trailing only, no buffer rule."],["Payouts","Up to 95% split is the firm's own claim."],["Platforms","NinjaTrader, Tradovate, TradingView."],["About the code","PROPDESK is Prop Desk's affiliate code. FundedNext's help center says partner codes match the best available official FundedNext discount, so it gives the same discount as FundedNext's public code FNFLEX."]]},
-  {firm:"MyFundedFutures", billing:"one-time", pricesNote:"Rapid account", prices:{"50K":[209,125]}, page:"/firms/myfundedfutures-mffu/", url:"https://myfundedfutures.com", save:"40% off", what:"40% off any plan, and 50% off your first eval if you are new to MFFU. 50K Rapid $209 → $125, one-time payment.", code:"CLUB", ends:"", aff:false,
+  {firm:"MyFundedFutures", billing:"one-time", pricesNote:"Rapid account", prices:{"50K":[209,125]}, page:"/firms/myfundedfutures-mffu/", url:"https://myfundedfutures.com", save:"40% off", what:"40% off any plan, and 50% off your first eval if you are new to MFFU. 50K Rapid $209 → $125, one-time payment.", act:0, code:"CLUB", ends:"", aff:false,
    chips:["One-time payment","Daily payouts on Rapid","90/10 split on Rapid"],
    fine:[["Consistency","Rapid and Pro evaluations use a 50% rule, Rapid EOD 30%. Funded Rapid, Rapid EOD and Pro accounts have none."],["Payouts","Funded Rapid pays daily at 90/10 once your balance clears a buffer ($2,100 on a 50K), with a $500 minimum."],["News","Funded Rapid accounts don't allow Tier 1 news trading."]]},
 ];
@@ -405,7 +407,9 @@ const DEALS = [
   var view="cards";try{if(localStorage.getItem("pd-view")==="table")view="table"}catch(e){}
   var sortBy="best";try{if(localStorage.getItem("pd-sort")==="ending")sortBy="ending"}catch(e){}
   var money=function(n){return "$"+(n%1?n.toFixed(2):n)};
-  var priceOf=function(d){return d.prices&&d.prices[size]?d.prices[size][1]:null};
+  var actOf=function(d){var a=d.act;if(a&&typeof a==="object")a=a[size];return typeof a==="number"?a:null};
+  // rank by cost to get funded: first payment after the code + activation fee
+  var priceOf=function(d){if(!(d.prices&&d.prices[size]))return null;return Math.round((d.prices[size][1]+(actOf(d)||0))*100)/100};
   // logo tiles: one small sprite strip (/logos/home.webp, built by build_site.py with only the firms this page shows) when we have the logo, otherwise a lettered tile
   var L=(typeof LOGOS!=="undefined")?LOGOS:{};
   var slugOf=function(d){var m=(d.page||"").match(/^\/firms\/([^\/]+)\//);return m?m[1]:""};
@@ -417,6 +421,9 @@ const DEALS = [
     if(!p)return '<p class="price none">No '+esc(size)+' account listed'+(d.prices?' (sizes: '+Object.keys(d.prices).join(", ")+')':'')+'</p>';
     return '<p class="price"><span>'+esc(size)+'</span><b>'+money(p[1])+'</b><span>with code</span><s>'+money(p[0])+'</s>'+
       (d.billing?'<span class="bill '+esc(d.billing)+'">'+(d.billing==="monthly"?"billed monthly":"one-time")+'</span>':'')+(d.pricesNote?'<span>'+esc(d.pricesNote)+'</span>':'')+'</p>'};
+  var costLine=function(d){if(!(d.prices&&d.prices[size]))return "";var a=actOf(d),first=d.prices[size][1];
+    if(a===null)return '<p class="cost">'+esc(d.actNote||"Activation fee not stated")+'. To get funded: <b>'+money(first)+'</b>'+(d.billing==="monthly"?" + monthly until you pass":"")+'</p>';
+    return '<p class="cost">'+(a?'+ '+money(a)+' activation fee after you pass':esc(d.actNote||"No activation fee"))+'. To get funded: <b>'+money(Math.round((first+a)*100)/100)+'</b>'+(d.billing==="monthly"?" if you pass in the first month":"")+'</p>'};
   var GL_ORDER=["eod-trailing-drawdown","static-drawdown","daily-loss-limit","safety-net","consistency-rule","activation-fee","reset","billing","profit-split","payouts","scaling","profit-target","affiliate-codes","perps","trailing-drawdown","funded-account","evaluation","true-cost"];
   var GLS=(typeof GLOSS!=="undefined")?GLOSS:[];
   var termFor=function(text){var t=(text||"").toLowerCase();for(var i=0;i<GL_ORDER.length;i++){var g=null;for(var j=0;j<GLS.length;j++)if(GLS[j].slug===GL_ORDER[i])g=GLS[j];if(!g)continue;for(var k=0;k<g.keys.length;k++)if(t.indexOf(g.keys[k])>-1)return g.slug}
@@ -441,7 +448,7 @@ const DEALS = [
   if(!hero){H.hidden=true;var W=document.getElementById("why");if(W)W.hidden=false}
   if(hero){
     H.hidden=false;
-    H.innerHTML='<div class="lbl">'+(sortBy==="ending"?"ENDING SOONEST":"BEST DEAL · "+esc(size)+" · "+esc(fmtEnd(hero)).toUpperCase())+'</div><div class="big">'+esc(hero.save)+'</div><div class="who">'+tile(slugOf(hero),hero.firm,"sm lgh")+'<span>at '+esc(hero.firm)+'</span></div><p class="what">'+esc(hero.what)+'</p>'+priceLine(hero)+chips(hero)+
+    H.innerHTML='<div class="lbl">'+(sortBy==="ending"?"ENDING SOONEST":"LOWEST COST TO GET FUNDED · "+esc(size)+" · "+esc(fmtEnd(hero)).toUpperCase())+'</div><div class="big">'+esc(hero.save)+'</div><div class="who">'+tile(slugOf(hero),hero.firm,"sm lgh")+'<span>at '+esc(hero.firm)+'</span></div><p class="what">'+esc(hero.what)+'</p>'+priceLine(hero)+costLine(hero)+chips(hero)+
       (hero.ends?'<div class="clock" aria-label="Time left"><div><b id="cd-d">0</b><span>DAYS</span></div><div><b id="cd-h">00</b><span>HRS</span></div><div><b id="cd-m">00</b><span>MIN</span></div><div><b id="cd-s">00</b><span>SEC</span></div></div>':'')+
       '<button class="go" data-i="'+DEALS.indexOf(hero)+'">Copy code &amp; open '+esc(hero.firm)+' ↗<code>'+esc(hero.code)+'</code></button><p class="tag">'+tag(hero)+'</p>'+fine(hero,false);
     var p=function(n){return n<10?"0"+n:""+n};
@@ -453,21 +460,21 @@ const DEALS = [
   document.getElementById("deal-list").innerHTML=sorted.map(function(d){
     var soon=d.ends&&(new Date(d.ends)-now())<72*36e5, sl=slugOf(d);
     return '<div class="deal"><div class="fh">'+tile(sl,d.firm)+'<div class="nm">'+(d.page?'<a href="'+esc(d.page)+'">'+esc(d.firm)+'</a>':esc(d.firm))+'</div><span class="ends'+(soon?" soon":"")+'">'+fmtEnd(d)+'</span></div>'+
-      '<div class="save">'+esc(d.save)+'</div><p class="what">'+esc(d.what)+'</p>'+priceLine(d)+chips(d)+'<div class="grow"></div>'+
+      '<div class="save">'+esc(d.save)+'</div><p class="what">'+esc(d.what)+'</p>'+priceLine(d)+costLine(d)+chips(d)+'<div class="grow"></div>'+
       '<div class="acts"><button class="go sm" data-i="'+DEALS.indexOf(d)+'">Copy &amp; open ↗<code>'+esc(d.code)+'</code></button><button class="copyonly" data-c="'+esc(d.code)+'" aria-label="Copy '+esc(d.code)+' only">Copy</button></div>'+
       '<p class="tag">'+tag(d)+'</p>'+fine(d,false)+'</div>'}).join("")||'<p class="sub">No live deals right now. Check back tomorrow morning.</p>';
-  // price table: every live deal (the hero too), cheapest first for the chosen size
+  // price table: every live deal (the hero too), lowest cost to get funded first for the chosen size
   var all=live.slice().sort(byPrice);
   document.getElementById("deal-table").innerHTML='<div class="ptab" role="table" aria-label="Cheapest '+esc(size)+' evaluation with each code"><div class="pr ph" role="row"><span>#</span><span>Firm</span><span class="ph-lg">With code</span><span class="ph-lg">Billing</span><span class="ph-lg"></span></div>'+
     all.map(function(d,i){var pp=d.prices&&d.prices[size],sl=slugOf(d);
       return '<div class="pr'+(pp?"":" none")+'" role="row"><span class="rk">'+(pp?i+1:"–")+'</span><span class="pf">'+tile(sl,d.firm,"sm")+'<span style="min-width:0"><b>'+(d.page?'<a href="'+esc(d.page)+'">'+esc(d.firm)+'</a>':esc(d.firm))+'</b><small>'+esc(d.save)+' · '+esc(d.pricesNote||fmtEnd(d))+'</small></span></span>'+
-        '<span class="pw">'+(pp?'<b>'+money(pp[1])+'</b>'+(d.billing==="monthly"?'<i class="mo">/mo</i>':'')+'<s>'+money(pp[0])+'</s>':'No '+esc(size))+'</span><span class="pw2">'+(d.billing?(d.billing==="monthly"?"billed monthly":"one-time"):"see firm")+'<br>'+esc(fmtEnd(d))+'</span>'+
+        '<span class="pw">'+(pp?'<b>'+money(pp[1])+'</b>'+(d.billing==="monthly"?'<i class="mo">/mo</i>':'')+'<s>'+money(pp[0])+'</s>'+(actOf(d)?'<small class="actf">+ '+money(actOf(d))+' activation</small>':''):'No '+esc(size))+'</span><span class="pw2">'+(d.billing?(d.billing==="monthly"?"billed monthly":"one-time"):"see firm")+'<br>'+esc(fmtEnd(d))+'</span>'+
         '<span class="pa"><button class="go sm" data-i="'+DEALS.indexOf(d)+'">Copy &amp; open ↗<code>'+esc(d.code)+'</code></button></span></div>'}).join("")+'</div><p class="ptab-note">List prices with each firm\'s code applied, read from the firm\'s own site. Monthly evals renew until you pass; check activation fees in each deal\'s fine print.</p>';
   document.getElementById("deal-list").hidden=view!=="cards";document.getElementById("deal-table").hidden=view!=="table";
   document.querySelectorAll(".sizebar [data-size]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.size===size?"true":"false")});
   document.querySelectorAll(".sizebar [data-view]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.view===view?"true":"false")});
   document.querySelectorAll(".sizebar [data-sort]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.sort===sortBy?"true":"false")});
-  var SH=document.getElementById("sizehint");if(SH)SH.textContent=sortBy==="ending"?"Ending soonest first; deals with no end date last":"Best deal first: lowest price after the code";
+  var SH=document.getElementById("sizehint");if(SH)SH.textContent=sortBy==="ending"?"Ending soonest first; deals with no end date last":"Lowest cost to get funded first: eval after the code plus any activation fee";
   }
   renderAll();
   document.querySelectorAll(".sizebar [data-size]").forEach(function(b){b.addEventListener("click",function(){size=b.dataset.size;try{localStorage.setItem("pd-size",size)}catch(e){}renderAll()})});
