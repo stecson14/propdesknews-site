@@ -322,7 +322,8 @@ header.top .lead{color:#C9C4B5;font-size:16px;max-width:540px}
   <div class="seg"><button type="button" data-size="25K">25K</button><button type="button" data-size="50K" aria-pressed="true">50K</button><button type="button" data-size="100K">100K</button><button type="button" data-size="150K">150K</button></div>
   <span class="grow"></span>
   <div class="seg view" role="group" aria-label="View"><button type="button" data-view="cards" aria-pressed="true">Cards</button><button type="button" data-view="table" aria-pressed="false">Price table</button></div>
-  <span class="hint" id="sizehint">Cheapest first, with each code applied</span>
+  <div class="seg sort" role="group" aria-label="Sort deals"><button type="button" data-sort="best" aria-pressed="true">Best deal</button><button type="button" data-sort="ending" aria-pressed="false">Ending soon</button></div>
+  <span class="hint" id="sizehint">Best deal first: lowest price after the code</span>
 </div>
 <div id="deal-list"></div>
 <div id="deal-table" hidden></div>
@@ -399,9 +400,10 @@ const DEALS = [
   var live=DEALS.filter(function(d){return !d.ends||new Date(d.ends).getTime()>now()});
   var esc=function(t){return String(t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
   var tag=function(d){return d.aff?"Affiliate code: Prop Desk may earn a commission":d.afflink?"Firm's public code. The link to the firm is a Prop Desk affiliate link":"Firm's public code, not an affiliate link"};
-  var fmtEnd=function(d){if(!d.ends)return d.endsNote||"No end date";var ms=new Date(d.ends)-now(),h=ms/36e5;if(h<48)return "Ends in "+Math.max(1,Math.floor(h))+"h";return "Ends "+new Date(d.ends).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",timeZone:"America/New_York"})};
+  var fmtEnd=function(d){if(!d.ends)return d.endsNote||"No end date";var ms=new Date(d.ends)-now(),h=ms/36e5;if(h<48)return "Ends in "+Math.max(1,Math.floor(h))+"h";if(h<72)return "Ends in "+Math.floor(h/24)+"d";return "Ends "+new Date(d.ends).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",timeZone:"America/New_York"})};
   var SIZES=["25K","50K","100K","150K"];var size="50K";try{var ss=localStorage.getItem("pd-size");if(SIZES.indexOf(ss)>-1)size=ss}catch(e){}
   var view="cards";try{if(localStorage.getItem("pd-view")==="table")view="table"}catch(e){}
+  var sortBy="best";try{if(localStorage.getItem("pd-sort")==="ending")sortBy="ending"}catch(e){}
   var money=function(n){return "$"+(n%1?n.toFixed(2):n)};
   var priceOf=function(d){return d.prices&&d.prices[size]?d.prices[size][1]:null};
   // logo tiles: one small sprite strip (/logos/home.webp, built by build_site.py with only the firms this page shows) when we have the logo, otherwise a lettered tile
@@ -425,23 +427,29 @@ const DEALS = [
       '</dl><p class="src">Read from <a href="'+esc(d.url)+'" target="_blank" rel="'+((d.aff||d.afflink)?'sponsored nofollow noopener':'noopener')+'">'+esc(d.firm)+"'s site</a>, checked "+esc(CHECKED)+'. Rules change. The firm\'s page is the final word.'+(d.page?' <a href="'+esc(d.page)+'">Full '+esc(d.firm)+' profile: rules, sale and every confirmed change →</a>':'')+'</p></details>'};
   document.getElementById("upd").textContent=UPDATED;
   var stl=document.getElementById("st-live");if(stl)stl.textContent=live.length;
-  var timed=live.filter(function(d){return d.ends}).sort(function(a,b){return new Date(a.ends)-new Date(b.ends)});
-  var hero=timed[0], rest=live.filter(function(d){return d!==hero});
   var H=document.getElementById("hero");
-  if(!hero){var W=document.getElementById("why");if(W)W.hidden=false}
-  var byPrice=function(a,b){var pa=priceOf(a),pb=priceOf(b);if(pa==null&&pb==null)return 0;if(pa==null)return 1;if(pb==null)return -1;return pa-pb};
+  // Best deal = lowest price after the code at the chosen size; ties go to the firm's own public code, never ours first (Nov 4)
+  var byPrice=function(a,b){var pa=priceOf(a),pb=priceOf(b);if(pa==null&&pb==null)return (a.aff?1:0)-(b.aff?1:0);if(pa==null)return 1;if(pb==null)return -1;return (pa-pb)||((a.aff?1:0)-(b.aff?1:0))};
+  var MON={Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+  var endKey=function(d){if(d.ends)return new Date(d.ends).getTime();var m=/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+(\d{1,2})\b/.exec(d.endsNote||"");
+    if(m){var y=new Date(now()).getFullYear(),t=Date.UTC(y,MON[m[1]],+m[2],28,59);if(t<+now()-864e5*60)t=Date.UTC(y+1,MON[m[1]],+m[2],28,59);return t}return d.endsNote?9e15:9.9e15};
+  var byEnd=function(a,b){return (endKey(a)-endKey(b))||byPrice(a,b)};
+  var hero=null, rest=live;
   function renderAll(){
+  if(sortBy==="ending"){var timed=live.filter(function(d){return endKey(d)<9e15}).sort(byEnd);hero=timed[0]||null}else{hero=live.slice().sort(byPrice)[0]||null}
+  rest=live.filter(function(d){return d!==hero});
+  if(!hero){H.hidden=true;var W=document.getElementById("why");if(W)W.hidden=false}
   if(hero){
     H.hidden=false;
-    H.innerHTML='<div class="lbl">ENDING SOONEST</div><div class="big">'+esc(hero.save)+'</div><div class="who">'+tile(slugOf(hero),hero.firm,"sm lgh")+'<span>at '+esc(hero.firm)+'</span></div><p class="what">'+esc(hero.what)+'</p>'+priceLine(hero)+chips(hero)+
-      '<div class="clock" aria-label="Time left"><div><b id="cd-d">0</b><span>DAYS</span></div><div><b id="cd-h">00</b><span>HRS</span></div><div><b id="cd-m">00</b><span>MIN</span></div><div><b id="cd-s">00</b><span>SEC</span></div></div>'+
+    H.innerHTML='<div class="lbl">'+(sortBy==="ending"?"ENDING SOONEST":"BEST DEAL · "+esc(size)+" · "+esc(fmtEnd(hero)).toUpperCase())+'</div><div class="big">'+esc(hero.save)+'</div><div class="who">'+tile(slugOf(hero),hero.firm,"sm lgh")+'<span>at '+esc(hero.firm)+'</span></div><p class="what">'+esc(hero.what)+'</p>'+priceLine(hero)+chips(hero)+
+      (hero.ends?'<div class="clock" aria-label="Time left"><div><b id="cd-d">0</b><span>DAYS</span></div><div><b id="cd-h">00</b><span>HRS</span></div><div><b id="cd-m">00</b><span>MIN</span></div><div><b id="cd-s">00</b><span>SEC</span></div></div>':'')+
       '<button class="go" data-i="'+DEALS.indexOf(hero)+'">Copy code &amp; open '+esc(hero.firm)+' ↗<code>'+esc(hero.code)+'</code></button><p class="tag">'+tag(hero)+'</p>'+fine(hero,false);
     var p=function(n){return n<10?"0"+n:""+n};
-    var tick=function(){var ms=new Date(hero.ends)-now();if(ms<=0){location.reload();return}
+    var tick=function(){if(!hero||!hero.ends||!document.getElementById("cd-d"))return;var ms=new Date(hero.ends)-now();if(ms<=0){location.reload();return}
       var t=Math.floor(ms/1000);document.getElementById("cd-d").textContent=Math.floor(t/86400);document.getElementById("cd-h").textContent=p(Math.floor(t%86400/3600));document.getElementById("cd-m").textContent=p(Math.floor(t%3600/60));document.getElementById("cd-s").textContent=p(t%60)};
     tick();if(!window.__pdTick)window.__pdTick=setInterval(tick,1000);
   }
-  var sorted=rest.slice().sort(byPrice);
+  var sorted=rest.slice().sort(sortBy==="ending"?byEnd:byPrice);
   document.getElementById("deal-list").innerHTML=sorted.map(function(d){
     var soon=d.ends&&(new Date(d.ends)-now())<72*36e5, sl=slugOf(d);
     return '<div class="deal"><div class="fh">'+tile(sl,d.firm)+'<div class="nm">'+(d.page?'<a href="'+esc(d.page)+'">'+esc(d.firm)+'</a>':esc(d.firm))+'</div><span class="ends'+(soon?" soon":"")+'">'+fmtEnd(d)+'</span></div>'+
@@ -458,10 +466,13 @@ const DEALS = [
   document.getElementById("deal-list").hidden=view!=="cards";document.getElementById("deal-table").hidden=view!=="table";
   document.querySelectorAll(".sizebar [data-size]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.size===size?"true":"false")});
   document.querySelectorAll(".sizebar [data-view]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.view===view?"true":"false")});
+  document.querySelectorAll(".sizebar [data-sort]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.sort===sortBy?"true":"false")});
+  var SH=document.getElementById("sizehint");if(SH)SH.textContent=sortBy==="ending"?"Ending soonest first; deals with no end date last":"Best deal first: lowest price after the code";
   }
   renderAll();
   document.querySelectorAll(".sizebar [data-size]").forEach(function(b){b.addEventListener("click",function(){size=b.dataset.size;try{localStorage.setItem("pd-size",size)}catch(e){}renderAll()})});
   document.querySelectorAll(".sizebar [data-view]").forEach(function(b){b.addEventListener("click",function(){view=b.dataset.view;try{localStorage.setItem("pd-view",view)}catch(e){}renderAll()})});
+  document.querySelectorAll(".sizebar [data-sort]").forEach(function(b){b.addEventListener("click",function(){sortBy=b.dataset.sort;try{localStorage.setItem("pd-sort",sortBy)}catch(e){}renderAll()})});
   // popular firms: logo tiles linking to each profile, sale badge when the firm has a live deal
   var POP=["topstep","apex-trader-funding","tradeify","lucid-trading","myfundedfutures-mffu","take-profit-trader","alpha-futures","fundednext-futures","bulenox","earn2trade","elite-trader-funding","top-one-futures"];
   var onSale={};live.forEach(function(d){onSale[slugOf(d)]=d.save});
