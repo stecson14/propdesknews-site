@@ -116,11 +116,16 @@ section h2 small{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text
 .frow b{display:block;font-size:15px}
 .frow small{display:block;font:11.5px var(--mono);color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .frow .fx{display:none;font-size:13px;color:var(--muted);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.frow .sale{font:600 11px var(--mono);color:#1A2233;background:var(--mustard);border-radius:999px;padding:3px 8px;white-space:nowrap}
-.frow .sale.no{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.frow .sale{display:flex;flex-wrap:wrap;flex-direction:column;align-items:flex-end;gap:3px;min-width:0;max-width:150px;justify-self:end}
+.frow .sale b{display:inline-block;font:700 13px/1.15 Fraunces,Georgia,serif;letter-spacing:.01em;color:#1A2233;background:linear-gradient(135deg,#E9B954,var(--mustard));border-radius:6px 999px 999px 6px;padding:4px 10px 4px 8px;white-space:nowrap;box-shadow:0 1px 0 rgba(0,0,0,.25)}
+.frow .sale b::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:#1A2233;opacity:.55;margin:0 6px 1px 0;vertical-align:middle}
+.frow .sale code{font:500 10.5px var(--mono);color:var(--mustard);border:1px dashed rgba(217,164,65,.65);border-radius:4px;padding:1px 6px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.frow .sale i{font:500 9.5px var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.frow .sale.no{display:inline-block;font:600 11px var(--mono);color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 8px;white-space:nowrap}
+@media (max-width:400px){.frow .sale{max-width:116px}.frow .sale b{font-size:12px;padding:3px 8px 3px 7px}}
 .frow.hd{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:rgba(0,0,0,.12);padding:8px 14px}
 .frow.hd:hover{background:rgba(0,0,0,.12)}
-@media (min-width:860px){.frow{grid-template-columns:32px minmax(0,1.1fr) minmax(0,1.5fr) minmax(0,.7fr) minmax(0,1.1fr) 92px}.frow .fx{display:block}}
+@media (min-width:860px){.frow{grid-template-columns:32px minmax(0,1.1fr) minmax(0,1.5fr) minmax(0,.7fr) minmax(0,1.1fr) 150px}.frow .fx{display:block}}
 .frow .m{display:none}
 @media (max-width:859px){.frow.hd{display:none}.frow .m{display:block}}
 
@@ -990,6 +995,28 @@ const LN = LOGOS._n || 1;
 addEventListener("load", () => setTimeout(() => document.documentElement.classList.add("lgok"), 0));
 const tile = (s, n, cls = "") => (s !== "_n" && LOGOS[s]) ? `<span class="lg sp ${cls}" style="background-size:${LN * 100}% 100%;background-position:${LN > 1 ? (LOGOS[s][1] * 100 / (LN - 1)).toFixed(3) : 0}% 0" aria-hidden="true"></span>` : `<span class="lg mono ${cls}" style="--h:${hue(s)}" aria-hidden="true">${esc(initials(n))}</span>`;
 const cut = (t, k) => { t = String(t || ""); return t.length > k ? t.slice(0, k - 1).replace(/\s+\S*$/, "") + "…" : t; };
+const SALE = {"apex-trader-funding":{"s":"90% off","c":"SAVENOW","a":false},"tradeify":{"s":"30% off","c":"NOV","a":false},"take-profit-trader":{"s":"50% off for life","c":"NOFEE50","a":false},"lucid-trading":{"s":"30% off","c":"VAULT","a":false},"fundednext-futures":{"s":"Up to 47% off","c":"PROPDESK","a":true},"alpha-futures":{"s":"50% off","c":"PROP_DESK030313","a":true}};
+// the actual sale for list view: our home-page deal when we run one, otherwise read from the firm's own deal text
+function saleOf(f){
+  const h = SALE[slug(f.n)];
+  if (h && h.s) return {t: h.s, c: h.c, a: h.a};
+  if (!hasSale(f)) return null;
+  const raw = f.deal.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+  const code = (f.deal.match(/<b>([^<]{2,24})<\/b>/) || [])[1] || "";
+  let t = (raw.match(/\b(up to \d+% off|\d+% off|\$\d+ off)/i) || [])[1];
+  const sv = raw.match(/\bsave (up to )?(\d+)%/i);
+  if (!t && sv) t = (sv[1] ? "up to " : "") + sv[2] + "% off";
+  if (!t && /buy one,? get one|\bBOGO\b/i.test(raw)) t = "Buy 1 get 1";
+  if (!t && /free (evaluation|eval)\b/i.test(raw)) t = "Free eval";
+  if (!t && /free (trial|7-day)|-day free trial|test free/i.test(raw)) t = "Free trial";
+  if (!t && /free demo/i.test(raw)) t = "Free demo";
+  if (!t && /best available discount/i.test(raw)) t = "Best discount";
+  if (!t && /bundle/i.test(raw)) t = "Bundle deals";
+  const rs = raw.match(/reset(?:s)? for (\$\d+)/i);
+  if (!t && rs) t = rs[1] + " resets";
+  return {t: (t || "Sale on").replace(/^./, c => c.toUpperCase()), c: code, a: false};
+}
+const saleHtml = f => { const x = saleOf(f); return x ? `<span class="sale"><b>${esc(x.t)}</b>${x.c ? `<code>${esc(x.c)}</code>` : ""}${x.a ? "<i>Affiliate code</i>" : ""}</span>` : `<span class="sale no">No sale</span>`; };
 const hasSale = f => !!f.deal && !/^\s*no (sale|site-wide sale)/i.test(f.deal.replace(/<[^>]+>/g, ""));
 const kv = z => parseFloat(z);
 const offers = (s, z) => { const d = SIZEP[s] || {}; if ((d.z && d.z.includes(z)) || (d.p && d.p[z]) || (DEALP[s] && DEALP[s].p && DEALP[s].p[z])) return true; return d.r && kv(z) >= d.r[0] && kv(z) <= d.r[1] ? "range" : false; };
@@ -1030,7 +1057,7 @@ function zShort(f){
 }
 function frow(f){
   const s = slug(f.n), mk = f.m.map(m => m === "cfd" ? "CFD/FX" : m === "perps" ? "Perps" : "Futures").join(" · ");
-  return `<a class="frow" href="/firms/${s}/">${tile(s, f.n, "sm")}<span style="min-width:0"><b>${esc(f.n)}</b><small>${esc(mk)}<span class="m">${state.z ? ` · <span class="zp">${esc(state.z + ": " + zShort(f))}</span>` : " · " + esc(cut(f.split, 26))}</span></small></span><span class="fx">${state.z ? `<span class="zp">${esc(zShort(f))}</span>` : esc(cut(f.price, 70))}</span><span class="fx">${esc(cut(f.split, 30))}</span><span class="fx">${esc(cut(f.dd, 44))}</span><span class="sale${hasSale(f) ? "" : " no"}">${hasSale(f) ? "Sale on" : "No sale"}</span></a>`;
+  return `<a class="frow" href="/firms/${s}/">${tile(s, f.n, "sm")}<span style="min-width:0"><b>${esc(f.n)}</b><small>${esc(mk)}<span class="m">${state.z ? ` · <span class="zp">${esc(state.z + ": " + zShort(f))}</span>` : " · " + esc(cut(f.split, 26))}</span></small></span><span class="fx">${state.z ? `<span class="zp">${esc(zShort(f))}</span>` : esc(cut(f.price, 70))}</span><span class="fx">${esc(cut(f.split, 30))}</span><span class="fx">${esc(cut(f.dd, 44))}</span>${saleHtml(f)}</a>`;
 }
 const fhead = () => `<div class="frow hd"><span></span><span>Firm</span><span>${state.z ? "Price at " + state.z : "Price"}</span><span>Split</span><span>Drawdown</span><span>Sale</span></div>`;
 
