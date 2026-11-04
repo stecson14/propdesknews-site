@@ -22,7 +22,7 @@
     '.pds-res .tx b{font-weight:600;font-size:15px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}' +
     '.pds-res .tx small{font-size:12.5px;color:#A3A8B5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}' +
     '.pds-res mark{background:transparent;color:#D9A441;font-weight:700}' +
-    '.pds-res .go{flex:none;color:#7F869A;font:12px "IBM Plex Mono",ui-monospace,monospace}' +
+    '.pds-res .go{display:inline;flex:none;width:auto;background:none;border:0;border-radius:0;padding:0;cursor:inherit;color:#7F869A;font:12px "IBM Plex Mono",ui-monospace,monospace}' +
     '.pds-res li[aria-selected="true"] .go{color:#D9A441}' +
     '.pds-foot{display:flex;justify-content:space-between;gap:10px;padding:8px 14px 10px;border-top:1px solid #2E3850;font:11px "IBM Plex Mono",ui-monospace,monospace;color:#7F869A}' +
     '@media (max-width:640px){.pds{padding:8px}.pds-res .k{min-width:0}.pds-res .tx b,.pds-res .tx small{white-space:normal}.pds-foot{display:none}}';
