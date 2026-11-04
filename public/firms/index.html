@@ -20,7 +20,7 @@
 @font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/ibmplexmono-400.woff2) format("woff2")}
 @font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/ibmplexmono-500.woff2) format("woff2")}
 @font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/ibmplexmono-600.woff2) format("woff2")}
-.affl{font:500 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 6px;white-space:nowrap;align-self:center;display:inline-block;vertical-align:middle}
+.affl{font:500 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 6px;white-space:normal;max-width:100%;align-self:center;display:inline-block;vertical-align:middle}
 </style>
 <script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/og/*"}},{"not":{"selector_matches":"a[href*=\"#\"]"}}]},"eagerness":"moderate"}],"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/og/*"}}]},"eagerness":"moderate"}]}</script>
 <style>@media (prefers-reduced-motion:no-preference){@view-transition{navigation:auto}::view-transition-old(root){animation:150ms ease-out both pd-vt-out}::view-transition-new(root){animation:220ms ease-out both pd-vt-in}@keyframes pd-vt-out{to{opacity:0}}@keyframes pd-vt-in{from{opacity:0;transform:translateY(8px)}}.sitenav{view-transition-name:pd-nav}.tabbar{view-transition-name:pd-tabbar}}</style>
@@ -1025,7 +1025,7 @@ function saleOf(f){
   if (!t && rs) t = rs[1] + " resets";
   return {t: (t || "Sale on").replace(/^./, c => c.toUpperCase()), c: code, a: false};
 }
-const saleHtml = f => { const x = saleOf(f); return x ? `<span class="sale"><b>${esc(x.t)}</b>${x.c ? `<code>${esc(x.c)}</code>` : ""}${x.a ? "<i>Affiliate code</i>" : ""}</span>` : `<span class="sale no">No sale</span>`; };
+const saleHtml = f => { const x = saleOf(f); return x ? `<span class="sale"><b>${esc(x.t)}</b>${x.c ? `<code>${esc(x.c)}</code>` : ""}${x.a ? "<i>Affiliate code · we earn a commission if you buy</i>" : ""}</span>` : `<span class="sale no">No sale</span>`; };
 const hasSale = f => !!f.deal && !/^\s*no (sale|site-wide sale)/i.test(f.deal.replace(/<[^>]+>/g, ""));
 const kv = z => parseFloat(z);
 const offers = (s, z) => { const d = SIZEP[s] || {}; if ((d.z && d.z.includes(z)) || (d.p && d.p[z]) || (DEALP[s] && DEALP[s].p && DEALP[s].p[z])) return true; return d.r && kv(z) >= d.r[0] && kv(z) <= d.r[1] ? "range" : false; };
@@ -1047,7 +1047,7 @@ function atBox(f){
   const z = state.z; if (!z) return "";
   const s = slug(f.n), d = dealAt(s, z), r = rowsAt(s, z), off = offers(s, z);
   let h = `<div class="atsz"><div class="h">At ${esc(z)}</div>`;
-  if (d) h += `<div class="pr cd">${amtHtml(usd(d.p[z][1]), d.b === "monthly" ? "mo" : "")}<span class="pl">with code <code>${esc(d.c)}</code>${d.a ? ' <span class="affl">Affiliate code</span>' : ""} · list ${usd(d.p[z][0])}${d.n ? " · " + esc(d.n) : ""}</span></div>`;
+  if (d) h += `<div class="pr cd">${amtHtml(usd(d.p[z][1]), d.b === "monthly" ? "mo" : "")}<span class="pl">with code <code>${esc(d.c)}</code>${d.a ? ' <span class="affl">Affiliate code · we earn a commission if you buy</span>' : ""} · list ${usd(d.p[z][0])}${d.n ? " · " + esc(d.n) : ""}</span></div>`;
   h += r.map(priceRow).join("");
   if (r.length && SIZEP[s].k) h += `<div class="src">Prices from ${esc(f.n)}${/s$/i.test(f.n) ? "'" : "'s"} own site, checked ${esc(SIZEP[s].k)}</div>`;
   if (!d && !r.length) h += `<div class="none">${off === "range" ? `Sizes run ${esc(f.sizes.replace(/\s*\(.*\)/, ""))}. The firm doesn't list a ${esc(z)} price, so check its checkout.` : `${esc(f.n)} offers ${esc(z)} but doesn't list a price for it. See the price row below or the firm's checkout.`}</div>`;
@@ -1091,7 +1091,7 @@ function card(f){
   return `<article class="card${cmp.includes(slug(f.n)) ? " picked" : ""}" data-s="${slug(f.n)}">
     <div class="top"><div class="nmw">${tile(slug(f.n), f.n)}<h3 class="name"><a href="/firms/${slug(f.n)}/">${esc(f.n)}</a></h3></div><div class="tags"><label class="cmp"><input type="checkbox" data-s="${slug(f.n)}" ${cmp.includes(slug(f.n)) ? "checked" : ""}> Compare</label>${tags}</div></div>
     <div class="links">
-      <a class="lk" href="${FIRMAFF[slug(f.n)] || f.w}" target="_blank" rel="${FIRMAFF[slug(f.n)] ? "sponsored noopener" : "noopener"}">${esc(host)} <span class="arr">↗</span></a>${FIRMAFF[slug(f.n)] ? '<span class="affl">Affiliate link</span>' : ""}
+      <a class="lk" href="${FIRMAFF[slug(f.n)] || f.w}" target="_blank" rel="${FIRMAFF[slug(f.n)] ? "sponsored noopener" : "noopener"}">${esc(host)} <span class="arr">↗</span></a>${FIRMAFF[slug(f.n)] ? '<span class="affl">Affiliate link · we earn a commission if you buy</span>' : ""}
       <a class="lk" href="${x.href}" target="_blank" rel="noopener">${x.label} <span class="arr">↗</span></a>
     </div>
     ${atBox(f)}
