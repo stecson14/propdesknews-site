@@ -72,6 +72,24 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .search{flex:1 1 220px;min-width:0;font:15px var(--body);padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
 .chk{display:inline-flex;gap:6px;align-items:center;font-size:13px;color:var(--muted)}
 .count{font-family:var(--mono);font-size:12px;color:var(--muted);margin-left:auto}
+.sizes{display:flex;flex-wrap:wrap;align-items:center;gap:6px;flex-basis:100%}
+.sizes .lbl{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mustard);margin-right:2px}
+.sizes button{font:600 12.5px var(--mono);padding:6px 10px;min-height:34px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);cursor:pointer}
+.sizes button[aria-pressed="true"]{background:var(--mustard);border-color:var(--mustard);color:#1A2233}
+.sizes button:focus-visible{outline:2px solid var(--mustard);outline-offset:2px}
+.atsz{border:1px solid var(--mustard);border-radius:10px;padding:10px 12px;display:grid;gap:6px;background:rgba(217,164,65,.06)}
+.atsz .h{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mustard)}
+.atsz .pr{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px;min-width:0}
+.atsz .amt{font:600 18px var(--mono);font-variant-numeric:tabular-nums;color:var(--ink)}
+.atsz .amt i{font:500 12px var(--mono);font-style:normal;color:var(--muted);margin-left:1px}
+.atsz .pl{font-size:13px;color:var(--muted);min-width:0;overflow-wrap:anywhere}
+.atsz .pl code{font:600 12.5px var(--mono);color:var(--ink);background:var(--mustard-soft);border-radius:4px;padding:1px 5px}
+.atsz .cd .amt{color:var(--ok)}
+.atsz .none{font-size:13px;color:var(--muted)}
+.frow .zp{color:var(--ink)}
+@media (max-width:760px){.bar{position:static}}
+@media (max-width:480px){.sizes .lbl{display:none}.sizes{gap:4px}.sizes button{padding:5px 7px;font-size:11.5px}}
+.frow .zp{white-space:normal}
 
 main .wrap{padding-block:26px 60px;display:grid;gap:34px}
 section h2{font-family:var(--display);font-weight:500;font-size:28px;margin:0 0 4px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
@@ -81,6 +99,30 @@ section h2 small{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text
 
 .card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 18px 14px;display:grid;gap:12px;min-width:0}
 .card.tier1{border-color:var(--mustard)}
+/* redesign (Nov 3): logo tiles + compact list view */
+.nmw{display:flex;align-items:center;gap:12px;min-width:0}
+.lg{width:44px;height:44px;border-radius:10px;flex:none;object-fit:cover;background:#fff;display:block}
+.lg.sm{width:32px;height:32px;border-radius:8px}
+.lg.sp{background-color:#2A3550;background-repeat:no-repeat}
+.lgok .lg.sp{background-image:url(/logos/sprite.webp?v=4bae6051)}
+.lg.mono{display:inline-flex;align-items:center;justify-content:center;background:hsl(var(--h) 30% 30%);color:#E9E4D4;font:600 16px var(--display);border:1px solid rgba(233,228,212,.14)}
+.lg.sm.mono{font-size:13px}
+.seg.view{margin-left:0}
+.grid.rows{display:block;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
+.frow{display:grid;grid-template-columns:32px minmax(0,1fr) auto;gap:2px 12px;align-items:center;padding:10px 14px;border-top:1px solid var(--line);color:var(--ink);text-decoration:none}
+.frow:first-child{border-top:0}
+.frow:hover{background:rgba(217,164,65,.06)}
+.frow b{display:block;font-size:15px}
+.frow small{display:block;font:11.5px var(--mono);color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.frow .fx{display:none;font-size:13px;color:var(--muted);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.frow .sale{font:600 11px var(--mono);color:#1A2233;background:var(--mustard);border-radius:999px;padding:3px 8px;white-space:nowrap}
+.frow .sale.no{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.frow.hd{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:rgba(0,0,0,.12);padding:8px 14px}
+.frow.hd:hover{background:rgba(0,0,0,.12)}
+@media (min-width:860px){.frow{grid-template-columns:32px minmax(0,1.1fr) minmax(0,1.5fr) minmax(0,.7fr) minmax(0,1.1fr) 92px}.frow .fx{display:block}}
+.frow .m{display:none}
+@media (max-width:859px){.frow.hd{display:none}.frow .m{display:block}}
+
 .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}
 .top h3,.card dd,.links a{min-width:0;overflow-wrap:anywhere}
 .name{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.15;margin:0}
@@ -213,8 +255,10 @@ body.hastray{padding-bottom:calc(160px + env(safe-area-inset-bottom,0px))!import
       <button type="button" id="f-perps" data-f="perps" aria-pressed="false">Perps</button>
     </div>
     <input class="search" id="q" type="search" placeholder="Search firm, platform, plan…" aria-label="Search firms">
+    <div class="seg view" role="group" aria-label="View"><button type="button" data-v="cards" aria-pressed="true">Cards</button><button type="button" data-v="list" aria-pressed="false">List</button></div>
     <label class="chk" for="sale"><input type="checkbox" id="sale"> Has a sale on the site</label>
     <span class="count" id="count"></span>
+    <div class="sizes" id="sizes" role="group" aria-label="Account size"></div>
   </div>
 </div>
 
@@ -933,6 +977,60 @@ const FIRMS = [
   note:"Tradeify's site says Tradeify 247 is \"morphing\" into Tradeify Perps; sign up for a beta key for early access. Rules not published yet."}
 ];
 const FIRMAFF = {"alpha-futures": "https://app.alpha-futures.com/signup/prop_desk030313/", "fundednext-futures": "https://fundednext.com/?fpr=PROPDESK", "fundednext": "https://fundednext.com/?fpr=PROPDESK", "top-one-futures": "https://toponefutures.com/?linkId=lp_707970&sourceId=propdesk&tenantId=toponefutures", "bulenox": "https://bulenox.com/member/aff/go/stecson"};
+const LOGOS = {"alpha-capital": ["Alpha Capital", 0], "alpha-futures": ["Alpha Futures", 1], "apex-trader-funding": ["Apex Trader Funding", 2], "aquafunded": ["AquaFunded", 3], "atlas-funded": ["Atlas Funded", 4], "audacity-capital": ["Audacity Capital", 5], "blue-guardian": ["Blue Guardian", 6], "blueberry-futures": ["Blueberry Futures", 7], "blusky-trading": ["BluSky Trading", 8], "breakout": ["Breakout", 9], "brightfunded": ["BrightFunded", 10], "bulenox": ["Bulenox", 11], "city-traders-imperium": ["City Traders Imperium", 12], "crypto-fund-trader": ["Crypto Fund Trader", 13], "daytraders-com": ["DayTraders.com", 14], "dna-funded": ["DNA Funded", 15], "e8-markets": ["E8 Markets", 16], "earn2trade": ["Earn2Trade", 17], "elite-trader-funding": ["Elite Trader Funding", 18], "ffn-perps": ["FFN Perps", 19], "fintokei": ["Fintokei", 20], "for-traders": ["For Traders", 21], "ftmo": ["FTMO", 22], "ftuk": ["FTUK", 23], "funded-futures-family": ["Funded Futures Family", 24], "funded-futures-network": ["Funded Futures Network", 25], "funded-trading-plus": ["Funded Trading Plus", 26], "fundednext": ["FundedNext", 27], "fundednext-futures": ["FundedNext Futures", 28], "funding-traders": ["Funding Traders", 29], "fundingpips": ["FundingPips", 30], "futureselite": ["FuturesElite", 31], "fxify": ["FXIFY", 32], "goat-funded-futures": ["Goat Funded Futures", 33], "goat-funded-trader": ["Goat Funded Trader", 34], "hola-prime": ["Hola Prime", 35], "hypernova": ["Hypernova", 36], "hyperpnl": ["HyperPNL", 37], "hyrotrader": ["HyroTrader", 38], "instant-funding": ["Instant Funding", 39], "kraken-prop": ["Kraken Prop", 40], "lark-funding": ["Lark Funding", 41], "leeloo-trading": ["Leeloo Trading", 42], "legends-trading": ["Legends Trading", 43], "lucid-trading": ["Lucid Trading", 44], "lux-trading-firm": ["Lux Trading Firm", 45], "maven-trading": ["Maven Trading", 46], "myfundedfutures-mffu": ["MyFundedFutures (MFFU)", 47], "myfundedperps": ["MyFundedPerps", 48], "oneup-trader": ["OneUp Trader", 49], "phidias-propfirm": ["Phidias Propfirm", 50], "pipfarm": ["PipFarm", 51], "propr": ["Propr", 52], "propshoptrader": ["PropShopTrader", 53], "purdia-capital": ["Purdia Capital", 54], "qt-funded-quant-tekel": ["QT Funded (Quant Tekel)", 55], "take-profit-trader": ["Take Profit Trader", 56], "the-futures-desk": ["The Futures Desk", 57], "the-trading-pit": ["The Trading Pit", 58], "the5ers": ["The5ers", 59], "thinkcapital": ["ThinkCapital", 60], "top-one-futures": ["Top One Futures", 61], "top-one-trader": ["Top One Trader", 62], "topstep": ["Topstep", 63], "tradeday": ["TradeDay", 64], "tradeify": ["Tradeify", 65], "traders-launch": ["Traders Launch", 66], "uprofit": ["UProfit", 67], "vanta-trading": ["Vanta Trading", 68], "vest-markets": ["Vest Markets", 69], "ftmo-futures": ["FTMO Futures", 22], "e8-perpetuals": ["E8 Perpetuals", 16], "ffone-perps": ["FFOne Perps", 24], "traders-launch-crypto": ["Traders Launch Crypto", 66], "tradeify-perps": ["Tradeify Perps", 65], "_n": 70};
+// Account-size picker: prices per size read only from each firm's own text (size_prices.py), plus live-deal prices from the home page
+const SIZEP = {"topstep":{"z":["50K","100K","150K"],"p":{"50K":[["Standard","$49","per month plus $149 activation",49.0,"mo"],["No Activation Fee","$95","per month",95.0,"mo"]],"100K":[["Standard","$99","per month plus $149 activation",99.0,"mo"],["No Activation Fee","$149","per month",149.0,"mo"]],"150K":[["Standard","$199","per month plus $149 activation",199.0,"mo"],["No Activation Fee","$229","per month",229.0,"mo"]]}},"apex-trader-funding":{"z":["25K","50K","100K","150K"],"p":{"25K":[["Intraday","$167","($16.70 with code)",167.0,""],["Legacy monthly","$177","",177.0,"mo"]]}},"tradeify":{"z":["25K","50K","100K","150K"],"p":{"25K":[["","$109","one-time",109.0,"once"]],"50K":[["","$165","one-time",165.0,"once"]],"100K":[["","$265","one-time",265.0,"once"]],"150K":[["","$369","one-time",369.0,"once"]]}},"lucid-trading":{"z":["25K","50K","100K","150K"],"p":{"25K":[["LucidDaily","$108","",108.0,""]],"50K":[["LucidDaily","$172","",172.0,""]],"100K":[["LucidDaily","$272","",272.0,""]],"150K":[["LucidDaily","$365","",365.0,""]]}},"myfundedfutures-mffu":{"z":["25K","50K","100K","150K"],"p":{"50K":[["Builder","$153","(one-time, no activation fee)",153.0,"once"],["Rapid","$209","(one-time, no activation fee)",209.0,"once"],["Rapid EOD","$225","(one-time, no activation fee)",225.0,"once"],["Pro","$265","(one-time, no activation fee)",265.0,"once"]]}},"take-profit-trader":{"z":["25K","50K","75K","100K","150K"],"p":{"25K":[["","$150","per month",150.0,"mo"]],"50K":[["","$170","per month",170.0,"mo"]],"75K":[["","$245","per month",245.0,"mo"]],"100K":[["","$330","per month",330.0,"mo"]],"150K":[["","$360","per month",360.0,"mo"]]}},"alpha-futures":{"z":["50K","100K","150K"],"p":{"50K":[["Standard","$129","per month list",129.0,"mo"]],"100K":[["Standard","$239","per month list",239.0,"mo"]],"150K":[["Standard","$349","per month list",349.0,"mo"]]}},"fundednext-futures":{"z":["50K","100K","150K"]},"earn2trade":{"z":["25K","50K","100K","200K"]},"elite-trader-funding":{"r":[10.0,150.0]},"top-one-futures":{"z":["25K","50K","100K","150K"],"p":{"25K":[["Evals","$178","(before code)",178.0,""]],"50K":[["Evals","$218","(before code)",218.0,""]],"100K":[["Evals","$398","(before code)",398.0,""]],"150K":[["Evals","$549","(before code)",549.0,""]]}},"tradeday":{"z":["25K","50K","100K","150K"],"p":{"25K":[["","$100","",100.0,""]],"50K":[["","$131","",131.0,""]],"100K":[["","$240","",240.0,""]],"150K":[["","$360","",360.0,""]]}},"phidias-propfirm":{"z":["25K","50K","100K","150K"]},"funded-futures-network":{"z":["25K","50K","100K","150K","250K"],"p":{"25K":[["Sale price","$44.40","one-time",44.4,"once"]],"50K":[["Sale price","$53.40","one-time",53.4,"once"]],"100K":[["Sale price","$104.40","one-time",104.4,"once"]],"150K":[["Sale price","$122.40","one-time",122.4,"once"]],"250K":[["Sale price","$197.40","one-time",197.4,"once"]]}},"leeloo-trading":{"r":[25.0,300.0]},"goat-funded-futures":{"z":["25K","50K","100K","150K"],"p":{"25K":[["","$178","one-time (before code)",178.0,"once"]],"50K":[["","$238","one-time (before code)",238.0,"once"]],"100K":[["","$378","one-time (before code)",378.0,"once"]],"150K":[["","$538","one-time (before code)",538.0,"once"]]}},"oneup-trader":{"z":["25K","50K","100K","150K","250K"],"p":{"25K":[["","$65","per month",65.0,"mo"]],"50K":[["","$75","per month",75.0,"mo"]],"100K":[["","$150","per month",150.0,"mo"]],"150K":[["","$175","per month",175.0,"mo"]],"250K":[["","$325","per month",325.0,"mo"]]}},"uprofit":{"z":["10K","50K","100K","150K"],"p":{"50K":[["DAY 2.0 with code","$88","per month",88.0,"mo"]],"100K":[["DAY 2.0 with code","$136","per month",136.0,"mo"]],"150K":[["DAY 2.0 with code","$226","per month",226.0,"mo"]],"10K":[["DAY 2.0 with code","$39","",39.0,""]]}},"daytraders-com":{"z":["25K","50K","150K","300K"],"p":{"25K":[["EOD","$80","per account plus $5 activation",80.0,""]]}},"purdia-capital":{"z":["25K","50K","100K","150K"],"p":{"50K":[["EOD from","$179","",179.0,""]],"100K":[["Pro from","$199","",199.0,""],["EOD from","$299","",299.0,""]]}},"ftmo-futures":{"z":["50K","100K","150K"],"p":{"50K":[["From","$119","per month (plan shown)",119.0,"mo"]],"100K":[["From","$169","per month (plan shown)",169.0,"mo"]],"150K":[["From","$229","per month (plan shown)",229.0,"mo"]]}},"legends-trading":{"z":["25K","50K","100K","150K"],"p":{"25K":[["Elite","$119","no activation fee",119.0,""]],"50K":[["Elite","$151","no activation fee",151.0,""],["Apprentice","$59","plus $99 activation",59.0,""]],"100K":[["Elite","$227","no activation fee",227.0,""],["Apprentice","$107","plus $129 activation",107.0,""]],"150K":[["Elite","$347","no activation fee",347.0,""],["Apprentice","$138","plus $149 activation",138.0,""]]}},"blusky-trading":{"z":["50K","100K","200K"]},"traders-launch":{"z":["25K","100K","200K","300K"]},"futureselite":{"z":["25K","50K","100K","150K"],"p":{"25K":[["","$99","one-time",99.0,"once"]],"50K":[["","$160","one-time",160.0,"once"]],"100K":[["","$306","one-time",306.0,"once"]],"150K":[["","$368","one-time",368.0,"once"]]}},"funded-futures-family":{"z":["2K","25K","50K","100K","150K"]},"propshoptrader":{"z":["25K","50K","100K","150K"]},"blueberry-futures":{"z":["25K","50K","100K","150K"]},"ftmo":{"z":["10K","25K","50K","100K","200K"],"p":{"10K":[["From","€89","one-time, refundable",89.0,"once"]],"25K":[["From","€250","one-time, refundable",250.0,"once"]],"50K":[["From","€345","one-time, refundable",345.0,"once"]],"100K":[["From","€439","one-time, refundable",439.0,"once"]],"200K":[["From","€1,080","one-time, refundable",1080.0,"once"]]}},"fundingpips":{"z":["5K","10K","25K","50K","100K"]},"alpha-capital":{"z":["2.5K","5K","10K","25K","50K","100K","200K"],"p":{"2.5K":[["","$30","one-time",30.0,"once"]],"5K":[["","$67","one-time",67.0,"once"]],"10K":[["","$97","one-time",97.0,"once"]],"25K":[["","$197","one-time",197.0,"once"]],"50K":[["","$257","one-time",257.0,"once"]],"100K":[["","$457","one-time",457.0,"once"]],"200K":[["","$897","one-time",897.0,"once"]]}},"blue-guardian":{"z":["25K","50K","100K","150K"]},"fxify":{"r":[5.0,400.0]},"goat-funded-trader":{"r":[1.0,400.0],"p":{"1K":[["From","$15","",15.0,""]],"400K":[["From","$1,499","",1499.0,""]]}},"hola-prime":{"z":["5K","10K","25K","50K","100K","200K"],"p":{"5K":[["With WELCOME20","$39.20","",39.2,""]],"10K":[["With WELCOME20","$71.20","",71.2,""]],"25K":[["With WELCOME20","$172","",172.0,""]],"50K":[["With WELCOME20","$263.20","",263.2,""]],"100K":[["With WELCOME20","$463.20","",463.2,""]],"200K":[["With WELCOME20","$1,049","",1049.0,""]]}},"audacity-capital":{"z":["5K","10K","25K","50K","100K","200K"],"p":{"5K":[["List","$49","",49.0,""],["with the 14% off","$42","",42.0,""]],"10K":[["List","$79","",79.0,""],["with the 14% off","$68","",68.0,""]],"25K":[["List","$195","",195.0,""],["with the 14% off","$168","",168.0,""]],"50K":[["List","$329","",329.0,""],["with the 14% off","$283","",283.0,""]],"100K":[["List","$549","",549.0,""],["with the 14% off","$472","",472.0,""]],"200K":[["List","$1,049","",1049.0,""],["with the 14% off","$902","",902.0,""]]}},"city-traders-imperium":{"r":[2.5,100.0]},"fintokei":{"r":[5.0,400.0]},"thinkcapital":{"z":["2.5K","5K","10K","25K","50K","100K","200K"],"p":{"5K":[["Lightning or Dual Step from","$59","",59.0,""]]}},"lux-trading-firm":{"r":[10.0,1000.0],"p":{"10K":[["From","£85","",85.0,""]],"100K":[["","£299","",299.0,""]]}},"atlas-funded":{"z":["5K","10K","25K","50K","100K","200K"],"p":{"5K":[["","$31","",31.0,""]],"200K":[["","$434","",434.0,""]]}},"lark-funding":{"r":[5.0,200.0]},"funded-trading-plus":{"z":["10K","25K","50K","100K","200K"]},"maven-trading":{"r":[2.0,100.0]},"brightfunded":{"r":[5.0,200.0]},"ftuk":{"r":[5.0,200.0]},"funding-traders":{"r":[5.0,400.0]},"qt-funded-quant-tekel":{"r":[5.0,200.0]},"aquafunded":{"r":[2.5,400.0]},"e8-markets":{"r":[5.0,500.0],"p":{"100K":[["Challenge","$398","list ($299 with code)",398.0,""]]}},"top-one-trader":{"r":[5.0,1000.0],"p":{"5K":[["Instant Funding","$19","",19.0,""]]}},"myfundedperps":{"z":["5K","10K","25K","50K"]},"propr":{"z":["5K","10K","25K","50K","100K","200K"]},"e8-perpetuals":{"r":[5.0,500.0],"p":{"100K":[["","$488","list (perps option shown)",488.0,""]]}},"kraken-prop":{"z":["5K","10K","25K","50K","100K","200K"]},"breakout":{"z":["5K","10K","25K","50K","100K","200K"]},"crypto-fund-trader":{"z":["5K","10K","25K","50K","100K","200K"]},"ffn-perps":{"z":["10K","25K","50K","100K"],"p":{"10K":[["Core","$35","",35.0,""]],"25K":[["Core","$69","",69.0,""]],"50K":[["Core","$119","",119.0,""]],"100K":[["Core","$199","",199.0,""]]}},"ffone-perps":{"z":["5K","10K","25K","50K"]},"traders-launch-crypto":{"z":["5K","10K","20K"],"p":{"5K":[["","$20","one-time",20.0,"once"]],"10K":[["","$69","one-time",69.0,"once"]],"20K":[["","$199","one-time",199.0,"once"]]}},"vanta-trading":{"z":["5K","10K","25K","50K","100K"],"p":{"25K":[["Instant Funded","$450","",450.0,""]],"50K":[["Instant Funded","$900","",900.0,""]],"100K":[["Instant Funded","$1,799","",1799.0,""]]}},"hyperpnl":{"z":["5K","10K","25K"],"p":{"5K":[["","$42","",42.0,""]],"10K":[["","$86","",86.0,""]],"25K":[["","$215","",215.0,""]]}},"_chips":["5K","10K","25K","50K","100K","150K","200K"]};
+const DEALP = {"apex-trader-funding":{"c":"SAVENOW","a":false,"b":"monthly","n":"Legacy accounts, Rithmic/WealthCharts","p":{"25K":[177,17.7],"50K":[197,19.7],"100K":[397,39.7],"150K":[597,59.7]}},"tradeify":{"c":"NOV","a":false,"b":"one-time","n":"","p":{"25K":[109,76],"50K":[165,116],"100K":[265,186],"150K":[369,258]}},"take-profit-trader":{"c":"NOFEE50","a":false,"b":"monthly","n":"Test account","p":{"25K":[150,75],"50K":[170,85],"100K":[330,165],"150K":[360,180]}},"lucid-trading":{"c":"VAULT","a":false,"b":"","n":"LucidDaily","p":{"25K":[108,75.6],"50K":[172,120.4],"100K":[272,190.4],"150K":[365,255.5]}},"fundednext-futures":{"c":"PROPDESK","a":true,"b":"one-time","n":"Flex account","p":{"50K":[141.99,74.99],"100K":[273.99,144.99],"150K":[490.99,259.99]}},"alpha-futures":{"c":"PROP_DESK030313","a":true,"b":"monthly","n":"Standard eval","p":{"50K":[129,64.5],"100K":[239,119.5],"150K":[349,174.5]}}};
+const CHIPS = SIZEP._chips || ["5K","10K","25K","50K","100K","150K","200K"];
+const hue = s => { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) % 360; return h; };
+const initials = n => { const w = n.replace(/[^A-Za-z0-9 ]/g, " ").trim().split(/\s+/); return ((w[0] || "?")[0] + (w[1] ? w[1][0] : "")).toUpperCase(); };
+const LN = LOGOS._n || 1;
+// the all-firm logo sprite loads after the page has finished loading, so it never delays the text (speed first)
+addEventListener("load", () => setTimeout(() => document.documentElement.classList.add("lgok"), 0));
+const tile = (s, n, cls = "") => (s !== "_n" && LOGOS[s]) ? `<span class="lg sp ${cls}" style="background-size:${LN * 100}% 100%;background-position:${LN > 1 ? (LOGOS[s][1] * 100 / (LN - 1)).toFixed(3) : 0}% 0" aria-hidden="true"></span>` : `<span class="lg mono ${cls}" style="--h:${hue(s)}" aria-hidden="true">${esc(initials(n))}</span>`;
+const cut = (t, k) => { t = String(t || ""); return t.length > k ? t.slice(0, k - 1).replace(/\s+\S*$/, "") + "…" : t; };
+const hasSale = f => !!f.deal && !/^\s*no (sale|site-wide sale)/i.test(f.deal.replace(/<[^>]+>/g, ""));
+const kv = z => parseFloat(z);
+const offers = (s, z) => { const d = SIZEP[s] || {}; if ((d.z && d.z.includes(z)) || (d.p && d.p[z]) || (DEALP[s] && DEALP[s].p && DEALP[s].p[z])) return true; return d.r && kv(z) >= d.r[0] && kv(z) <= d.r[1] ? "range" : false; };
+const dealAt = (s, z) => { const d = DEALP[s]; return d && d.p && d.p[z] ? d : null; };
+const usd = n => "$" + (n % 1 ? n.toFixed(2) : n.toLocaleString("en-US"));
+// a firm's price rows at size z, minus a list price the live deal already shows
+const rowsAt = (s, z) => { const r = (SIZEP[s] && SIZEP[s].p && SIZEP[s].p[z]) || [], d = dealAt(s, z); return d ? r.filter(x => !(x[1][0] === "$" && x[3] === d.p[z][0])) : r; };
+// sort key: the lowest price you could pay at this size (USD first; other currencies after; no price last)
+const lowAt = (s, z) => { const d = dealAt(s, z), r = rowsAt(s, z), u = r.filter(x => x[1][0] === "$").map(x => x[3]); if (d) u.push(d.p[z][1]); return u.length ? Math.min(...u) : r.length ? 1e7 + r[0][3] : 2e7; };
+const amtHtml = (a, b, from) => `<span class="amt">${from ? '<i>from </i>' : ""}${esc(a)}${b === "mo" ? "<i>/mo</i>" : ""}</span>`;
+function priceRow(x){
+  let lab = x[0], from = false, suf = x[2];
+  if (/^from$/i.test(lab)) { lab = ""; from = true; } else if (/\sfrom$/i.test(lab)) { lab = lab.replace(/\s+from$/i, ""); from = true; }
+  if (x[4] === "mo") suf = suf.replace(/^per month\s*/i, "");
+  const pl = [lab, suf].filter(Boolean).join(" · ");
+  return `<div class="pr">${amtHtml(x[1], x[4], from)}${pl ? `<span class="pl">${esc(pl)}</span>` : ""}</div>`;
+}
+function atBox(f){
+  const z = state.z; if (!z) return "";
+  const s = slug(f.n), d = dealAt(s, z), r = rowsAt(s, z), off = offers(s, z);
+  let h = `<div class="atsz"><div class="h">At ${esc(z)}</div>`;
+  if (d) h += `<div class="pr cd">${amtHtml(usd(d.p[z][1]), d.b === "monthly" ? "mo" : "")}<span class="pl">with code <code>${esc(d.c)}</code>${d.a ? ' <span class="affl">Affiliate code</span>' : ""} · list ${usd(d.p[z][0])}${d.n ? " · " + esc(d.n) : ""}</span></div>`;
+  h += r.map(priceRow).join("");
+  if (!d && !r.length) h += `<div class="none">${off === "range" ? `Sizes run ${esc(f.sizes.replace(/\s*\(.*\)/, ""))}. The firm doesn't list a ${esc(z)} price, so check its checkout.` : `${esc(f.n)} offers ${esc(z)} but doesn't list a price for it. See the price row below or the firm's checkout.`}</div>`;
+  return h + "</div>";
+}
+// one-line price at the chosen size for List view: the lowest price shown on the card
+function zShort(f){
+  const s = slug(f.n), z = state.z, d = dealAt(s, z), r = rowsAt(s, z);
+  if (d) return `${usd(d.p[z][1])}${d.b === "monthly" ? "/mo" : ""} with code`;
+  if (r.length) {
+    const x = r.slice().sort((a, b) => (a[1][0] === "$" ? a[3] : 1e7 + a[3]) - (b[1][0] === "$" ? b[3] : 1e7 + b[3]))[0];
+    const tag = /with code|with [A-Z0-9]{4,}/.test(x[0]) ? " with code" : /sale|% off/i.test(x[0]) ? " on sale" : "";
+    return `${r.length > 1 || /(^|\s)from$/i.test(x[0]) ? "from " : ""}${x[1]}${x[4] === "mo" ? "/mo" : ""}${tag}`;
+  }
+  return "price not listed";
+}
+function frow(f){
+  const s = slug(f.n), mk = f.m.map(m => m === "cfd" ? "CFD/FX" : m === "perps" ? "Perps" : "Futures").join(" · ");
+  return `<a class="frow" href="/firms/${s}/">${tile(s, f.n, "sm")}<span style="min-width:0"><b>${esc(f.n)}</b><small>${esc(mk)}<span class="m">${state.z ? ` · <span class="zp">${esc(state.z + ": " + zShort(f))}</span>` : " · " + esc(cut(f.split, 26))}</span></small></span><span class="fx">${state.z ? `<span class="zp">${esc(zShort(f))}</span>` : esc(cut(f.price, 70))}</span><span class="fx">${esc(cut(f.split, 30))}</span><span class="fx">${esc(cut(f.dd, 44))}</span><span class="sale${hasSale(f) ? "" : " no"}">${hasSale(f) ? "Sale on" : "No sale"}</span></a>`;
+}
+const fhead = () => `<div class="frow hd"><span></span><span>Firm</span><span>${state.z ? "Price at " + state.z : "Price"}</span><span>Split</span><span>Drawdown</span><span>Sale</span></div>`;
 
 const slug = n => n.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -953,11 +1051,12 @@ function card(f){
   const host = f.w.replace(/^https?:\/\/(www\.)?/,"").replace(/\/$/,"");
   const tags = f.m.map(m => `<span class="tag">${m === "cfd" ? "CFD/FX" : m === "perps" ? "Perps" : "Futures"}</span>`).join("");
   return `<article class="card${cmp.includes(slug(f.n)) ? " picked" : ""}" data-s="${slug(f.n)}">
-    <div class="top"><h3 class="name"><a href="/firms/${slug(f.n)}/">${esc(f.n)}</a></h3><div class="tags"><label class="cmp"><input type="checkbox" data-s="${slug(f.n)}" ${cmp.includes(slug(f.n)) ? "checked" : ""}> Compare</label>${tags}</div></div>
+    <div class="top"><div class="nmw">${tile(slug(f.n), f.n)}<h3 class="name"><a href="/firms/${slug(f.n)}/">${esc(f.n)}</a></h3></div><div class="tags"><label class="cmp"><input type="checkbox" data-s="${slug(f.n)}" ${cmp.includes(slug(f.n)) ? "checked" : ""}> Compare</label>${tags}</div></div>
     <div class="links">
       <a class="lk" href="${FIRMAFF[slug(f.n)] || f.w}" target="_blank" rel="${FIRMAFF[slug(f.n)] ? "sponsored noopener" : "noopener"}">${esc(host)} <span class="arr">↗</span></a>${FIRMAFF[slug(f.n)] ? '<span class="affl">Affiliate link</span>' : ""}
       <a class="lk" href="${x.href}" target="_blank" rel="noopener">${x.label} <span class="arr">↗</span></a>
     </div>
+    ${atBox(f)}
     <dl>
       ${row(gl("Plans","evaluation"), esc(f.plans))}
       ${row("Sizes", esc(f.sizes), "num")}
@@ -972,21 +1071,29 @@ function card(f){
   </article>`;
 }
 
-const state = {f:"all", q:"", sale:false};
-try { const s = JSON.parse(localStorage.getItem("pd-firms") || "{}"); if (s.f) state.f = s.f; } catch(e){}
+const state = {f:"all", q:"", sale:false, v:"cards", z:""};
+try { const s = JSON.parse(localStorage.getItem("pd-firms") || "{}"); if (s.f) state.f = s.f; if (s.v === "list") state.v = "list"; if (CHIPS.includes(s.z)) state.z = s.z; } catch(e){}
+try { const zp = new URLSearchParams(location.search).get("size"); if (zp && CHIPS.includes(zp.toUpperCase())) state.z = zp.toUpperCase(); } catch(e){}
+const save = () => { try { localStorage.setItem("pd-firms", JSON.stringify({f:state.f, v:state.v, z:state.z})); if (["25K","50K","100K","150K"].includes(state.z)) localStorage.setItem("pd-size", state.z); } catch(e){} };
+document.getElementById("sizes").innerHTML = '<span class="lbl">Size</span><button type="button" data-z="">Any</button>' + CHIPS.map(z => `<button type="button" data-z="${z}">${z}</button>`).join("");
 function render(){
   const q = state.q.trim().toLowerCase();
   const match = f => {
-    if (state.sale && !f.deal) return false;
+    if (state.sale && !hasSale(f)) return false;
+    if (state.z && !offers(slug(f.n), state.z)) return false;
     if (!q) return true;
     return [f.n, f.plans, f.plat, f.x.h, f.w, f.note].join(" ").toLowerCase().includes(q);
   };
   const fut = FIRMS.filter(f => f.m[0] === "futures" && match(f));
   const cfd = FIRMS.filter(f => f.m[0] === "cfd" && match(f));
   const perps = FIRMS.filter(f => f.m[0] === "perps" && match(f));
-  document.getElementById("g-fut").innerHTML = fut.map(card).join("") || `<p class="empty">No futures firms match.</p>`;
-  document.getElementById("g-cfd").innerHTML = cfd.map(card).join("") || `<p class="empty">No CFD firms match.</p>`;
-  document.getElementById("g-perps").innerHTML = perps.map(card).join("") || `<p class="empty">No perps firms match.</p>`;
+  if (state.z) [fut, cfd, perps].forEach(a => a.sort((x, y) => lowAt(slug(x.n), state.z) - lowAt(slug(y.n), state.z)));
+  document.getElementById("g-fut").classList.toggle("rows", state.v === "list");
+  document.getElementById("g-fut").innerHTML = (state.v === "list" ? (fut.length ? fhead() : "") + fut.map(frow).join("") : fut.map(card).join("")) || `<p class="empty">No futures firms match.</p>`;
+  document.getElementById("g-cfd").classList.toggle("rows", state.v === "list");
+  document.getElementById("g-cfd").innerHTML = (state.v === "list" ? (cfd.length ? fhead() : "") + cfd.map(frow).join("") : cfd.map(card).join("")) || `<p class="empty">No CFD firms match.</p>`;
+  document.getElementById("g-perps").classList.toggle("rows", state.v === "list");
+  document.getElementById("g-perps").innerHTML = (state.v === "list" ? (perps.length ? fhead() : "") + perps.map(frow).join("") : perps.map(card).join("")) || `<p class="empty">No perps firms match.</p>`;
   document.getElementById("n-fut").textContent = fut.length + " firms";
   document.getElementById("n-cfd").textContent = cfd.length + " firms";
   document.getElementById("n-perps").textContent = perps.length + " firms";
@@ -995,13 +1102,15 @@ function render(){
   document.getElementById("sec-cfd").hidden = !on("cfd");
   document.getElementById("sec-perps").hidden = !on("perps");
   const shown = (on("futures") ? fut.length : 0) + (on("cfd") ? cfd.length : 0) + (on("perps") ? perps.length : 0);
-  document.getElementById("count").textContent = `${shown} of ${FIRMS.length} firms`;
-  document.querySelectorAll(".seg button").forEach(b => b.setAttribute("aria-pressed", b.dataset.f === state.f));
+  const priced = state.z ? [...(on("futures") ? fut : []), ...(on("cfd") ? cfd : []), ...(on("perps") ? perps : [])].filter(f => dealAt(slug(f.n), state.z) || rowsAt(slug(f.n), state.z).length).length : 0;
+  document.getElementById("count").textContent = state.z ? `${shown} of ${FIRMS.length} firms · ${priced} show a ${state.z} price · cheapest first` : `${shown} of ${FIRMS.length} firms`;
+  document.querySelectorAll(".sizes button[data-z]").forEach(b => b.setAttribute("aria-pressed", b.dataset.z === state.z));
+  document.querySelectorAll(".seg button[data-f]").forEach(b => b.setAttribute("aria-pressed", b.dataset.f === state.f));
+  document.querySelectorAll(".seg button[data-v]").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === state.v));
 }
-document.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", () => {
-  state.f = b.dataset.f; try { localStorage.setItem("pd-firms", JSON.stringify({f:state.f})); } catch(e){}
-  render();
-}));
+document.querySelectorAll(".seg button[data-f]").forEach(b => b.addEventListener("click", () => { state.f = b.dataset.f; save(); render(); }));
+document.querySelectorAll(".seg button[data-v]").forEach(b => b.addEventListener("click", () => { state.v = b.dataset.v; save(); render(); }));
+document.querySelectorAll(".sizes button[data-z]").forEach(b => b.addEventListener("click", () => { state.z = b.dataset.z; save(); render(); }));
 document.getElementById("q").addEventListener("input", e => { state.q = e.target.value; render(); });
 try { const qp = new URLSearchParams(location.search).get("q"); if (qp) { state.q = qp; state.f = "all"; document.getElementById("q").value = qp; } } catch(e){}
 try { const mp = new URLSearchParams(location.search).get("m"); if (mp && ["futures","cfd","perps"].includes(mp)) { state.f = mp; } } catch(e){}

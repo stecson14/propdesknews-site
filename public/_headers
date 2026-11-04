@@ -10,3 +10,5 @@
 /reports/*/data.csv
   Content-Type: text/csv; charset=utf-8
   Cache-Control: public, max-age=3600
+/logos/*
+  Cache-Control: public, max-age=604800

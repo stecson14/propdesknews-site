@@ -89,6 +89,7 @@ body{padding-top:0}
 .deal .acts{display:flex;gap:8px;align-items:center;margin-top:10px}
 .deal .acts .go{flex:1}
 .copyonly{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:10px;padding:12px 12px;font:600 12px "IBM Plex Mono",monospace;cursor:pointer}
+@media (max-width:359px){.acts{flex-wrap:wrap}.acts .go,.acts .copyonly{flex:1 1 100%}.acts .copyonly{padding:9px 12px}}
 .more{margin-top:28px}
 .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,30px);opacity:0;background:var(--cream);color:var(--navy);padding:12px 16px;border-radius:12px;font-weight:600;font-size:14px;box-shadow:0 8px 30px rgba(0,0,0,.35);transition:.25s;z-index:20;max-width:calc(100% - 32px);text-align:center}
 .toast.on{opacity:1;transform:translate(-50%,0)}
@@ -186,6 +187,97 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 .tray{bottom:calc(62px + env(safe-area-inset-bottom,0px))!important}
 body.hastray{padding-bottom:calc(160px + env(safe-area-inset-bottom,0px))!important}
 }
+
+/* ---- redesign (Nov 3): comparison-site patterns in the navy look ---- */
+.wrap{max-width:1120px}
+header.top{display:grid;gap:20px;align-items:start;text-align:left;margin:4px 0 14px}
+@media (min-width:900px){header.top{grid-template-columns:1.05fr .95fr;gap:36px;margin-top:14px}}
+header.top .kicker{display:inline-flex;align-items:center;gap:8px}
+header.top .kicker i{width:8px;height:8px;border-radius:50%;background:#7FD1A0;box-shadow:0 0 0 3px rgba(127,209,160,.18);display:inline-block}
+header.top h1{font-size:clamp(30px,5.2vw,48px);line-height:1.04;margin:12px 0 12px;letter-spacing:-.01em}
+header.top h1 em{font-style:normal;color:var(--mustard)}
+header.top .lead{color:#C9C4B5;font-size:16px;max-width:540px}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:18px 0 16px}
+@media (min-width:560px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.stats div{background:var(--navy2);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.stats b{display:block;font:600 24px/1.1 Fraunces,serif;color:var(--cream)}
+.stats span{display:block;font:11px/1.35 "IBM Plex Mono",monospace;color:var(--muted);margin-top:3px}
+.ctas{display:flex;gap:10px;flex-wrap:wrap}
+.ctas .btn{width:auto;margin:0;padding:12px 18px;font-size:15px}
+.ctas .btn.alt{cursor:pointer;font-family:inherit}
+.why{border:1px solid var(--line);border-radius:16px;background:var(--navy2);padding:18px}
+.why h2{margin:0 0 8px;font-size:22px}.why li{margin:6px 0 6px 18px;color:#C9C4B5;font-size:14.5px}
+.hero{margin:0}
+.hero .who{display:flex;align-items:center;gap:10px;font-weight:600}
+@media (max-width:760px){#pd-search-cta{display:none}}
+.ticker{display:flex;align-items:center;gap:12px;border:1px solid var(--line);background:#161D2C;border-radius:12px;padding:8px 12px;margin:4px 0 6px}
+.ticker .lb{font:600 10.5px "IBM Plex Mono",monospace;letter-spacing:.12em;color:var(--navy);background:var(--mustard);border-radius:999px;padding:3px 8px;flex:none}
+.ticker .vp{overflow:hidden;flex:1;min-width:0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 20px,#000 calc(100% - 20px),transparent);mask-image:linear-gradient(90deg,transparent,#000 20px,#000 calc(100% - 20px),transparent)}
+.ticker .tr{display:inline-flex;gap:32px;white-space:nowrap;animation:pdtick 70s linear infinite;padding-left:22px}
+.ticker a,.ticker span.it{color:var(--cream);text-decoration:none;font-size:13.5px}
+.ticker a:hover{color:var(--mustard)}
+.ticker time{font:600 12px "IBM Plex Mono",monospace;color:var(--mustard);margin-right:8px}
+.ticker:hover .tr,.ticker:focus-within .tr{animation-play-state:paused}
+@keyframes pdtick{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker .tr{animation:none}.ticker .vp{overflow-x:auto}}
+#deals>h2{margin-top:26px}
+.sizebar .seg.view button{padding:8px 12px}
+.sizebar .grow{flex:1}
+[hidden]{display:none!important}
+#deal-list{display:grid;gap:12px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:700px){#deal-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1040px){#deal-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.deal{margin:0;display:flex;flex-direction:column;transition:border-color .15s}
+.deal:hover{border-color:#4A5878}
+.deal .fh{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.deal .fh .nm{font-weight:600;font-size:16px;line-height:1.2;min-width:0}
+.deal .fh .nm a{color:var(--cream);text-decoration:none}
+.deal .fh .nm a:hover{color:var(--mustard)}
+.deal .fh .ends{margin-left:auto}
+.deal .save{font-size:28px;line-height:1.05}
+.deal .grow{flex:1}
+.lg{width:40px;height:40px;border-radius:10px;flex:none;object-fit:cover;background:#fff;display:block}
+.lg.sm{width:32px;height:32px;border-radius:8px}
+.lg.sp{background-image:url(/logos/home.webp?v=56b64370);background-repeat:no-repeat}
+.lg.mono{display:inline-flex;align-items:center;justify-content:center;background:hsl(var(--h) 30% 30%);color:var(--cream);font:600 15px Fraunces,serif;border:1px solid rgba(233,228,212,.14)}
+.lg.sm.mono{font-size:13px}
+.ptab{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--navy2)}
+.pr{display:grid;grid-template-columns:26px minmax(0,1fr) auto;gap:4px 12px;align-items:center;padding:12px 14px;border-top:1px solid var(--line)}
+.pr:first-child{border-top:0}
+.pr.ph{font:600 11px "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:#1E2738;padding:9px 14px}
+.pr .rk{font:600 13px "IBM Plex Mono",monospace;color:var(--mustard)}
+.pr .pf{display:flex;align-items:center;gap:10px;min-width:0}
+.pr .pf b{display:block;font-size:15px}.pr .pf b a{color:var(--cream);text-decoration:none}
+.pr .pf small{display:block;font:11.5px "IBM Plex Mono",monospace;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pr .pw{text-align:right}.pr .pw b{font:600 22px Fraunces,serif;color:var(--cream)}.pr .pw s{display:block;font-size:12px;color:var(--muted)}
+.pr .pw i.mo{font:12px "IBM Plex Mono",monospace;color:var(--muted);font-style:normal;margin-left:2px}
+.pr .pa{grid-column:2 / -1}
+.pr .pa .go{padding:10px 12px;font-size:14px}
+.pr.none{opacity:.7}.pr.none .pw{font:12px "IBM Plex Mono",monospace;color:var(--muted)}
+.pr .ph-lg{display:none}
+.pr .pw2{display:none;font:12px "IBM Plex Mono",monospace;color:var(--muted)}
+@media (min-width:760px){.pr{grid-template-columns:30px minmax(0,1fr) 110px 110px 280px}.pr .pa{grid-column:auto}.pr .ph-lg{display:block}.pr .pw2{display:block}.pr .pa .go{font-size:13.5px;gap:8px}.pr .pa .go code{font-size:13px;letter-spacing:.03em}}
+.ptab-note{font:12px "IBM Plex Mono",monospace;color:var(--muted);margin:8px 2px 0}
+.firmstrip{margin-top:30px}
+.firmstrip .hd{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.firmstrip h2{margin:0}
+.firmstrip .hd a{font:600 13px "IBM Plex Mono",monospace;color:var(--mustard);text-decoration:none}
+.fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+@media (min-width:600px){.fgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:960px){.fgrid{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.fgrid a{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--navy2);color:var(--cream);text-decoration:none;min-width:0}
+.fgrid a:hover{border-color:var(--mustard)}
+.fgrid b{display:block;font-size:13.5px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fgrid small{display:block;font:11px "IBM Plex Mono",monospace;color:var(--muted)}
+.fgrid small.on{color:#7FD1A0}
+.fgrid span.t{min-width:0}
+.latest{margin-top:30px}
+@media (min-width:900px){.latest ol{grid-template-columns:1fr 1fr;column-gap:28px}.latest li:nth-child(2){border-top:0;padding-top:0}}
+.more{display:grid;gap:10px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:700px){.more{grid-template-columns:repeat(2,minmax(0,1fr))}.more .btn{margin:0}}
+@media (min-width:1040px){.more{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.more .btn{margin:0;text-align:center}
+.fine{max-width:820px}
 </style>
 <script src="/search.js" defer></script>
 <link rel="manifest" href="/manifest.webmanifest">
@@ -202,26 +294,46 @@ body.hastray{padding-bottom:calc(160px + env(safe-area-inset-bottom,0px))!import
 <body>
 <nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/icons/avatar-52.jpg" alt="" width="26" height="26"><span>Prop Desk</span></a><a href="/#deals" aria-current="page">Deals</a><a href="/news/">News</a><a href="/firms/">Directory</a><a href="/compare/">Compare</a><a href="/tools/">Tools</a><button class="sb" type="button" aria-label="Search the site (press /)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span><kbd>/</kbd></button><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
 <div class="wrap">
-<header>
-  <img class="avatar" src="/icons/avatar-144.jpg" alt="Prop Desk mascot" width="72" height="72">
-  <div class="kicker">PROP FIRM NEWS &amp; DEALS</div>
-  <h1>Prop Desk</h1>
-  <p class="slogan">Trade the market, not the fine print.</p>
-  <svg class="line" viewBox="0 0 320 36" aria-hidden="true"><polyline fill="none" stroke="#D9A441" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" points="2,10 40,8 70,12 100,6 130,9 150,30 175,26 200,27 240,27 280,27 318,27"/></svg>
+<header class="top">
+  <div class="intro">
+    <div class="kicker"><i aria-hidden="true"></i>PROP FIRM NEWS &amp; DEALS · CHECKED EVERY MORNING</div>
+    <h1>Every prop firm deal, <em>with the fine print read.</em></h1>
+    <p class="lead">Live codes, rules and prices for futures, forex and perps prop firms, read from each firm's own site and re-checked daily. Trade the market, not the fine print.</p>
+    <div class="stats">
+      <div><b data-stat="firms">75</b><span>firms tracked</span></div>
+      <div><b id="st-live">6</b><span>live codes today</span></div>
+      <div><b data-stat="changes">30</b><span>confirmed updates in <span data-stat="month">November</span></span></div>
+      <div><b>6:31</b><span>AM ET daily check</span></div>
+    </div>
+    <div class="ctas"><a class="btn" href="#deals">See today's deals</a><a class="btn alt" href="/firms/">Compare all firms</a><button type="button" class="btn alt" id="pd-search-cta">Search</button></div>
+  </div>
+  <div class="side">
+    <div class="hero" id="hero" hidden></div>
+    <div class="why" id="why" hidden><h2>How we check</h2><ul><li>Every code and rule is read on the firm's own site, never from coupon sites.</li><li>Re-checked every morning at 6:31 AM ET.</li><li>Affiliate codes are always labeled. We still call out bad rule changes.</li></ul></div>
+  </div>
 </header>
+<div class="ticker" id="ticker" hidden aria-label="Latest news"><span class="lb">LATEST</span><div class="vp"><div class="tr" id="ticker-tr"></div></div></div>
 
 <section id="deals" aria-label="Live deals">
-<div class="hero" id="hero" hidden></div>
 <h2>Live deals</h2>
 <p class="sub">Checked on each firm's own site · Updated <span id="upd">Nov 2, 2026</span> · USD · One tap copies the code and opens the firm. Every deal shows its fine print.</p>
-<div class="sizebar" role="group" aria-label="Account size">
-  <span class="lbl">Your account size</span>
+<div class="sizebar" role="group" aria-label="Account size and view">
+  <span class="lbl">Account size</span>
   <div class="seg"><button type="button" data-size="25K">25K</button><button type="button" data-size="50K" aria-pressed="true">50K</button><button type="button" data-size="100K">100K</button><button type="button" data-size="150K">150K</button></div>
+  <span class="grow"></span>
+  <div class="seg view" role="group" aria-label="View"><button type="button" data-view="cards" aria-pressed="true">Cards</button><button type="button" data-view="table" aria-pressed="false">Price table</button></div>
   <span class="hint" id="sizehint">Cheapest first, with each code applied</span>
 </div>
 <div id="deal-list"></div>
+<div id="deal-table" hidden></div>
 <noscript><p class="sub">Turn on JavaScript to see live deals.</p></noscript>
 </section>
+
+<section class="firmstrip" aria-label="Popular prop firms">
+<div class="hd"><h2>Popular firms</h2><a href="/firms/">All <span data-stat="firms">75</span> firms →</a></div>
+<div class="fgrid" id="fgrid"></div>
+</section>
+<script>const LOGOS = {"apex-trader-funding": ["Apex Trader Funding", 0], "tradeify": ["Tradeify", 1], "take-profit-trader": ["Take Profit Trader", 2], "lucid-trading": ["Lucid Trading", 3], "fundednext-futures": ["FundedNext Futures", 4], "alpha-futures": ["Alpha Futures", 5], "topstep": ["Topstep", 6], "myfundedfutures-mffu": ["MyFundedFutures (MFFU)", 7], "bulenox": ["Bulenox", 8], "earn2trade": ["Earn2Trade", 9], "elite-trader-funding": ["Elite Trader Funding", 10], "top-one-futures": ["Top One Futures", 11], "_n": 12};</script>
 <!-- DEALS: the daily run edits only this array. Fields: firm, prices ({"25K":[list, withCode], ...} only sizes the firm lists, from the tracker), billing ("one-time" or "monthly", only when the firm states it), pricesNote (which product the prices are for), page (profile URL /firms/<slug>/), url, save (headline), what, code, ends (ISO with ET offset, or ""), aff (true only for Prop Desk's approved affiliate codes), chips (2-3 short verified facts), fine ([label, text] rows read from the firm's site; omit anything unverified). Deals past "ends" hide themselves. -->
 <script>
 const UPDATED = "Nov 3, 2026";
@@ -286,8 +398,16 @@ const DEALS = [
   var tag=function(d){return d.aff?"Affiliate code: Prop Desk may earn a commission":d.afflink?"Firm's public code. The link to the firm is a Prop Desk affiliate link":"Firm's public code, not an affiliate link"};
   var fmtEnd=function(d){if(!d.ends)return d.endsNote||"No end date";var ms=new Date(d.ends)-now(),h=ms/36e5;if(h<48)return "Ends in "+Math.max(1,Math.floor(h))+"h";return "Ends "+new Date(d.ends).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",timeZone:"America/New_York"})};
   var SIZES=["25K","50K","100K","150K"];var size="50K";try{var ss=localStorage.getItem("pd-size");if(SIZES.indexOf(ss)>-1)size=ss}catch(e){}
+  var view="cards";try{if(localStorage.getItem("pd-view")==="table")view="table"}catch(e){}
   var money=function(n){return "$"+(n%1?n.toFixed(2):n)};
   var priceOf=function(d){return d.prices&&d.prices[size]?d.prices[size][1]:null};
+  // logo tiles: one small sprite strip (/logos/home.webp, built by build_site.py with only the firms this page shows) when we have the logo, otherwise a lettered tile
+  var L=(typeof LOGOS!=="undefined")?LOGOS:{};
+  var slugOf=function(d){var m=(d.page||"").match(/^\/firms\/([^\/]+)\//);return m?m[1]:""};
+  var hue=function(s){var h=0;for(var i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))%360;return h};
+  var initials=function(n){var w=String(n).replace(/[^A-Za-z0-9 ]/g," ").trim().split(/\s+/);return ((w[0]||"?").charAt(0)+(w[1]?w[1].charAt(0):"")).toUpperCase()};
+  var LN=L._n||1;
+  var tile=function(sl,name,cls){cls=cls?" "+cls:"";var e=sl&&sl!=="_n"&&L[sl];return e?'<span class="lg sp'+cls+'" style="background-size:'+(LN*100)+'% 100%;background-position:'+(LN>1?(e[1]*100/(LN-1)).toFixed(3):0)+'% 0" aria-hidden="true"></span>':'<span class="lg mono'+cls+'" style="--h:'+hue(sl||name)+'" aria-hidden="true">'+esc(initials(name))+'</span>'};
   var priceLine=function(d){var p=d.prices&&d.prices[size];
     if(!p)return '<p class="price none">No '+esc(size)+' account listed'+(d.prices?' (sizes: '+Object.keys(d.prices).join(", ")+')':'')+'</p>';
     return '<p class="price"><span>'+esc(size)+'</span><b>'+money(p[1])+'</b><span>with code</span><s>'+money(p[0])+'</s>'+
@@ -301,31 +421,55 @@ const DEALS = [
     return '<details class="fp"'+(open?" open":"")+'><summary>Read the fine print</summary><dl>'+d.fine.map(function(r){var t=termFor(r[0]);if(!t||t==="trailing-drawdown")t=termFor(r[1])||t;return '<dt>'+(t?'<button type="button" class="gl" data-term="'+t+'">'+esc(r[0])+'</button>':esc(r[0]))+'</dt><dd>'+esc(r[1])+'</dd>'}).join("")+
       '</dl><p class="src">Read from <a href="'+esc(d.url)+'" target="_blank" rel="'+((d.aff||d.afflink)?'sponsored nofollow noopener':'noopener')+'">'+esc(d.firm)+"'s site</a>, checked "+esc(CHECKED)+'. Rules change. The firm\'s page is the final word.'+(d.page?' <a href="'+esc(d.page)+'">Full '+esc(d.firm)+' profile: rules, sale and every confirmed change →</a>':'')+'</p></details>'};
   document.getElementById("upd").textContent=UPDATED;
+  var stl=document.getElementById("st-live");if(stl)stl.textContent=live.length;
   var timed=live.filter(function(d){return d.ends}).sort(function(a,b){return new Date(a.ends)-new Date(b.ends)});
   var hero=timed[0], rest=live.filter(function(d){return d!==hero});
   var H=document.getElementById("hero");
+  if(!hero){var W=document.getElementById("why");if(W)W.hidden=false}
+  var byPrice=function(a,b){var pa=priceOf(a),pb=priceOf(b);if(pa==null&&pb==null)return 0;if(pa==null)return 1;if(pb==null)return -1;return pa-pb};
   function renderAll(){
   if(hero){
     H.hidden=false;
-    H.innerHTML='<div class="lbl">ENDING SOONEST</div><div class="big">'+esc(hero.save)+'</div><div class="who">at '+esc(hero.firm)+'</div><p class="what">'+esc(hero.what)+'</p>'+priceLine(hero)+chips(hero)+
+    H.innerHTML='<div class="lbl">ENDING SOONEST</div><div class="big">'+esc(hero.save)+'</div><div class="who">'+tile(slugOf(hero),hero.firm,"sm lgh")+'<span>at '+esc(hero.firm)+'</span></div><p class="what">'+esc(hero.what)+'</p>'+priceLine(hero)+chips(hero)+
       '<div class="clock" aria-label="Time left"><div><b id="cd-d">0</b><span>DAYS</span></div><div><b id="cd-h">00</b><span>HRS</span></div><div><b id="cd-m">00</b><span>MIN</span></div><div><b id="cd-s">00</b><span>SEC</span></div></div>'+
-      '<button class="go" data-i="'+DEALS.indexOf(hero)+'">Copy code &amp; open '+esc(hero.firm)+' ↗<code>'+esc(hero.code)+'</code></button><p class="tag">'+tag(hero)+'</p>'+fine(hero,true);
+      '<button class="go" data-i="'+DEALS.indexOf(hero)+'">Copy code &amp; open '+esc(hero.firm)+' ↗<code>'+esc(hero.code)+'</code></button><p class="tag">'+tag(hero)+'</p>'+fine(hero,false);
     var p=function(n){return n<10?"0"+n:""+n};
     var tick=function(){var ms=new Date(hero.ends)-now();if(ms<=0){location.reload();return}
       var t=Math.floor(ms/1000);document.getElementById("cd-d").textContent=Math.floor(t/86400);document.getElementById("cd-h").textContent=p(Math.floor(t%86400/3600));document.getElementById("cd-m").textContent=p(Math.floor(t%3600/60));document.getElementById("cd-s").textContent=p(t%60)};
     tick();if(!window.__pdTick)window.__pdTick=setInterval(tick,1000);
   }
-  var sorted=rest.slice().sort(function(a,b){var pa=priceOf(a),pb=priceOf(b);if(pa==null&&pb==null)return 0;if(pa==null)return 1;if(pb==null)return -1;return pa-pb});
+  var sorted=rest.slice().sort(byPrice);
   document.getElementById("deal-list").innerHTML=sorted.map(function(d){
-    var soon=d.ends&&(new Date(d.ends)-now())<72*36e5;
-    return '<div class="deal"><div class="row1"><span class="save">'+esc(d.save)+'</span><span class="ends'+(soon?" soon":"")+'">'+fmtEnd(d)+'</span></div>'+
-      '<div class="firmname">'+esc(d.firm)+'</div><p class="what">'+esc(d.what)+'</p>'+priceLine(d)+chips(d)+
+    var soon=d.ends&&(new Date(d.ends)-now())<72*36e5, sl=slugOf(d);
+    return '<div class="deal"><div class="fh">'+tile(sl,d.firm)+'<div class="nm">'+(d.page?'<a href="'+esc(d.page)+'">'+esc(d.firm)+'</a>':esc(d.firm))+'</div><span class="ends'+(soon?" soon":"")+'">'+fmtEnd(d)+'</span></div>'+
+      '<div class="save">'+esc(d.save)+'</div><p class="what">'+esc(d.what)+'</p>'+priceLine(d)+chips(d)+'<div class="grow"></div>'+
       '<div class="acts"><button class="go sm" data-i="'+DEALS.indexOf(d)+'">Copy &amp; open ↗<code>'+esc(d.code)+'</code></button><button class="copyonly" data-c="'+esc(d.code)+'" aria-label="Copy '+esc(d.code)+' only">Copy</button></div>'+
       '<p class="tag">'+tag(d)+'</p>'+fine(d,false)+'</div>'}).join("")||'<p class="sub">No live deals right now. Check back tomorrow morning.</p>';
-  document.querySelectorAll(".sizebar .seg button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.size===size?"true":"false")});
+  // price table: every live deal (the hero too), cheapest first for the chosen size
+  var all=live.slice().sort(byPrice);
+  document.getElementById("deal-table").innerHTML='<div class="ptab" role="table" aria-label="Cheapest '+esc(size)+' evaluation with each code"><div class="pr ph" role="row"><span>#</span><span>Firm</span><span class="ph-lg">With code</span><span class="ph-lg">Billing</span><span class="ph-lg"></span></div>'+
+    all.map(function(d,i){var pp=d.prices&&d.prices[size],sl=slugOf(d);
+      return '<div class="pr'+(pp?"":" none")+'" role="row"><span class="rk">'+(pp?i+1:"–")+'</span><span class="pf">'+tile(sl,d.firm,"sm")+'<span style="min-width:0"><b>'+(d.page?'<a href="'+esc(d.page)+'">'+esc(d.firm)+'</a>':esc(d.firm))+'</b><small>'+esc(d.save)+' · '+esc(d.pricesNote||fmtEnd(d))+'</small></span></span>'+
+        '<span class="pw">'+(pp?'<b>'+money(pp[1])+'</b>'+(d.billing==="monthly"?'<i class="mo">/mo</i>':'')+'<s>'+money(pp[0])+'</s>':'No '+esc(size))+'</span><span class="pw2">'+(d.billing?(d.billing==="monthly"?"billed monthly":"one-time"):"see firm")+'<br>'+esc(fmtEnd(d))+'</span>'+
+        '<span class="pa"><button class="go sm" data-i="'+DEALS.indexOf(d)+'">Copy &amp; open ↗<code>'+esc(d.code)+'</code></button></span></div>'}).join("")+'</div><p class="ptab-note">List prices with each firm\'s code applied, read from the firm\'s own site. Monthly evals renew until you pass; check activation fees in each deal\'s fine print.</p>';
+  document.getElementById("deal-list").hidden=view!=="cards";document.getElementById("deal-table").hidden=view!=="table";
+  document.querySelectorAll(".sizebar [data-size]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.size===size?"true":"false")});
+  document.querySelectorAll(".sizebar [data-view]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.view===view?"true":"false")});
   }
   renderAll();
-  document.querySelectorAll(".sizebar .seg button").forEach(function(b){b.addEventListener("click",function(){size=b.dataset.size;try{localStorage.setItem("pd-size",size)}catch(e){}renderAll()})});
+  document.querySelectorAll(".sizebar [data-size]").forEach(function(b){b.addEventListener("click",function(){size=b.dataset.size;try{localStorage.setItem("pd-size",size)}catch(e){}renderAll()})});
+  document.querySelectorAll(".sizebar [data-view]").forEach(function(b){b.addEventListener("click",function(){view=b.dataset.view;try{localStorage.setItem("pd-view",view)}catch(e){}renderAll()})});
+  // popular firms: logo tiles linking to each profile, sale badge when the firm has a live deal
+  var POP=["topstep","apex-trader-funding","tradeify","lucid-trading","myfundedfutures-mffu","take-profit-trader","alpha-futures","fundednext-futures","bulenox","earn2trade","elite-trader-funding","top-one-futures"];
+  var onSale={};live.forEach(function(d){onSale[slugOf(d)]=d.save});
+  var FG=document.getElementById("fgrid");
+  if(FG)FG.innerHTML=POP.filter(function(s){return L[s]}).map(function(s){return '<a href="/firms/'+s+'/">'+tile(s,L[s][0])+'<span class="t"><b>'+esc(L[s][0])+'</b>'+(onSale[s]?'<small class="on">'+esc(onSale[s])+'</small>':'<small>Profile & rules</small>')+'</span></a>'}).join("");
+  // news ticker from the "Latest from the desk" list
+  var TK=document.getElementById("ticker"),TR=document.getElementById("ticker-tr"),lis=document.querySelectorAll(".latest li");
+  if(TK&&lis.length){var it=[].map.call(lis,function(li){var t=li.querySelector("time"),a=li.querySelector("a"),dv=li.querySelector("div")||li,bb=dv.querySelector(":scope > b"),txt=bb?bb.textContent.trim()+": "+dv.textContent.replace(bb.textContent,"").trim():dv.textContent.trim();
+      return '<'+(a?'a href="'+esc(a.getAttribute("href"))+'"':'span class="it"')+'><time>'+esc(t?t.textContent:"")+'</time>'+esc(txt)+'</'+(a?'a':'span')+'>'}).join("");
+    TR.innerHTML=it+'<span aria-hidden="true" style="display:contents">'+it.replace(/<a /g,'<a tabindex="-1" ')+'</span>';TK.hidden=false}
+  var SC=document.getElementById("pd-search-cta");if(SC)SC.addEventListener("click",function(){if(window.pdsOpen)window.pdsOpen();else location.href="/firms/"});
   var T=document.getElementById("toast"),tt;
   var toast=function(m){T.textContent=m;T.classList.add("on");clearTimeout(tt);tt=setTimeout(function(){T.classList.remove("on")},2600)};
   var copy=function(c){return navigator.clipboard&&window.isSecureContext?navigator.clipboard.writeText(c):Promise.reject()};
@@ -339,7 +483,7 @@ const DEALS = [
   document.addEventListener("click",function(e){
     var tb=e.target.closest("[data-term]");if(tb){e.preventDefault();openTerm(tb.dataset.term);return}
     var g=e.target.closest(".go"),o=e.target.closest(".copyonly");
-    if(g){var d=DEALS[+g.dataset.i];copy(d.code).then(function(){toast(d.code+" copied. Paste it at checkout on "+d.firm+".")}).catch(function(){toast("Your code is "+d.code+". Enter it at checkout.")});
+    if(g&&g.dataset.i!=null){var d=DEALS[+g.dataset.i];copy(d.code).then(function(){toast(d.code+" copied. Paste it at checkout on "+d.firm+".")}).catch(function(){toast("Your code is "+d.code+". Enter it at checkout.")});
       window.open(d.url,"_blank","noopener");}
     if(o){copy(o.dataset.c).then(function(){toast(o.dataset.c+" copied")}).catch(function(){prompt("Copy this code:",o.dataset.c)})}
   });
