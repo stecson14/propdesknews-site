@@ -238,7 +238,7 @@ header.top .lead{color:#C9C4B5;font-size:16px;max-width:540px}
 .deal .grow{flex:1}
 .lg{width:40px;height:40px;border-radius:10px;flex:none;object-fit:cover;background:#fff;display:block}
 .lg.sm{width:32px;height:32px;border-radius:8px}
-.lg.sp{background-image:url(/logos/home.webp?v=56b64370);background-repeat:no-repeat}
+.lg.sp{background-image:url(/logos/home.webp?v=a73f3735);background-repeat:no-repeat}
 .lg.mono{display:inline-flex;align-items:center;justify-content:center;background:hsl(var(--h) 30% 30%);color:var(--cream);font:600 15px Fraunces,serif;border:1px solid rgba(233,228,212,.14)}
 .lg.sm.mono{font-size:13px}
 .ptab{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--navy2)}
@@ -333,7 +333,7 @@ header.top .lead{color:#C9C4B5;font-size:16px;max-width:540px}
 <div class="hd"><h2>Popular firms</h2><a href="/firms/">All <span data-stat="firms">75</span> firms →</a></div>
 <div class="fgrid" id="fgrid"></div>
 </section>
-<script>const LOGOS = {"apex-trader-funding": ["Apex Trader Funding", 0], "tradeify": ["Tradeify", 1], "take-profit-trader": ["Take Profit Trader", 2], "lucid-trading": ["Lucid Trading", 3], "fundednext-futures": ["FundedNext Futures", 4], "alpha-futures": ["Alpha Futures", 5], "topstep": ["Topstep", 6], "myfundedfutures-mffu": ["MyFundedFutures (MFFU)", 7], "bulenox": ["Bulenox", 8], "earn2trade": ["Earn2Trade", 9], "elite-trader-funding": ["Elite Trader Funding", 10], "top-one-futures": ["Top One Futures", 11], "_n": 12};</script>
+<script>const LOGOS = {"apex-trader-funding": ["Apex Trader Funding", 0], "tradeify": ["Tradeify", 1], "take-profit-trader": ["Take Profit Trader", 2], "lucid-trading": ["Lucid Trading", 3], "fundednext-futures": ["FundedNext Futures", 4], "myfundedfutures-mffu": ["MyFundedFutures (MFFU)", 5], "topstep": ["Topstep", 6], "alpha-futures": ["Alpha Futures", 7], "bulenox": ["Bulenox", 8], "earn2trade": ["Earn2Trade", 9], "elite-trader-funding": ["Elite Trader Funding", 10], "top-one-futures": ["Top One Futures", 11], "_n": 12};</script>
 <!-- DEALS: the daily run edits only this array. Fields: firm, prices ({"25K":[list, withCode], ...} only sizes the firm lists, from the tracker), billing ("one-time" or "monthly", only when the firm states it), pricesNote (which product the prices are for), page (profile URL /firms/<slug>/), url, save (headline), what, code, ends (ISO with ET offset, or ""), aff (true only for Prop Desk's approved affiliate codes), chips (2-3 short verified facts), fine ([label, text] rows read from the firm's site; omit anything unverified). Deals past "ends" hide themselves. -->
 <script>
 const UPDATED = "Nov 4, 2026";
@@ -357,9 +357,9 @@ const DEALS = [
   {firm:"FundedNext Futures", billing:"one-time", pricesNote:"Flex account", prices:{"50K":[141.99,74.99],"100K":[273.99,144.99],"150K":[490.99,259.99]}, page:"/firms/fundednext-futures/", url:"https://fundednext.com/?fpr=PROPDESK", save:"Up to 47% off", what:"Flex 50K $141.99 → $74.99, one-time payment.", code:"PROPDESK", ends:"", aff:true,
    chips:["EOD trailing drawdown","One-time payment","Up to 95% split (firm's claim)"],
    fine:[["Drawdown","End-of-day trailing only, no buffer rule."],["Payouts","Up to 95% split is the firm's own claim."],["Platforms","NinjaTrader, Tradovate, TradingView."],["About the code","PROPDESK is Prop Desk's affiliate code. FundedNext's help center says partner codes match the best available official FundedNext discount, so it gives the same discount as FundedNext's public code FNFLEX."]]},
-  {firm:"Alpha Futures", billing:"monthly", pricesNote:"Standard eval", prices:{"50K":[129,64.50],"100K":[239,119.50],"150K":[349,174.50]}, page:"/firms/alpha-futures/", url:"https://app.alpha-futures.com/signup/prop_desk030313/", save:"50% off", what:"50K Standard $129 → $64.50 per month. For Zero accounts, Alpha's public code ALPHA40 takes 40% off.", code:"PROP_DESK030313", ends:"", endsNote:"Ends Nov 30", aff:true,
-   chips:["EOD trailing drawdown","No fee once qualified","Up to 90% split"],
-   fine:[["Drawdown","End-of-day trailing max loss limit."],["About the code","PROP_DESK030313 is Prop Desk's affiliate code. At Alpha's checkout on Nov 3 it took 50% off a $50K evaluation ($209 → $104.50), the same 50% as Alpha's public code ALPHA50 (Advanced, Standard and Direct). Evaluation fees only. Alpha's public ALPHA40 is 40% off Zero. Alpha's codes run Nov 1 to Nov 30, 2026, per its codes page."],["Fees","No fee once qualified on Standard. Optional no-consistency add-on for Qualified accounts: +$70 / +$90 / +$110 (50K / 100K / 150K)."]]}
+  {firm:"MyFundedFutures", billing:"one-time", pricesNote:"Rapid account", prices:{"50K":[209,125]}, page:"/firms/myfundedfutures-mffu/", url:"https://myfundedfutures.com", save:"40% off", what:"40% off any plan, and 50% off your first eval if you are new to MFFU. 50K Rapid $209 → $125, one-time payment.", code:"CLUB", ends:"", aff:false,
+   chips:["One-time payment","Daily payouts on Rapid","90/10 split on Rapid"],
+   fine:[["Consistency","Rapid and Pro evaluations use a 50% rule, Rapid EOD 30%. Funded Rapid, Rapid EOD and Pro accounts have none."],["Payouts","Funded Rapid pays daily at 90/10 once your balance clears a buffer ($2,100 on a 50K), with a $500 minimum."],["News","Funded Rapid accounts don't allow Tier 1 news trading."]]},
 ];
 </script>
 <!-- /DEALS -->
