@@ -321,7 +321,7 @@ header.top .lead{color:#C9C4B5;font-size:16px;max-width:540px}
 <p class="sub">Checked on each firm's own site · Updated <span id="upd">Nov 2, 2026</span> · USD · One tap copies the code and opens the firm. Every deal shows its fine print.</p>
 <div class="sizebar" role="group" aria-label="Account size and view">
   <span class="lbl">Account size</span>
-  <div class="seg"><button type="button" data-size="25K">25K</button><button type="button" data-size="50K" aria-pressed="true">50K</button><button type="button" data-size="100K">100K</button><button type="button" data-size="150K">150K</button></div>
+  <div class="seg"><button type="button" data-size="50K" aria-pressed="true">50K</button><button type="button" data-size="100K">100K</button><button type="button" data-size="150K">150K</button></div>
   <span class="grow"></span>
   <div class="seg view" role="group" aria-label="View"><button type="button" data-view="cards" aria-pressed="true">Cards</button><button type="button" data-view="table" aria-pressed="false">Price table</button></div>
   <div class="seg sort" role="group" aria-label="Sort deals"><button type="button" data-sort="best" aria-pressed="true">Lowest cost</button><button type="button" data-sort="ending" aria-pressed="false">Ending soon</button></div>
@@ -403,7 +403,7 @@ const DEALS = [
   var esc=function(t){return String(t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
   var tag=function(d){return d.aff?"Affiliate code: Prop Desk may earn a commission":d.afflink?"Firm's public code. The link to the firm is a Prop Desk affiliate link":"Firm's public code, not an affiliate link"};
   var fmtEnd=function(d){if(!d.ends)return d.endsNote||"No end date";var ms=new Date(d.ends)-now(),h=ms/36e5;if(h<48)return "Ends in "+Math.max(1,Math.floor(h))+"h";if(h<72)return "Ends in "+Math.floor(h/24)+"d";return "Ends "+new Date(d.ends).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",timeZone:"America/New_York"})};
-  var SIZES=["25K","50K","100K","150K"];var size="50K";try{var ss=localStorage.getItem("pd-size");if(SIZES.indexOf(ss)>-1)size=ss}catch(e){}
+  var SIZES=["50K","100K","150K"];var size="50K";try{var ss=localStorage.getItem("pd-size");if(SIZES.indexOf(ss)>-1)size=ss}catch(e){}
   var view="cards";try{if(localStorage.getItem("pd-view")==="table")view="table"}catch(e){}
   var sortBy="best";try{if(localStorage.getItem("pd-sort")==="ending")sortBy="ending"}catch(e){}
   var money=function(n){return "$"+(n%1?n.toFixed(2):n)};
