@@ -466,7 +466,7 @@ const FIRMS = [
  {n:"Blueberry Futures", m:["futures"], w:"https://blueberryfutures.com", x:X("Blueberry Futures","none"),
   plans:"Ascent · Accelerated · Pro · Standard",
   sizes:"25K · 50K · 100K · 150K",
-  price:"Monthly, EOD or trailing: 25K $55.60 / $44.16, 50K $98 / $73.61, 100K $147.21 / $110.40, 150K $242.80 / $181.60 (, may already include the code; verify)",
+  price:"Monthly, EOD or trailing: 25K $55.60 / $44.16, 50K $98 / $73.61, 100K $147.21 / $110.40, 150K $242.80 / $181.60 (may already include the code; verify)",
   split:"90%",
   dd:"EOD or trailing (your choice)",
   plat:"BlackArrow",
@@ -670,7 +670,7 @@ const FIRMS = [
   split:"Up to 100%",
   dd:"4% daily (balance), 6% trailing max",
   plat:"MT5, Match-Trader",
-  deal:"<b>SIZE20</b>: 20% off the $100K 1-Step Express challenge. The homepage also advertises starting any challenge for $4 (, check the terms).",
+  deal:"<b>SIZE20</b>: 20% off the $100K 1-Step Express challenge. The homepage also advertises starting any challenge for $4 (check the terms).",
   note:"Their share tag names @fundedtradingplus, which is too long to be a real X handle. Find the account by search."},
  {n:"Maven Trading", m:["cfd"], w:"https://maventrading.com", x:X("Maven Trading","none"),
   plans:"1-Step · 2-Step · 3-Step · Instant · Mini · Buy Now Pay Later",
@@ -779,7 +779,7 @@ const FIRMS = [
   split:"80%, 90% or 100%, chosen at checkout",
   dd:"4% to 14% customizable, trails on closed profits; daily loss 3% to 9.2%",
   plat:"E8 Terminal (Hyperliquid data)",
-  deal:"Homepage shows 50% off a first order (code , confirm at checkout).",
+  deal:"Homepage shows 50% off a first order (confirm the code at checkout).",
   note:"Perps arm of E8 Markets (CFD side listed separately). First payout after 3 calendar days, then on demand."},
  {n:"Kraken Prop", m:["perps"], w:"https://www.kraken.com/pro/prop", x:X("krakenfx","site"),
   plans:"Starter, Intermediate, Advanced evaluations, inside Kraken Pro",
@@ -881,7 +881,7 @@ const FIRMS = [
   deal:"",
   note:"Tradeify's site says Tradeify 247 is \"morphing\" into Tradeify Perps; sign up for a beta key for early access. Rules not published yet."}
 ];
-const FIRMAFF = {"alpha-futures": "https://app.alpha-futures.com/signup/prop_desk030313/", "fundednext-futures": "https://fundednext.com/?fpr=PROPDESK", "fundednext": "https://fundednext.com/?fpr=PROPDESK", "top-one-futures": "https://toponefutures.com/?linkId=lp_707970&sourceId=propdesk&tenantId=toponefutures", "bulenox": "https://bulenox.com/member/aff/go/stecson"};
+const FIRMAFF = {"alpha-futures": "https://app.alpha-futures.com/signup/prop_desk030313/", "fundednext-futures": "https://fundednext.com/?fpr=PROPDESK", "fundednext": "https://fundednext.com/?fpr=PROPDESK", "top-one-futures": "https://toponefutures.com/?linkId=lp_707970&sourceId=propdesk&tenantId=toponefutures", "bulenox": "https://bulenox.com/member/aff/go/stecson", "e8-markets": "https://e8markets.com/d/propdesk", "e8-perpetuals": "https://e8markets.com/d/propdesk"};
 const DEALS = {"apex-trader-funding": {"code": "SAVENOW", "save": "90% off", "what": "All evals (Intraday, EOD, Legacy). 25K Intraday $167 → $16.70.", "ends": "2026-11-04T23:59:00-05:00", "aff": false}, "tradeify": {"code": "NOV", "save": "30% off", "what": "40% off the Growth account. 50K $165 → $116, one-time payment.", "ends": "2026-11-13T23:59:00-05:00", "aff": false}, "take-profit-trader": {"code": "NOFEE50", "save": "50% off for life", "what": "Early Black Friday sale, ends Mon Nov 9 (per TPT). 50K Test $170 → $85 per month.", "ends": "", "aff": false}, "lucid-trading": {"code": "VAULT", "save": "30% off", "what": "LucidDaily 50K $172 → $120.40.", "ends": "", "aff": false}, "fundednext-futures": {"code": "PROPDESK", "save": "Up to 47% off", "what": "Flex 50K $141.99 → $74.99, one-time payment.", "ends": "", "aff": true}, "alpha-futures": {"code": "PROP_DESK030313", "save": "50% off", "what": "50K Standard $129 → $64.50 per month. For Zero accounts, Alpha's public code ALPHA40 takes 40% off.", "ends": "", "aff": true}};
 const slug = n => n.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
