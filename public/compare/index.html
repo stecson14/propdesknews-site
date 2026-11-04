@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Put two or three prop firms side by side: prices, account sizes, payout split, drawdown, platforms and the current sale, read from each firm's own site.">
 <meta property="og:site_name" content="Prop Desk"><meta property="og:url" content="https://propdesknews.com/compare/"><meta property="og:title" content="Compare Prop Firms Side by Side | Prop Desk">
-<meta property="og:description" content="Pick two or three of 75 prop firms and see price, split, drawdown, platforms and the live code next to each other.">
-<meta property="og:image" content="https://propdesknews.com/og/compare.png?v=a9e74bed"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:description" content="Pick two or three of 76 prop firms and see price, split, drawdown, platforms and the live code next to each other.">
+<meta property="og:image" content="https://propdesknews.com/og/compare.png?v=8483223c"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@PropDeskNews">
 <link rel="canonical" href="https://propdesknews.com/compare/">
 <link rel="icon" href="/icons/icon-48.png" type="image/png" sizes="48x48">
@@ -164,7 +164,7 @@ body.hastray{padding-bottom:calc(160px + env(safe-area-inset-bottom,0px))!import
   <div class="wrap">
     <div class="kicker">Compare · checked Wed Nov 4, 2026</div>
     <h1>Side by side</h1>
-    <p class="lede">Pick two or three of 75 prop firms and read their price, split, drawdown, platforms and current sale next to each other. Every row comes from the firm's own site; the firm's checkout is the final word.</p>
+    <p class="lede">Pick two or three of 76 prop firms and read their price, split, drawdown, platforms and current sale next to each other. Every row comes from the firm's own site; the firm's checkout is the final word.</p>
   </div>
 </header>
 
@@ -309,6 +309,15 @@ const FIRMS = [
   plat:"Listed on site",
   deal:"<b>BLACKFRIDAY</b> (\"Black November\"): up to 60% off. Ignite Instant Funded 60% off, Elite Daily 55% off, Elite Access buy one get one free plus 25% off its activation fees (no end date shown). Homepage also shows code <b>BOGO</b> (buy one, get one free).",
   note:"Instant funding focus."},
+ {n:"IQ Capital", m:["futures","cfd"], w:"https://iqcapital.io", x:X("IQCapital_io","site"),
+  plans:"Futures: Core · One-Day-Pass · Rapid · Instant Funding. Also crypto and CFD programs",
+  sizes:"Futures Core 50K · 100K (evaluation up to $200K; Instant Funding up to $100K)",
+  price:"Core 50K $245, 100K $475 list; $37 and $71 shown on the Black Friday sale",
+  split:"Up to 90%",
+  dd:"Core 50K: $2,000 EOD trailing, $1,000 daily loss limit, $3,000 target (100K: $3,000 / $1,500 / $6,000). No consistency rule in the challenge, no minimum days",
+  plat:"Futures: Tradovate, Quantower, Volumetrica, ATAS, Deepcharts. Crypto/CFD: MetaTrader 5",
+  deal:"Black Friday Special: 85% off everything, limited time (no end date shown). <b>PROPDESK</b> (our affiliate code) takes the same 85% at checkout. Homepage also shows a $9 start with code <b>80FUNDING</b>.",
+  note:"Founded by trading championship winner Christoph Radecker (firm's page). Up to 2 forgiven breaches; no minimum payout, paid within 48 hours (firm's claim). Lists $5.5M+ paid out."},
  {n:"TradeDay", m:["futures"], w:"https://www.tradeday.com", x:X("TradeDay","none"),
   plans:"Quick Pay · Fast Pass",
   sizes:"25K · 50K · 100K · 150K",
@@ -882,7 +891,7 @@ const FIRMS = [
   note:"Tradeify's site says Tradeify 247 is \"morphing\" into Tradeify Perps; sign up for a beta key for early access. Rules not published yet."}
 ];
 const FIRMAFF = {"alpha-futures": "https://app.alpha-futures.com/signup/prop_desk030313/", "fundednext-futures": "https://fundednext.com/?fpr=PROPDESK", "fundednext": "https://fundednext.com/?fpr=PROPDESK", "top-one-futures": "https://toponefutures.com/?linkId=lp_707970&sourceId=propdesk&tenantId=toponefutures", "bulenox": "https://bulenox.com/member/aff/go/stecson", "e8-markets": "https://e8markets.com/d/propdesk", "e8-perpetuals": "https://e8markets.com/d/propdesk", "the5ers": "https://www.the5ers.com/?afmc=1hjt", "fxify": "https://trader.fxify.com/purchasechallenge?affiliateId=8886"};
-const DEALS = {"apex-trader-funding": {"code": "SAVENOW", "save": "90% off", "what": "All evals (Intraday, EOD, Legacy). 25K Intraday $167 → $16.70.", "ends": "", "aff": false}, "tradeify": {"code": "NOV", "save": "30% off", "what": "40% off the Growth account. 50K $165 → $116, one-time payment.", "ends": "2026-11-13T23:59:00-05:00", "aff": false}, "take-profit-trader": {"code": "NOFEE50", "save": "50% off for life", "what": "Early Black Friday sale, ends Mon Nov 9 (per TPT). 50K Test $170 → $85 per month.", "ends": "", "aff": false}, "lucid-trading": {"code": "VAULT", "save": "30% off", "what": "LucidDaily 50K $172 → $120.40.", "ends": "", "aff": false}, "fundednext-futures": {"code": "PROPDESK", "save": "Up to 47% off", "what": "Flex 50K $141.99 → $74.99, one-time payment.", "ends": "", "aff": true}, "myfundedfutures-mffu": {"code": "CLUB", "save": "40% off", "what": "40% off any plan, and 50% off your first eval if you are new to MFFU. 50K Rapid $209 → $125, one-time payment.", "ends": "", "aff": false}};
+const DEALS = {"apex-trader-funding": {"code": "SAVENOW", "save": "90% off", "what": "All evals (Intraday, EOD, Legacy). 25K Intraday $167 → $16.70.", "ends": "", "aff": false}, "tradeify": {"code": "NOV", "save": "30% off", "what": "40% off the Growth account. 50K $165 → $116, one-time payment.", "ends": "2026-11-13T23:59:00-05:00", "aff": false}, "take-profit-trader": {"code": "NOFEE50", "save": "50% off for life", "what": "Early Black Friday sale, ends Mon Nov 9 (per TPT). 50K Test $170 → $85 per month.", "ends": "", "aff": false}, "lucid-trading": {"code": "VAULT", "save": "30% off", "what": "LucidDaily 50K $172 → $120.40.", "ends": "", "aff": false}, "iq-capital": {"code": "PROPDESK", "save": "85% off", "what": "Black Friday: 85% off everything, for a limited time (per IQ Capital). 50K futures challenge $245 → $36.75.", "ends": "", "aff": true}, "fundednext-futures": {"code": "PROPDESK", "save": "Up to 47% off", "what": "Flex 50K $141.99 → $74.99, one-time payment.", "ends": "", "aff": true}, "myfundedfutures-mffu": {"code": "CLUB", "save": "40% off", "what": "40% off any plan, and 50% off your first eval if you are new to MFFU. 50K Rapid $209 → $125, one-time payment.", "ends": "", "aff": false}};
 const slug = n => n.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const gl = (k, t) => `<a class="gl" href="/glossary/#${t}" title="What this means">${k}</a>`;
