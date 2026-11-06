@@ -309,6 +309,18 @@ section#deals{border-top:1px solid var(--hair);padding-top:22px}
 .fine{border-top-color:var(--hair)}
 .fp{border-top:1px solid var(--hair)}
 .copyonly{border-radius:0;border-color:var(--hair)}
+/* Seamless: no bars, no boxes. Each row's firm colour is a soft wash that fades into the page on every side */
+.pr[style*="--b"]{box-shadow:none;background:radial-gradient(120% 140% at 0% 50%,color-mix(in srgb,var(--b) 26%,transparent) 0,color-mix(in srgb,var(--b) 8%,transparent) 45%,transparent 75%)}
+.pr{border-top:1px solid rgba(255,255,255,.045)}
+.pr.ph{border-top:0}
+.ptab{border:0}
+.deal[style*="--b"],.deal{box-shadow:none;border:0;background:radial-gradient(120% 90% at 50% 0%,color-mix(in srgb,var(--b) 28%,transparent) 0,color-mix(in srgb,var(--b) 8%,transparent) 45%,transparent 80%)}
+#deal-list{border:0;gap:18px 20px}
+.hero,.hero[style*="--b"]{border:0;background:radial-gradient(120% 100% at 0% 0%,color-mix(in srgb,var(--b,#D9A441) 30%,transparent) 0,color-mix(in srgb,var(--b,#D9A441) 8%,transparent) 50%,transparent 85%);padding-left:22px}
+.why{border:0}
+.stats,.stats div{border-color:rgba(255,255,255,.06)}
+.ticker,.sizebar,section#deals,.firmstrip,.fgrid,.fgrid a,.fine,.fp{border-color:rgba(255,255,255,.06)}
+.copyonly{border-radius:10px;border-color:rgba(255,255,255,.12)}
 .ptab-note{font:12px "IBM Plex Mono",monospace;color:var(--muted);margin:8px 2px 0}
 .firmstrip{margin-top:30px}
 .firmstrip .hd{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
