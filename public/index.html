@@ -259,6 +259,27 @@ header.top .lead{color:#C9C4B5;font-size:16px;max-width:540px}
 .pr .ph-lg{display:none}
 .pr .pw2{display:none;font:12px "IBM Plex Mono",monospace;color:var(--muted)}
 @media (min-width:760px){.pr{grid-template-columns:30px minmax(0,1fr) 110px 110px 280px}.pr .pa{grid-column:auto}.pr .ph-lg{display:block}.pr .pw2{display:block}.pr .pa .go{font-size:13.5px;gap:8px}.pr .pa .go code{font-size:13px;letter-spacing:.03em}}
+/* Firm colours: each row/card takes --b from BRAND (accent sampled from the firm's logo), faded into navy so text stays high-contrast */
+.pr[style*="--b"]{background:linear-gradient(90deg,color-mix(in srgb,var(--b) 34%,transparent) 0,color-mix(in srgb,var(--b) 12%,transparent) 38%,transparent 72%);box-shadow:inset 4px 0 0 var(--b)}
+.ptab{background:#18202F;border-color:#2B3650}
+.pr{border-top-color:rgba(255,255,255,.06);padding:14px 16px;transition:background-color .15s}
+.pr:not(.ph):hover{background-color:rgba(255,255,255,.03)}
+.pr.ph{background:#141B28;color:#AEB6C6}
+.pr .rk{font-size:15px;color:#fff}
+.pr .pf b{font-size:16px;letter-spacing:-.01em}
+.pr .pf b a{color:#fff}
+.pr .pf small{color:#C9CFDA;font-size:12px}
+.pr .pw b{font-size:24px;color:#fff}
+.pr .pw s{color:#8E97A9}
+.pr .pw2{color:#C9CFDA}
+.pr .lg{box-shadow:0 0 0 1px rgba(255,255,255,.12)}
+.deal[style*="--b"]{background:linear-gradient(180deg,color-mix(in srgb,var(--b) 30%,#18202F) 0,#18202F 120px);border-color:color-mix(in srgb,var(--b) 45%,#2B3650);border-top:3px solid var(--b)}
+.deal .save{color:#fff}
+.deal .fh .nm a{color:#fff}
+.deal .what{display:none}
+.hero[style*="--b"]{background:linear-gradient(160deg,color-mix(in srgb,var(--b) 38%,#1F2840) 0,#1F2840 60%)}
+.hero .big{color:#fff}
+.pr .afl{display:block;font:11px "IBM Plex Mono",monospace;color:#C9CFDA;margin-top:5px;text-align:center}
 .ptab-note{font:12px "IBM Plex Mono",monospace;color:var(--muted);margin:8px 2px 0}
 .firmstrip{margin-top:30px}
 .firmstrip .hd{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
@@ -323,12 +344,12 @@ header.top .lead{color:#C9C4B5;font-size:16px;max-width:540px}
   <span class="lbl">Account size</span>
   <div class="seg"><button type="button" data-size="50K" aria-pressed="true">50K</button><button type="button" data-size="100K">100K</button><button type="button" data-size="150K">150K</button></div>
   <span class="grow"></span>
-  <div class="seg view" role="group" aria-label="View"><button type="button" data-view="cards" aria-pressed="true">Cards</button><button type="button" data-view="table" aria-pressed="false">Price table</button></div>
+  <div class="seg view" role="group" aria-label="View"><button type="button" data-view="table" aria-pressed="true">Price table</button><button type="button" data-view="cards" aria-pressed="false">Cards</button></div>
   <div class="seg sort" role="group" aria-label="Sort deals"><button type="button" data-sort="best" aria-pressed="true">Lowest cost</button><button type="button" data-sort="ending" aria-pressed="false">Ending soon</button></div>
   <span class="hint" id="sizehint">Lowest cost to get funded first: eval after the code plus any activation fee</span>
 </div>
-<div id="deal-list"></div>
-<div id="deal-table" hidden></div>
+<div id="deal-table"></div>
+<div id="deal-list" hidden></div>
 <noscript><p class="sub">Turn on JavaScript to see live deals.</p></noscript>
 </section>
 
@@ -404,7 +425,7 @@ const DEALS = [
   var tag=function(d){return d.aff?"Affiliate code: Prop Desk may earn a commission":d.afflink?"Firm's public code. The link to the firm is a Prop Desk affiliate link":"Firm's public code, not an affiliate link"};
   var fmtEnd=function(d){if(!d.ends)return d.endsNote||"No end date";var ms=new Date(d.ends)-now(),h=ms/36e5;if(h<48)return "Ends in "+Math.max(1,Math.floor(h))+"h";if(h<72)return "Ends in "+Math.floor(h/24)+"d";return "Ends "+new Date(d.ends).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",timeZone:"America/New_York"})};
   var SIZES=["50K","100K","150K"];var size="50K";try{var ss=localStorage.getItem("pd-size");if(SIZES.indexOf(ss)>-1)size=ss}catch(e){}
-  var view="cards";try{if(localStorage.getItem("pd-view")==="table")view="table"}catch(e){}
+  var view="table";try{if(localStorage.getItem("pd-view")==="cards")view="cards"}catch(e){}
   var sortBy="best";try{if(localStorage.getItem("pd-sort")==="ending")sortBy="ending"}catch(e){}
   var money=function(n){return "$"+(n%1?n.toFixed(2):n)};
   var actOf=function(d){var a=d.act;if(a&&typeof a==="object")a=a[size];return typeof a==="number"?a:null};
@@ -416,6 +437,9 @@ const DEALS = [
   var hue=function(s){var h=0;for(var i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))%360;return h};
   var initials=function(n){var w=String(n).replace(/[^A-Za-z0-9 ]/g," ").trim().split(/\s+/);return ((w[0]||"?").charAt(0)+(w[1]?w[1].charAt(0):"")).toUpperCase()};
   var LN=L._n||1;
+  // firm accent colours for the gradients (sampled from each firm's logo; mono logos get a neutral slate)
+  var BRAND={"apex-trader-funding":"#2747e8","tradeify":"#1fbf5c","take-profit-trader":"#e35239","lucid-trading":"#5b7aa6","iq-capital":"#6f7d99","fundednext-futures":"#6358ff","myfundedfutures-mffu":"#caa44e","topstep":"#8b93a3","alpha-futures":"#0f8a63","bulenox":"#1e5aa8","earn2trade":"#fd8102","elite-trader-funding":"#8b93a3","top-one-futures":"#2e9e4f"};
+  var bst=function(d){var c=BRAND[slugOf(d)];return c?' style="--b:'+c+'"':""};
   var tile=function(sl,name,cls){cls=cls?" "+cls:"";var e=sl&&sl!=="_n"&&L[sl];return e?'<span class="lg sp'+cls+'" style="background-size:'+(LN*100)+'% 100%;background-position:'+(LN>1?(e[1]*100/(LN-1)).toFixed(3):0)+'% 0" aria-hidden="true"></span>':'<span class="lg mono'+cls+'" style="--h:'+hue(sl||name)+'" aria-hidden="true">'+esc(initials(name))+'</span>'};
   var priceLine=function(d){var p=d.prices&&d.prices[size];
     if(!p)return '<p class="price none">No '+esc(size)+' account listed'+(d.prices?' (sizes: '+Object.keys(d.prices).join(", ")+')':'')+'</p>';
@@ -430,7 +454,7 @@ const DEALS = [
     if(t.indexOf("drawdown")>-1)return "trailing-drawdown";return null};
   var chips=function(d){return d.chips&&d.chips.length?'<div class="chips">'+d.chips.map(function(c){var t=termFor(c);return t?'<button type="button" class="chip" data-term="'+t+'" aria-label="'+esc(c)+': what this means">'+esc(c)+'</button>':'<span class="chip">'+esc(c)+'</span>'}).join("")+'</div>':""};
   var fine=function(d,open){if(!d.fine||!d.fine.length)return "";
-    return '<details class="fp"'+(open?" open":"")+'><summary>Read the fine print</summary><dl>'+d.fine.map(function(r){var t=termFor(r[0]);if(!t||t==="trailing-drawdown")t=termFor(r[1])||t;return '<dt>'+(t?'<button type="button" class="gl" data-term="'+t+'">'+esc(r[0])+'</button>':esc(r[0]))+'</dt><dd>'+esc(r[1])+'</dd>'}).join("")+
+    return '<details class="fp"'+(open?" open":"")+'><summary>Read the fine print</summary><dl>'+(d.what?'<dt>Deal</dt><dd>'+esc(d.what)+'</dd>':'')+d.fine.map(function(r){var t=termFor(r[0]);if(!t||t==="trailing-drawdown")t=termFor(r[1])||t;return '<dt>'+(t?'<button type="button" class="gl" data-term="'+t+'">'+esc(r[0])+'</button>':esc(r[0]))+'</dt><dd>'+esc(r[1])+'</dd>'}).join("")+
       '</dl><p class="src">Read from <a href="'+esc(d.url)+'" target="_blank" rel="'+((d.aff||d.afflink)?'sponsored nofollow noopener':'noopener')+'">'+esc(d.firm)+"'s site</a>, checked "+esc(CHECKED)+'. Rules change. The firm\'s page is the final word.'+(d.page?' <a href="'+esc(d.page)+'">Full '+esc(d.firm)+' profile: rules, sale and every confirmed change →</a>':'')+'</p></details>'};
   document.getElementById("upd").textContent=UPDATED;
   var stl=document.getElementById("st-live");if(stl)stl.textContent=live.length;
@@ -447,7 +471,7 @@ const DEALS = [
   rest=live.filter(function(d){return d!==hero});
   if(!hero){H.hidden=true;var W=document.getElementById("why");if(W)W.hidden=false}
   if(hero){
-    H.hidden=false;
+    H.hidden=false;var hb=BRAND[slugOf(hero)];if(hb)H.style.setProperty("--b",hb);else H.style.removeProperty("--b");
     H.innerHTML='<div class="lbl">'+(sortBy==="ending"?"ENDING SOONEST":"LOWEST COST TO GET FUNDED · "+esc(size)+" · "+esc(fmtEnd(hero)).toUpperCase())+'</div><div class="big">'+esc(hero.save)+'</div><div class="who">'+tile(slugOf(hero),hero.firm,"sm lgh")+'<span>at '+esc(hero.firm)+'</span></div><p class="what">'+esc(hero.what)+'</p>'+priceLine(hero)+costLine(hero)+chips(hero)+
       (hero.ends?'<div class="clock" aria-label="Time left"><div><b id="cd-d">0</b><span>DAYS</span></div><div><b id="cd-h">00</b><span>HRS</span></div><div><b id="cd-m">00</b><span>MIN</span></div><div><b id="cd-s">00</b><span>SEC</span></div></div>':'')+
       '<button class="go" data-i="'+DEALS.indexOf(hero)+'">Copy code &amp; open '+esc(hero.firm)+' ↗<code>'+esc(hero.code)+'</code></button><p class="tag">'+tag(hero)+'</p>'+fine(hero,false);
@@ -459,7 +483,7 @@ const DEALS = [
   var sorted=rest.slice().sort(sortBy==="ending"?byEnd:byPrice);
   document.getElementById("deal-list").innerHTML=sorted.map(function(d){
     var soon=d.ends&&(new Date(d.ends)-now())<72*36e5, sl=slugOf(d);
-    return '<div class="deal"><div class="fh">'+tile(sl,d.firm)+'<div class="nm">'+(d.page?'<a href="'+esc(d.page)+'">'+esc(d.firm)+'</a>':esc(d.firm))+'</div><span class="ends'+(soon?" soon":"")+'">'+fmtEnd(d)+'</span></div>'+
+    return '<div class="deal"'+bst(d)+'><div class="fh">'+tile(sl,d.firm)+'<div class="nm">'+(d.page?'<a href="'+esc(d.page)+'">'+esc(d.firm)+'</a>':esc(d.firm))+'</div><span class="ends'+(soon?" soon":"")+'">'+fmtEnd(d)+'</span></div>'+
       '<div class="save">'+esc(d.save)+'</div><p class="what">'+esc(d.what)+'</p>'+priceLine(d)+costLine(d)+chips(d)+'<div class="grow"></div>'+
       '<div class="acts"><button class="go sm" data-i="'+DEALS.indexOf(d)+'">Copy &amp; open ↗<code>'+esc(d.code)+'</code></button><button class="copyonly" data-c="'+esc(d.code)+'" aria-label="Copy '+esc(d.code)+' only">Copy</button></div>'+
       '<p class="tag">'+tag(d)+'</p>'+fine(d,false)+'</div>'}).join("")||'<p class="sub">No live deals right now. Check back tomorrow morning.</p>';
@@ -467,9 +491,9 @@ const DEALS = [
   var all=live.slice().sort(byPrice);
   document.getElementById("deal-table").innerHTML='<div class="ptab" role="table" aria-label="Cheapest '+esc(size)+' evaluation with each code"><div class="pr ph" role="row"><span>#</span><span>Firm</span><span class="ph-lg">With code</span><span class="ph-lg">Billing</span><span class="ph-lg"></span></div>'+
     all.map(function(d,i){var pp=d.prices&&d.prices[size],sl=slugOf(d);
-      return '<div class="pr'+(pp?"":" none")+'" role="row"><span class="rk">'+(pp?i+1:"–")+'</span><span class="pf">'+tile(sl,d.firm,"sm")+'<span style="min-width:0"><b>'+(d.page?'<a href="'+esc(d.page)+'">'+esc(d.firm)+'</a>':esc(d.firm))+'</b><small>'+esc(d.save)+' · '+esc(d.pricesNote||fmtEnd(d))+'</small></span></span>'+
+      return '<div class="pr'+(pp?"":" none")+'" role="row"'+bst(d)+'><span class="rk">'+(pp?i+1:"–")+'</span><span class="pf">'+tile(sl,d.firm,"sm")+'<span style="min-width:0"><b>'+(d.page?'<a href="'+esc(d.page)+'">'+esc(d.firm)+'</a>':esc(d.firm))+'</b><small>'+esc(d.save)+' · '+esc(d.pricesNote||fmtEnd(d))+'</small></span></span>'+
         '<span class="pw">'+(pp?'<b>'+money(pp[1])+'</b>'+(d.billing==="monthly"?'<i class="mo">/mo</i>':'')+'<s>'+money(pp[0])+'</s>'+(actOf(d)?'<small class="actf">+ '+money(actOf(d))+' activation</small>':''):'No '+esc(size))+'</span><span class="pw2">'+(d.billing?(d.billing==="monthly"?"billed monthly":"one-time"):"see firm")+'<br>'+esc(fmtEnd(d))+'</span>'+
-        '<span class="pa"><button class="go sm" data-i="'+DEALS.indexOf(d)+'">Copy &amp; open ↗<code>'+esc(d.code)+'</code></button></span></div>'}).join("")+'</div><p class="ptab-note">List prices with each firm\'s code applied, read from the firm\'s own site. Monthly evals renew until you pass; check activation fees in each deal\'s fine print.</p>';
+        '<span class="pa"><button class="go sm" data-i="'+DEALS.indexOf(d)+'">Copy &amp; open ↗<code>'+esc(d.code)+'</code></button>'+(d.aff?'<small class="afl">Affiliate code · Prop Desk may earn a commission</small>':'')+'</span></div>'}).join("")+'</div><p class="ptab-note">List prices with each firm\'s code applied, read from the firm\'s own site. Monthly evals renew until you pass; check activation fees in each deal\'s fine print.</p>';
   document.getElementById("deal-list").hidden=view!=="cards";document.getElementById("deal-table").hidden=view!=="table";
   document.querySelectorAll(".sizebar [data-size]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.size===size?"true":"false")});
   document.querySelectorAll(".sizebar [data-view]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.view===view?"true":"false")});
