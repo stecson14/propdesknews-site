@@ -193,6 +193,52 @@ footer{letter-spacing:.03em}
 .frow .sale.no{border:0!important;padding:0!important;color:#5A5A5A!important;font:400 12.5px Inter,system-ui,sans-serif!important;letter-spacing:.02em}
 .sizes button[aria-pressed="true"]{background:#FFFFFF!important;border-color:#FFFFFF!important;color:#0A0A0A!important}
 </style>
+<style>
+/* DirCmp v2 (staging): compare */
+.lg{width:40px;height:40px;border-radius:10px;flex:none;background:#fff;display:block}
+.lg.sm{width:34px;height:34px;border-radius:9px}
+.lg.sp{background-color:#222222;background-repeat:no-repeat;background-image:url(/logos/sprite.webp?v=87a60df5)}
+.lg.mono{display:inline-flex;align-items:center;justify-content:center;background:#222222;color:#FFFFFF;font:600 14px Inter,system-ui,sans-serif}
+.bar{position:static!important;box-shadow:none!important}
+#rows{gap:0!important;background:#101010;border:1px solid #1F1F1F;border-radius:16px;overflow:clip}
+#rows:empty{display:none}
+#rows .row{gap:0!important;border-top:1px solid #1C1C1C}
+#rows .row:first-child{border-top:0;position:sticky;top:0;z-index:6;background:#101010;border-bottom:1px solid #2A2A2A;box-shadow:0 10px 18px -16px rgba(0,0,0,.9)}
+#rows .vals{gap:0!important}
+#rows .v{background:none!important;border:0!important;border-left:1px solid #1F1F1F!important;border-radius:0!important;padding:13px 16px!important;color:#A0A0A0;font-size:14px;line-height:1.55}
+#rows .v:first-child{border-left:0!important}
+#rows .v strong{color:#FFFFFF;font-weight:600}
+#rows .v.blank{color:#5A5A5A;font-style:italic}
+#rows .v.none{color:#5A5A5A}
+#rows .lbl{padding:12px 16px 0;font:500 10.5px Inter,system-ui,sans-serif!important;letter-spacing:.14em!important}
+#rows .lbl::after{display:none}
+#rows .v.head{padding:14px 16px!important;gap:8px;align-content:start}
+.hd1{display:flex;align-items:center;gap:12px;min-width:0}
+#rows .v.head .name{font:600 18px/1.2 Inter,system-ui,sans-serif!important;letter-spacing:.01em;margin:0;min-width:0}
+#rows .v.head .name a{border:0!important;color:#FFFFFF!important;text-decoration:none}
+#rows .v.head .tags,#rows .v.head .lk,#rows .v.head .affl{font-size:12px}
+#rows .v.head .lk{justify-self:start;color:#C8C8C8!important}
+#rows .v.code{display:grid;gap:6px;align-content:start}
+#rows .v.code .c{font:600 15px "IBM Plex Mono",ui-monospace,monospace!important;color:#F2C14E!important;letter-spacing:.06em;text-transform:uppercase}
+#rows .v.code .s{color:#FFFFFF;font:500 13px Inter,system-ui,sans-serif!important}
+#rows .v.code .aff{font:400 11.5px Inter,system-ui,sans-serif!important;color:#7A7A7A}
+.ddt i{display:inline-block;font:500 10px/1.6 Inter,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;font-style:normal;color:#E6E6E6;border:1px solid #333333;border-radius:9999px;padding:0 7px;margin:0 6px 0 0;vertical-align:1px}
+#rows .v.code .cp{border-radius:9999px!important;background:#FFFFFF!important;color:#0A0A0A!important;font:500 12.5px Inter,system-ui,sans-serif!important;padding:7px 14px!important}
+#rows .v.code .nocode{font:400 13.5px Inter,system-ui,sans-serif!important;font-style:normal!important;color:#5A5A5A}
+#rows .v.sale{color:#E6E6E6}
+#rows .v.sale b{color:#F2C14E;font-family:"IBM Plex Mono",ui-monospace,monospace;letter-spacing:.04em}
+#rows .v.sale.nosale{color:#7A7A7A}
+#rows .v.go{display:grid;gap:8px;padding-block:16px!important}
+#rows .row:last-child{background:#0C0C0C}
+@media (min-width:900px){
+ #rows .row{display:grid!important;grid-template-columns:150px minmax(0,1fr)}
+ #rows .row>.vals{grid-column:2}
+ #rows .lbl{padding:15px 16px;align-items:flex-start!important;border-right:1px solid #1F1F1F}
+ #rows .row:first-child::before,#rows .row:last-child:not(:has(.lbl))::before{content:"";border-right:1px solid #1F1F1F}
+ #rows .row:first-child>.vals,#rows .row:last-child>.vals{grid-column:2;grid-row:1}
+}
+@media (max-width:560px){#rows .v.head .tags,#rows .v.head .lk,#rows .v.head .affl{display:none}#rows .v{padding:11px 12px!important;font-size:13.5px}#rows .v.head .name{font-size:16px!important}.lg.sm{width:28px;height:28px;border-radius:8px}#rows .lbl{padding:11px 12px 0}}
+</style>
 </head>
 <body>
 <nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/icons/avatar-52.jpg" alt="" width="26" height="26"><span>Prop Desk</span></a><a href="/#deals">Deals</a><a href="/news/">News</a><a href="/firms/">Directory</a><a href="/compare/" aria-current="page">Compare</a><a href="/tools/">Tools</a><button class="sb" type="button" aria-label="Search the site (press /)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span><kbd>/</kbd></button><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
@@ -977,6 +1023,16 @@ function liveDeal(s){
   return d;
 }
 function fmtEnd(iso){ try { const e = new Date(iso); return "ends " + e.toLocaleDateString("en-US", {month:"short", day:"numeric", timeZone:"America/New_York"}); } catch(e){ return ""; } }
+const LOGOS = {"alpha-capital": ["Alpha Capital", 0], "alpha-futures": ["Alpha Futures", 1], "apex-trader-funding": ["Apex Trader Funding", 2], "aquafunded": ["AquaFunded", 3], "atlas-funded": ["Atlas Funded", 4], "audacity-capital": ["Audacity Capital", 5], "blue-guardian": ["Blue Guardian", 6], "blueberry-futures": ["Blueberry Futures", 7], "blusky-trading": ["BluSky Trading", 8], "breakout": ["Breakout", 9], "brightfunded": ["BrightFunded", 10], "bulenox": ["Bulenox", 11], "city-traders-imperium": ["City Traders Imperium", 12], "crypto-fund-trader": ["Crypto Fund Trader", 13], "daytraders-com": ["DayTraders.com", 14], "dna-funded": ["DNA Funded", 15], "e8-markets": ["E8 Markets", 16], "earn2trade": ["Earn2Trade", 17], "elite-trader-funding": ["Elite Trader Funding", 18], "ffn-perps": ["FFN Perps", 19], "fintokei": ["Fintokei", 20], "for-traders": ["For Traders", 21], "ftmo": ["FTMO", 22], "ftuk": ["FTUK", 23], "funded-futures-family": ["Funded Futures Family", 24], "funded-futures-network": ["Funded Futures Network", 25], "funded-trading-plus": ["Funded Trading Plus", 26], "fundednext": ["FundedNext", 27], "fundednext-futures": ["FundedNext Futures", 28], "funding-traders": ["Funding Traders", 29], "fundingpips": ["FundingPips", 30], "futureselite": ["FuturesElite", 31], "fxify": ["FXIFY", 32], "goat-funded-futures": ["Goat Funded Futures", 33], "goat-funded-trader": ["Goat Funded Trader", 34], "hola-prime": ["Hola Prime", 35], "hypernova": ["Hypernova", 36], "hyperpnl": ["HyperPNL", 37], "hyrotrader": ["HyroTrader", 38], "instant-funding": ["Instant Funding", 39], "iq-capital": ["IQ Capital", 40], "kraken-prop": ["Kraken Prop", 41], "lark-funding": ["Lark Funding", 42], "leeloo-trading": ["Leeloo Trading", 43], "legends-trading": ["Legends Trading", 44], "lucid-trading": ["Lucid Trading", 45], "lux-trading-firm": ["Lux Trading Firm", 46], "maven-trading": ["Maven Trading", 47], "myfundedfutures-mffu": ["MyFundedFutures (MFFU)", 48], "myfundedperps": ["MyFundedPerps", 49], "oneup-trader": ["OneUp Trader", 50], "phidias-propfirm": ["Phidias Propfirm", 51], "pipfarm": ["PipFarm", 52], "propr": ["Propr", 53], "propshoptrader": ["PropShopTrader", 54], "purdia-capital": ["Purdia Capital", 55], "qt-funded-quant-tekel": ["QT Funded (Quant Tekel)", 56], "take-profit-trader": ["Take Profit Trader", 57], "the-futures-desk": ["The Futures Desk", 58], "the-trading-pit": ["The Trading Pit", 59], "the5ers": ["The5ers", 60], "thinkcapital": ["ThinkCapital", 61], "top-one-futures": ["Top One Futures", 62], "top-one-trader": ["Top One Trader", 63], "topstep": ["Topstep", 64], "tradeday": ["TradeDay", 65], "tradeify": ["Tradeify", 66], "traders-launch": ["Traders Launch", 67], "uprofit": ["UProfit", 68], "vanta-trading": ["Vanta Trading", 69], "vest-markets": ["Vest Markets", 70], "ftmo-futures": ["FTMO Futures", 22], "e8-perpetuals": ["E8 Perpetuals", 16], "ffone-perps": ["FFOne Perps", 24], "traders-launch-crypto": ["Traders Launch Crypto", 67], "tradeify-perps": ["Tradeify Perps", 66], "_n": 71};
+const LN = LOGOS._n || 1;
+const tile = (s, n, cls = "") => (s !== "_n" && LOGOS[s]) ? `<span class="lg sp ${cls}" style="background-size:${LN * 100}% 100%;background-position:${LN > 1 ? (LOGOS[s][1] * 100 / (LN - 1)).toFixed(3) : 0}% 0" aria-hidden="true"></span>` : `<span class="lg mono ${cls}" style="--h:${hue(s)}" aria-hidden="true">${esc(initials(n))}</span>`;
+const cut = (t, n) => String(t).length > n ? String(t).slice(0, n - 1) + "…" : String(t);
+
+const hl = (t, n) => esc(n ? cut(t, n) : t).replace(/(\$[\d,]+(?:\.\d+)?K?|\b\d+(?:\.\d+)?%|\b\d{2,3}\/\d{1,2}\b|\b\d+(?:\.\d+)?K\b)/g, "<strong>$1</strong>");
+const ddt = t => { const x = String(t || "").toLowerCase(), y = x.replace(/(eod|end[- ]of[- ]day) trailing/g, ""), o = [];
+  if (/\beod\b|end[- ]of[- ]day/.test(x)) o.push("EOD"); if (/intraday|trailing/.test(y)) o.push("Trailing"); if (/\bstatic\b/.test(x)) o.push("Static");
+  return o.length ? `<span class="ddt">${o.map(v => `<i>${v}</i>`).join("")}</span>` : ""; };
+
 function render(){
   const n = Math.max(2, Math.min(MAX, sel.length));
   document.getElementById("pickers").style.setProperty("--n", n);
@@ -1001,28 +1057,29 @@ function render(){
     }
     return out;
   };
-  const txt = k => f => f[k] && f[k] !== "See site" ? esc(f[k]) : null;
+  const txt = k => f => f[k] && f[k] !== "See site" ? hl(f[k]) : null;
   const rows = [];
   rows.push(["", cell(f => {
     const host = f.w.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
-    return `<h2 class="name"><a href="/firms/${f.s}/">${esc(f.n)}</a></h2><div class="tags">${f.m.map(m => `<span class="tag">${MK(m)}</span>`).join("")}</div><a class="lk" href="${esc(FIRMAFF[f.s] || f.w)}" target="_blank" rel="${FIRMAFF[f.s] ? "sponsored noopener" : "noopener"}">${esc(host)} ↗</a>${FIRMAFF[f.s] ? '<span class="affl">Affiliate link · we earn a commission if you buy</span>' : ""}`;
+    return `<div class="hd1">${tile(f.s, f.n, "sm")}<h2 class="name"><a href="/firms/${f.s}/">${esc(f.n)}</a></h2></div><div class="tags">${f.m.map(m => `<span class="tag">${MK(m)}</span>`).join("")}</div><a class="lk" href="${esc(FIRMAFF[f.s] || f.w)}" target="_blank" rel="${FIRMAFF[f.s] ? "sponsored noopener" : "noopener"}">${esc(host)} ↗</a>${FIRMAFF[f.s] ? '<span class="affl">Affiliate link · we earn a commission if you buy</span>' : ""}`;
   }, "head")]);
   const anyDeal = fs.some(f => f && liveDeal(f.s));
   if (anyDeal) rows.push(["Live code on Prop Desk", cell(f => {
     const d = liveDeal(f.s); if (!d) return `<span class="nocode">No code right now</span>`;
     return `<span class="c">${esc(d.code)}</span><span class="s">${esc(d.save)}${d.ends ? ", " + esc(fmtEnd(d.ends)) : ""}</span><button type="button" class="cp" data-c="${esc(d.code)}" data-f="${esc(f.n)}">Copy code</button>${d.aff ? `<span class="aff">Affiliate code, labeled as one</span>` : `<span class="aff">The firm's public code</span>`}`;
   }, "code")]);
-  rows.push(["Sale on the firm's site", cell(f => f.deal ? f.deal : `<span style="color:var(--muted)">No sale shown</span>`, "sale")]);
-  rows.push([gl("Plans","evaluation"), cell(txt("plans"))]);
-  rows.push(["Sizes", cell(txt("sizes"), "num")]);
   rows.push([gl("Price","billing"), cell(txt("price"), "num")]);
   rows.push([gl("Split","profit-split"), cell(txt("split"))]);
-  rows.push([gl("Drawdown","drawdown"), cell(txt("dd"))]);
+  rows.push([gl("Drawdown","drawdown"), cell(f => f.dd && f.dd !== "See site" ? ddt(f.dd) + hl(f.dd) : null)]);
+  rows.push(["Sizes", cell(txt("sizes"), "num")]);
+  rows.push(["Sale on the firm's site", cell(f => f.deal ? f.deal : `<span style="color:var(--muted)">No sale shown</span>`, "sale")]);
+  rows.push([gl("Plans","evaluation"), cell(txt("plans"))]);
   rows.push(["Platforms", cell(txt("plat"))]);
   if (fs.some(f => f && f.note)) rows.push(["Notes", cell(f => f.note ? esc(f.note) : `<span style="color:var(--muted)">—</span>`)]);
   rows.push(["", cell(f => `<a href="/firms/${f.s}/">Full profile: rules, sale, confirmed changes →</a><a href="${esc(FIRMAFF[f.s] || f.w)}" target="_blank" rel="${FIRMAFF[f.s] ? "sponsored noopener" : "noopener"}">Open ${esc(f.n)} ↗${FIRMAFF[f.s] ? " (affiliate link)" : ""}</a>`, "go")]);
   if (!sel.length) rows.length = 1;
   document.getElementById("rows").innerHTML = rows.map(([lab, cells]) => `<div class="row">${lab ? `<div class="lbl">${lab}</div>` : ""}<div class="vals">${cells}</div></div>`).join("");
+  document.querySelectorAll("#rows .v.sale").forEach(v => { if (/^\s*no (sale|site-wide sale)/i.test(v.textContent)) v.classList.add("nosale"); });
   document.title = (fs.length >= 2 ? fs.map(f => f.n).join(" vs ") + " | Prop Desk" : "Compare Prop Firms Side by Side | Prop Desk");
 }
 document.getElementById("pickers").addEventListener("change", e => {

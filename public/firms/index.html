@@ -274,6 +274,46 @@ footer{letter-spacing:.03em}
 .frow .sale.no{border:0!important;padding:0!important;color:#5A5A5A!important;font:400 12.5px Inter,system-ui,sans-serif!important;letter-spacing:.02em}
 .sizes button[aria-pressed="true"]{background:#FFFFFF!important;border-color:#FFFFFF!important;color:#0A0A0A!important}
 </style>
+<style>
+/* DirCmp v2 (staging): directory */
+.frow .fx{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;color:#8C8C8C!important;line-height:1.5;font-size:13px!important}
+.frow .fx .cl{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.frow .fx.dd .cl{-webkit-line-clamp:3}
+.frow .fx strong,.frow .zp strong{color:#FFFFFF;font-weight:500}
+.ddt i,.card .ddt i,.ddt i{display:inline-block;font:500 10px/1.6 Inter,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;font-style:normal;color:#E6E6E6;border:1px solid #333333;border-radius:9999px;padding:0 7px;margin:0 4px 0 0;vertical-align:1px}
+@media (min-width:761px){
+ .frow{column-gap:0!important;align-items:stretch!important;padding:0 0 0 16px!important}
+ .frow>*{padding-block:14px}
+ .frow>.lg{align-self:center;padding:0}
+ .frow>span:nth-child(2){align-self:center;padding:0 14px 0 12px}
+ .frow .sale.no{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-end!important;align-self:stretch!important;margin:0!important;padding:0 16px!important;border-left:1px solid #1F1F1F!important}
+ .frow .fx{padding:14px 14px!important;border-left:1px solid #1F1F1F}
+ .frow .sale{align-self:stretch;justify-content:center;padding:14px 16px 14px 14px;border-left:1px solid #1F1F1F;max-width:none!important;width:100%;box-sizing:border-box}
+ .frow.hd{padding:0 0 0 16px!important;border-bottom:1px solid #2A2A2A}
+ .frow.hd>span{padding:12px 14px}.frow.hd>span:nth-child(1){padding-left:0}.frow.hd>span:nth-child(2){padding-left:12px}
+ .frow.hd>span:nth-child(n+3){border-left:1px solid #1F1F1F}
+ .frow:nth-child(odd):not(.hd){background:rgba(255,255,255,.018)}
+ .frow:hover{background:rgba(255,255,255,.045)!important}
+ .frow:hover b{text-decoration:underline;text-decoration-color:#3A3A3A;text-underline-offset:3px}
+}
+.card{gap:14px!important;border-radius:16px!important;background:#121212!important;border-color:#1F1F1F!important;padding:20px!important}
+.card dl{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+.card .st{background:#0A0A0A;border:1px solid #1F1F1F;border-radius:12px;padding:10px 12px 11px;display:grid;gap:4px;align-content:start;min-width:0}
+.card .st dt{font:500 10.5px Inter,system-ui,sans-serif!important;letter-spacing:.12em!important;padding:0!important}
+.card .st dd{color:#9A9A9A;font-size:13px;line-height:1.5}
+.card .st dd strong{color:#FFFFFF;font-weight:600}
+.card .st.wide{grid-column:1/-1;background:none;border:0;border-radius:0;padding:4px 2px 0;grid-template-columns:84px minmax(0,1fr);gap:12px}
+.card .st.wide dd{color:#C8C8C8}
+.card .deal{background:rgba(242,193,78,.06)!important;border:1px solid rgba(242,193,78,.28);border-radius:12px!important;padding:11px 13px!important;font-size:13.5px;line-height:1.5}
+.card .deal .dk{display:block;font:500 10.5px Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#F2C14E;margin:0 0 4px}
+.card .deal.none{background:none!important;border:1px dashed #2A2A2A;color:#8A8A8A}
+.card details.note{border-top:1px solid #1F1F1F!important;padding-top:10px;font-size:13px;color:#9A9A9A}
+.card details.note summary{cursor:pointer;color:#C8C8C8;font:500 12.5px Inter,system-ui,sans-serif;letter-spacing:.02em;list-style:none;display:inline-flex;gap:6px;align-items:center}
+.card details.note summary::-webkit-details-marker{display:none}
+.card details.note summary::after{content:"+";color:#9B9B9B}.card details.note[open] summary::after{content:"\2212"}
+.card details.note p{margin:8px 0 0;line-height:1.55}
+@media (max-width:380px){.card dl{grid-template-columns:minmax(0,1fr)!important}}
+</style>
 </head>
 <body>
 <nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/icons/avatar-52.jpg" alt="" width="26" height="26"><span>Prop Desk</span></a><a href="/#deals">Deals</a><a href="/news/">News</a><a href="/firms/" aria-current="page">Directory</a><a href="/compare/">Compare</a><a href="/tools/">Tools</a><button class="sb" type="button" aria-label="Search the site (press /)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span><kbd>/</kbd></button><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
@@ -1119,9 +1159,14 @@ function zShort(f){
   }
   return "price not listed";
 }
+
+const hl = (t, n) => esc(n ? cut(t, n) : t).replace(/(\$[\d,]+(?:\.\d+)?K?|\b\d+(?:\.\d+)?%|\b\d{2,3}\/\d{1,2}\b|\b\d+(?:\.\d+)?K\b)/g, "<strong>$1</strong>");
+const ddt = t => { const x = String(t || "").toLowerCase(), y = x.replace(/(eod|end[- ]of[- ]day) trailing/g, ""), o = [];
+  if (/\beod\b|end[- ]of[- ]day/.test(x)) o.push("EOD"); if (/intraday|trailing/.test(y)) o.push("Trailing"); if (/\bstatic\b/.test(x)) o.push("Static");
+  return o.length ? `<span class="ddt">${o.map(v => `<i>${v}</i>`).join("")}</span>` : ""; };
 function frow(f){
   const s = slug(f.n), mk = f.m.map(m => m === "cfd" ? "CFD/FX" : m === "perps" ? "Perps" : "Futures").join(" · ");
-  return `<a class="frow" href="/firms/${s}/">${tile(s, f.n, "sm")}<span style="min-width:0"><b>${esc(f.n)}</b><small>${esc(mk)}<span class="m">${state.z ? ` · <span class="zp">${esc(state.z + ": " + zShort(f))}</span>` : " · " + esc(cut(f.split, 26))}</span></small></span><span class="fx">${state.z ? `<span class="zp">${esc(zShort(f))}</span>` : esc(cut(f.price, 70))}</span><span class="fx">${esc(cut(f.split, 30))}</span><span class="fx">${esc(cut(f.dd, 44))}</span>${saleHtml(f)}</a>`;
+  return `<a class="frow" href="/firms/${s}/">${tile(s, f.n, "sm")}<span style="min-width:0"><b>${esc(f.n)}</b><small>${esc(mk)}<span class="m">${state.z ? ` · <span class="zp">${esc(state.z + ": " + zShort(f))}</span>` : " · " + esc(cut(f.split, 26))}</span></small></span><span class="fx">${state.z ? `<span class="zp">${esc(zShort(f))}</span>` : `<span class="cl">${hl(f.price)}</span>`}</span><span class="fx" title="${esc(f.split)}"><span class="cl">${hl(f.split)}</span></span><span class="fx dd" title="${esc(f.dd)}"><span class="cl">${ddt(f.dd)}${hl(f.dd)}</span></span>${saleHtml(f)}</a>`;
 }
 const fhead = () => `<div class="frow hd"><span></span><span>Firm</span><span>${state.z ? "Price at " + state.z : "Price"}</span><span>Split</span><span>Drawdown</span><span>Sale</span></div>`;
 
@@ -1137,7 +1182,7 @@ const xLink = x => {
   }
   return {href:`https://x.com/${x.h}`, label:`@${esc(x.h)}`, stat:x.s, text: x.s === "ok" ? "Checked on X, Oct 31" : "Linked from the firm's site"};
 };
-const row = (k, v, cls="") => v ? `<dt>${k}</dt><dd class="${cls}">${v}</dd>` : "";
+const row = (k, v, cls="") => v ? `<div class="st ${cls}"><dt>${k}</dt><dd class="${cls}">${v}</dd></div>` : "";
 const gl = (k, t) => `<a class="gl" href="/glossary/#${t}" title="What this means">${k}</a>`;
 function card(f){
   const x = xLink(f.x);
@@ -1151,15 +1196,15 @@ function card(f){
     </div>
     ${atBox(f)}
     <dl>
-      ${row(gl("Plans","evaluation"), esc(f.plans))}
-      ${row("Sizes", esc(f.sizes), "num")}
-      ${row(gl("Price","billing"), esc(f.price), "num")}
-      ${row(gl("Split","profit-split"), esc(f.split))}
-      ${row(gl("Drawdown","drawdown"), esc(f.dd))}
-      ${row("Platforms", esc(f.plat))}
+      ${row(gl("Price","billing"), hl(f.price), "num")}
+      ${row(gl("Split","profit-split"), hl(f.split))}
+      ${row(gl("Drawdown","drawdown"), ddt(f.dd) + hl(f.dd))}
+      ${row("Sizes", hl(f.sizes), "num")}
+      ${row(gl("Plans","evaluation"), esc(f.plans), "wide")}
+      ${f.plat && f.plat !== "See site" ? row("Platforms", esc(f.plat), "wide") : ""}
     </dl>
-    ${f.deal ? `<div class="deal">Firm's sale: ${f.deal}</div>` : ""}
-    ${f.note ? `<div class="note">${esc(f.note)}</div>` : ""}
+    ${f.deal ? (hasSale(f) ? `<div class="deal"><span class="dk">Sale on the firm's site</span>${f.deal}</div>` : `<div class="deal none">${f.deal}</div>`) : ""}
+    ${f.note ? `<details class="note"><summary>More details</summary><p>${esc(f.note)}</p></details>` : ""}
     <a class="more" href="/firms/${slug(f.n)}/">Full profile: rules, sale and every confirmed change →</a>
   </article>`;
 }
