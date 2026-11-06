@@ -526,6 +526,36 @@ footer{font:400 12px Inter,system-ui,sans-serif;letter-spacing:.03em}
 @media (max-width:380px){.deal .acts .go,.pr .pa .go{font-size:12.5px!important;gap:8px;padding-left:12px!important}.deal .acts .go code,.pr .pa .go code{font-size:13px!important}.deal .acts .copyonly{padding:9px 11px!important}}
 </style>
 <script type="application/ld+json" data-seo>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://propdesknews.com/#org","name":"Prop Desk","url":"https://propdesknews.com/","logo":{"@type":"ImageObject","url":"https://propdesknews.com/icons/icon-512.png","width":512,"height":512},"email":"hello@propdesknews.com","slogan":"Trade the market, not the fine print.","sameAs":["https://x.com/PropDeskNews"]},{"@type":"WebSite","@id":"https://propdesknews.com/#website","url":"https://propdesknews.com/","name":"Prop Desk","publisher":{"@id":"https://propdesknews.com/#org"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://propdesknews.com/firms/?q={search_term_string}"},"query-input":"required name=search_term_string"}}]}</script>
+<style>
+/* Home v2 (Nov 6 review) */
+@media (max-width:899px){
+ header.top.msg .intro{display:contents}
+ header.top.msg>*{min-width:0}
+ header.top.msg .kicker{order:1}header.top.msg h1{order:2}header.top.msg .lead{order:3}
+ header.top.msg .side{order:4;margin:4px 0 6px}
+ header.top.msg .pil{order:5}header.top.msg .trustline{order:6}header.top.msg .ctas{order:7}
+}
+.deal[style*="--b"],.deal{background:radial-gradient(70% 140% at 0% 0%,color-mix(in srgb,var(--b,#333) 16%,transparent) 0,transparent 60%),#0F0F0F!important;border:1px solid #1C1C1C!important;border-radius:16px!important}
+.pr[style*="--b"]{background:radial-gradient(40% 160% at 0% 50%,color-mix(in srgb,var(--b) 14%,transparent) 0,transparent 70%)!important}
+#pd-search-cta{display:none!important}
+.hk .ck{font:400 11.5px Inter,system-ui,sans-serif;letter-spacing:.04em;color:#7A7A7A;margin-left:auto;margin-right:14px}
+.hk{flex-wrap:wrap}
+@media (max-width:560px){.hk .ck{order:3;flex-basis:100%;margin:4px 0 0}}
+.hsoon{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;padding:12px 20px;border-top:1px solid #222222;font:400 12.5px Inter,system-ui,sans-serif;letter-spacing:.02em;color:#9B9B9B}
+.hsoon .lb{font:500 11px Inter,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E39A8A}
+.hsoon b{font:600 12.5px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.06em;color:#FFFFFF;margin-right:4px}
+.hsoon a{color:#C8C8C8;text-decoration:none}.hsoon a:hover{color:#FFFFFF}
+.more{grid-template-columns:minmax(0,1fr)!important;gap:0 40px!important;border-top:1px solid #222222;margin-top:32px}
+@media (min-width:700px){.more{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+.more .btn,.more .btn:first-child{display:flex;justify-content:space-between;align-items:center;gap:16px;background:none!important;color:#FFFFFF!important;border:0!important;border-bottom:1px solid #222222!important;border-radius:0!important;padding:16px 2px!important;margin:0!important;text-align:left!important;font:400 15px/1.35 Inter,system-ui,sans-serif!important;letter-spacing:.02em}
+.more .btn::after{content:"\2192";color:#9B9B9B;flex:none;transition:transform .15s}
+.more .btn:hover::after{transform:translateX(3px);color:#FFFFFF}
+@media (min-width:960px){.fgrid{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
+.fgrid a{padding:12px!important;background:#0F0F0F!important;border:1px solid #1C1C1C!important;border-radius:12px!important}
+.fgrid a:hover{border-color:#3A3A3A!important}
+.fgrid b{white-space:normal!important;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-weight:500}
+.fgrid{gap:10px!important;border:0!important}
+</style>
 </head>
 <body>
 <nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/icons/avatar-52.jpg" alt="" width="26" height="26"><span>Prop Desk</span></a><a href="/#deals" aria-current="page">Deals</a><a href="/news/">News</a><a href="/firms/">Directory</a><a href="/compare/">Compare</a><a href="/tools/">Tools</a><button class="sb" type="button" aria-label="Search the site (press /)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span><kbd>/</kbd></button><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
@@ -545,8 +575,8 @@ footer{font:400 12px Inter,system-ui,sans-serif;letter-spacing:.03em}
   </div>
   <div class="side">
     <section class="hcodes" id="hcodes" aria-labelledby="hc-t">
-      <div class="hk"><span class="k" id="hc-t">Codes live today</span><a href="/deals/">All codes →</a></div>
-      <div id="hc-list"></div>
+      <div class="hk"><span class="k" id="hc-t">Codes live today</span><span class="ck" id="hc-ck"></span><a href="/deals/">All codes →</a></div>
+      <div id="hc-list"></div><div class="hsoon" id="hsoon" hidden></div>
       <p class="hfoot">These are Prop Desk affiliate codes, each matching or beating the firm's own public code. Sorted by what you save, never by what a firm pays us. Every live code, public ones too, is on the <a href="/deals/">Deals page</a>.</p>
       <noscript><p class="hfoot">Turn on JavaScript to copy codes, or see every code on the <a href="/deals/">Deals page</a>.</p></noscript>
     </section>
@@ -800,5 +830,18 @@ const HCODES = [
 <button type="button" class="inst" id="pd-install" hidden>Install Prop Desk as an app <small>free, 1 tap</small></button>
 <p class="ios" id="pd-ios" hidden>Want this as an app? Tap <b>Share</b> in Safari, then <b>Add to Home Screen</b>. You get an icon and full-screen Prop Desk.</p>
 </div></div>
+<script>
+(function(){var c=document.getElementById("hc-ck");if(c&&typeof UPDATED!=="undefined")c.textContent="Checked "+String(UPDATED).replace(/,\s*\d{4}$/,"")})();
+/* Home v2: Ending soon line on the codes card, from DEALS (dated ends within 10 days, or an "Ends ..." / timer note) */
+(function(){var E=document.getElementById("hsoon");if(!E||typeof DEALS==="undefined")return;
+var esc=function(x){return String(x).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
+var now=Date.now(),out=[];
+DEALS.forEach(function(d){if(!d.code)return;var t=null,lab="";
+ if(d.ends){t=Date.parse(d.ends);if(isNaN(t)||t<now||t-now>10*864e5)return;lab=new Date(t).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",timeZone:"America/New_York"})}
+ else if(d.endsNote&&/^(ends|site timer)/i.test(d.endsNote)){lab=d.endsNote.replace(/^Ends\s+/i,"").replace(/^Site timer runs to\s*/i,"timer ");var m=d.endsNote.match(/Nov\s+(\d+)/);t=m?Date.parse("2026-11-"+("0"+m[1]).slice(-2)+"T23:59:00-05:00"):now+9e8;if(t<now)return}
+ else return;out.push({t:t,h:'<span><b>'+esc(d.code)+'</b><a href="'+esc(d.page||"/deals/")+'">'+esc(d.firm)+'</a> · '+esc(lab)+'</span>'})});
+if(!out.length)return;out.sort(function(a,b){return a.t-b.t});
+E.innerHTML='<span class="lb">Ending soon</span>'+out.slice(0,3).map(function(o){return o.h}).join("");E.hidden=false})();
+</script>
 </body>
 </html>
