@@ -28,11 +28,11 @@
     var nav = document.querySelector('.sitenav .in'); if (!nav || !bar) return;
     var css = document.createElement('style');
     css.textContent = '@media (max-width:760px){.sitenav{position:relative;z-index:30}' +
-      '.tm-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border-radius:999px;border:1px solid #4A5878;background:#232D42;color:#E9E4D4;font:500 12.5px "IBM Plex Mono",ui-monospace,monospace;cursor:pointer;-webkit-tap-highlight-color:transparent}' +
-      '.tm-btn svg{width:14px;height:14px;transition:transform .18s}.tm-btn[aria-expanded="true"]{background:#D9A441;border-color:#D9A441;color:#1A2233}.tm-btn[aria-expanded="true"] svg{transform:rotate(180deg)}' +
-      '.tm{position:absolute;left:0;right:0;top:100%;z-index:9;background:#1A2233;border-bottom:1px solid #33405A;box-shadow:0 22px 40px -16px rgba(0,0,0,.75);padding:10px 12px 14px;display:grid;grid-template-columns:1fr 1fr;gap:8px}' +
-      '.tm[hidden]{display:none}.tm a,.tm button{display:flex;align-items:center;gap:9px;min-height:44px;padding:9px 12px;border-radius:10px;border:1px solid #33405A;background:#121825;color:#E9E4D4;font:500 13px "IBM Plex Mono",ui-monospace,monospace;text-decoration:none;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}' +
-      '.tm svg{width:18px;height:18px;flex:none;color:#A3A8B5}.tm .on{border-color:#D9A441;color:#D9A441}.tm .on svg{color:#D9A441}}' +
+      '.tm-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border-radius:999px;border:1px solid #3A3A3A;background:#1D1D1D;color:#FFFFFF;font:500 12.5px Inter,system-ui,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent}' +
+      '.tm-btn svg{width:14px;height:14px;transition:transform .18s}.tm-btn[aria-expanded="true"]{background:#F2C14E;border-color:#F2C14E;color:#171717}.tm-btn[aria-expanded="true"] svg{transform:rotate(180deg)}' +
+      '.tm{position:absolute;left:0;right:0;top:100%;z-index:9;background:#171717;border-bottom:1px solid #2E2E2E;box-shadow:0 22px 40px -16px rgba(0,0,0,.75);padding:10px 12px 14px;display:grid;grid-template-columns:1fr 1fr;gap:8px}' +
+      '.tm[hidden]{display:none}.tm a,.tm button{display:flex;align-items:center;gap:9px;min-height:44px;padding:9px 12px;border-radius:10px;border:1px solid #2E2E2E;background:#0A0A0A;color:#FFFFFF;font:500 13px Inter,system-ui,sans-serif;text-decoration:none;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}' +
+      '.tm svg{width:18px;height:18px;flex:none;color:#9B9B9B}.tm .on{border-color:#F2C14E;color:#F2C14E}.tm .on svg{color:#F2C14E}}' +
       '@media (min-width:761px){.tm-btn,.tm{display:none!important}}';
     document.head.appendChild(css);
     var items = [['/', 'Deals', 'deals'], ['/finder/', 'Find my firm', 'finder'], ['/firms/', 'Directory', 'firms'], ['/news/', 'News', 'news'],
@@ -109,7 +109,7 @@
       if (!b) {
         b = document.createElement('div'); b.id = 'pd-off'; b.setAttribute('role', 'status');
         b.textContent = "You're offline. This is the copy from your last visit; deals and rules may have changed since.";
-        b.setAttribute('style', 'position:fixed;left:0;right:0;top:0;z-index:1001;background:#8A3B2E;color:#fff;font:500 12.5px "IBM Plex Mono",monospace;padding:8px 12px;text-align:center');
+        b.setAttribute('style', 'position:fixed;left:0;right:0;top:0;z-index:1001;background:#8A3B2E;color:#fff;font:500 12.5px Inter,system-ui,sans-serif;padding:8px 12px;text-align:center');
         document.body.appendChild(b);
       }
     } else if (b) b.remove();
