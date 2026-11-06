@@ -512,6 +512,18 @@ body .tm a,body .tm button{background:#171717;border-color:#222222;color:#FFFFFF
 body .tm svg{color:#9B9B9B}
 body .tm .on{border-color:#FFFFFF;color:#FFFFFF}body .tm .on svg{color:#FFFFFF}
 footer{font:400 12px Inter,system-ui,sans-serif;letter-spacing:.03em}
+/* Code actions: one seamless pill per deal, same as the Codes live today card: CODE ... Copy & open | Copy */
+.deal .acts{display:flex;flex-wrap:nowrap!important;align-items:center;gap:4px;width:100%;border:1px solid #2E2E2E;border-radius:9999px;padding:4px;background:rgba(255,255,255,.025);transition:border-color .15s}
+.deal .acts:hover,.deal .acts:focus-within{border-color:#5A5A5A}
+.pr .pa .go{border:1px solid #2E2E2E!important;width:100%}
+.pr .pa .go:hover{border-color:#5A5A5A!important}
+.deal .acts .go,.pr .pa .go{flex:1 1 auto!important;min-width:0;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(255,255,255,0)!important;color:#BDBDBD;border:0;border-radius:9999px;padding:8px 8px 8px 14px!important;font:500 13.5px Inter,system-ui,sans-serif!important;letter-spacing:.02em!important;white-space:nowrap;text-align:left}
+.deal .acts .go code,.pr .pa .go code{order:-1;flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;background:none!important;padding:0!important;border-radius:0;font:600 14px "IBM Plex Mono",ui-monospace,monospace!important;letter-spacing:.06em!important;color:#FFFFFF}
+.deal .acts .go:hover,.pr .pa .go:hover,.deal .acts .go:focus-visible{color:#FFFFFF}
+.deal .acts .copyonly,.pr .pa .copyonly{flex:none!important;background:#1D1D1D;color:#FFFFFF;border:0!important;border-radius:9999px!important;padding:9px 14px!important;font:500 12.5px Inter,system-ui,sans-serif!important;letter-spacing:.04em}
+.deal .acts .copyonly:hover,.pr .pa .copyonly:hover{background:#FFFFFF;color:#0A0A0A}
+@media (min-width:760px){.deal{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) 340px}}
+@media (max-width:380px){.deal .acts .go,.pr .pa .go{font-size:12.5px!important;gap:8px;padding-left:12px!important}.deal .acts .go code,.pr .pa .go code{font-size:13px!important}.deal .acts .copyonly{padding:9px 11px!important}}
 </style>
 <script type="application/ld+json" data-seo>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://propdesknews.com/#org","name":"Prop Desk","url":"https://propdesknews.com/","logo":{"@type":"ImageObject","url":"https://propdesknews.com/icons/icon-512.png","width":512,"height":512},"email":"hello@propdesknews.com","slogan":"Trade the market, not the fine print.","sameAs":["https://x.com/PropDeskNews"]},{"@type":"WebSite","@id":"https://propdesknews.com/#website","url":"https://propdesknews.com/","name":"Prop Desk","publisher":{"@id":"https://propdesknews.com/#org"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://propdesknews.com/firms/?q={search_term_string}"},"query-input":"required name=search_term_string"}}]}</script>
 </head>
