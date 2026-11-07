@@ -316,7 +316,48 @@ footer{letter-spacing:.03em}
 .card details.note p{margin:8px 0 0;line-height:1.55}
 @media (max-width:380px){.card dl{grid-template-columns:minmax(0,1fr)!important}.card .st{border-right:0!important}.card .st:nth-child(n+2){border-top:1px solid #1A1A1A}}
 </style>
-</head>
+<style>/* list v2 */
+.grid.rows{border:1px solid #242424;border-radius:16px;background:#0F0F0F;overflow:hidden}
+.lrow{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1.05fr) minmax(0,.8fr) minmax(0,1.05fr) minmax(0,.85fr);align-items:center;min-height:78px;border-top:1px solid #1E1E1E;color:#FFFFFF;text-decoration:none;position:relative;transition:background-color .15s}
+.lrow:nth-child(2){border-top:0}
+.lrow:nth-child(even):not(.lh){background:#121212}
+.lrow:not(.lh):hover{background:#181818}
+.lrow:not(.lh):hover::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:#F2C14E}
+.lrow>span{min-width:0;padding:14px 20px}
+.lrow .c{display:flex;flex-direction:column;gap:5px}
+.lrow .v{font:500 15px/1.25 Inter,system-ui,sans-serif;letter-spacing:.01em;font-variant-numeric:tabular-nums;color:#FFFFFF;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lrow .v i{font-style:normal;color:#8C8C8C;font-weight:400;font-size:13px}
+.lrow .v.mu{color:#6B6B6B;font-weight:400}
+.lrow .s{font:400 12.5px/1.35 Inter,system-ui,sans-serif;color:#7A7A7A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lrow .s s{color:#5A5A5A}
+.lrow .s code{font:600 11px var(--codefont,"IBM Plex Mono",monospace);letter-spacing:.06em;text-transform:uppercase;color:#FFFFFF;border:1px solid #2E2E2E;border-radius:999px;padding:2px 8px;background:#171717}
+.lrow .f{display:flex;align-items:center;gap:14px;border-right:1px solid #1E1E1E;align-self:stretch}
+.lrow .f .lg{width:36px;height:36px;border-radius:9px;flex:none}
+.lrow .f .c{min-width:0}
+.lrow .f .v{font-size:15.5px}
+.lrow .sl .v{color:#F2C14E;font-weight:600}
+.lrow .sl .v.mu{color:#5A5A5A;font-weight:400}
+.lrow .sl .aff{font-size:11px;color:#6B6B6B}
+.lrow.lh{min-height:0;background:#0B0B0B;border-bottom:1px solid #242424}
+.lrow.lh>span{padding:12px 20px;font:500 11px/1 Inter,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B6B6B}
+.lrow.lh>span:first-child{border-right:1px solid #1E1E1E;align-self:stretch}
+.lrow.lh b{color:#BDBDBD;font-weight:500}
+@media (max-width:760px){
+  .lrow.lh{display:none}
+  .lrow{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);grid-template-areas:"f f sl" "p sp dd";align-items:start;min-height:0;padding:14px 16px;row-gap:12px}
+  .lrow:nth-child(2){border-top:0}
+  .lrow>span{padding:0}
+  .lrow .f{grid-area:f;border-right:0}
+  .lrow .f .lg{width:32px;height:32px}
+  .lrow .sl{grid-area:sl;align-items:flex-end;text-align:right}
+  .lrow .p{grid-area:p}.lrow .sp{grid-area:sp}.lrow .dd{grid-area:dd}
+  .lrow .p,.lrow .sp,.lrow .dd{gap:3px}
+  .lrow .p::before,.lrow .sp::before,.lrow .dd::before{content:attr(data-l);font:500 10px/1 Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#5A5A5A;margin-bottom:2px}
+  .lrow .p .v,.lrow .sp .v,.lrow .dd .v{font-size:14px}
+  .lrow .s{font-size:11.5px}
+  .lrow .dd .s,.lrow .sp .s,.lrow .p .s{display:none}
+}
+</style><style>/* cards v2 */.card[style*="--b"]{background:radial-gradient(70% 140% at 0% 0%,color-mix(in srgb,var(--b) 16%,transparent) 0,transparent 60%),#0F0F0F!important;border:1px solid #1C1C1C!important;border-radius:16px!important}.card[style*="--b"].tier1{border-color:color-mix(in srgb,var(--b) 40%,#1C1C1C)!important}.name a{border-bottom:0!important}.name a:hover{text-decoration:underline;text-decoration-color:#3A3A3A;text-underline-offset:4px}.card dl{background:rgba(10,10,10,.55)!important}.card{align-content:start}</style></head>
 <body>
 <nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/icons/avatar-52.jpg" alt="" width="26" height="26"><span>Prop Desk</span></a><a href="/#deals">Deals</a><a href="/news/">News</a><a href="/firms/" aria-current="page">Directory</a><a href="/compare/">Compare</a><a href="/tools/">Tools</a><button class="sb" type="button" aria-label="Search the site (press /)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span><kbd>/</kbd></button><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
 
@@ -1166,11 +1207,45 @@ const hl = (t, n) => esc(n ? cut(t, n) : t).replace(/(\$[\d,]+(?:\.\d+)?K?|\b\d+
 const ddt = t => { const x = String(t || "").toLowerCase(), y = x.replace(/(eod|end[- ]of[- ]day) trailing/g, ""), o = [];
   if (/\beod\b|end[- ]of[- ]day/.test(x)) o.push("EOD"); if (/intraday|trailing/.test(y)) o.push("Trailing"); if (/\bstatic\b/.test(x)) o.push("Static");
   return o.length ? `<span class="ddt">${o.map(v => `<i>${v}</i>`).join("")}</span>` : ""; };
+
+const LZ = () => state.z || "50K";
+const one = (a, b) => { a = String(a || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim(); return a; };
+function pPrice(f){
+  const s = slug(f.n), z = LZ(), d = dealAt(s, z), r = rowsAt(s, z);
+  if (d) return {v: usd(d.p[z][1]) + (d.b === "monthly" ? "<i>/mo</i>" : ""), s: `<s>${usd(d.p[z][0])}</s> list · with code`};
+  if (r.length) {
+    const x = r.slice().sort((a, b) => (a[1][0] === "$" ? a[3] : 1e7 + a[3]) - (b[1][0] === "$" ? b[3] : 1e7 + b[3]))[0];
+    const bill = x[4] === "mo" ? "monthly" : x[4] === "once" ? "one-time" : "";
+    return {v: (r.length > 1 ? "<i>from </i>" : "") + esc(x[1]) + (x[4] === "mo" ? "<i>/mo</i>" : ""), s: esc([x[0], bill].filter(Boolean).join(" · "))};
+  }
+  if (!offers(s, z)) return {v: `No ${esc(z)}`, mu: 1, s: esc(cut(one(f.sizes).replace(/\s*\(.*\)/, ""), 40))};
+  return {v: "At checkout", mu: 1, s: `No listed ${esc(z)} price`};
+}
+function pSplit(f){
+  const t = one(f.split), m = t.match(/(\d{2,3})\s*\/\s*\d{1,2}/) || t.match(/(\d{2,3})\s*%/);
+  if (!m) return {v: "See firm", mu: 1, s: esc(cut(t, 44))};
+  const up = /up to\s*$/i.test(t.slice(0, m.index)), only = t.replace(m[0], "").replace(/up to/i, "").replace(/[\s()·;,.]/g, "") === "";
+  return {v: (up ? "<i>up to </i>" : "") + m[1] + "%", s: only ? "Your share of profits" : esc(cut(t, 52))};
+}
+function pDD(f){
+  const x = one(f.dd).toLowerCase(), y = x.replace(/(eod|end[- ]of[- ]day) trailing/g, ""), o = [];
+  if (/\beod\b|end[- ]of[- ]day/.test(x)) o.push("EOD"); if (/intraday|trailing/.test(y)) o.push("Trailing"); if (/\bstatic\b/.test(x)) o.push("Static");
+  if (!o.length) return {v: "See rules", mu: 1, s: esc(cut(one(f.dd), 48))};
+  return {v: o.join(" · "), s: esc(cut(one(f.dd), 52))};
+}
+const cell = (cls, l, x) => `<span class="c ${cls}" data-l="${l}"><span class="v${x.mu ? " mu" : ""}">${x.v}</span>${x.s ? `<span class="s">${x.s}</span>` : ""}</span>`;
 function frow(f){
+  const s = slug(f.n), mk = f.m.map(m => m === "cfd" ? "CFD/FX" : m === "perps" ? "Perps" : "Futures").join(" · ");
+  const x = saleOf(f), sz = one(f.sizes).replace(/\s*\(.*\)/, "").split(/\s*·\s*/).filter(Boolean);
+  const sale = x ? {v: esc(x.t), s: (x.c ? `<code>${esc(x.c)}</code>` : "") + (x.a ? ` <span class="aff">Affiliate code</span>` : "")} : {v: "No sale", mu: 1, s: ""};
+  return `<a class="lrow" href="/firms/${s}/"><span class="f">${tile(s, f.n, "sm")}<span class="c"><span class="v">${esc(f.n)}</span><span class="s">${esc(mk)}${sz.length ? " · " + esc(sz.length > 2 ? sz[0] + " to " + sz[sz.length - 1] : sz.join(", ")) : ""}</span></span></span>${cell("p", "Price · " + LZ(), pPrice(f))}${cell("sp", "Split", pSplit(f))}${cell("dd", "Drawdown", pDD(f))}${cell("sl", "Sale", sale)}</a>`;
+}
+const fhead = () => `<div class="lrow lh"><span>Firm</span><span>Price · <b>${LZ()}</b></span><span>Profit split</span><span>Drawdown</span><span>Sale</span></div>`;
+
+function frow_old(f){
   const s = slug(f.n), mk = f.m.map(m => m === "cfd" ? "CFD/FX" : m === "perps" ? "Perps" : "Futures").join(" · ");
   return `<a class="frow" href="/firms/${s}/">${tile(s, f.n, "sm")}<span style="min-width:0"><b>${esc(f.n)}</b><small>${esc(mk)}<span class="m">${state.z ? ` · <span class="zp">${esc(state.z + ": " + zShort(f))}</span>` : " · " + esc(cut(f.split, 26))}</span></small></span><span class="fx">${state.z ? `<span class="zp">${esc(zShort(f))}</span>` : `<span class="cl">${hl(f.price)}</span>`}</span><span class="fx" title="${esc(f.split)}"><span class="cl">${hl(f.split)}</span></span><span class="fx dd" title="${esc(f.dd)}"><span class="cl">${ddt(f.dd)}${hl(f.dd)}</span></span>${saleHtml(f)}</a>`;
 }
-const fhead = () => `<div class="frow hd"><span></span><span>Firm</span><span>${state.z ? "Price at " + state.z : "Price"}</span><span>Split</span><span>Drawdown</span><span>Sale</span></div>`;
 
 const slug = n => n.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -1186,11 +1261,12 @@ const xLink = x => {
 };
 const row = (k, v, cls="") => v ? `<div class="st ${cls}"><dt>${k}</dt><dd class="${cls}">${v}</dd></div>` : "";
 const gl = (k, t) => `<a class="gl" href="/glossary/#${t}" title="What this means">${k}</a>`;
+const BR = {"alpha-capital": "#154ad0", "alpha-futures": "#17cf95", "apex-trader-funding": "#2747e8", "aquafunded": "#027afc", "atlas-funded": "#cafb6a", "audacity-capital": "#c68426", "blue-guardian": "#3782ae", "blueberry-futures": "#fc0935", "blusky-trading": "#80b2df", "breakout": "#4485a2", "brightfunded": "#0599e2", "bulenox": "#2368c3", "city-traders-imperium": "#026ce3", "crypto-fund-trader": "#fcfd3c", "daytraders-com": "#d1393a", "dna-funded": "#9827f2", "e8-markets": "#8b93a3", "earn2trade": "#fd8102", "elite-trader-funding": "#8b93a3", "ffn-perps": "#09e5fb", "fintokei": "#9301e7", "for-traders": "#bbfe12", "ftmo": "#8b93a3", "ftuk": "#274cbe", "funded-futures-family": "#b76b54", "funded-futures-network": "#8b93a3", "funded-trading-plus": "#8b93a3", "fundednext-futures": "#6358ff", "fundednext": "#8b93a3", "funding-traders": "#1fd989", "fundingpips": "#164dd0", "futureselite": "#cc51b0", "fxify": "#8b93a3", "goat-funded-futures": "#8b93a3", "goat-funded-trader": "#8b93a3", "hola-prime": "#8b93a3", "hypernova": "#8b93a3", "hyperpnl": "#8b93a3", "hyrotrader": "#0844dd", "instant-funding": "#8b93a3", "iq-capital": "#6f7d99", "kraken-prop": "#7132f4", "lark-funding": "#8b93a3", "leeloo-trading": "#ca3836", "legends-trading": "#ea6226", "lucid-trading": "#5b7aa6", "lux-trading-firm": "#45a08d", "maven-trading": "#fd7501", "myfundedfutures-mffu": "#caa44e", "myfundedperps": "#8b93a3", "oneup-trader": "#9e4890", "phidias-propfirm": "#48559e", "pipfarm": "#f7b337", "propr": "#8b93a3", "propshoptrader": "#3e9ed4", "purdia-capital": "#1f5dfd", "qt-funded-quant-tekel": "#8b93a3", "take-profit-trader": "#e35239", "the-futures-desk": "#c8b884", "the-trading-pit": "#6524c1", "the5ers": "#8b93a3", "thinkcapital": "#22d364", "top-one-futures": "#34b259", "top-one-trader": "#8b93a3", "topstep": "#8b93a3", "tradeday": "#50b4b8", "tradeify": "#20c55f", "traders-launch": "#8b93a3", "uprofit": "#fdbd02", "vanta-trading": "#8b93a3", "vest-markets": "#8b93a3"};
 function card(f){
   const x = xLink(f.x);
   const host = f.w.replace(/^https?:\/\/(www\.)?/,"").replace(/\/$/,"");
   const tags = f.m.map(m => `<span class="tag">${m === "cfd" ? "CFD/FX" : m === "perps" ? "Perps" : "Futures"}</span>`).join("");
-  return `<article class="card${cmp.includes(slug(f.n)) ? " picked" : ""}" data-s="${slug(f.n)}">
+  return `<article class="card${cmp.includes(slug(f.n)) ? " picked" : ""}" data-s="${slug(f.n)}" style="--b:${BR[slug(f.n)] || "#8b93a3"}">
     <div class="top"><div class="nmw">${tile(slug(f.n), f.n)}<h3 class="name"><a href="/firms/${slug(f.n)}/">${esc(f.n)}</a></h3></div><div class="tags"><label class="cmp"><input type="checkbox" data-s="${slug(f.n)}" ${cmp.includes(slug(f.n)) ? "checked" : ""}> Compare</label>${tags}</div></div>
     <div class="links">
       <a class="lk" href="${FIRMAFF[slug(f.n)] || f.w}" target="_blank" rel="${FIRMAFF[slug(f.n)] ? "sponsored noopener" : "noopener"}">${esc(host)} <span class="arr">↗</span></a>${FIRMAFF[slug(f.n)] ? '<span class="affl">Affiliate link · we earn a commission if you buy</span>' : ""}
