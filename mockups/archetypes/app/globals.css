@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+/* Three archetype themes. Each design sets data-theme on its root so the same tokens map to its palette. */
+:root {
+  --bg: #09090b; --surface: #121215; --surface-2: #18181b; --line: #27272a;
+  --fg: #f4f4f5; --muted: #a1a1aa; --accent: #10b981; --warn: #f59e0b; --bad: #f43f5e;
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+[data-theme="linear"] { --bg: #09090b; --surface: #121215; --surface-2: #18181b; --line: #27272a; --fg: #f4f4f5; --muted: #a1a1aa; --accent: #10b981; --warn: #f59e0b; --bad: #f43f5e; }
+[data-theme="terminal"] { --bg: #000000; --surface: #0e0e0e; --surface-2: #161616; --line: #404040; --fg: #ffffff; --muted: #cbd5e1; --accent: #38bdf8; --warn: #fbbf24; --bad: #f87171; }
+[data-theme="gecko"] { --bg: #050505; --surface: #0a0f0d; --surface-2: #101714; --line: #022c22; --fg: #ecfdf5; --muted: #a7b5ae; --accent: #10b981; --warn: #f59e0b; --bad: #f43f5e; }
+
+@theme inline {
+  --color-bg: var(--bg); --color-surface: var(--surface); --color-surface-2: var(--surface-2); --color-line: var(--line);
+  --color-fg: var(--fg); --color-muted: var(--muted); --color-accent: var(--accent); --color-warn: var(--warn); --color-bad: var(--bad);
+  --font-sans: var(--font-sans); --font-mono: var(--font-mono);
+}
+
+html { background: #09090b; color-scheme: dark; }
+body { margin: 0; font-family: var(--font-sans); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+.tabular { font-variant-numeric: tabular-nums; }
+.scrollbar-thin { scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
+@keyframes toast-in { from { opacity: 0; transform: translateY(6px) } to { opacity: 1; transform: none } }
+.toast { animation: toast-in .15s ease-out; }
+@keyframes ticker { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+.ticker-track { animation: ticker 48s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none } }
