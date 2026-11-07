@@ -357,7 +357,7 @@ footer{letter-spacing:.03em}
   .lrow .s{font-size:11.5px}
   .lrow .dd .s,.lrow .sp .s,.lrow .p .s{display:none}
 }
-</style><style>/* cards v2 */.card[style*="--b"]{background:radial-gradient(70% 140% at 0% 0%,color-mix(in srgb,var(--b) 16%,transparent) 0,transparent 60%),#0F0F0F!important;border:1px solid #1C1C1C!important;border-radius:16px!important}.card[style*="--b"].tier1{border-color:color-mix(in srgb,var(--b) 40%,#1C1C1C)!important}.name a{border-bottom:0!important}.name a:hover{text-decoration:underline;text-decoration-color:#3A3A3A;text-underline-offset:4px}.card dl{background:rgba(10,10,10,.55)!important}.card{align-content:start}</style></head>
+</style><style>/* cards v2 */.card[style*="--b"]{background:radial-gradient(70% 140% at 0% 0%,color-mix(in srgb,var(--b) 16%,transparent) 0,transparent 60%),#0F0F0F!important;border:1px solid #1C1C1C!important;border-radius:16px!important}.card[style*="--b"].tier1{border-color:color-mix(in srgb,var(--b) 40%,#1C1C1C)!important}.name a{border-bottom:0!important}.name a:hover{text-decoration:underline;text-decoration-color:#3A3A3A;text-underline-offset:4px}.card dl{background:rgba(10,10,10,.55)!important}.card{align-content:start}</style><style>/* codes v1 */.deal.pd{margin-bottom:8px}.deal.pd i{color:#8A8A8A;font-style:normal;font-size:12px}.deal.pd a{color:#F2C14E}</style></head>
 <body>
 <nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/icons/avatar-52.jpg" alt="" width="26" height="26"><span>Prop Desk</span></a><a href="/#deals">Deals</a><a href="/news/">News</a><a href="/firms/" aria-current="page">Directory</a><a href="/compare/">Compare</a><a href="/tools/">Tools</a><button class="sb" type="button" aria-label="Search the site (press /)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span><kbd>/</kbd></button><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
 
@@ -1144,12 +1144,20 @@ const tile = (s, n, cls = "") => (s !== "_n" && LOGOS[s]) ? `<span class="lg sp 
 const cut = (t, k) => { t = String(t || ""); return t.length > k ? t.slice(0, k - 1).replace(/\s+\S*$/, "") + "…" : t; };
 const SALE = {"apex-trader-funding":{"s":"90% off","c":"SAVENOW","a":false},"tradeify":{"s":"30% off","c":"NOV","a":false},"take-profit-trader":{"s":"50% off for life","c":"NOFEE50","a":false},"lucid-trading":{"s":"30% off","c":"VAULT","a":false},"iq-capital":{"s":"85% off","c":"PROPDESK","a":true},"fundednext-futures":{"s":"Up to 47% off","c":"PROPDESK","a":true},"myfundedfutures-mffu":{"s":"40% off","c":"CLUB","a":false}};
 // the actual sale for list view: our home-page deal when we run one, otherwise read from the firm's own deal text
+/* codes v1 */
+const AFFC = {"alpha-futures": {"t": "50% off", "c": "PROP_DESK030313", "a": true, "w": "", "ws": "50% off", "p": "/firms/alpha-futures/promo-code/"}, "fundednext-futures": {"t": "Up to 47% off", "c": "PROPDESK", "a": true, "w": "", "ws": "Up to 47% off", "p": "/firms/fundednext-futures/promo-code/"}, "top-one-futures": {"t": null, "c": "PROPDSK", "a": true, "w": "", "ws": "", "p": "/firms/top-one-futures/promo-code/"}, "e8-markets": {"t": "Up to 50% off", "c": "propdesk", "a": true, "w": "Perpetuals", "ws": "50% off your first order, 30% off your second", "p": "/firms/e8-markets/promo-code/"}, "e8-perpetuals": {"t": "Up to 50% off", "c": "propdesk", "a": true, "w": "", "ws": "50% off your first order, 30% off your second", "p": "/firms/e8-perpetuals/#codes"}, "the5ers": {"t": "5% off", "c": "WSUQ4FW", "a": true, "w": "", "ws": "5% off", "p": "/firms/the5ers/promo-code/"}, "vest-markets": {"t": "2.5% off", "c": "7PPROPDESKNEWS", "a": true, "w": "", "ws": "2.5% off", "p": "/firms/vest-markets/#codes"}, "daytraders-com": {"t": "Best current deal", "c": "PROPDESK", "a": true, "w": "", "ws": "Best current deal", "p": "/firms/daytraders-com/#codes"}, "phidias-propfirm": {"t": "Up to 80% off", "c": "PROPDESK", "a": true, "w": "One-Time 50K-150K", "ws": "80% off", "p": "/firms/phidias-propfirm/#codes"}, "futureselite": {"t": "Best current deal", "c": "PROPDESK", "a": true, "w": "", "ws": "Best current deal", "p": "/firms/futureselite/#codes"}};
 function saleOf(f){
   const h = SALE[slug(f.n)];
   if (h && h.s) return {t: h.s, c: h.c, a: h.a};
+  const g = AFFC[slug(f.n)];
+  if (g && g.t) return {t: g.t, c: g.c, a: g.a};
+  if (g && hasSale(f)) { const b = saleOf0(f); return {t: b.t, c: g.c, a: true}; }
   if (!hasSale(f)) return null;
+  return saleOf0(f);
+}
+function saleOf0(f){
   const raw = f.deal.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
-  const code = (f.deal.match(/<b>([^<]{2,24})<\/b>/) || [])[1] || "";
+  const code = (f.deal.match(/<b>([A-Za-z0-9_-]{2,24})<\/b>/) || [])[1] || "";
   let t = (raw.match(/\b(up to \d+% off|\d+% off|\$\d+ off)/i) || [])[1];
   const sv = raw.match(/\bsave (up to )?(\d+)%/i);
   if (!t && sv) t = (sv[1] ? "up to " : "") + sv[2] + "% off";
@@ -1262,6 +1270,12 @@ const xLink = x => {
 const row = (k, v, cls="") => v ? `<div class="st ${cls}"><dt>${k}</dt><dd class="${cls}">${v}</dd></div>` : "";
 const gl = (k, t) => `<a class="gl" href="/glossary/#${t}" title="What this means">${k}</a>`;
 const BR = {"alpha-capital": "#154ad0", "alpha-futures": "#17cf95", "apex-trader-funding": "#2747e8", "aquafunded": "#027afc", "atlas-funded": "#cafb6a", "audacity-capital": "#c68426", "blue-guardian": "#3782ae", "blueberry-futures": "#fc0935", "blusky-trading": "#80b2df", "breakout": "#4485a2", "brightfunded": "#0599e2", "bulenox": "#2368c3", "city-traders-imperium": "#026ce3", "crypto-fund-trader": "#fcfd3c", "daytraders-com": "#d1393a", "dna-funded": "#9827f2", "e8-markets": "#8b93a3", "earn2trade": "#fd8102", "elite-trader-funding": "#8b93a3", "ffn-perps": "#09e5fb", "fintokei": "#9301e7", "for-traders": "#bbfe12", "ftmo": "#8b93a3", "ftuk": "#274cbe", "funded-futures-family": "#b76b54", "funded-futures-network": "#8b93a3", "funded-trading-plus": "#8b93a3", "fundednext-futures": "#6358ff", "fundednext": "#8b93a3", "funding-traders": "#1fd989", "fundingpips": "#164dd0", "futureselite": "#cc51b0", "fxify": "#8b93a3", "goat-funded-futures": "#8b93a3", "goat-funded-trader": "#8b93a3", "hola-prime": "#8b93a3", "hypernova": "#8b93a3", "hyperpnl": "#8b93a3", "hyrotrader": "#0844dd", "instant-funding": "#8b93a3", "iq-capital": "#6f7d99", "kraken-prop": "#7132f4", "lark-funding": "#8b93a3", "leeloo-trading": "#ca3836", "legends-trading": "#ea6226", "lucid-trading": "#5b7aa6", "lux-trading-firm": "#45a08d", "maven-trading": "#fd7501", "myfundedfutures-mffu": "#caa44e", "myfundedperps": "#8b93a3", "oneup-trader": "#9e4890", "phidias-propfirm": "#48559e", "pipfarm": "#f7b337", "propr": "#8b93a3", "propshoptrader": "#3e9ed4", "purdia-capital": "#1f5dfd", "qt-funded-quant-tekel": "#8b93a3", "take-profit-trader": "#e35239", "the-futures-desk": "#c8b884", "the-trading-pit": "#6524c1", "the5ers": "#8b93a3", "thinkcapital": "#22d364", "top-one-futures": "#34b259", "top-one-trader": "#8b93a3", "topstep": "#8b93a3", "tradeday": "#50b4b8", "tradeify": "#20c55f", "traders-launch": "#8b93a3", "uprofit": "#fdbd02", "vanta-trading": "#8b93a3", "vest-markets": "#8b93a3"};
+function pdLine(f){
+  const x = saleOf(f), g = AFFC[slug(f.n)] || {};
+  if (!x || !x.a || !x.c || (f.deal || "").includes(">" + x.c + "<")) return "";
+  const what = (g.ws || x.t || "") + (g.w ? " on " + g.w : "");
+  return `<div class="deal pd"><span class="dk">Prop Desk code</span><b>${esc(x.c)}</b>${what ? ": " + esc(what) : ""}. <i>Affiliate code · we earn a commission if you buy.</i>${g.p ? ` <a href="${g.p}">Every code →</a>` : ""}</div>`;
+}
 function card(f){
   const x = xLink(f.x);
   const host = f.w.replace(/^https?:\/\/(www\.)?/,"").replace(/\/$/,"");
@@ -1281,7 +1295,7 @@ function card(f){
       ${row(gl("Plans","evaluation"), esc(f.plans), "wide")}
       ${f.plat && f.plat !== "See site" ? row("Platforms", esc(f.plat), "wide") : ""}
     </dl>
-    ${f.deal ? (hasSale(f) ? `<div class="deal"><span class="dk">Sale on the firm's site</span>${f.deal}</div>` : `<div class="deal none">${f.deal}</div>`) : ""}
+    ${pdLine(f)}${f.deal ? (hasSale(f) ? `<div class="deal"><span class="dk">Sale on the firm's site</span>${f.deal}</div>` : `<div class="deal none">${f.deal}</div>`) : ""}
     ${f.note ? `<details class="note"><summary>More details</summary><p>${esc(f.note)}</p></details>` : ""}
     <a class="more" href="/firms/${slug(f.n)}/">Full profile: rules, sale and every confirmed change →</a>
   </article>`;
