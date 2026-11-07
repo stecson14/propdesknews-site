@@ -357,7 +357,7 @@ footer{letter-spacing:.03em}
   .lrow .s{font-size:11.5px}
   .lrow .dd .s,.lrow .sp .s,.lrow .p .s{display:none}
 }
-</style><style>/* cards v2 */.card[style*="--b"]{background:radial-gradient(70% 140% at 0% 0%,color-mix(in srgb,var(--b) 16%,transparent) 0,transparent 60%),#0F0F0F!important;border:1px solid #1C1C1C!important;border-radius:16px!important}.card[style*="--b"].tier1{border-color:color-mix(in srgb,var(--b) 40%,#1C1C1C)!important}.name a{border-bottom:0!important}.name a:hover{text-decoration:underline;text-decoration-color:#3A3A3A;text-underline-offset:4px}.card dl{background:rgba(10,10,10,.55)!important}.card{align-content:start}</style><style>/* codes v1 */.deal.pd{margin-bottom:8px}.deal.pd i{color:#8A8A8A;font-style:normal;font-size:12px}.deal.pd a{color:#F2C14E}</style></head>
+</style><style>/* cards v2 */.card[style*="--b"]{background:radial-gradient(70% 140% at 0% 0%,color-mix(in srgb,var(--b) 16%,transparent) 0,transparent 60%),#0F0F0F!important;border:1px solid #1C1C1C!important;border-radius:16px!important}.card[style*="--b"].tier1{border-color:color-mix(in srgb,var(--b) 40%,#1C1C1C)!important}.name a{border-bottom:0!important}.name a:hover{text-decoration:underline;text-decoration-color:#3A3A3A;text-underline-offset:4px}.card dl{background:rgba(10,10,10,.55)!important}.card{align-content:start}</style><style>/* codes v1 */.deal.pd{margin-bottom:8px}.deal.pd i{color:#8A8A8A;font-style:normal;font-size:12px}.deal.pd a{color:#F2C14E}</style><style>.star{font:400 18px/1 Inter,system-ui,sans-serif;color:#9B9B9B;background:none;border:1px solid #2E2E2E;border-radius:999px;width:34px;height:34px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}.star[aria-pressed="true"]{color:#F2C14E;border-color:#5A4A20}.lrow .mk{color:#F2C14E;font-style:normal;font-size:13px}</style><style>/* type floor */a.gl,.st dt,.tags .tag,.tags label.cmp,.deal .dk,.item p.src,.src a,.top .badge,span.pill,.ddt i,.links .affl,.chips .chip,button.gl,.f label,main dt,.sizes button,.codebox .affl,.deal p.tag,.fp p.src,.t small,.crow p.acct,main th,small.af,.nc em,.tool .aff,.do b,.trustline span,.price .bill,.pdnum .lb,.sale .lbl,.card label,.hk .k,.hk .ck,.hsoon .lb,.ticker .lb,.sizebar .lbl,.rrb b,.pop span,span.n{font-size:12px!important}</style><link rel="alternate" type="application/rss+xml" title="Prop Desk News" href="/news/feed.xml"></head>
 <body>
 <nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/icons/avatar-52.jpg" alt="" width="26" height="26"><span>Prop Desk</span></a><a href="/#deals">Deals</a><a href="/news/">News</a><a href="/firms/" aria-current="page">Directory</a><a href="/compare/">Compare</a><a href="/tools/">Tools</a><button class="sb" type="button" aria-label="Search the site (press /)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span><kbd>/</kbd></button><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
 
@@ -382,7 +382,7 @@ footer{letter-spacing:.03em}
     </div>
     <input class="search" id="q" type="search" placeholder="Search firm, platform, plan…" aria-label="Search firms">
     <div class="seg view" role="group" aria-label="View"><button type="button" data-v="cards" aria-pressed="true">Cards</button><button type="button" data-v="list" aria-pressed="false">List</button></div>
-    <label class="chk" for="sale"><input type="checkbox" id="sale"> Has a sale on the site</label>
+    <label class="chk" for="sale"><input type="checkbox" id="sale"> Has a sale on the site</label><label class="chk" for="mine"><input type="checkbox" id="mine"> ★ My firms<span id="mine-n"></span></label>
     <span class="count" id="count"></span>
     <div class="sizes" id="sizes" role="group" aria-label="Account size"></div>
   </div>
@@ -1246,7 +1246,7 @@ function frow(f){
   const s = slug(f.n), mk = f.m.map(m => m === "cfd" ? "CFD/FX" : m === "perps" ? "Perps" : "Futures").join(" · ");
   const x = saleOf(f), sz = one(f.sizes).replace(/\s*\(.*\)/, "").split(/\s*·\s*/).filter(Boolean);
   const sale = x ? {v: esc(x.t), s: (x.c ? `<code>${esc(x.c)}</code>` : "") + (x.a ? ` <span class="aff">Affiliate code</span>` : "")} : {v: "No sale", mu: 1, s: ""};
-  return `<a class="lrow" href="/firms/${s}/"><span class="f">${tile(s, f.n, "sm")}<span class="c"><span class="v">${esc(f.n)}</span><span class="s">${esc(mk)}${sz.length ? " · " + esc(sz.length > 2 ? sz[0] + " to " + sz[sz.length - 1] : sz.join(", ")) : ""}</span></span></span>${cell("p", "Price · " + LZ(), pPrice(f))}${cell("sp", "Split", pSplit(f))}${cell("dd", "Drawdown", pDD(f))}${cell("sl", "Sale", sale)}</a>`;
+  return `<a class="lrow" href="/firms/${s}/"><span class="f">${tile(s, f.n, "sm")}<span class="c"><span class="v">${esc(f.n)}${MINE.includes(s) ? ' <i class="mk">★</i>' : ""}</span><span class="s">${esc(mk)}${sz.length ? " · " + esc(sz.length > 2 ? sz[0] + " to " + sz[sz.length - 1] : sz.join(", ")) : ""}</span></span></span>${cell("p", "Price · " + LZ(), pPrice(f))}${cell("sp", "Split", pSplit(f))}${cell("dd", "Drawdown", pDD(f))}${cell("sl", "Sale", sale)}</a>`;
 }
 const fhead = () => `<div class="lrow lh"><span>Firm</span><span>Price · <b>${LZ()}</b></span><span>Profit split</span><span>Drawdown</span><span>Sale</span></div>`;
 
@@ -1281,7 +1281,7 @@ function card(f){
   const host = f.w.replace(/^https?:\/\/(www\.)?/,"").replace(/\/$/,"");
   const tags = f.m.map(m => `<span class="tag">${m === "cfd" ? "CFD/FX" : m === "perps" ? "Perps" : "Futures"}</span>`).join("");
   return `<article class="card${cmp.includes(slug(f.n)) ? " picked" : ""}" data-s="${slug(f.n)}" style="--b:${BR[slug(f.n)] || "#8b93a3"}">
-    <div class="top"><div class="nmw">${tile(slug(f.n), f.n)}<h3 class="name"><a href="/firms/${slug(f.n)}/">${esc(f.n)}</a></h3></div><div class="tags"><label class="cmp"><input type="checkbox" data-s="${slug(f.n)}" ${cmp.includes(slug(f.n)) ? "checked" : ""}> Compare</label>${tags}</div></div>
+    <div class="top"><div class="nmw">${tile(slug(f.n), f.n)}<h3 class="name"><a href="/firms/${slug(f.n)}/">${esc(f.n)}</a></h3></div><div class="tags"><button type="button" class="star" data-star="${slug(f.n)}" aria-pressed="${MINE.includes(slug(f.n))}" aria-label="Save ${esc(f.n)}">${MINE.includes(slug(f.n)) ? "★" : "☆"}</button><label class="cmp"><input type="checkbox" data-s="${slug(f.n)}" ${cmp.includes(slug(f.n)) ? "checked" : ""}> Compare</label>${tags}</div></div>
     <div class="links">
       <a class="lk" href="${FIRMAFF[slug(f.n)] || f.w}" target="_blank" rel="${FIRMAFF[slug(f.n)] ? "sponsored noopener" : "noopener"}">${esc(host)} <span class="arr">↗</span></a>${FIRMAFF[slug(f.n)] ? '<span class="affl">Affiliate link · we earn a commission if you buy</span>' : ""}
       <a class="lk" href="${x.href}" target="_blank" rel="noopener">${x.label} <span class="arr">↗</span></a>
@@ -1301,15 +1301,18 @@ function card(f){
   </article>`;
 }
 
-const state = {f:"all", q:"", sale:false, v:"cards", z:""};
-try { const s = JSON.parse(localStorage.getItem("pd-firms") || "{}"); if (s.f) state.f = s.f; if (s.v === "list") state.v = "list"; if (CHIPS.includes(s.z)) state.z = s.z; } catch(e){}
+const state = {f:"all", q:"", sale:false, mine:false, v:(matchMedia("(max-width:760px)").matches ? "list" : "cards"), z:""};
+let MINE = []; try { MINE = JSON.parse(localStorage.getItem("pd-mine") || "[]"); } catch(e){}
+const saveMine = () => { try { localStorage.setItem("pd-mine", JSON.stringify(MINE)); } catch(e){} };
+try { const s = JSON.parse(localStorage.getItem("pd-firms") || "{}"); if (s.f) state.f = s.f; if (s.vp) state.v = s.v === "list" ? "list" : "cards"; if (CHIPS.includes(s.z)) state.z = s.z; } catch(e){}
 try { const zp = new URLSearchParams(location.search).get("size"); if (zp && CHIPS.includes(zp.toUpperCase())) state.z = zp.toUpperCase(); } catch(e){}
-const save = () => { try { localStorage.setItem("pd-firms", JSON.stringify({f:state.f, v:state.v, z:state.z})); if (["25K","50K","100K","150K"].includes(state.z)) localStorage.setItem("pd-size", state.z); } catch(e){} };
+const save = () => { try { localStorage.setItem("pd-firms", JSON.stringify({f:state.f, v:state.v, vp:state.vp, z:state.z})); if (["25K","50K","100K","150K"].includes(state.z)) localStorage.setItem("pd-size", state.z); } catch(e){} };
 document.getElementById("sizes").innerHTML = '<span class="lbl">Size</span><button type="button" data-z="">Any</button>' + CHIPS.map(z => `<button type="button" data-z="${z}">${z}</button>`).join("");
 function render(){
   const q = state.q.trim().toLowerCase();
   const match = f => {
     if (state.sale && !hasSale(f)) return false;
+    if (state.mine && !MINE.includes(slug(f.n))) return false;
     if (state.z && !offers(slug(f.n), state.z)) return false;
     if (!q) return true;
     return [f.n, f.plans, f.plat, f.x.h, f.w, f.note].join(" ").toLowerCase().includes(q);
@@ -1318,6 +1321,8 @@ function render(){
   const cfd = FIRMS.filter(f => f.m[0] === "cfd" && match(f));
   const perps = FIRMS.filter(f => f.m[0] === "perps" && match(f));
   if (state.z) [fut, cfd, perps].forEach(a => a.sort((x, y) => lowAt(slug(x.n), state.z) - lowAt(slug(y.n), state.z)));
+  else if (MINE.length) [fut, cfd, perps].forEach(a => a.sort((x, y) => MINE.includes(slug(y.n)) - MINE.includes(slug(x.n))));
+  { const n = document.getElementById("mine-n"); if (n) n.textContent = MINE.length ? " (" + MINE.length + ")" : ""; }
   document.getElementById("g-fut").classList.toggle("rows", state.v === "list");
   document.getElementById("g-fut").innerHTML = (state.v === "list" ? (fut.length ? fhead() : "") + fut.map(frow).join("") : fut.map(card).join("")) || `<p class="empty">No futures firms match.</p>`;
   document.getElementById("g-cfd").classList.toggle("rows", state.v === "list");
@@ -1339,12 +1344,14 @@ function render(){
   document.querySelectorAll(".seg button[data-v]").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === state.v));
 }
 document.querySelectorAll(".seg button[data-f]").forEach(b => b.addEventListener("click", () => { state.f = b.dataset.f; save(); render(); }));
-document.querySelectorAll(".seg button[data-v]").forEach(b => b.addEventListener("click", () => { state.v = b.dataset.v; save(); render(); }));
+document.querySelectorAll(".seg button[data-v]").forEach(b => b.addEventListener("click", () => { state.v = b.dataset.v; state.vp = 1; save(); render(); }));
 document.querySelectorAll(".sizes button[data-z]").forEach(b => b.addEventListener("click", () => { state.z = b.dataset.z; save(); render(); }));
 document.getElementById("q").addEventListener("input", e => { state.q = e.target.value; render(); });
 try { const qp = new URLSearchParams(location.search).get("q"); if (qp) { state.q = qp; state.f = "all"; document.getElementById("q").value = qp; } } catch(e){}
 try { const mp = new URLSearchParams(location.search).get("m"); if (mp && ["futures","cfd","perps"].includes(mp)) { state.f = mp; } } catch(e){}
 document.getElementById("sale").addEventListener("change", e => { state.sale = e.target.checked; render(); });
+document.getElementById("mine").addEventListener("change", e => { state.mine = e.target.checked; render(); });
+document.addEventListener("click", e => { const b = e.target.closest("[data-star]"); if (!b) return; const k = b.dataset.star; MINE = MINE.includes(k) ? MINE.filter(x => x !== k) : [k].concat(MINE); saveMine(); render(); });
 render();
 // Compare tray: tick up to three cards, then open them side by side on /compare/
 let tt; function toast(m){ const t = document.getElementById("toast"); t.textContent = m; t.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("on"), 2200); }

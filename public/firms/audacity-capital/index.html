@@ -324,7 +324,7 @@ footer{letter-spacing:.03em}
 .glance .gl2>div{display:grid!important;grid-template-columns:118px 1fr;gap:14px;padding:11px 0;border-top:1px solid #222}.glance .gl2>div:first-child{border-top:0}
 .gl2 dt{color:#9B9B9B;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;padding-top:2px}.gl2 dd{margin:0;color:#E8E8E8;font-size:15px;line-height:1.5}
 @media (max-width:420px){.glance .gl2>div{grid-template-columns:1fr;gap:2px}}
-</style></head>
+</style><style>.hstar{font:600 12px Inter,system-ui,sans-serif;letter-spacing:.04em;color:#C8C8C8;background:none;border:1px solid #2E2E2E;border-radius:999px;padding:5px 11px;cursor:pointer;margin-right:8px}.hstar[aria-pressed="true"]{color:#F2C14E;border-color:#5A4A20}</style><style>/* type floor */a.gl,.st dt,.tags .tag,.tags label.cmp,.deal .dk,.item p.src,.src a,.top .badge,span.pill,.ddt i,.links .affl,.chips .chip,button.gl,.f label,main dt,.sizes button,.codebox .affl,.deal p.tag,.fp p.src,.t small,.crow p.acct,main th,small.af,.nc em,.tool .aff,.do b,.trustline span,.price .bill,.pdnum .lb,.sale .lbl,.card label,.hk .k,.hk .ck,.hsoon .lb,.ticker .lb,.sizebar .lbl,.rrb b,.pop span,span.n{font-size:12px!important}</style><link rel="alternate" type="application/rss+xml" title="Prop Desk News" href="/news/feed.xml"></head>
 <body>
 <nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/icons/avatar-52.jpg" alt="" width="26" height="26"><span>Prop Desk</span></a><a href="/#deals">Deals</a><a href="/news/">News</a><a href="/firms/" aria-current="page">Directory</a><a href="/compare/">Compare</a><a href="/tools/">Tools</a><button class="sb" type="button" aria-label="Search the site (press /)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span><kbd>/</kbd></button><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
 <header class="mast">
@@ -332,7 +332,7 @@ footer{letter-spacing:.03em}
     <nav class="bc" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/firms/">Firms</a><span aria-hidden="true">/</span><span aria-current="page">Audacity Capital</span></nav>
     <div class="kicker">Prop firm profile · last verified Fri Nov 6, 2026</div>
     <h1>Audacity Capital</h1>
-    <div class="tags"><span class="tag">CFD / forex</span></div>
+    <div class="tags"><button type="button" class="hstar" data-star="audacity-capital" aria-pressed="false">☆ Save firm</button><span class="tag">CFD / forex</span></div>
     <div class="links"><a class="lk" href="https://audacity.capital" target="_blank" rel="noopener">audacity.capital ↗</a><a class="lk" href="https://x.com/audacitycap" target="_blank" rel="noopener">@audacitycap ↗</a></div>
   <div class="act" id="act" data-act><div class="act-l"><code>FREETRIAL</code><span><b>14% off</b><small>Firm&#x27;s public code · checked Nov 6</small></span></div><div class="act-b"><button type="button" class="cp" data-code="FREETRIAL">Copy code</button><a class="go" href="https://audacity.capital" target="_blank" rel="noopener">Open Audacity ↗</a></div></div>
   <p class="meta byl" data-trust>By <a href="/about/staff/">Prop Desk Staff</a> · Checked Nov 6, 2026 against Audacity Capital&#x27;s own pages · <a href="/editorial-standards/">How we check</a></p>
@@ -397,5 +397,7 @@ document.querySelectorAll(".act .cp,.actbar .cp").forEach(b=>b.addEventListener(
 (()=>{const a=document.getElementById("act"),bar=document.getElementById("actbar"),tb=document.querySelector(".tabbar");if(!a||!bar||!("IntersectionObserver" in window))return;
 const place=()=>{const r=tb&&getComputedStyle(tb).display!=="none"?tb.getBoundingClientRect():null;bar.style.bottom=((r&&r.top<innerHeight?innerHeight-r.top:0)+8)+"px"};
 new IntersectionObserver(e=>{const on=!e[0].isIntersecting&&e[0].boundingClientRect.top<0;bar.classList.toggle("on",on);bar.setAttribute("aria-hidden",on?"false":"true");place()}).observe(a);addEventListener("resize",place)})();
-</script></body>
+</script><script>(()=>{const b=document.querySelector(".hstar");if(!b)return;let M=[];try{M=JSON.parse(localStorage.getItem("pd-mine")||"[]")}catch(e){}
+const k=b.dataset.star,paint=()=>{const on=M.includes(k);b.setAttribute("aria-pressed",on);b.textContent=on?"★ Saved":"☆ Save firm"};paint();
+b.addEventListener("click",()=>{M=M.includes(k)?M.filter(x=>x!==k):[k].concat(M);try{localStorage.setItem("pd-mine",JSON.stringify(M))}catch(e){}paint()})})();</script></body>
 </html>
