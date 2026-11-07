@@ -7,7 +7,7 @@
 <meta name="description" content="Put two or three prop firms side by side: prices, account sizes, payout split, drawdown, platforms and the current sale, read from each firm's own site.">
 <meta property="og:site_name" content="Prop Desk"><meta property="og:url" content="https://propdesknews.com/compare/"><meta property="og:title" content="Compare Prop Firms Side by Side | Prop Desk">
 <meta property="og:description" content="Pick two or three of 78 prop firms and see price, split, drawdown, platforms and the live code next to each other.">
-<meta property="og:image" content="https://propdesknews.com/og/compare.png?v=d19ad2a8"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image" content="https://propdesknews.com/og/compare.png?v=f4cf8738"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@PropDeskNews">
 <link rel="canonical" href="https://propdesknews.com/compare/">
 <link rel="icon" href="/icons/icon-48.png" type="image/png" sizes="48x48">
@@ -245,7 +245,7 @@ footer{letter-spacing:.03em}
 
 <header class="mast">
   <div class="wrap">
-    <div class="kicker">Compare · checked Fri Nov 6, 2026</div>
+    <div class="kicker">Compare · checked Sat Nov 7, 2026</div>
     <h1>Side by side</h1>
     <p class="lede">Pick two or three of 78 prop firms and read their price, split, drawdown, platforms and current sale next to each other. Every row comes from the firm's own site; the firm's checkout is the final word.</p>
   </div>
@@ -254,7 +254,7 @@ footer{letter-spacing:.03em}
 <div class="bar">
   <div class="wrap">
     <div class="cols" id="pickers"></div>
-    <div class="tools"><button type="button" class="btn" id="share">Copy link to this comparison</button><button type="button" class="btn ghost" id="clear">Clear</button><span class="count">Checked Fri Nov 6, 2026</span></div>
+    <div class="tools"><button type="button" class="btn" id="share">Copy link to this comparison</button><button type="button" class="btn ghost" id="clear">Clear</button><span class="count">Checked Sat Nov 7, 2026</span></div>
   </div>
 </div>
 
@@ -300,7 +300,7 @@ const FIRMS = [
   split:"100% on EOD Performance Account payouts; 90/10 on Live",
   dd:"EOD trailing; safety net = drawdown + $100",
   plat:"See site",
-  deal:"<b>SAVENOW</b>: 90% off all evals (Intraday, EOD, Legacy, any size), homepage countdown runs to about Tue Nov 10, 11:59 PM ET (read 4d 18h 19m at ~5:41 AM ET Nov 6; it was pushed out from Nov 4, no extension post from Apex). New signups only; not on resets or PA activation fees. Legacy accounts are back for a limited time (monthly billing).",
+  deal:"<b>SAVENOW</b>: 90% off all evals (Intraday, EOD, Legacy, any size), homepage countdown runs to about Tue Nov 10, 11:59 PM ET (read 3d 18h 13m at ~5:46 AM ET Nov 7; it was pushed out from Nov 4, no extension post from Apex). New signups only; not on resets or PA activation fees. Legacy accounts are back for a limited time (monthly billing).",
   note:"EOD payouts: 5 qualifying days, $500 minimum, 50% consistency, max 6 payouts per account."},
  {n:"Tradeify", m:["futures"], t1:1, w:"https://tradeify.co", x:X("tradeify","ok"),
   plans:"Evaluation with Daily or Flex payout path",
@@ -354,7 +354,7 @@ const FIRMS = [
   split:"Up to 95% (firm's claim)",
   dd:"EOD trailing only, no buffer rule",
   plat:"NinjaTrader, Tradovate, TradingView",
-  deal:"<b>FNFLEX</b>: up to 47% off.",
+  deal:"<b>FNFLEX</b>: up to 47% off. Multi-account discount: 5th account 10% off, 10th account 20% off.",
   note:"Futures arm of FundedNext. Covers index, energy, metals, currency and ag futures."},
  {n:"Bulenox", m:["futures"], w:"https://bulenox.com", x:X("bulenoxofficial","site"),
   plans:"Qualification · Fast Track · Momentum",
@@ -381,8 +381,8 @@ const FIRMS = [
   split:"Up to 100% (firm's claim)",
   dd:"Varies by plan (static, EOD and trailing options)",
   plat:"TradingView, NinjaTrader, Rithmic, Tradovate, Tickblaze",
-  deal:"<b>FIRE</b>: flash sale on the \"10K Mini Inferno\", $357 → $297 one-time, \"Skip the eval. Start on a funded account\" (sim-funded). Ends Fri Nov 6, 11:59 PM ET (pop-up timer). Inferno rules were not shown in the pop-up.",
-  note:"The $27 evaluation reset promo ended around midnight Nov 4 ET. Homepage says its Terms of Service were updated (Nov 6). Site redirects to elitetraderfunding.app. No time limits on evals. Site footer links @EliteTradersFund but its page tags say @EliteTraderFund."},
+  deal:"",
+  note:"No promo on the homepage Nov 7: the FIRE flash sale (10K Mini Inferno) ended as scheduled Nov 6, 11:59 PM ET, and the $27 evaluation reset promo ended around midnight Nov 4 ET. Homepage says its Terms of Service were updated (Nov 6). Site redirects to elitetraderfunding.app. No time limits on evals. Site footer links @EliteTradersFund but its page tags say @EliteTraderFund."},
  {n:"Top One Futures", m:["futures"], w:"https://toponefutures.com", x:X("TopOneFutures","site"),
   plans:"Elite Daily · Elite Access · Instant Sim Funded · Ignite Instant Funding",
   sizes:"25K · 50K · 100K · 150K",
@@ -399,7 +399,7 @@ const FIRMS = [
   split:"Up to 90%",
   dd:"Core 50K: $2,000 EOD trailing, $1,000 daily loss limit, $3,000 target (100K: $3,000 / $1,500 / $6,000). No consistency rule in the challenge, no minimum days",
   plat:"Futures: Tradovate, Quantower, Volumetrica, ATAS, Deepcharts. Crypto/CFD: MetaTrader 5",
-  deal:"Black Friday Special: 85% off everything; homepage countdown read 2d 12h 18m at ~5:43 AM ET Nov 6, so it ends around Sat Nov 8, ~6 PM ET. <b>PROPDESK</b> (our affiliate code) takes the same 85% at checkout. Homepage also shows a $9 start with code <b>80FUNDING</b>.",
+  deal:"Black Friday Special: 85% off everything; homepage countdown read 1d 12h 19m at ~5:42 AM ET Nov 7, so it ends around Sun Nov 8, ~6 PM ET. <b>PROPDESK</b> (our affiliate code) takes the same 85% at checkout. Homepage also shows a $9 start with code <b>80FUNDING</b>.",
   note:"Founded by trading championship winner Christoph Radecker (firm's page). Up to 2 forgiven breaches; no minimum payout, paid within 48 hours (firm's claim). Lists $5.5M+ paid out."},
  {n:"TradeDay", m:["futures"], w:"https://www.tradeday.com", x:X("TradeDay","none"),
   plans:"Quick Pay · Fast Pass",
@@ -444,7 +444,7 @@ const FIRMS = [
   split:"80/20 on most plans; 90/10 on GOAT Daily and Instant Lite; Instant Classic 100% of first $10K",
   dd:"EOD trailing (intraday on Instant Classic and GOAT Daily funded)",
   plat:"NinjaTrader, Tradovate, TradingView, Tickblaze, DeepCharts, ATAS, Tradesea",
-  deal:"<b>AUTUMN50</b>: 50% off all plans, \"limited time\" (replaces HALLOWEEN55, which ended Nov 1).",
+  deal:"<b>AUTUMN50</b>: 50% off all plans, \"limited time\" (replaces HALLOWEEN55, which ended Nov 1). GOAT Daily bundles: 2 accounts 4% off, 3 accounts 6%, 5 accounts 10% (whether it stacks with AUTUMN50 is not stated).",
   note:"No activation fees. Futures sister of Goat Funded Trader."},
  {n:"OneUp Trader", m:["futures"], w:"https://www.oneuptrader.com", x:X("oneuptrader","site"),
   plans:"EvaluationPro (1-step)",
@@ -488,7 +488,7 @@ const FIRMS = [
   sizes:"50K · 100K · 150K",
   price:"From $119 / $169 / $229 per month (50K / 100K / 150K, plan shown)",
   split:"Up to 90%",
-  dd:"EOD max drawdown, $2,000 to $5,000 depending on size",
+  dd:"Growth: EOD trailing max drawdown $2,000 / $3,000 / $4,500 (100K and 150K tagged \"Updated\", rules page modified Nov 5). Pro: $3,000 / $4,500 / $6,000",
   plat:"See site",
   deal:"",
   note:"FTMO's futures program, new in 2026. FTMO's CFD side is listed separately. Prices in USD."},
@@ -517,8 +517,8 @@ const FIRMS = [
   split:"60%, 80% or 90% depending on plan",
   dd:"EOD ($1,000 on the plan shown) or $500 static",
   plat:"TradingView, Volumetrica, Quantower",
-  deal:"<b>HUSH</b>: savings on all accounts; homepage countdown read 3d 18h 17m at ~5:43 AM ET Nov 6, so it ends around midnight Mon Nov 9 ET (amount not shown, check at checkout).",
-  note:"No activation fees. Daily payouts with no payout caps (firm's claim). Up to 5 funded futures accounts at a time; trades NQ, ES, GC, CL, YM."},
+  deal:"<b>HUSH</b>: savings on all accounts; homepage countdown read 2d 18h 19m at ~5:42 AM ET Nov 7, so it ends around midnight Mon Nov 9 ET (amount not shown, check at checkout).",
+  note:"No activation fees. Inactivity rule (FAQ, Nov 7): an evaluation with no trade for 7 days in a row is breached and can't be reopened; a funded account is turned off instead and can be reactivated (start date not shown). Daily payouts with no payout caps (firm's claim). Up to 5 funded futures accounts at a time; trades NQ, ES, GC, CL, YM."},
  {n:"FuturesElite", m:["futures"], w:"https://futureselite.com", x:X("futureselitecom","site"),
   plans:"Elite evaluations plus instant funded accounts",
   sizes:"25K · 50K · 100K · 150K (up to $1.5M combined)",
@@ -618,7 +618,7 @@ const FIRMS = [
   split:"Up to 90%",
   dd:"3% daily, 5% trailing max (featured plan)",
   plat:"MT5, cTrader, DXtrade, TradeLocker, Alpha Trader",
-  deal:"<b>ALPHA20</b>: 20% off all accounts. <b>FUNDED40</b>: saves $26.80 on the $5K Alpha Direct account (check at checkout).",
+  deal:"<b>DIWALI40</b>: 40% off all accounts (homepage banner Nov 7, no end date shown; replaces ALPHA20 and FUNDED40).",
   note:"UK-based. Not related to Alpha Futures."},
  {n:"Blue Guardian", m:["cfd","futures"], w:"https://blueguardian.com", x:X("BlueGuardian","site"),
   plans:"CFD: Instant, 1 Step, 2 Step. Futures: Standard, Reserve, Express, Direct",
@@ -780,7 +780,7 @@ const FIRMS = [
   split:"Up to 100%",
   dd:"No consistency rules",
   plat:"Web, desktop and mobile",
-  deal:"<b>RALLY30</b>: 30% off 1-Step; <b>RALLY25</b>: 25% off 2-Step Bright; <b>RALLY15</b>: 15% off 2-Step Classic; <b>BRIGHTFUTURES</b>: 40% off (futures). Replaces HW30 (check at checkout).",
+  deal:"<b>RALLY30</b>: 30% off 1-Step; <b>RALLY25</b>: 25% off 2-Step Bright; <b>RALLY15</b>: 15% off 2-Step Classic; <b>BRIGHTFUTURES</b>: 40% off (futures). Also a free $1K 1-Step challenge, no payout limit (homepage \"Autumn Promo\", Nov 7; , check at checkout).",
   note:"No X link on their site."},
  {n:"FTUK", m:["cfd"], w:"https://ftuk.com", x:X("FTUK","none"),
   plans:"Flex Challenge · Instant Funding",
@@ -816,7 +816,7 @@ const FIRMS = [
   split:"90%, 100% with add-on",
   dd:"$2,000 on the featured futures plan",
   plat:"Listed on site",
-  deal:"<b>HALLOWEEN</b>: 35% off plus 200% refund, all accounts (still up Nov 5, \"limited time\").",
+  deal:"<b>HONOR</b>: Veterans Day Sale, 25% off plus 150% refund, \"limited time\" (replaces HALLOWEEN; , check at checkout).",
   note:"aquafutures.io redirects to AquaFunded's futures page. No X link on their site."},
  {n:"E8 Markets", m:["cfd","futures"], w:"https://e8markets.com", x:X("E8 Markets","none"),
   plans:"E8 One · E8 Pro",
@@ -834,7 +834,7 @@ const FIRMS = [
   split:"Up to 90% to 100% (firm's claim)",
   dd:"7% (plan shown)",
   plat:"MT5, Match-Trader, TradeLocker",
-  deal:"<b>BLACKFRIDAY</b> (\"Black November\"): up to 80% off, plus buy one get one free on Nova (no end date shown). Code <b>SUMMER</b> also shown: up to 60% off 2-Step Plus (check at checkout).",
+  deal:"<b>BLACKFRIDAY</b> (\"Black November\"): up to 80% off, plus buy one get one free on Nova (no end date shown). Code <b>SUMMER</b> also shown: up to 60% off 2-Step Plus. Bundle offer: 75% off a 50K Instant Funded account when you buy 3 (Nov 7; , check at checkout).",
   note:"Sister brand of Top One Futures (listed under futures). Firm says payouts average 30 minutes."},
  {n:"Funded Trader Markets", m:["cfd"], w:"https://fundedtradermarkets.com", x:X("FTMarketslive","site"),
   plans:"Launchpad (1-step) · 2 Step · Instant Funding · 1 Step Nitro",
@@ -943,7 +943,7 @@ const FIRMS = [
   split:"80%, 90% with add-on",
   dd:"Fees and funding count against drawdown; daily loss limit closes the account",
   plat:"TruTik",
-  deal:"",
+  deal:"Page shows 40% off evaluations, from $15, no code ( Nov 7, check at checkout).",
   note:"Beta. One payout a day, $100 minimum, $10,000 gross per user per month. Up to 10x BTC/ETH, 5x other perps."},
  {n:"Traders Launch Crypto", m:["perps"], w:"https://traderslaunch.com/crypto", x:X("traderslaunch","site"),
   plans:"One-step Crypto 5K · 10K · 20K evaluations (Traders Launch)",
@@ -961,7 +961,7 @@ const FIRMS = [
   split:"100% by default; 60% to 90% options at checkout",
   dd:"5% static max loss; daily loss 3% or 5%, chosen at purchase",
   plat:"Vanta Trading Desk (web, desktop, mobile browser); MT5 coming soon",
-  deal:"<b>SPOOKY40</b>: 40% off Classic evaluations, ends today (Fri Nov 6). <b>INSTANT20</b>: 20% off Instant Funded (was INSTANT40).",
+  deal:"<b>FALL</b>: 25% off Classic and Instant Funded, ends Nov 25 (replaces SPOOKY40, which ended Nov 6, and INSTANT20).",
   note:"Crypto, commodity, index and equity perps priced from Hyperliquid, plus forex: 500+ instruments in one account. 10% target. Weekly rewards."},
  {n:"Hypernova", m:["perps"], w:"https://hypernova.xyz", x:X("Hypernova","none"),
   plans:"Invite-only closed beta",
