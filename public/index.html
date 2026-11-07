@@ -642,7 +642,7 @@ const DEALS = [
 const HCODES = [
   {f:"Phidias", page:"/firms/phidias-propfirm/", url:"https://member.phidiaspropfirm.com/aff/go/propdesk", save:"80% off", code:"PROPDESK", what:"One-Time 50K, 100K and 150K accounts"},
   {f:"IQ Capital", page:"/firms/iq-capital/", deal:"IQ Capital", code:"PROPDESK", what:"Evaluations, futures and CFD"},
-  {f:"Alpha Futures", page:"/firms/alpha-futures/", url:"https://app.alpha-futures.com/signup/prop_desk030313/", save:"50% off", code:"PROP_DESK030313", what:"Standard, Advanced and Direct evals · ends Nov 30", until:"2026-11-30"},
+  {f:"Alpha Futures", page:"/firms/alpha-futures/", url:"https://app.alpha-futures.com/signup/prop_desk030313/", save:"50% off", code:"PROP_DESK030313", what:"Standard, Advanced and Direct evals · ends Nov 30", until:"2026-11-30", last:true},
   {f:"E8 Markets", page:"/firms/e8-markets/", url:"https://e8markets.com/d/propdesk", save:"50% off", code:"propdesk", what:"First order on Perpetuals accounts"},
   {f:"FundedNext Futures", page:"/firms/fundednext-futures/", deal:"FundedNext Futures", code:"PROPDESK", what:"Flex evaluations"}
 ];
@@ -652,10 +652,10 @@ const HCODES = [
   var today=new Date(new Date().toLocaleString("en-US",{timeZone:"America/New_York"})).toISOString().slice(0,10);
   var pct=function(t){var m=String(t).match(/(\d+(?:\.\d+)?)\s*%/);return m?+m[1]:0};
   var rows=HCODES.map(function(h){
-    var r={f:h.f,page:h.page,code:h.code,what:h.what,url:h.url,save:h.save};
+    var r={f:h.f,page:h.page,code:h.code,what:h.what,url:h.url,save:h.save,last:!!h.last};
     if(h.deal){var d=(typeof DEALS!=="undefined"?DEALS:[]).filter(function(x){return x.firm===h.deal&&x.aff&&x.code===h.code})[0];if(!d)return null;r.save=d.save;r.url=d.url}
     if(h.until&&today>h.until)return null;return r}).filter(Boolean);
-  rows.sort(function(a,b){return pct(b.save)-pct(a.save)});
+  rows.sort(function(a,b){return (a.last-b.last)||(pct(b.save)-pct(a.save))});
   L.innerHTML=rows.map(function(r){return '<div class="hc"><div><span class="nm"><a href="'+esc(r.page)+'">'+esc(r.f)+'</a></span><span class="sv">'+esc(r.save)+'</span><small>'+esc(r.what)+' · <a href="'+esc(r.url)+'" target="_blank" rel="sponsored noopener" style="color:#BDBDBD">Open '+esc(r.f)+' ↗</a></small><small class="af">Affiliate code · we earn a commission if you buy</small></div><div class="cb"><code>'+esc(r.code)+'</code><button type="button" class="copyonly" data-c="'+esc(r.code)+'" aria-label="Copy '+esc(r.code)+'">Copy</button></div></div>'}).join("");
   if(!rows.length)document.getElementById("hcodes").hidden=true;
 })();
