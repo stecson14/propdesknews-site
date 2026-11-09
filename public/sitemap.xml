@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url><loc>https://propdesknews.com/</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://propdesknews.com/firms/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://propdesknews.com/news/</loc><lastmod>2026-11-09</lastmod></url>
@@ -156,7 +156,7 @@
   <url><loc>https://propdesknews.com/firms/fxify/promo-code/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://propdesknews.com/firms/ftmo/promo-code/</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://propdesknews.com/firms/fundednext/promo-code/</loc><lastmod>2026-11-08</lastmod></url>
-  <url><loc>https://propdesknews.com/firms/topstep/rules/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://propdesknews.com/firms/topstep/rules/</loc><lastmod>2026-11-08</lastmod><video:video><video:thumbnail_loc>https://propdesknews.com/video/9rmNHVmezW8.jpg</video:thumbnail_loc><video:title>Topstep Payout Rules 2026: How Topstep Works</video:title><video:description>How Topstep works in 2026: the Trading Combine, Express Funded payout paths, the 55% and 40% consistency rules, payout caps, Live daily payouts and fees, from Topstep&#x27;s help center.</video:description><video:player_loc>https://www.youtube.com/embed/9rmNHVmezW8</video:player_loc><video:duration>252</video:duration><video:publication_date>2026-11-09</video:publication_date></video:video></url>
   <url><loc>https://propdesknews.com/firms/apex-trader-funding/rules/</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://propdesknews.com/firms/take-profit-trader/rules/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://propdesknews.com/firms/tradeify/rules/</loc><lastmod>2026-11-05</lastmod></url>
