@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <title>Trailing Drawdown Explained: Static vs EOD vs Intraday | Prop Desk</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Same account, same trades, three rulebooks. Play a scenario and see where a static, an end-of-day trailing and an intraday trailing drawdown would each have ended the account, then see which prop firms use which.">
+<meta name="description" content="Build a week from your win rate and reward to risk, then watch static, end-of-day and intraday trailing drawdowns handle the same trades. See which prop firms use which.">
 <meta property="og:site_name" content="Prop Desk"><meta property="og:url" content="https://propdesknews.com/drawdown/"><meta property="og:title" content="Drawdown Lab: watch the drawdown line move | Prop Desk">
-<meta property="og:description" content="Static vs end-of-day trailing vs intraday trailing, animated on one equity path. See which one would have ended the account, and which firms use which.">
+<meta property="og:description" content="Put in your win rate and reward to risk and watch static, end-of-day and intraday trailing drawdowns handle the same week. See which one ends the account first.">
 <meta property="og:image" content="https://propdesknews.com/og/drawdown.png?v=95456b36">
 <meta name="twitter:image" content="https://propdesknews.com/og/drawdown.png?v=95456b36"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@PropDeskNews">
@@ -151,7 +151,7 @@ body.hastray{padding-bottom:calc(160px + env(safe-area-inset-bottom,0px))!import
 <meta name="mobile-web-app-capable" content="yes">
 <script src="/app.js" defer></script>
 <noscript><style>@media (max-width:760px){.sitenav .in>a:not(.brand){display:inline!important}.tabbar [data-tab="more"]{display:none}}</style></noscript>
-<style>.lab{grid-template-columns:minmax(0,1fr)}.lab>*{min-width:0}.v2{display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}.v2>*,.v2 .wk>*{min-width:0}.v2 .wk{grid-template-columns:minmax(0,1fr)}.v2 .k2{font:500 11px Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#9B9B9B;margin:0}.v2 .scr{display:flex;align-items:center;gap:12px}.v2 .scr label{font:500 12px Inter,system-ui,sans-serif;color:#C8C8C8;white-space:nowrap;min-width:58px}.v2 input[type=range]{-webkit-appearance:none;appearance:none;flex:1;min-width:0;height:28px;background:transparent;margin:0}.v2 input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:4px;background:#2E2E2E}.v2 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:#FFFFFF;margin-top:-10px;border:3px solid #0A0A0A;box-shadow:0 0 0 1px #FFFFFF}.v2 input[type=range]::-moz-range-track{height:4px;border-radius:4px;background:#2E2E2E}.v2 input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#FFFFFF;border:3px solid #0A0A0A}.v2 .tg{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.v2 .tg button{min-height:36px;padding:0 12px;border-radius:9999px;border:1px solid #2E2E2E;background:#171717;color:#9B9B9B;font:500 12.5px Inter,system-ui,sans-serif;cursor:pointer;display:inline-flex;align-items:center;gap:7px}.v2 .tg button i{display:inline-block;width:14px;border-top:3px solid;border-radius:2px}.v2 .tg button[aria-pressed=true]{color:#FFFFFF;border-color:#5A5A5A}.v2 .wk{border:1px solid #2E2E2E;border-radius:14px;padding:14px;display:grid;gap:12px;background:#0F0F0F}.v2 .wkh{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}.v2 .wkh span{font:400 12.5px Inter,system-ui,sans-serif;color:#9B9B9B}.v2 .bars{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px;height:104px}.v2 .bars button{position:relative;border:0;border-radius:6px;background:transparent;cursor:pointer;padding:0;min-width:0}.v2 .bars button[aria-pressed=true]{background:#222222}.v2 .bars button:focus-visible,.v2 .tg button:focus-visible,.v2 .st2:focus-visible,.v2 .act:focus-visible{outline:2px solid #F2C14E;outline-offset:2px}.v2 .bars b{position:absolute;left:22%;right:22%;border-radius:3px}.v2 .bars .ax{position:absolute;left:0;right:0;top:50%;border-top:1px solid #3A3A3A;pointer-events:none}.v2 .bars small{position:absolute;left:0;right:0;bottom:-2px;text-align:center;font:500 9.5px Inter,system-ui,sans-serif;color:#7A7A7A}.v2 .ed{display:flex;align-items:center;justify-content:space-between;gap:8px}.v2 .st2{flex:0 0 44px;height:44px;border-radius:50%;border:1px solid #2E2E2E;background:#171717;color:#FFFFFF;font:400 20px Inter,system-ui,sans-serif;cursor:pointer;line-height:1}.v2 .ed .mid{text-align:center}.v2 .ed .mid div:first-child{font:500 11px Inter,system-ui,sans-serif;color:#9B9B9B;letter-spacing:.08em}.v2 .ed .mid div:last-child{font:600 20px Inter,system-ui,sans-serif;color:#FFFFFF}.v2 .ps{display:flex;gap:8px}.v2 .ps input{flex:1;min-width:0;height:44px;box-sizing:border-box;background:#0A0A0A;border:1px solid #2E2E2E;border-radius:10px;color:#FFFFFF;font:500 14px Inter,system-ui,sans-serif;padding:0 12px}.v2 .ps input:focus{outline:2px solid #F2C14E;outline-offset:1px}.v2 .ps button{min-height:44px;padding:0 16px;border-radius:9999px;border:1px solid #2E2E2E;background:#171717;color:#FFFFFF;font:500 13px Inter,system-ui,sans-serif;cursor:pointer}.v2 .msg{font:400 12.5px Inter,system-ui,sans-serif;color:#9B9B9B;margin:0}.v2 .acts{display:flex;gap:10px;flex-wrap:wrap}.v2 .act{flex:1 1 160px;min-height:48px;border-radius:9999px;border:1px solid #2E2E2E;background:#171717;color:#FFFFFF;font:500 14px Inter,system-ui,sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px}.v2 .act.pri{background:#F2C14E;border-color:#F2C14E;color:#0A0A0A;font-weight:600}.v2 .act svg{width:16px;height:16px}</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://propdesknews.com/"},{"@type":"ListItem","position":2,"name":"Drawdown Lab","item":"https://propdesknews.com/drawdown/"}]}</script>
+<style>.lab{grid-template-columns:minmax(0,1fr)}.lab>*{min-width:0}.v2{display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}.v2>*,.v2 .wk>*{min-width:0}.v2 .wk{grid-template-columns:minmax(0,1fr)}.v2 .k2{font:500 11px Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#9B9B9B;margin:0}.v2 .scr{display:flex;align-items:center;gap:12px}.v2 .scr label{font:500 12px Inter,system-ui,sans-serif;color:#C8C8C8;white-space:nowrap;min-width:58px}.v2 input[type=range]{-webkit-appearance:none;appearance:none;flex:1;min-width:0;height:28px;background:transparent;margin:0}.v2 input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:4px;background:#2E2E2E}.v2 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:#FFFFFF;margin-top:-10px;border:3px solid #0A0A0A;box-shadow:0 0 0 1px #FFFFFF}.v2 input[type=range]::-moz-range-track{height:4px;border-radius:4px;background:#2E2E2E}.v2 input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#FFFFFF;border:3px solid #0A0A0A}.v2 .tg{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.v2 .tg button{min-height:36px;padding:0 12px;border-radius:9999px;border:1px solid #2E2E2E;background:#171717;color:#9B9B9B;font:500 12.5px Inter,system-ui,sans-serif;cursor:pointer;display:inline-flex;align-items:center;gap:7px}.v2 .tg button i{display:inline-block;width:14px;border-top:3px solid;border-radius:2px}.v2 .tg button[aria-pressed=true]{color:#FFFFFF;border-color:#5A5A5A}.v2 .wk{border:1px solid #2E2E2E;border-radius:14px;padding:14px;display:grid;gap:12px;background:#0F0F0F}.v2 .wkh{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}.v2 .wkh span{font:400 12.5px Inter,system-ui,sans-serif;color:#9B9B9B}.v2 .bars{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px;height:104px}.v2 .bars button{position:relative;border:0;border-radius:6px;background:transparent;cursor:pointer;padding:0;min-width:0}.v2 .bars button[aria-pressed=true]{background:#222222}.v2 .bars button:focus-visible,.v2 .tg button:focus-visible,.v2 .st2:focus-visible,.v2 .act:focus-visible{outline:2px solid #F2C14E;outline-offset:2px}.v2 .bars b{position:absolute;left:22%;right:22%;border-radius:3px}.v2 .bars .ax{position:absolute;left:0;right:0;top:50%;border-top:1px solid #3A3A3A;pointer-events:none}.v2 .bars small{position:absolute;left:0;right:0;bottom:-2px;text-align:center;font:500 9.5px Inter,system-ui,sans-serif;color:#7A7A7A}.v2 .ed{display:flex;align-items:center;justify-content:space-between;gap:8px}.v2 .st2{flex:0 0 44px;height:44px;border-radius:50%;border:1px solid #2E2E2E;background:#171717;color:#FFFFFF;font:400 20px Inter,system-ui,sans-serif;cursor:pointer;line-height:1}.v2 .ed .mid{text-align:center}.v2 .ed .mid div:first-child{font:500 11px Inter,system-ui,sans-serif;color:#9B9B9B;letter-spacing:.08em}.v2 .ed .mid div:last-child{font:600 20px Inter,system-ui,sans-serif;color:#FFFFFF}.v2 .ps{display:flex;gap:8px}.v2 .ps input{flex:1;min-width:0;height:44px;box-sizing:border-box;background:#0A0A0A;border:1px solid #2E2E2E;border-radius:10px;color:#FFFFFF;font:500 14px Inter,system-ui,sans-serif;padding:0 12px}.v2 .ps input:focus{outline:2px solid #F2C14E;outline-offset:1px}.v2 .ps button{min-height:44px;padding:0 16px;border-radius:9999px;border:1px solid #2E2E2E;background:#171717;color:#FFFFFF;font:500 13px Inter,system-ui,sans-serif;cursor:pointer}.v2 .msg{font:400 12.5px Inter,system-ui,sans-serif;color:#9B9B9B;margin:0}.v2 .acts{display:flex;gap:10px;flex-wrap:wrap}.v2 .act{flex:1 1 160px;min-height:48px;border-radius:9999px;border:1px solid #2E2E2E;background:#171717;color:#FFFFFF;font:500 14px Inter,system-ui,sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px}.v2 .act.pri{background:#F2C14E;border-color:#F2C14E;color:#0A0A0A;font-weight:600}.v2 .act svg{width:16px;height:16px}</style><style>.verdict{font:400 24px/1.25 "Playfair Display",Georgia,serif;color:#FFFFFF;margin:2px 0 0;min-height:30px}.verdict b{font-weight:400}.verdict .st{color:#B9C0CF}.verdict .eod{color:#F2C14E}.verdict .intra{color:#FF8A7A}.verdict .ok{color:#8CC9A0}@media (max-width:640px){.verdict{font-size:20px}}.v2 .mys{border:1px solid #3A3320;border-radius:14px;padding:14px;display:grid;gap:12px;background:linear-gradient(180deg,#15130C,#0F0F0F)}.v2 .mys>*{min-width:0}.v2 .sr{display:grid;grid-template-columns:112px minmax(0,1fr) 62px;align-items:center;gap:10px}.v2 .sr label{font:400 13.5px Inter,system-ui,sans-serif;color:#C8C8C8}.v2 .sr output{font:600 14px Inter,system-ui,sans-serif;color:#FFFFFF;text-align:right}.v2 .mys input[type=range]::-webkit-slider-thumb{background:#F2C14E;box-shadow:0 0 0 1px #F2C14E}.v2 .mys input[type=range]::-moz-range-thumb{background:#F2C14E}.v2 .ev{display:flex;gap:10px;flex-wrap:wrap}.v2 .ev div{flex:1 1 120px;border:1px solid #2E2E2E;border-radius:10px;padding:8px 10px;background:#0A0A0A}.v2 .ev small{display:block;font:500 10.5px Inter,system-ui,sans-serif;letter-spacing:.08em;color:#9B9B9B;text-transform:uppercase}.v2 .ev b{font:600 16px Inter,system-ui,sans-serif;color:#FFFFFF}.v2 .tosim{font:500 13.5px Inter,system-ui,sans-serif;color:#F2C14E;text-decoration:none}.v2 .tosim:hover{color:#FFFFFF}@media (max-width:420px){.v2 .sr{grid-template-columns:92px minmax(0,1fr) 54px}}</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://propdesknews.com/"},{"@type":"ListItem","position":2,"name":"Drawdown Lab","item":"https://propdesknews.com/drawdown/"}]}</script>
 <style>
 /* Sandclock+ inner (staging): matte black, Inter UI, serif page titles, pill shapes, gold only on codes, savings and sale tags */
 :root,:root[data-theme="dark"]{--bg:#0A0A0A;--surface:#171717;--ink:#FFFFFF;--muted:#9B9B9B;--line:#222222;--navy:#0A0A0A;--mustard:#F2C14E;--mustard-soft:#221E12;
@@ -196,7 +196,7 @@ footer{letter-spacing:.03em}
   <div class="wrap">
     <div class="kicker">Drawdown Lab · interactive</div>
     <h1>Watch the drawdown line move</h1>
-    <p class="lede">Same account, same ten days of trading, three rulebooks. Play a scenario, or tap in your own week day by day, and see where a static, an end-of-day trailing and an intraday trailing drawdown would each have ended the account. Then see which firms use which.</p>
+    <p class="lede">Same account, same trades, three rulebooks. Build a week from your own win rate and reward to risk, play a scenario, or tap in your own days. Then watch where a static, an end-of-day trailing and an intraday trailing drawdown would each have ended the account, and see which firms use which.</p>
   </div>
 </header>
 
@@ -216,9 +216,11 @@ footer{letter-spacing:.03em}
         <button type="button" data-s="chop" aria-pressed="false">Choppy week</button>
         <button type="button" data-s="grind" aria-pressed="false">Slow grind</button>
         <button type="button" data-s="random" aria-pressed="false">Shuffle</button>
+        <button type="button" data-s="stats" aria-pressed="false">My stats</button>
         <button type="button" data-s="custom" aria-pressed="false" hidden>Your week</button>
         <button type="button" class="play" id="play">Replay ▶</button>
       </div>
+      <p class="verdict" id="verdict" aria-live="polite"></p>
       <div class="chart"><canvas id="cv" role="img" aria-label="Equity path with the three drawdown lines"></canvas></div>
       <div class="legend"><span><i style="border-color:#FFFFFF"></i>Account equity</span><span><i style="border-color:#9B9B9B;border-top-style:dashed"></i>Static line</span><span><i style="border-color:#F2C14E"></i>End-of-day trailing line</span><span><i style="border-color:#E39A8A"></i>Intraday trailing line</span><span><i style="border-color:#8CC9A0;border-top-style:dotted"></i>Profit target</span></div>
       <div class="tiles">
@@ -233,6 +235,18 @@ footer{letter-spacing:.03em}
           <button type="button" data-ln="eod" aria-pressed="true"><i style="border-color:#F2C14E"></i>End-of-day</button>
           <button type="button" data-ln="intra" aria-pressed="true"><i style="border-color:#E39A8A"></i>Intraday</button>
         </div>
+        <div class="mys" id="mys">
+          <div class="wkh"><p class="k2">Build a week from my stats</p><span>Your numbers, one realistic week</span></div>
+          <div class="sr"><label for="m-wr">Win rate</label><input id="m-wr" type="range" min="20" max="80" step="1" value="50"><output id="o-wr">50%</output></div>
+          <div class="sr"><label for="m-rr">Reward to risk</label><input id="m-rr" type="range" min="0.5" max="4" step="0.25" value="1.5"><output id="o-rr">1.5R</output></div>
+          <div class="sr"><label for="m-rk">Risk a trade</label><input id="m-rk" type="range" min="50" max="1000" step="25" value="200"><output id="o-rk">$200</output></div>
+          <div class="sr"><label for="m-tp">Trades a day</label><input id="m-tp" type="range" min="1" max="8" step="1" value="3"><output id="o-tp">3</output></div>
+          <div class="sr"><label for="m-nd">Days</label><input id="m-nd" type="range" min="5" max="20" step="1" value="10"><output id="o-nd">10</output></div>
+          <div class="ev"><div><small>Avg per trade</small><b id="o-ev">+$100</b></div><div><small>Losses in a row to blow</small><b id="o-ls">13</b></div></div>
+          <div class="acts"><button type="button" class="act pri" id="mk">Build my week</button><button type="button" class="act" id="reroll">Reroll</button></div>
+          <p class="msg" id="mmsg">Each trade wins its reward or loses its risk. Winners can dip half a risk first, and losers can show open profit first, so the intraday line feels it. Reroll for a different week from the same numbers.</p>
+          <a class="tosim" id="tosim" href="/tools/pass-odds-simulator/">Run these numbers 1,000 times in the simulator →</a>
+        </div>
         <div class="wk">
           <div class="wkh"><p class="k2">Your week</p><span>Tap a day, then change its close</span></div>
           <div class="bars" id="bars"></div>
@@ -245,7 +259,7 @@ footer{letter-spacing:.03em}
         <div class="acts"><button type="button" class="act pri" id="ddimg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 19h14"/></svg>Save as image</button>
           <button type="button" class="act" id="ddlnk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg><span>Copy link</span></button></div>
       </div>
-    </section><figure class="ytf" data-ytf="fW8wXLdlyH0"><button type="button" class="ytb" data-id="fW8wXLdlyH0" aria-label="Play video: Static vs Trailing Drawdown Explained (Prop Firms)" style="background-image:url(/video/fW8wXLdlyH0.webp)"><span class="ytp"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15L19.5 12z" fill="#FFFFFF"/></svg></span><span class="ytd">55 sec</span></button><figcaption><span><b>Watch:</b> Static vs Trailing Drawdown Explained (Prop Firms)</span><a href="https://www.youtube.com/watch?v=fW8wXLdlyH0" target="_blank" rel="noopener">Open on YouTube ↗</a></figcaption></figure><script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoObject", "name": "Static vs Trailing Drawdown Explained (Prop Firms)", "description": "Static, end-of-day trailing and intraday trailing drawdown can end the same account on different days. Here is how each one moves, using one 10-day example.", "thumbnailUrl": ["https://propdesknews.com/video/fW8wXLdlyH0.jpg"], "uploadDate": "2026-11-06T12:00:00-08:00", "duration": "PT55S", "embedUrl": "https://www.youtube.com/embed/fW8wXLdlyH0", "url": "https://www.youtube.com/watch?v=fW8wXLdlyH0", "publisher": {"@id": "https://propdesknews.com/#org"}}</script><details class="lm" data-embed-box><summary><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg> Embed this tool <span>on your site or blog, free</span></summary><div class="lmb"><p>Paste this into your page. Keep the credit line under the frame.</p><textarea readonly id="emb-drawdown" aria-label="Embed code">&lt;iframe src=&quot;https://propdesknews.com/embed/drawdown/&quot; title=&quot;Drawdown Lab: static vs trailing drawdown&quot; width=&quot;100%&quot; height=&quot;1290&quot; style=&quot;border:0;max-width:900px&quot; loading=&quot;lazy&quot;&gt;&lt;/iframe&gt;
+    </section><figure class="ytf" data-ytf="fW8wXLdlyH0"><button type="button" class="ytb" data-id="fW8wXLdlyH0" aria-label="Play video: Static vs Trailing Drawdown Explained (Prop Firms)" style="background-image:url(/video/fW8wXLdlyH0.webp)"><span class="ytp"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15L19.5 12z" fill="#FFFFFF"/></svg></span><span class="ytd">55 sec</span></button><figcaption><span><b>Watch:</b> Static vs Trailing Drawdown Explained (Prop Firms)</span><a href="https://www.youtube.com/watch?v=fW8wXLdlyH0" target="_blank" rel="noopener">Open on YouTube ↗</a></figcaption></figure><script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoObject", "name": "Static vs Trailing Drawdown Explained (Prop Firms)", "description": "Static, end-of-day trailing and intraday trailing drawdown can end the same account on different days. Here is how each one moves, using one 10-day example.", "thumbnailUrl": ["https://propdesknews.com/video/fW8wXLdlyH0.jpg"], "uploadDate": "2026-11-06T12:00:00-08:00", "duration": "PT55S", "embedUrl": "https://www.youtube.com/embed/fW8wXLdlyH0", "url": "https://www.youtube.com/watch?v=fW8wXLdlyH0", "publisher": {"@id": "https://propdesknews.com/#org"}}</script><details class="lm" data-embed-box><summary><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg> Embed this tool <span>on your site or blog, free</span></summary><div class="lmb"><p>Paste this into your page. Keep the credit line under the frame.</p><textarea readonly id="emb-drawdown" aria-label="Embed code">&lt;iframe src=&quot;https://propdesknews.com/embed/drawdown/&quot; title=&quot;Drawdown Lab: static vs trailing drawdown&quot; width=&quot;100%&quot; height=&quot;1800&quot; style=&quot;border:0;max-width:900px&quot; loading=&quot;lazy&quot;&gt;&lt;/iframe&gt;
 &lt;p&gt;Drawdown Lab by &lt;a href=&quot;https://propdesknews.com/drawdown/&quot;&gt;Prop Desk&lt;/a&gt;&lt;/p&gt;</textarea><div class="lmr"><button type="button" data-copy="#emb-drawdown">Copy embed code</button><span class="ok" aria-live="polite"></span></div></div></details>
 
     <section class="how" aria-label="How each type works">
@@ -306,7 +320,7 @@ footer{letter-spacing:.03em}
   function fmt(v){ var a = Math.abs(Math.round(v)); return (v < 0 ? '−' : '+') + '$' + a.toLocaleString('en-US'); }
   function build(){
     var size = parseInt($('size').value, 10), D = Math.max(100, parseFloat($('dd').value) || SIZES[size].dd), lock = $('lock').checked, T = SIZES[size].t;
-    var f = scen === 'custom' ? 1 : D / BASE, days = (scen === 'custom' ? customDays() : scen === 'random' ? randomDays() : SCEN[scen]).map(function(d){ return [d[0]*f, d[1]*f, d[2]*f, d[3]]; });
+    var f = (scen === 'custom' || scen === 'stats') ? 1 : D / BASE, days = (scen === 'custom' ? customDays() : scen === 'stats' ? statsDays() : scen === 'random' ? randomDays() : SCEN[scen]).map(function(d){ return [d[0]*f, d[1]*f, d[2]*f, d[3]]; });
     var pts = [0];
     days.forEach(function(d){ if (d[3] === 'HL') pts.push(d[0], d[1], d[2]); else pts.push(d[1], d[0], d[2]); });
     var n = pts.length, st = [], eod = [], intra = [], res = {st:null, eod:null, intra:null};
@@ -349,17 +363,29 @@ footer{letter-spacing:.03em}
     ctx.fillStyle = '#8CC9A0'; ctx.textAlign = 'left'; ctx.fillText('Target ' + fmt(S.T), padL + 4, Y(S.T) - 8);
     var upto = Math.max(1, Math.floor(prog * (S.n - 1)));
     var frac = prog * (S.n - 1) - upto;
-    function line(arr, color, dash, width){
-      ctx.setLineDash(dash); ctx.strokeStyle = color; ctx.lineWidth = width; ctx.lineJoin = 'round';
+    var hxp = X(Math.min(S.n - 1, prog * (S.n - 1))), nxt = Math.min(S.n - 1, upto + 1);
+    if (!S.mt) S.mt = tang(S.pts);
+    function clipTo(x){ ctx.save(); ctx.beginPath(); ctx.rect(0, 0, x, H); ctx.clip(); }
+    function line(arr, color, dash, width, stop){
+      var dead = stop != null && stop <= upto, u = dead ? stop : nxt, r = Math.min(10, (X(1) - X(0)) / 2);
+      clipTo(dead ? X(stop) + 1 : hxp);
+      ctx.setLineDash(dash); ctx.strokeStyle = color; ctx.lineWidth = width; ctx.lineJoin = 'round'; ctx.lineCap = 'round';
       ctx.beginPath(); ctx.moveTo(X(0), Y(arr[0]));
-      for (var i = 1; i <= upto; i++) ctx.lineTo(X(i), Y(arr[i]));
-      if (upto < S.n - 1 && frac > 0) { var i2 = upto + 1; ctx.lineTo(X(upto) + (X(i2) - X(upto)) * frac, Y(arr[upto]) + (Y(arr[i2]) - Y(arr[upto])) * frac); }
-      ctx.stroke(); ctx.setLineDash([]);
+      for (var i = 1; i < u; i++) ctx.arcTo(X(i), Y(arr[i]), X(i + 1), Y(arr[i + 1]), r);
+      ctx.lineTo(X(u), Y(arr[u])); ctx.stroke(); ctx.setLineDash([]); ctx.restore();
     }
-    if (SHOW.st) line(S.st, '#9B9B9B', [6, 5], 1.6);
-    if (SHOW.eod) line(S.eod, '#F2C14E', [], 2);
-    if (SHOW.intra) line(S.intra, '#E39A8A', [], 2);
-    line(S.pts, '#FFFFFF', [], 2.6);
+    function curve(color, width){
+      clipTo(hxp); ctx.setLineDash([]); ctx.strokeStyle = color; ctx.lineWidth = width; ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(X(0), Y(S.pts[0])); for (var i = 0; i < nxt; i++) curveSeg(X, Y, i); ctx.stroke(); ctx.restore();
+    }
+    clipTo(hxp); shade(X, Y, nxt); ctx.restore();
+    if (SHOW.st) line(S.st, '#9B9B9B', [6, 5], 1.6, S.res.st);
+    if (SHOW.eod) line(S.eod, '#F2C14E', [], 2, S.res.eod);
+    if (SHOW.intra) line(S.intra, '#E39A8A', [], 2, S.res.intra);
+    curve('#FFFFFF', 2.6);
+    if (prog < 1) { var hx = hxp, hy = Y(hermite(S.pts, S.mt, Math.min(S.n - 1.0001, prog * (S.n - 1)))), pr = 5 + 3 * Math.abs(Math.sin(performance.now() / 160));
+      ctx.fillStyle = 'rgba(242,193,78,.25)'; ctx.beginPath(); ctx.arc(hx, hy, pr + 5, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#F2C14E'; ctx.beginPath(); ctx.arc(hx, hy, 4.5, 0, Math.PI * 2); ctx.fill(); }
     // breach markers
     [['st', '#9B9B9B', 'Static'], ['eod', '#F2C14E', 'EOD'], ['intra', '#E39A8A', 'Intraday']].forEach(function(r, k){
       var i = S.res[r[0]]; if (i === null || i > upto || !SHOW[r[0]]) return;
@@ -455,7 +481,9 @@ footer{letter-spacing:.03em}
       x.fillStyle = '#0A0A0A'; x.fillRect(0, 0, W, H); x.strokeStyle = '#2E2E2E'; x.lineWidth = 2; x.strokeRect(1, 1, W - 2, H - 2);
       x.fillStyle = '#9B9B9B'; x.font = "500 26px 'IBM Plex Mono',monospace"; x.textAlign = 'left'; x.fillText('DRAWDOWN LAB', 70, 100);
       x.textAlign = 'right'; x.fillText(('$' + Math.round(S.D).toLocaleString('en-US') + ' max drawdown').toUpperCase(), W - 70, 100);
-      x.textAlign = 'left'; x.fillStyle = '#FFFFFF'; x.font = "400 62px 'Playfair Display',Georgia,serif"; x.fillText('Same week, three rules.', 70, 190);
+      x.textAlign = 'left'; x.fillStyle = '#FFFFFF'; x.font = "400 62px 'Playfair Display',Georgia,serif"; var vt = verdictText(false), wds = vt.split(' '), ln = [''], fs = 52; x.font = "400 52px 'Playfair Display',Georgia,serif";
+      if (x.measureText(vt).width > W - 140) { fs = 40; x.font = "400 40px 'Playfair Display',Georgia,serif"; wds.forEach(function(wd){ var t = ln[ln.length - 1] ? ln[ln.length - 1] + ' ' + wd : wd; if (x.measureText(t).width > W - 140 && ln[ln.length - 1]) ln.push(wd); else ln[ln.length - 1] = t; }); ln = ln.slice(0, 2); } else ln = [vt];
+      ln.forEach(function(l, j){ x.fillText(l, 70, ln.length === 1 ? 190 : 162 + j * 48); });
       var cw = W - 140, ch = Math.round(cw * cv.height / cv.width); if (ch > 640) { cw = Math.round(640 * cv.width / cv.height); ch = 640; } var cx0 = Math.round((W - cw) / 2);
       x.fillStyle = '#121212'; x.fillRect(60, 240, W - 120, ch + 20); x.drawImage(cv, cx0, 250, cw, ch);
       var y = 250 + ch + 100;
@@ -473,13 +501,95 @@ footer{letter-spacing:.03em}
         else { var u = URL.createObjectURL(bl), l = document.createElement('a'); l.href = u; l.download = fn; document.body.appendChild(l); l.click(); l.remove(); setTimeout(function(){ URL.revokeObjectURL(u); }, 4000); } }, 'image/png');
     });
   });
+
+  // ---- v3: my stats, danger shading, ghost fill, verdict ----
+  var MS = {wr: 50, rr: 1.5, rk: 200, tp: 3, nd: 10, seed: 11};
+  function readMS(){ ['wr', 'rr', 'rk', 'tp', 'nd'].forEach(function(k){ MS[k] = +$('m-' + k).value; }); }
+  function money(v){ return '$' + Math.round(v).toLocaleString('en-US'); }
+  function showMS(){
+    readMS();
+    $('o-wr').textContent = MS.wr + '%'; $('o-rr').textContent = MS.rr + 'R'; $('o-rk').textContent = money(MS.rk); $('o-tp').textContent = MS.tp; $('o-nd').textContent = MS.nd;
+    var ev = MS.wr / 100 * MS.rk * MS.rr - (1 - MS.wr / 100) * MS.rk, D = Math.max(100, parseFloat($('dd').value) || 2500);
+    $('o-ev').textContent = (ev < 0 ? '−' : '+') + money(Math.abs(ev)); $('o-ev').style.color = ev < 0 ? '#FF8A7A' : '#FFFFFF';
+    $('o-ls').textContent = Math.ceil(D / MS.rk);
+    var T = SIZES[parseInt($('size').value, 10)].t;
+    $('tosim').href = '/tools/pass-odds-simulator/#wr=' + MS.wr + '&aw=' + Math.round(MS.rk * MS.rr) + '&al=' + MS.rk + '&tpd=' + MS.tp + '&tgt=' + T + '&dd=' + Math.round(D);
+  }
+  function statsDays(){
+    var r = rng(MS.seed * 7919 + MS.wr * 31 + MS.tp), p = MS.wr / 100, win = MS.rk * MS.rr, days = [], eq = 0;
+    for (var d = 0; d < MS.nd; d++) {
+      var open = eq, hi = eq, lo = eq, hiT = 0, loT = 0, t = 0;
+      for (var k = 0; k < MS.tp; k++) {
+        var w = r() < p;
+        // the move before the trade resolves: winners can dip, losers can show open profit
+        var pre = w ? eq - r() * .5 * MS.rk : eq + r() * .6 * win;
+        t++; if (pre > hi) { hi = pre; hiT = t; } if (pre < lo) { lo = pre; loT = t; }
+        eq += w ? win : -MS.rk;
+        t++; if (eq > hi) { hi = eq; hiT = t; } if (eq < lo) { lo = eq; loT = t; }
+      }
+      var R = function(v){ return Math.round(v / 10) * 10; };
+      days.push([R(Math.max(hi, open, eq)), R(Math.min(lo, open, eq)), R(eq), hiT <= loT ? 'HL' : 'LH']);
+    }
+    return days;
+  }
+  function tang(a){ var n = a.length, m = []; for (var k = 0; k < n; k++) { var d0 = k > 0 ? a[k] - a[k - 1] : null, d1 = k < n - 1 ? a[k + 1] - a[k] : null;
+      m.push(d0 === null ? d1 : d1 === null ? d0 : d0 * d1 > 0 ? 2 * d0 * d1 / (d0 + d1) : 0); } return m; }
+  function curveSeg(X, Y, i){ var a = S.pts, m = S.mt; ctx.bezierCurveTo(X(i + 1 / 3), Y(a[i] + m[i] / 3), X(i + 2 / 3), Y(a[i + 1] - m[i + 1] / 3), X(i + 1), Y(a[i + 1])); }
+  function hermite(a, m, x){ var i = Math.min(a.length - 2, Math.floor(x)), t = x - i, t2 = t * t, t3 = t2 * t; return (2 * t3 - 3 * t2 + 1) * a[i] + (t3 - 2 * t2 + t) * m[i] + (-2 * t3 + 3 * t2) * a[i + 1] + (t3 - t2) * m[i + 1]; }
+  function mix(a, b, t){ return a.map(function(x, i){ return x + (b[i] - x) * t; }); }
+  function shade(X, Y, upto){
+    var K = ['st', 'eod', 'intra'];
+    // faint fill under each trailing line: the room the line has taken from you
+    [['eod', '217,164,65'], ['intra', '227,154,138']].forEach(function(r){
+      if (!SHOW[r[0]]) return; var a = S[r[0]], stop = S.res[r[0]] === null ? upto : Math.min(upto, S.res[r[0]]);
+      ctx.fillStyle = 'rgba(' + r[1] + ',.10)'; ctx.beginPath(); ctx.moveTo(X(0), Y(-S.D));
+      for (var i = 0; i <= stop; i++) ctx.lineTo(X(i), Y(Math.max(a[i], -S.D)));
+      ctx.lineTo(X(stop), Y(-S.D)); ctx.closePath(); ctx.fill();
+    });
+    // danger shading between equity and the tightest live line
+    for (var i = 0; i < upto; i++) {
+      var fl = null;
+      K.forEach(function(k){ if (!SHOW[k]) return; if (S.res[k] !== null && i >= S.res[k]) return; fl = fl === null ? S[k][i] : Math.max(fl, S[k][i]); });
+      if (fl === null) continue;
+      var room = Math.min(S.pts[i], S.pts[i + 1]) - fl, t = Math.max(0, Math.min(1, room / (S.D * .6)));
+      var c = mix([255, 90, 70, .34], [242, 193, 78, .12], t);
+      ctx.fillStyle = 'rgba(' + Math.round(c[0]) + ',' + Math.round(c[1]) + ',' + Math.round(c[2]) + ',' + c[3].toFixed(3) + ')';
+      ctx.beginPath(); ctx.moveTo(X(i), Y(S.pts[i])); curveSeg(X, Y, i);
+      ctx.lineTo(X(i + 1), Y(fl)); ctx.lineTo(X(i), Y(fl)); ctx.closePath(); ctx.fill();
+    }
+  }
+  var NM = {st: 'Static', eod: 'End-of-day trailing', intra: 'Intraday trailing'};
+  function verdictText(html){
+    var upto = Math.floor(prog * (S.n - 1)), alive = [], out = [];
+    ['st', 'eod', 'intra'].forEach(function(k){ var i = S.res[k]; if (i !== null && i <= upto) out.push([k, Math.ceil(i / 3)]); else alive.push(k); });
+    out.sort(function(a, b){ return a[1] - b[1]; });
+    var w = function(k){ return html ? '<b class="' + k + '">' + NM[k] + '</b>' : NM[k]; };
+    var done = prog >= 1, txt = '';
+    if (!out.length) txt = done ? (html ? '<b class="ok">All three survive</b> this week.' : 'All three survive this week.') : 'Day ' + Math.max(1, Math.ceil(upto / 3)) + ': all three still alive.';
+    else {
+      if (alive.length) txt += alive.map(w).join(alive.length === 2 ? ' and ' : ', ') + (done ? (alive.length === 1 ? ' survives. ' : ' survive. ') : (alive.length === 1 ? ' is still alive. ' : ' are still alive. '));
+      txt += out.map(function(o, j){ var nm = w(o[0]); if (j > 0) nm = nm.replace(NM[o[0]], NM[o[0]].toLowerCase()); return j === 0 ? nm + ' is out on day ' + o[1] : nm + ' on day ' + o[1]; }).join(', ') + '.';
+    }
+    return txt;
+  }
+  var _tiles = tiles;
+  tiles = function(){ _tiles(); $('verdict').innerHTML = verdictText(true); };
+  ['wr', 'rr', 'rk', 'tp', 'nd'].forEach(function(k){ $('m-' + k).addEventListener('input', function(){ showMS(); if (scen === 'stats') run(false); }); });
+  function pickStats(){ scen = 'stats'; document.querySelectorAll('.scen [data-s]').forEach(function(x){ x.setAttribute('aria-pressed', x.dataset.s === 'stats' ? 'true' : 'false'); }); }
+  $('mk').addEventListener('click', function(){ pickStats(); run(true); var c = document.querySelector('.chart'); if (c && c.getBoundingClientRect().top < 0) c.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'center'}); });
+  $('reroll').addEventListener('click', function(){ MS.seed = (MS.seed * 9301 + 49297) % 233280 + 1; pickStats(); run(true); });
+  $('dd').addEventListener('change', showMS); $('size').addEventListener('change', showMS);
+  var _link = link;
+  link = function(){ _link(); if (scen === 'stats') { try { history.replaceState(null, '', location.hash + '&m=' + [MS.wr, MS.rr, MS.rk, MS.tp, MS.nd, MS.seed].join(',')); } catch (e) {} } return location.href; };
   (function(){ var h = new URLSearchParams(location.hash.slice(1)); if (!h.get('s')) return;
     if (h.get('a') && SIZES[+h.get('a')]) $('size').value = h.get('a'); if (+h.get('d') > 0) $('dd').value = +h.get('d'); if (h.get('n')) $('lock').checked = false;
     var s0 = h.get('s');
     if (s0 === 'custom' && h.get('w')) { CP = h.get('w').split(',').map(Number).filter(isFinite).slice(0, 20); if (CP.length >= 2) { scen = 'custom'; var b = document.querySelector('.scen [data-s=custom]'); b.hidden = false; } }
     else if (SCEN[s0] || s0 === 'random') { scen = s0; if (s0 === 'random' && +h.get('r')) seed = +h.get('r'); }
+    if (s0 === 'stats' && h.get('m')) { var m = h.get('m').split(',').map(Number); if (m.length === 6 && m.every(isFinite)) { ['wr', 'rr', 'rk', 'tp', 'nd'].forEach(function(k, j){ $('m-' + k).value = m[j]; }); MS.seed = m[5]; scen = 'stats'; } }
     document.querySelectorAll('.scen [data-s]').forEach(function(x){ x.setAttribute('aria-pressed', x.dataset.s === scen ? 'true' : 'false'); });
   })();
+  showMS();
   run(true);
 })();
 </script>
