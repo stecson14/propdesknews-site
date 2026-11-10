@@ -335,6 +335,29 @@ footer{letter-spacing:.03em}
 .fline .nw{white-space:nowrap}
 .fline .hstar{background:none;border:0;padding:0;color:#F2C14E;font:inherit;cursor:pointer}
 </style>
+<style data-alerts>
+.fline .halert{background:none;border:0;padding:0;color:#F2C14E;font:inherit;cursor:pointer}
+.fline .halert:hover,.fline .halert:focus-visible{color:#FFFFFF}
+dialog.alrt{background:#141414;color:#F4F4F2;border:1px solid #2E2E2E;border-radius:16px;padding:0;width:min(440px,calc(100vw - 32px));max-height:calc(100vh - 32px);font:15px/1.55 Inter,system-ui,sans-serif}
+dialog.alrt::backdrop{background:rgba(0,0,0,.7)}
+.alrt .in{padding:22px 22px 20px;display:flex;flex-direction:column;gap:14px}
+.alrt .hd{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.alrt .t{font:400 24px/1.15 'Playfair Display',Georgia,serif;margin:0}
+.alrt .x{background:none;border:1px solid #2E2E2E;color:#C8C8C8;border-radius:999px;width:32px;height:32px;cursor:pointer;flex:none;font:16px/1 Inter,system-ui,sans-serif}
+.alrt p{margin:0;color:#A3A3A3}
+.alrt .ck{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid #2A2A2A;border-radius:10px;cursor:pointer}
+.alrt .ck input{accent-color:#F2C14E;margin-top:4px;width:16px;height:16px;flex:none}
+.alrt .ck b{display:block;font-weight:600;color:#F4F4F2}
+.alrt .ck small{color:#A3A3A3;font-size:13px}
+.alrt label.em{font:600 12px Inter,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#A3A3A3;margin-bottom:-8px}
+.alrt input[type=email]{background:#0A0A0A;border:1px solid #2E2E2E;border-radius:10px;color:#F4F4F2;padding:12px;font:16px Inter,system-ui,sans-serif;width:100%;box-sizing:border-box}
+.alrt input[type=email]:focus{outline:2px solid #F2C14E;outline-offset:1px}
+.alrt .go{background:#F2C14E;color:#0A0A0A;border:0;border-radius:999px;padding:12px 18px;font:600 15px Inter,system-ui,sans-serif;cursor:pointer}
+.alrt .go:hover,.alrt .go:focus-visible{background:#FFFFFF}
+.alrt .fine{font-size:13px}
+.alrt .fine a{color:#C8C8C8}
+.alrt .err{color:#E07A6B;font-size:13px}
+</style>
 </head>
 <body>
 <nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/icons/avatar-52.jpg" alt="" width="26" height="26"><span>Prop Desk</span></a><a href="/#deals">Deals</a><a href="/news/">News</a><a href="/firms/" aria-current="page">Directory</a><a href="/compare/">Compare</a><a href="/tools/">Tools</a><button class="sb" type="button" aria-label="Search the site (press /)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span><kbd>/</kbd></button><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
@@ -343,7 +366,7 @@ footer{letter-spacing:.03em}
     <nav class="bc" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/firms/">Firms</a><span aria-hidden="true">/</span><span aria-current="page">QT Funded (Quant Tekel)</span></nav>
     <div class="kicker">Prop firm profile · last verified Tue Nov 10, 2026</div>
     <h1>QT Funded (Quant Tekel)</h1>
-    <p class="fline"><span>CFD / forex</span> <span class="sep">·</span> <a class="lk" href="https://qtfunded.com" target="_blank" rel="noopener">qtfunded.com ↗</a> <span class="sep">·</span> <button type="button" class="hstar" data-star="qt-funded-quant-tekel" aria-pressed="false">☆ Save</button></p>
+    <p class="fline"><span>CFD / forex</span> <span class="sep">·</span> <a class="lk" href="https://qtfunded.com" target="_blank" rel="noopener">qtfunded.com ↗</a> <span class="sep">·</span> <button type="button" class="hstar" data-star="qt-funded-quant-tekel" aria-pressed="false">☆ Save</button> <span class="sep">·</span> <button type="button" class="halert" aria-haspopup="dialog" aria-controls="alrt" data-alerts>Alert me</button></p>
   <div class="act" id="act" data-act><div class="act-l"><code>TREAT</code><span><b>60% off</b><small>Firm&#x27;s public code · checked Nov 10</small></span></div><div class="act-b"><button type="button" class="cp" data-code="TREAT">Copy code</button><a class="go" href="https://qtfunded.com" target="_blank" rel="noopener">Open site ↗</a></div></div>
   <p class="meta byl" data-trust>By <a href="/about/staff/">Prop Desk Staff</a> · Checked Nov 10, 2026 against QT Funded (Quant Tekel)&#x27;s own pages · <a href="/editorial-standards/">How we check</a></p>
   </div>
@@ -408,5 +431,12 @@ const place=()=>{const r=tb&&getComputedStyle(tb).display!=="none"?tb.getBoundin
 new IntersectionObserver(e=>{const on=!e[0].isIntersecting&&e[0].boundingClientRect.top<0;bar.classList.toggle("on",on);bar.setAttribute("aria-hidden",on?"false":"true");place()}).observe(a);addEventListener("resize",place)})();
 </script><script>(()=>{const b=document.querySelector(".hstar");if(!b)return;let M=[];try{M=JSON.parse(localStorage.getItem("pd-mine")||"[]")}catch(e){}
 const k=b.dataset.star,paint=()=>{const on=M.includes(k);b.setAttribute("aria-pressed",on);b.textContent=on?"★ Saved":"☆ Save firm"};paint();
-b.addEventListener("click",()=>{M=M.includes(k)?M.filter(x=>x!==k):[k].concat(M);try{localStorage.setItem("pd-mine",JSON.stringify(M))}catch(e){}paint()})})();</script></body>
+b.addEventListener("click",()=>{M=M.includes(k)?M.filter(x=>x!==k):[k].concat(M);try{localStorage.setItem("pd-mine",JSON.stringify(M))}catch(e){}paint()})})();</script><dialog class="alrt" id="alrt" aria-labelledby="alrt-t" data-alerts><div class="in"><div class="hd"><p class="t" id="alrt-t">Email me about QT Funded (Quant Tekel)</p><button type="button" class="x" aria-label="Close">✕</button></div><form method="post" action="https://app.kit.com/forms/10172463/subscriptions" target="alrt-f" class="in" style="padding:0"><p>One short email when something changes at QT Funded (Quant Tekel). Nothing else, and you can unsubscribe in one click.</p><label class="ck"><input type="checkbox" name="tags[]" value="25694824" checked><span><b>Rule changes</b><small>Only changes confirmed on QT Funded (Quant Tekel)&#x27;s own site</small></span></label><label class="ck"><input type="checkbox" name="tags[]" value="25694825" checked><span><b>New codes and sales</b><small>When QT Funded (Quant Tekel) starts a new promo or code</small></span></label><p class="err" hidden>Pick at least one.</p><label class="em" for="alrt-e">Email</label><input id="alrt-e" type="email" name="email_address" required autocomplete="email" placeholder="you@example.com"><button type="submit" class="go">Send me alerts</button><p class="fine">We email you a confirm link first. Your address is only used for these alerts. <a href="/privacy/#alerts">Privacy</a></p></form><div class="done" hidden><p>Almost done. Check your inbox and tap the confirm link. If it isn&#x27;t there in a few minutes, look in spam or promotions.</p><button type="button" class="go x" style="width:auto;height:auto;margin-top:14px">Done</button></div></div></dialog><iframe name="alrt-f" title="Sign-up" hidden></iframe><script data-alerts>(()=>{const d=document.getElementById("alrt");const b=document.querySelector(".halert");if(!d||!b)return;
+const f=d.querySelector("form"),done=d.querySelector(".done"),err=d.querySelector(".err");
+b.addEventListener("click",()=>{f.hidden=false;done.hidden=true;err.hidden=true;try{d.showModal()}catch(e){d.setAttribute("open","")}});
+d.querySelectorAll(".x").forEach(x=>x.addEventListener("click",()=>d.close()));
+d.addEventListener("click",e=>{if(e.target===d)d.close()});
+f.addEventListener("submit",e=>{if(!f.querySelector('input[name="tags[]"]:checked')){e.preventDefault();err.hidden=false;return}
+setTimeout(()=>{f.hidden=true;done.hidden=false},400)});})();</script>
+</body>
 </html>
