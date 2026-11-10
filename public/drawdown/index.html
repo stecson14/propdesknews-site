@@ -77,7 +77,7 @@ main .wrap{padding-block:22px 60px;display:grid;gap:22px}
 .tile .v{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.1}
 .tile .v.dead{color:var(--no)}.tile .v.alive{color:var(--ok)}
 .tile .s{font-size:13px;color:var(--muted)}
-@media (max-width:640px){.chart{height:270px}.tiles{grid-template-columns:1fr}.tile{grid-template-columns:1fr auto;align-items:center}.tile .k{grid-column:1/-1}.tile .v{font-size:19px}}
+@media (max-width:640px){.chart{height:270px}.tiles{grid-template-columns:1fr;gap:8px}.tile{grid-template-columns:1fr;padding:10px 12px}.tile .v{font-size:19px;white-space:nowrap}.ctl{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ctl select,.ctl input[type=number]{min-width:0;width:100%;box-sizing:border-box}.ctl .chk{grid-column:1/-1;padding-bottom:0}.scen{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:0 -16px;padding:0 16px}.scen::-webkit-scrollbar{display:none}.scen>*{flex:0 0 auto}.scen .k{display:none}.scen .play{position:sticky;right:0;box-shadow:-14px 0 12px -2px var(--surface)}}
 
 .how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .how div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px;min-width:0}
@@ -346,7 +346,8 @@ footer{letter-spacing:.03em}
       ctx.strokeStyle = '#171717'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(i)-3, Y(S.pts[i])-3); ctx.lineTo(X(i)+3, Y(S.pts[i])+3); ctx.moveTo(X(i)+3, Y(S.pts[i])-3); ctx.lineTo(X(i)-3, Y(S.pts[i])+3); ctx.stroke();
       ctx.font = '600 11px Inter, system-ui, monospace'; ctx.textAlign = X(i) > W * .7 ? 'right' : 'left';
       var lx = X(i) + (X(i) > W * .7 ? -10 : 10), ly = Y(S.pts[i]) + 18, lt = r[2] + ' out, day ' + Math.ceil(i / 3);
-      ctx.lineWidth = 4; ctx.strokeStyle = '#0A0A0A'; ctx.lineJoin = 'round'; ctx.strokeText(lt, lx, ly);   // halo so the label reads over the lines
+      var tw = ctx.measureText(lt).width, bx = ctx.textAlign === 'right' ? lx - tw - 5 : lx - 5;   // dark pill so the label reads over the lines
+      ctx.fillStyle = 'rgba(10,10,10,.9)'; ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(bx, ly - 12, tw + 10, 17, 5); else ctx.rect(bx, ly - 12, tw + 10, 17); ctx.fill();
       ctx.fillStyle = r[1]; ctx.fillText(lt, lx, ly);
     });
   }
