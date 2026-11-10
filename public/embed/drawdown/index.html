@@ -77,7 +77,7 @@ main .wrap{padding-block:22px 60px;display:grid;gap:22px}
 .tile .v{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.1}
 .tile .v.dead{color:var(--no)}.tile .v.alive{color:var(--ok)}
 .tile .s{font-size:13px;color:var(--muted)}
-@media (max-width:640px){.chart{height:270px}.tiles{grid-template-columns:1fr}.tile{grid-template-columns:1fr auto;align-items:center}.tile .k{grid-column:1/-1}.tile .v{font-size:19px}}
+@media (max-width:640px){.chart{height:270px}.tiles{grid-template-columns:1fr;gap:8px}.tile{grid-template-columns:1fr;padding:10px 12px}.tile .v{font-size:19px;white-space:nowrap}.ctl{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ctl select,.ctl input[type=number]{min-width:0;width:100%;box-sizing:border-box}.ctl .chk{grid-column:1/-1;padding-bottom:0}.scen{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:0 -16px;padding:0 16px}.scen::-webkit-scrollbar{display:none}.scen>*{flex:0 0 auto}.scen .k{display:none}.scen .play{position:sticky;right:0;box-shadow:-14px 0 12px -2px var(--surface)}}
 
 .how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .how div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px;min-width:0}
@@ -151,7 +151,7 @@ body.hastray{padding-bottom:calc(160px + env(safe-area-inset-bottom,0px))!import
 <meta name="mobile-web-app-capable" content="yes">
 
 <noscript><style>@media (max-width:760px){.sitenav .in>a:not(.brand){display:inline!important}.tabbar [data-tab="more"]{display:none}}</style></noscript>
-
+<style>.lab{grid-template-columns:minmax(0,1fr)}.lab>*{min-width:0}.v2{display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}.v2>*,.v2 .wk>*{min-width:0}.v2 .wk{grid-template-columns:minmax(0,1fr)}.v2 .k2{font:500 11px Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#9B9B9B;margin:0}.v2 .scr{display:flex;align-items:center;gap:12px}.v2 .scr label{font:500 12px Inter,system-ui,sans-serif;color:#C8C8C8;white-space:nowrap;min-width:58px}.v2 input[type=range]{-webkit-appearance:none;appearance:none;flex:1;min-width:0;height:28px;background:transparent;margin:0}.v2 input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:4px;background:#2E2E2E}.v2 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:#FFFFFF;margin-top:-10px;border:3px solid #0A0A0A;box-shadow:0 0 0 1px #FFFFFF}.v2 input[type=range]::-moz-range-track{height:4px;border-radius:4px;background:#2E2E2E}.v2 input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#FFFFFF;border:3px solid #0A0A0A}.v2 .tg{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.v2 .tg button{min-height:36px;padding:0 12px;border-radius:9999px;border:1px solid #2E2E2E;background:#171717;color:#9B9B9B;font:500 12.5px Inter,system-ui,sans-serif;cursor:pointer;display:inline-flex;align-items:center;gap:7px}.v2 .tg button i{display:inline-block;width:14px;border-top:3px solid;border-radius:2px}.v2 .tg button[aria-pressed=true]{color:#FFFFFF;border-color:#5A5A5A}.v2 .wk{border:1px solid #2E2E2E;border-radius:14px;padding:14px;display:grid;gap:12px;background:#0F0F0F}.v2 .wkh{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}.v2 .wkh span{font:400 12.5px Inter,system-ui,sans-serif;color:#9B9B9B}.v2 .bars{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px;height:104px}.v2 .bars button{position:relative;border:0;border-radius:6px;background:transparent;cursor:pointer;padding:0;min-width:0}.v2 .bars button[aria-pressed=true]{background:#222222}.v2 .bars button:focus-visible,.v2 .tg button:focus-visible,.v2 .st2:focus-visible,.v2 .act:focus-visible{outline:2px solid #F2C14E;outline-offset:2px}.v2 .bars b{position:absolute;left:22%;right:22%;border-radius:3px}.v2 .bars .ax{position:absolute;left:0;right:0;top:50%;border-top:1px solid #3A3A3A;pointer-events:none}.v2 .bars small{position:absolute;left:0;right:0;bottom:-2px;text-align:center;font:500 9.5px Inter,system-ui,sans-serif;color:#7A7A7A}.v2 .ed{display:flex;align-items:center;justify-content:space-between;gap:8px}.v2 .st2{flex:0 0 44px;height:44px;border-radius:50%;border:1px solid #2E2E2E;background:#171717;color:#FFFFFF;font:400 20px Inter,system-ui,sans-serif;cursor:pointer;line-height:1}.v2 .ed .mid{text-align:center}.v2 .ed .mid div:first-child{font:500 11px Inter,system-ui,sans-serif;color:#9B9B9B;letter-spacing:.08em}.v2 .ed .mid div:last-child{font:600 20px Inter,system-ui,sans-serif;color:#FFFFFF}.v2 .ps{display:flex;gap:8px}.v2 .ps input{flex:1;min-width:0;height:44px;box-sizing:border-box;background:#0A0A0A;border:1px solid #2E2E2E;border-radius:10px;color:#FFFFFF;font:500 14px Inter,system-ui,sans-serif;padding:0 12px}.v2 .ps input:focus{outline:2px solid #F2C14E;outline-offset:1px}.v2 .ps button{min-height:44px;padding:0 16px;border-radius:9999px;border:1px solid #2E2E2E;background:#171717;color:#FFFFFF;font:500 13px Inter,system-ui,sans-serif;cursor:pointer}.v2 .msg{font:400 12.5px Inter,system-ui,sans-serif;color:#9B9B9B;margin:0}.v2 .acts{display:flex;gap:10px;flex-wrap:wrap}.v2 .act{flex:1 1 160px;min-height:48px;border-radius:9999px;border:1px solid #2E2E2E;background:#171717;color:#FFFFFF;font:500 14px Inter,system-ui,sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px}.v2 .act.pri{background:#F2C14E;border-color:#F2C14E;color:#0A0A0A;font-weight:600}.v2 .act svg{width:16px;height:16px}</style>
 <style>
 /* Sandclock+ inner (staging): matte black, Inter UI, serif page titles, pill shapes, gold only on codes, savings and sale tags */
 :root,:root[data-theme="dark"]{--bg:#0A0A0A;--surface:#171717;--ink:#FFFFFF;--muted:#9B9B9B;--line:#222222;--navy:#0A0A0A;--mustard:#F2C14E;--mustard-soft:#221E12;
@@ -202,6 +202,7 @@ footer{letter-spacing:.03em}
         <button type="button" data-s="chop" aria-pressed="false">Choppy week</button>
         <button type="button" data-s="grind" aria-pressed="false">Slow grind</button>
         <button type="button" data-s="random" aria-pressed="false">Shuffle</button>
+        <button type="button" data-s="custom" aria-pressed="false" hidden>Your week</button>
         <button type="button" class="play" id="play">Replay ▶</button>
       </div>
       <div class="chart"><canvas id="cv" role="img" aria-label="Equity path with the three drawdown lines"></canvas></div>
@@ -210,6 +211,25 @@ footer{letter-spacing:.03em}
         <div class="tile st"><div class="k">Static</div><div class="v" id="t-st">…</div><div class="s" id="s-st"></div></div>
         <div class="tile eod"><div class="k">End-of-day trailing</div><div class="v" id="t-eod">…</div><div class="s" id="s-eod"></div></div>
         <div class="tile intra"><div class="k">Intraday trailing</div><div class="v" id="t-intra">…</div><div class="s" id="s-intra"></div></div>
+      </div>
+      <div class="v2">
+        <div class="scr"><label for="scrub">Day <output id="dayo">10</output></label><input id="scrub" type="range" min="0" max="10" step="1" value="10" aria-label="Replay to day"></div>
+        <div class="tg" role="group" aria-label="Lines to show"><span class="k2">Show</span>
+          <button type="button" data-ln="st" aria-pressed="true"><i style="border-color:#9B9B9B;border-top-style:dashed"></i>Static</button>
+          <button type="button" data-ln="eod" aria-pressed="true"><i style="border-color:#F2C14E"></i>End-of-day</button>
+          <button type="button" data-ln="intra" aria-pressed="true"><i style="border-color:#E39A8A"></i>Intraday</button>
+        </div>
+        <div class="wk">
+          <div class="wkh"><p class="k2">Your week</p><span>Tap a day, then change its close</span></div>
+          <div class="bars" id="bars"></div>
+          <div class="ed"><button type="button" class="st2" id="dm" aria-label="Lower this day by $250">−</button>
+            <div class="mid"><div id="dl">DAY 1 CLOSE</div><div id="dv">+$0</div></div>
+            <button type="button" class="st2" id="dp" aria-label="Raise this day by $250">+</button></div>
+          <div class="ps"><input id="paste" inputmode="text" autocomplete="off" placeholder="Paste daily P&amp;L: 400, -250, 600" aria-label="Paste your daily P&amp;L, separated by commas"><button type="button" id="apply">Use mine</button></div>
+          <p class="msg" id="pmsg">Each winning day assumes a $250 give-back before the close, and each losing day a $150 dip below it, so the intraday line shows its bite.</p>
+        </div>
+        <div class="acts"><button type="button" class="act pri" id="ddimg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 19h14"/></svg>Save as image</button>
+          <button type="button" class="act" id="ddlnk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg><span>Copy link</span></button></div>
       </div>
     </section><div id="who" hidden></div><div class="embf"><span>Drawdown Lab by <a href="https://propdesknews.com/drawdown/">Prop Desk</a>, education, not financial advice</span><a href="https://propdesknews.com/drawdown/">Open full page ↗</a></div></div><script>const DDSTATS = {"futures":{"eod":[["Apex Trader Funding","apex-trader-funding"],["Tradeify","tradeify"],["Lucid Trading","lucid-trading"],["MyFundedFutures (MFFU)","myfundedfutures-mffu"],["Alpha Futures","alpha-futures"],["FundedNext Futures","fundednext-futures"],["Bulenox","bulenox"],["Elite Trader Funding","elite-trader-funding"],["Top One Futures","top-one-futures"],["IQ Capital","iq-capital"],["Phidias Propfirm","phidias-propfirm"],["Funded Futures Network","funded-futures-network"],["Goat Funded Futures","goat-funded-futures"],["UProfit","uprofit"],["DayTraders.com","daytraders-com"],["FTMO Futures","ftmo-futures"],["Legends Trading","legends-trading"],["BluSky Trading","blusky-trading"],["Traders Launch","traders-launch"],["FuturesElite","futureselite"],["Funded Futures Family","funded-futures-family"],["PropShopTrader","propshoptrader"],["The Futures Desk","the-futures-desk"],["Blueberry Futures","blueberry-futures"]],"static":[["Earn2Trade","earn2trade"],["Elite Trader Funding","elite-trader-funding"],["Phidias Propfirm","phidias-propfirm"],["Traders Launch","traders-launch"],["The Futures Desk","the-futures-desk"],["Hola Prime","hola-prime"],["E8 Markets","e8-markets"]],"intraday":[["Lucid Trading","lucid-trading"],["MyFundedFutures (MFFU)","myfundedfutures-mffu"],["TradeDay","tradeday"],["Goat Funded Futures","goat-funded-futures"]],"trailing":[["Leeloo Trading","leeloo-trading"]],"unk":[["Topstep","topstep"],["Take Profit Trader","take-profit-trader"],["OneUp Trader","oneup-trader"],["Purdia Capital","purdia-capital"],["The Trading Pit","the-trading-pit"],["FundedNext","fundednext"],["The5ers","the5ers"],["Blue Guardian","blue-guardian"],["Atlas Funded","atlas-funded"],["For Traders","for-traders"],["BrightFunded","brightfunded"],["AquaFunded","aquafunded"]]},"cfd":{"eod":[["IQ Capital","iq-capital"]],"static":[["FTMO","ftmo"],["FundingPips","fundingpips"],["FXIFY","fxify"],["Goat Funded Trader","goat-funded-trader"],["Instant Funding","instant-funding"],["Hola Prime","hola-prime"],["Audacity Capital","audacity-capital"],["City Traders Imperium","city-traders-imperium"],["Fintokei","fintokei"],["Lark Funding","lark-funding"],["Maven Trading","maven-trading"],["Funding Traders","funding-traders"],["E8 Markets","e8-markets"],["Funded Trader Markets","funded-trader-markets"]],"intraday":[],"trailing":[["Alpha Capital","alpha-capital"],["ThinkCapital","thinkcapital"],["Funded Trading Plus","funded-trading-plus"],["FTUK","ftuk"],["QT Funded (Quant Tekel)","qt-funded-quant-tekel"]],"unk":[["The Trading Pit","the-trading-pit"],["FundedNext","fundednext"],["The5ers","the5ers"],["Blue Guardian","blue-guardian"],["Lux Trading Firm","lux-trading-firm"],["DNA Funded","dna-funded"],["Atlas Funded","atlas-funded"],["For Traders","for-traders"],["PipFarm","pipfarm"],["BrightFunded","brightfunded"],["AquaFunded","aquafunded"],["Top One Trader","top-one-trader"]]},"perps":{"eod":[["FFN Perps","ffn-perps"],["Traders Launch Crypto","traders-launch-crypto"],["Hypernova","hypernova"]],"static":[["MyFundedPerps","myfundedperps"],["Propr","propr"],["FTM Perps","ftm-perps"],["Breakout","breakout"],["Crypto Fund Trader","crypto-fund-trader"],["HyroTrader","hyrotrader"],["FFN Perps","ffn-perps"],["Vanta Trading","vanta-trading"],["HyperPNL","hyperpnl"]],"intraday":[],"trailing":[["E8 Perpetuals","e8-perpetuals"]],"unk":[["Vest Markets","vest-markets"],["Kraken Prop","kraken-prop"],["FFOne Perps","ffone-perps"],["Tradeify Perps","tradeify-perps"]]}};</script><script>
 (function(){
@@ -241,7 +261,7 @@ footer{letter-spacing:.03em}
   function fmt(v){ var a = Math.abs(Math.round(v)); return (v < 0 ? '−' : '+') + '$' + a.toLocaleString('en-US'); }
   function build(){
     var size = parseInt($('size').value, 10), D = Math.max(100, parseFloat($('dd').value) || SIZES[size].dd), lock = $('lock').checked, T = SIZES[size].t;
-    var f = D / BASE, days = (scen === 'random' ? randomDays() : SCEN[scen]).map(function(d){ return [d[0]*f, d[1]*f, d[2]*f, d[3]]; });
+    var f = scen === 'custom' ? 1 : D / BASE, days = (scen === 'custom' ? customDays() : scen === 'random' ? randomDays() : SCEN[scen]).map(function(d){ return [d[0]*f, d[1]*f, d[2]*f, d[3]]; });
     var pts = [0];
     days.forEach(function(d){ if (d[3] === 'HL') pts.push(d[0], d[1], d[2]); else pts.push(d[1], d[0], d[2]); });
     var n = pts.length, st = [], eod = [], intra = [], res = {st:null, eod:null, intra:null};
@@ -276,7 +296,8 @@ footer{letter-spacing:.03em}
       ctx.fillStyle = g === 0 ? '#FFFFFF' : '#9B9B9B'; ctx.textAlign = 'right'; ctx.fillText(g === 0 ? 'Start' : fmt(g), padL - 6, Y(g));
     }
     ctx.textAlign = 'center'; ctx.fillStyle = '#9B9B9B';
-    for (var d = 1; d <= (S.n - 1) / 3; d++) { ctx.fillText('D' + d, X(d*3), H - padB / 2 + 2); }
+    var nd = (S.n - 1) / 3, every = nd > 12 ? 2 : 1;
+    for (var d = 1; d <= nd; d++) { if (d % every === 0 || d === 1) ctx.fillText('D' + d, X(d*3), H - padB / 2 + 2); }
     // target
     ctx.setLineDash([2, 4]); ctx.strokeStyle = '#8CC9A0'; ctx.lineWidth = 1.2;
     ctx.beginPath(); ctx.moveTo(padL, Y(S.T)); ctx.lineTo(W - padR, Y(S.T)); ctx.stroke();
@@ -290,28 +311,30 @@ footer{letter-spacing:.03em}
       if (upto < S.n - 1 && frac > 0) { var i2 = upto + 1; ctx.lineTo(X(upto) + (X(i2) - X(upto)) * frac, Y(arr[upto]) + (Y(arr[i2]) - Y(arr[upto])) * frac); }
       ctx.stroke(); ctx.setLineDash([]);
     }
-    line(S.st, '#9B9B9B', [6, 5], 1.6);
-    line(S.eod, '#F2C14E', [], 2);
-    line(S.intra, '#E39A8A', [], 2);
+    if (SHOW.st) line(S.st, '#9B9B9B', [6, 5], 1.6);
+    if (SHOW.eod) line(S.eod, '#F2C14E', [], 2);
+    if (SHOW.intra) line(S.intra, '#E39A8A', [], 2);
     line(S.pts, '#FFFFFF', [], 2.6);
     // breach markers
     [['st', '#9B9B9B', 'Static'], ['eod', '#F2C14E', 'EOD'], ['intra', '#E39A8A', 'Intraday']].forEach(function(r, k){
-      var i = S.res[r[0]]; if (i === null || i > upto) return;
+      var i = S.res[r[0]]; if (i === null || i > upto || !SHOW[r[0]]) return;
       ctx.fillStyle = r[1]; ctx.beginPath(); ctx.arc(X(i), Y(S.pts[i]), 6, 0, Math.PI * 2); ctx.fill();
       ctx.strokeStyle = '#171717'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(i)-3, Y(S.pts[i])-3); ctx.lineTo(X(i)+3, Y(S.pts[i])+3); ctx.moveTo(X(i)+3, Y(S.pts[i])-3); ctx.lineTo(X(i)-3, Y(S.pts[i])+3); ctx.stroke();
       ctx.font = '600 11px Inter, system-ui, monospace'; ctx.textAlign = X(i) > W * .7 ? 'right' : 'left';
       var lx = X(i) + (X(i) > W * .7 ? -10 : 10), ly = Y(S.pts[i]) + 18, lt = r[2] + ' out, day ' + Math.ceil(i / 3);
-      ctx.lineWidth = 4; ctx.strokeStyle = '#0A0A0A'; ctx.lineJoin = 'round'; ctx.strokeText(lt, lx, ly);   // halo so the label reads over the lines
+      var tw = ctx.measureText(lt).width, bx = ctx.textAlign === 'right' ? lx - tw - 5 : lx - 5;   // dark pill so the label reads over the lines
+      ctx.fillStyle = 'rgba(10,10,10,.9)'; ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(bx, ly - 12, tw + 10, 17, 5); else ctx.rect(bx, ly - 12, tw + 10, 17); ctx.fill();
       ctx.fillStyle = r[1]; ctx.fillText(lt, lx, ly);
     });
   }
   function tiles(){
     var upto = Math.floor(prog * (S.n - 1)), end = S.pts[S.n - 1];
+    if (typeof syncScrub === 'function') syncScrub();
     [['st', S.st], ['eod', S.eod], ['intra', S.intra]].forEach(function(r){
       var i = S.res[r[0]], v = $('t-' + r[0]), s = $('s-' + r[0]);
       if (i !== null && i <= upto) { v.textContent = 'Out on day ' + Math.ceil(i / 3); v.className = 'v dead'; s.textContent = 'Equity touched ' + fmt(S.pts[i]) + ' with the line at ' + fmt(r[1][i]); }
       else if (prog >= 1) { v.textContent = 'Survived'; v.className = 'v alive'; s.textContent = 'Room left ' + '$' + Math.round(end - r[1][S.n - 1]).toLocaleString('en-US') + ' (line at ' + fmt(r[1][S.n - 1]) + ')'; }
-      else { v.textContent = 'Day ' + Math.max(1, Math.ceil(upto / 3)) + '…'; v.className = 'v'; s.textContent = 'Line at ' + fmt(r[1][upto]); }
+      else { v.textContent = 'Alive on day ' + Math.max(1, Math.ceil(upto / 3)); v.className = 'v'; s.textContent = 'Line at ' + fmt(r[1][upto]) + ', room ' + '$' + Math.round(S.pts[upto] - r[1][upto]).toLocaleString('en-US'); }
     });
   }
   function run(animate){
@@ -323,7 +346,7 @@ footer{letter-spacing:.03em}
     (function step(now){ prog = Math.min(1, (now - t0) / dur); draw(); tiles(); if (prog < 1) raf = requestAnimationFrame(step); })(t0);
   }
   document.querySelectorAll('.scen [data-s]').forEach(function(b){ b.addEventListener('click', function(){
-    scen = b.dataset.s; if (scen === 'random') seed = (seed * 9301 + 49297) % 233280 + 1;
+    if (b.dataset.s === 'custom' && !CP) return; scen = b.dataset.s; if (scen === 'random') seed = (seed * 9301 + 49297) % 233280 + 1;
     document.querySelectorAll('.scen [data-s]').forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
     run(true);
   }); });
@@ -347,6 +370,71 @@ footer{letter-spacing:.03em}
     h += '</div>';
   });
   who.innerHTML = h;
+
+  // ---- v2: your week, scrubber, toggles, image, link ----
+  var SHOW = {st: true, eod: true, intra: true}, CP = null, sel = 0;
+  function customDays(){
+    var prev = 0;
+    return CP.map(function(p){ var c = prev + p, d = p >= 0 ? [c + 250, prev - 100, c, 'LH'] : [prev + 100, c - 150, c, 'HL']; prev = c; return d; });
+  }
+  function weekNow(){ var out = [], prev = 0; for (var k = 3; k < S.n; k += 3) { out.push(Math.round((S.pts[k] - prev) / 50) * 50); prev = S.pts[k]; } return out; }
+  function nDays(){ return (S.n - 1) / 3; }
+  function syncScrub(){ var sc = $('scrub'), nd = nDays(), d = Math.round(prog * nd); if (+sc.max !== nd) sc.max = nd; if (document.activeElement !== sc) sc.value = d; $('dayo').textContent = d; }
+  function f2(v){ return (v < 0 ? '−' : '+') + '$' + Math.abs(Math.round(v)).toLocaleString('en-US'); }
+  function bars(){
+    var w = scen === 'custom' ? CP : weekNow(), mx = Math.max.apply(null, w.map(Math.abs).concat([500])), h = '';
+    if (sel >= w.length) sel = 0;
+    w.forEach(function(v, k){ var pc = Math.round(Math.abs(v) / mx * 44);
+      h += '<button type="button" data-d="' + k + '" aria-pressed="' + (k === sel ? 'true' : 'false') + '" aria-label="Day ' + (k + 1) + ': ' + f2(v) + '"><span class="ax"></span><b style="' + (v >= 0 ? 'bottom:50%;height:' + Math.max(pc, 2) + '%;background:#FFFFFF' : 'top:50%;height:' + Math.max(pc, 2) + '%;background:#FF8A7A') + '"></b>' + (w.length <= 12 ? '<small>' + (k + 1) + '</small>' : '') + '</button>'; });
+    $('bars').innerHTML = h; $('dl').textContent = 'DAY ' + (sel + 1) + ' CLOSE'; $('dv').textContent = f2(w[sel] || 0);
+  }
+  function toCustom(){ if (scen !== 'custom') { CP = weekNow(); scen = 'custom'; document.querySelectorAll('.scen [data-s]').forEach(function(x){ x.setAttribute('aria-pressed', x.dataset.s === 'custom' ? 'true' : 'false'); if (x.dataset.s === 'custom') x.hidden = false; }); } }
+  var _run = run;
+  run = function(a){ _run(a); bars(); };
+  $('bars').addEventListener('click', function(e){ var b = e.target.closest('[data-d]'); if (!b) return; sel = +b.dataset.d; bars(); });
+  [['dm', -250], ['dp', 250]].forEach(function(x){ $(x[0]).addEventListener('click', function(){ toCustom(); CP[sel] = Math.max(-20000, Math.min(20000, CP[sel] + x[1])); run(false); }); });
+  $('apply').addEventListener('click', function(){
+    var v = ($('paste').value.match(/[-−+]?\$?\d[\d,]*(\.\d+)?/g) || []).map(function(x){ return Math.round(parseFloat(x.replace(/[$,]/g, '').replace('−', '-'))); }).filter(function(x){ return isFinite(x); });
+    if (v.length < 2) { $('pmsg').textContent = 'Paste at least two days, separated by commas or spaces, like 400, -250, 600.'; return; }
+    if (v.length > 20) v = v.slice(0, 20);
+    scen = 'x'; toCustom(); CP = v; sel = 0; $('pmsg').textContent = 'Using your ' + v.length + ' days. Each winning day assumes a $250 give-back and each losing day a $150 dip, so the intraday line shows its bite.'; run(true);
+  });
+  $('scrub').addEventListener('input', function(){ if (raf) cancelAnimationFrame(raf); prog = Math.max(0, +this.value) / nDays(); if (prog === 0) prog = 0.0001; draw(); tiles(); });
+  document.querySelectorAll('.v2 [data-ln]').forEach(function(b){ b.addEventListener('click', function(){ var k = b.dataset.ln; SHOW[k] = !SHOW[k]; b.setAttribute('aria-pressed', SHOW[k] ? 'true' : 'false'); draw(); }); });
+  function link(){ var p = 's=' + scen + '&a=' + $('size').value + '&d=' + Math.round(S.D) + ($('lock').checked ? '' : '&n=1') + (scen === 'custom' ? '&w=' + CP.join(',') : scen === 'random' ? '&r=' + seed : ''); try { history.replaceState(null, '', '#' + p); } catch (e) {} return location.href; }
+  $('ddlnk').addEventListener('click', function(){ var s = this.querySelector('span'), u = link(); (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(function(){ s.textContent = 'Link copied'; }, function(){ s.textContent = 'Copy the address bar'; }); setTimeout(function(){ s.textContent = 'Copy link'; }, 2200); });
+  $('ddimg').addEventListener('click', function(){
+    if (raf) cancelAnimationFrame(raf); prog = 1; draw(); tiles();
+    var W = 1080, H = 1350, c2 = document.createElement('canvas'); c2.width = W; c2.height = H; var x = c2.getContext('2d');
+    (document.fonts && document.fonts.ready || Promise.resolve()).then(function(){
+      x.fillStyle = '#0A0A0A'; x.fillRect(0, 0, W, H); x.strokeStyle = '#2E2E2E'; x.lineWidth = 2; x.strokeRect(1, 1, W - 2, H - 2);
+      x.fillStyle = '#9B9B9B'; x.font = "500 26px 'IBM Plex Mono',monospace"; x.textAlign = 'left'; x.fillText('DRAWDOWN LAB', 70, 100);
+      x.textAlign = 'right'; x.fillText(('$' + Math.round(S.D).toLocaleString('en-US') + ' max drawdown').toUpperCase(), W - 70, 100);
+      x.textAlign = 'left'; x.fillStyle = '#FFFFFF'; x.font = "400 62px 'Playfair Display',Georgia,serif"; x.fillText('Same week, three rules.', 70, 190);
+      var cw = W - 140, ch = Math.round(cw * cv.height / cv.width); if (ch > 640) { cw = Math.round(640 * cv.width / cv.height); ch = 640; } var cx0 = Math.round((W - cw) / 2);
+      x.fillStyle = '#121212'; x.fillRect(60, 240, W - 120, ch + 20); x.drawImage(cv, cx0, 250, cw, ch);
+      var y = 250 + ch + 100;
+      [['st', 'Static', '#9B9B9B'], ['eod', 'End-of-day trailing', '#F2C14E'], ['intra', 'Intraday trailing', '#E39A8A']].forEach(function(r){
+        var v = $('t-' + r[0]).textContent, dead = /Out/.test(v);
+        x.fillStyle = r[2]; x.fillRect(70, y - 30, 8, 44);
+        x.fillStyle = '#C8C8C8'; x.font = "500 30px Inter,sans-serif"; x.textAlign = 'left'; x.fillText(r[1], 100, y);
+        x.fillStyle = dead ? '#FF8A7A' : '#FFFFFF'; x.font = "400 44px 'Playfair Display',Georgia,serif"; x.textAlign = 'right'; x.fillText(v, W - 70, y + 4);
+        y += 84; });
+      x.strokeStyle = '#2E2E2E'; x.lineWidth = 2; x.beginPath(); x.moveTo(70, H - 140); x.lineTo(W - 70, H - 140); x.stroke();
+      x.textAlign = 'left'; x.fillStyle = '#FFFFFF'; x.font = "400 42px 'Playfair Display',Georgia,serif"; x.fillText('Prop Desk', 70, H - 72);
+      x.textAlign = 'right'; x.fillStyle = '#F2C14E'; x.font = "500 28px 'IBM Plex Mono',monospace"; x.fillText('propdesknews.com/drawdown', W - 70, H - 76);
+      c2.toBlob(function(bl){ var fn = 'prop-desk-drawdown-lab.png', file; try { file = new File([bl], fn, {type: 'image/png'}); } catch (e) {}
+        if (file && navigator.canShare && navigator.canShare({files: [file]})) { navigator.share({files: [file]}).catch(function(){}); }
+        else { var u = URL.createObjectURL(bl), l = document.createElement('a'); l.href = u; l.download = fn; document.body.appendChild(l); l.click(); l.remove(); setTimeout(function(){ URL.revokeObjectURL(u); }, 4000); } }, 'image/png');
+    });
+  });
+  (function(){ var h = new URLSearchParams(location.hash.slice(1)); if (!h.get('s')) return;
+    if (h.get('a') && SIZES[+h.get('a')]) $('size').value = h.get('a'); if (+h.get('d') > 0) $('dd').value = +h.get('d'); if (h.get('n')) $('lock').checked = false;
+    var s0 = h.get('s');
+    if (s0 === 'custom' && h.get('w')) { CP = h.get('w').split(',').map(Number).filter(isFinite).slice(0, 20); if (CP.length >= 2) { scen = 'custom'; var b = document.querySelector('.scen [data-s=custom]'); b.hidden = false; } }
+    else if (SCEN[s0] || s0 === 'random') { scen = s0; if (s0 === 'random' && +h.get('r')) seed = +h.get('r'); }
+    document.querySelectorAll('.scen [data-s]').forEach(function(x){ x.setAttribute('aria-pressed', x.dataset.s === scen ? 'true' : 'false'); });
+  })();
   run(true);
 })();
 </script></body></html>
