@@ -363,6 +363,29 @@ footer{letter-spacing:.03em}
 .dirabout{padding-top:8px;padding-bottom:32px}
 .dirabout .lede{color:#9B9B9B;max-width:68ch}
 </style>
+<style data-r3>
+@media (max-width:760px){
+.lrow .f .v{white-space:normal;overflow:visible;text-overflow:clip}
+.lrow .sl .s{display:flex;flex-direction:column;align-items:flex-end;gap:3px;white-space:normal;overflow:visible}
+.lrow .sl code{max-width:100%;overflow:hidden;text-overflow:ellipsis}
+}
+</style><style data-r3>
+.r3k{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:#2A2A2A;border:1px solid #2A2A2A;border-radius:12px;overflow:hidden;margin:14px 0 12px}
+.r3k>div{background:#121212;padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.r3k b{font:500 10.5px Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#6B6B6B}
+.r3k .v{font:500 20px/1.2 Inter,system-ui,sans-serif;color:#FFFFFF;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.r3k .v i{font-style:normal;font-size:13px;color:#9B9B9B}
+.r3k .v.mu{color:#6B6B6B}
+.r3k .s{font-size:12px;color:#7A7A7A;overflow-wrap:anywhere}
+.r3k .gold .v{color:#F2C14E;font-weight:600}
+.r3k code{font:600 11.5px 'IBM Plex Mono',ui-monospace,monospace;border:1px solid #3A3A3A;border-radius:999px;padding:2px 8px;color:#E6E6E6;align-self:flex-start;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.r3k .aff{font-size:11px;color:#6B6B6B}
+details.r3more{border-top:1px solid #222222;padding-top:10px;margin-bottom:8px}
+details.r3more>summary{cursor:pointer;color:#C8C8C8;font-size:14px}
+details.r3more>summary:focus-visible{outline:2px solid #F2C14E;outline-offset:2px}
+details.r3more[open]>summary{margin-bottom:10px}
+@media (min-width:1100px){.grid:not(.rows){grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+</style>
 </head>
 <body>
 <nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/icons/avatar-52.jpg" alt="" width="26" height="26"><span>Prop Desk</span></a><a href="/#deals">Deals</a><a href="/news/">News</a><a href="/firms/" aria-current="page">Directory</a><a href="/compare/">Compare</a><a href="/tools/">Tools</a><button class="sb" type="button" aria-label="Search the site (press /)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span><kbd>/</kbd></button><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
@@ -447,7 +470,7 @@ const FIRMS = [
   split:"100% on EOD Performance Account payouts; 90/10 on Live",
   dd:"EOD trailing; safety net = drawdown + $100",
   plat:"See site",
-  deal:"<b>SAVENOW</b>: 90% off all evals (Intraday, EOD, Legacy, any size), homepage countdown now runs to about Tue Nov 17, 11:59 PM ET. New signups only; not on resets or PA activation fees. Legacy accounts are back for a limited time (monthly billing).",
+  deal:"<b>SAVENOW</b>: 90% off every evaluation (Intraday, EOD and Legacy, any size). Apex's countdown ends Tue Nov 17 at 11:59 PM ET, but it has been extended twice. New sign-ups only; not on resets or PA activation fees. Legacy accounts are back for a limited time (monthly billing).",
   note:"EOD payouts: 5 qualifying days, $500 minimum, 50% consistency, max 6 payouts per account."},
  {n:"Tradeify", m:["futures"], t1:1, w:"https://tradeify.co", x:X("tradeify","ok"),
   plans:"Evaluation with Daily or Flex payout path",
@@ -483,7 +506,7 @@ const FIRMS = [
   split:"PRO 80/20, PRO+ 90/10",
   dd:"See site",
   plat:"See site",
-  deal:"<b>NOFEE50</b> (\"Early Black Friday Sale\"): 50% off for life plus never pay an activation fee. TPT's own NOFEE50 FAQ says it ran \"until Monday, November 9th\", but the homepage banner was still up Tue Nov 10 at ~5:45 AM ET, so it may or may not still apply: check at checkout.",
+  deal:"<b>NOFEE50</b> (Early Black Friday Sale): 50% off for life and no activation fee. TPT's FAQ said it ran until Mon Nov 9, but the banner was still up Nov 10, so confirm at checkout.",
   note:"Withdrawals from day one on PRO, no max. $130 one-time activation fee unless waived. Test resets $79 / $99 / $139 / $169 / $199 (25K to 150K)."},
  {n:"Alpha Futures", m:["futures"], w:"https://alpha-futures.com", x:X("Alpha_Futures_","ok"),
   plans:"Zero · Standard · Advanced · Direct",
@@ -519,7 +542,7 @@ const FIRMS = [
   split:"Profit share after funding",
   dd:"Fixed drawdown on Career Path scaling",
   plat:"Tradovate, NinjaTrader, TradingView, Rithmic, BlackArrow, Finamark, DeepCharts",
-  deal:"<b>NEXTSTEP50</b>: 50% off new evaluations (homepage banner, no end date shown).",
+  deal:"<b>NEXTSTEP50</b>: 50% off new evaluations (no end date shown).",
   note:"One of the older futures firms. New rules for subscriptions bought from Nov 2: the Progression Ladder is gone, replaced by fixed contract limits (25K 2 minis / 20 micros, 50K 4/40, 100K 8/80, 150K 12/120, 200K 15/150), and every withdrawal now needs 5 profitable days ($100 to $350 minimum daily profit by size). Older subscriptions keep the old rules."},
  {n:"Elite Trader Funding", m:["futures"], w:"https://elitetraderfunding.com", x:X("EliteTraderFund","site"),
   plans:"1 Step · Direct to Funded · Static · Diamond Hands · End of Day · Fast Track",
@@ -528,7 +551,7 @@ const FIRMS = [
   split:"Up to 100% (firm's claim)",
   dd:"Varies by plan (static, EOD and trailing options)",
   plat:"TradingView, NinjaTrader, Rithmic, Tradovate, Tickblaze",
-  deal:"<b>NOV75</b>: 75% off every month \"until you pass or cancel\" on any evaluation except Fast Track and Direct to Funded, <b>ends Fri Nov 13, 11:59 PM ET</b> (homepage pop-up, \"5 days only\").",
+  deal:"<b>NOV75</b>: 75% off every month until you pass or cancel, on any evaluation except Fast Track and Direct to Funded. Ends Fri Nov 13, 11:59 PM ET.",
   note:"Homepage says its Terms of Service were updated (Nov 6). Site redirects to elitetraderfunding.app. No time limits on evals. Site footer links @EliteTradersFund but its page tags say @EliteTraderFund."},
  {n:"Top One Futures", m:["futures"], w:"https://toponefutures.com", x:X("TopOneFutures","site"),
   plans:"Elite Daily · Elite Access · Instant Sim Funded · Ignite Instant Funding",
@@ -546,7 +569,7 @@ const FIRMS = [
   split:"Up to 90%",
   dd:"Core 50K: $2,000 EOD trailing, $1,000 daily loss limit, $3,000 target (100K: $3,000 / $1,500 / $6,000). No consistency rule in the challenge, no minimum days",
   plat:"Futures: Tradovate, Quantower, Volumetrica, ATAS, Deepcharts. Crypto/CFD: MetaTrader 5",
-  deal:"Black Friday Special: 85% off everything, still on Nov 10. The countdown read 05:12:18:05 (~Sun Nov 15) at ~5:45 AM ET Nov 10; it has reset before, so it is not a firm end date. <b>PROPDESK</b> (our affiliate code) takes the same 85% at checkout. Homepage also shows a $9 start with code <b>80FUNDING</b>.",
+  deal:"Black Friday Special: 85% off everything. IQ Capital's countdown points to about Sun Nov 15, but it has reset before. <b>PROPDESK</b> (our affiliate code) takes the same 85% at checkout. Code <b>80FUNDING</b> gives a $9 start.",
   note:"New futures plan Flex (homepage \"NEW PLAN\", Nov 10): payouts every 5 days; 50K $3,000 target, $2,000 EOD drawdown, $1,300 soft daily loss limit, $139 on the sale; 100K $6,000 / $3,000 / $1,800, 10 minis or 100 micros, $225 on the sale; daily loss limit can be removed for +$30. Founded by trading championship winner Christoph Radecker (firm's page). Up to 2 forgiven breaches; no minimum payout, paid within 48 hours (firm's claim). Lists $5.5M+ paid out."},
  {n:"TradeDay", m:["futures"], w:"https://www.tradeday.com", x:X("TradeDay","none"),
   plans:"Quick Pay · Fast Pass",
@@ -582,7 +605,7 @@ const FIRMS = [
   split:"Set by account terms",
   dd:"Trailing, $1,500 to $7,500 by account",
   plat:"NinjaTrader, Rithmic, Sierra Chart, ATAS, Bookmap and many more",
-  deal:"No code shown; bundle pricing listed on the homepage.",
+  deal:"No code shown; bundle pricing is listed on Leeloo's site.",
   note:"Long-running futures firm. Homepage banner (Nov 4): \"Updated Leeloo coming soon!\""},
  {n:"Goat Funded Futures", m:["futures"], w:"https://goatfundedfutures.com", x:X("GFFutures","site"),
   plans:"GOAT Daily · Flex · EOD · 1-Day Pass · Instant Classic · Instant Lite",
@@ -591,7 +614,7 @@ const FIRMS = [
   split:"80/20 on most plans; 90/10 on GOAT Daily and Instant Lite; Instant Classic 100% of first $10K",
   dd:"EOD trailing (intraday on Instant Classic and GOAT Daily funded)",
   plat:"NinjaTrader, Tradovate, TradingView, Tickblaze, DeepCharts, ATAS, Tradesea",
-  deal:"<b>GFF55</b>: 55% off all plans, \"limited time promo\", no end date shown (replaced AUTUMN50 on Nov 10). Adding a 2nd account takes 4% off.",
+  deal:"<b>GFF55</b>: 55% off all plans, limited time (no end date shown). A 2nd account takes 4% more off.",
   note:"Rule change from Mon Nov 9 (firm help page): every plan now uses one 1-minute rule. At each payout request and when you pass an eval, at least 70% of closed trades and 70% of net profit must come from trades held longer than 1 minute; miss it and the payout is declined and that cycle's under-1-minute profit is deducted (not a breach). Not applied to live accounts. No activation fees. Futures sister of Goat Funded Trader."},
  {n:"OneUp Trader", m:["futures"], w:"https://www.oneuptrader.com", x:X("oneuptrader","site"),
   plans:"EvaluationPro (1-step)",
@@ -600,7 +623,7 @@ const FIRMS = [
   split:"100% of first $10K, then 90/10",
   dd:"$1.5K / $2.5K / $3.5K / $5K / $5.5K",
   plat:"NinjaTrader, R | Trader, Sierra Chart and others",
-  deal:"Free 7-day test is back on the homepage (\"test FREE for 7 days\"), no code.",
+  deal:"Free 7-day test, no code needed.",
   note:""},
  {n:"UProfit", m:["futures"], w:"https://uprofit.com", x:X("UProfit","none"),
   plans:"DAY 2.0 · Day Soft",
@@ -609,7 +632,7 @@ const FIRMS = [
   split:"Shown as 50% on the homepage; check plan terms",
   dd:"EOD: $400 / $2K / $3K / $4.5K",
   plat:"TradingView, Tradoverse",
-  deal:"Homepage shows about 40% off DAY 2.0, no code: 10K $49 → $29, 50K $130 → $78, 100K $193 → $116, 150K $327 → $196 per month (check at checkout).",
+  deal:"About 40% off DAY 2.0 accounts, no code: 10K $49 → $29, 50K $130 → $78, 100K $193 → $116, 150K $327 → $196 per month. Confirm at checkout.",
   note:"Funding since 2019; 24-hour payouts claimed. No X link on their site."},
  {n:"DayTraders.com", m:["futures"], w:"https://daytraders.com", x:X("DayTraders.com","none"),
   plans:"EOD · Trail · Static · Instant · Live account types",
@@ -627,7 +650,7 @@ const FIRMS = [
   split:"90/10",
   dd:"$3,000 shown on the 50K",
   plat:"Tradovate, NinjaTrader, TradingView",
-  deal:"<b>NOV40</b>: 40% off (replaces OCT50). Examples: 50K EOD eval $179 → $107.40 first month, 25K Instant $349 → $209.40, 50K Instant $549 → $329.40 (check at checkout).",
+  deal:"<b>NOV40</b>: 40% off. Examples: 50K EOD eval $179 → $107.40 first month, 25K Instant $349 → $209.40, 50K Instant $549 → $329.40. Confirm at checkout.",
   note:"No X link on their site."},
  // ---------- added Nov 2 (missing-firms scan) ----------
  {n:"FTMO Futures", m:["futures"], w:"https://ftmo.com/en/futures/", x:X("FTMO_com","ok"),
@@ -673,7 +696,7 @@ const FIRMS = [
   split:"90%, up to 100%",
   dd:"EOD",
   plat:"Tradovate, NinjaTrader, WealthCharts, DeepCharts, Quantower, ATAS",
-  deal:"30% off applied automatically on the homepage (Nov 9 it named code <b>NEW</b>) (25K $69.30, 50K $112, 100K $214.20, 150K $257.60). Bundle pricing: 2nd account 37% off, 3rd 45%, 4th 54%, 5th free.",
+  deal:"30% off, applied automatically (code <b>NEW</b>): 25K $69.30, 50K $112, 100K $214.20, 150K $257.60. Bundles: 2nd account 37% off, 3rd 45%, 4th 54%, 5th free.",
   note:"Built by the team behind FundedElite (CFD). No activation fee, no consistency rule once funded, 24-hour average payout time (firm's claims)."},
  {n:"Funded Futures Family", m:["futures"], w:"https://www.fundedfuturesfamily.com", x:X("fundedfamily","site"),
   plans:"Prime · Choice · S2F Payday · S2F Accelerate · Velocity · Sniper · Premier+",
@@ -682,7 +705,7 @@ const FIRMS = [
   split:"Up to 90%",
   dd:"EOD or trailing by plan; no daily loss limit",
   plat:"Tradovate, WealthCharts",
-  deal:"<b>FIRST50</b>: 50% off your first account plus a $250 payout bonus (homepage countdown read 20D 11H 17M at ~5:45 AM ET Nov 10, so about Nov 30; it may reset).",
+  deal:"<b>FIRST50</b>: 50% off your first account plus a $250 payout bonus. The countdown points to about Nov 30, but it may reset.",
   note:"No activation fee on any plan. Daily payouts. 50K Accelerate accounts bought on or after Oct 30, 2026: $500 max per payout and $1,500 new profit before each payout (older accounts keep $1,250 / $1,500; help center, Nov 8). Velocity add-ons cut (seen Nov 9): Daily Payout +$29 (was +$39), EOD drawdown +$30 (was +$39). Its perps arm, FFOne Perps, is listed under Perps."},
  {n:"PropShopTrader", m:["futures"], w:"https://propshoptrader.com", x:X("PropShopTrader","site"),
   plans:"Flex · Pro · Direct futures plans (also equities and prediction markets)",
@@ -718,7 +741,7 @@ const FIRMS = [
   split:"Up to 80%",
   dd:"Varies by challenge",
   plat:"TradingView, Sierra Chart, NinjaTrader and others",
-  deal:"<b>BF40</b>: 40% off, until Nov 30 (homepage banner, Nov 9).",
+  deal:"<b>BF40</b>: 40% off until Nov 30.",
   note:"Offers both futures and CFD challenges. Their X link was broken on Oct 31."},
 
  // ---------- CFD / FOREX ----------
@@ -747,7 +770,7 @@ const FIRMS = [
   split:"75/25 shown, rising with scaling",
   dd:"3% shown on the featured plan",
   plat:"MT5",
-  deal:"Homepage banner: \"Industry's Lowest $50K For Only $99\" on its Summer Plan (no code, no end date shown; the Nov 10 read did not find the banner, so check the site).",
+  deal:"Summer Plan: a $50K account for $99, no code and no end date shown. The offer was not showing Nov 10, so check the site.",
   note:"Display name says @the5erstrading, but @The5ers is the account. Since 2016."},
  {n:"FundingPips", m:["cfd"], w:"https://fundingpips.com", x:X("FundingPips","site"),
   plans:"Instant · 1 Day Pass · One Step · Flex · Classic 2 Phase · 2 Step",
@@ -765,7 +788,7 @@ const FIRMS = [
   split:"Up to 90%",
   dd:"3% daily, 5% trailing max (featured plan)",
   plat:"MT5, cTrader, DXtrade, TradeLocker, Alpha Trader",
-  deal:"<b>ALPHA20</b>: 20% off all accounts; code <b>FUNDED40</b> also shown (homepage Nov 9, no end dates; DIWALI40 is gone).",
+  deal:"<b>ALPHA20</b>: 20% off all accounts. Code FUNDED40 is also shown (no end dates).",
   note:"UK-based. Not related to Alpha Futures."},
  {n:"Blue Guardian", m:["cfd","futures"], w:"https://blueguardian.com", x:X("BlueGuardian","site"),
   plans:"CFD: Instant, 1 Step, 2 Step. Futures: Standard, Reserve, Express, Direct",
@@ -774,7 +797,7 @@ const FIRMS = [
   split:"Up to 90%",
   dd:"Futures: $3,500 shown on the largest plan",
   plat:"MT5, TradeLocker, Match-Trader, NinjaTrader, Tradovate, DeepCharts, TradingView",
-  deal:"<b>BG25</b>: 25% off (homepage Nov 10; replaced NOV30, no end date shown). Bundles: 2 accounts 35% off, 3 accounts 40%, 4 accounts 45%, 5 accounts 50%.",
+  deal:"<b>BG25</b>: 25% off (no end date shown). Bundles: 2 accounts 35% off, 3 accounts 40%, 4 accounts 45%, 5 accounts 50%.",
   note:"Runs both CFD and futures programs."},
  {n:"FXIFY", m:["cfd"], w:"https://fxify.com", x:X("FXIFY","site"),
   plans:"One Phase · Two Phase · Three Phase · Instant · Lightning",
@@ -801,7 +824,7 @@ const FIRMS = [
   split:"80%, 90% with add-on",
   dd:"10% max; no daily drawdown on instant accounts",
   plat:"MT5, cTrader, Match-Trader",
-  deal:"<b>IF90PS</b>: 30% off your account plus a free profit split add-on; select the add-on at checkout (homepage Nov 10, no end date; LIGHT40 is gone).",
+  deal:"<b>IF90PS</b>: 30% off your account plus a free profit split add-on; pick the add-on at checkout (no end date shown).",
   note:"Footer links @instantfunding; share tag says @instantfunding_."},
  {n:"Hola Prime", m:["cfd","futures"], w:"https://holaprime.com", x:X("HolaPrimeGlobal","site"),
   plans:"1-Step Prime · 2-Step Prime · 2-Step Pro · Direct",
@@ -810,7 +833,7 @@ const FIRMS = [
   split:"Up to 95%",
   dd:"10% max, 5% daily",
   plat:"cTrader, Match-Trader, TradeLocker",
-  deal:"<b>BLACK50</b>: flat 50% off $10K to $100K 2-Step Fly challenges (no end date shown). WELCOME20 is no longer on the homepage (Nov 10).",
+  deal:"<b>BLACK50</b>: flat 50% off $10K to $100K 2-Step Fly challenges (no end date shown).",
   note:"Also runs futures accounts. 1-hour payouts claimed."},
  {n:"Audacity Capital", m:["cfd"], w:"https://audacity.capital", x:X("audacitycap","site"),
   plans:"Ability Challenge (2-step) · Ability One (1-step) · FTP (instant)",
@@ -819,7 +842,7 @@ const FIRMS = [
   split:"Up to 90%",
   dd:"2-step: 7.5% daily, 15% max. 1-step and FTP: 5% daily, 10% max",
   plat:"MT5, DXtrade",
-  deal:"<b>FUNDED35</b>: 35% off all Ability Challenge (2-step) accounts; Ability One (1-step) and FTP (instant) show 25% off (homepage Nov 10, no end date). The 14% anniversary offer is gone; a free trial is still offered.",
+  deal:"<b>FUNDED35</b>: 35% off all Ability Challenge (2-step) accounts; Ability One (1-step) and FTP (instant) show 25% off (no end date shown). A free trial is also offered.",
   note:"Since 2012, London. Old domain audacitycapital.co.uk redirects."},
  {n:"City Traders Imperium", m:["cfd"], w:"https://citytradersimperium.com", x:X("CTI_Funding","site"),
   plans:"1-Step · 2-Step · Instant · Direct",
@@ -828,7 +851,7 @@ const FIRMS = [
   split:"Up to 100%",
   dd:"Balance-based",
   plat:"MT5, Match-Trader",
-  deal:"Free trial, no card needed (homepage).",
+  deal:"Free trial, no card needed.",
   note:"Since 2018."},
  {n:"Fintokei", m:["cfd"], w:"https://www.fintokei.com", x:X("fintokei","site"),
   plans:"StartTrader · SwiftTrader · ProTrader · ProTrader Swing",
@@ -909,7 +932,7 @@ const FIRMS = [
   split:"Up to 100%",
   dd:"4% daily (balance), 6% trailing max",
   plat:"MT5, Match-Trader",
-  deal:"Start any $25K, $50K or $100K challenge for $4 and pay the rest only when you buy the funded account (homepage). Code <b>LIGHT35</b> shown on the $100K 1-Step Express, $549 to $356.85 (replaces SIZE20; , check at checkout).",
+  deal:"Start any $25K, $50K or $100K challenge for $4 and pay the rest only when you buy the funded account. Code <b>LIGHT35</b>: $100K 1-Step Express $549 → $356.85. Confirm at checkout.",
   note:"Their share tag names @fundedtradingplus, which is too long to be a real X handle. Find the account by search."},
  {n:"Maven Trading", m:["cfd"], w:"https://maventrading.com", x:X("Maven Trading","none"),
   plans:"1-Step · 2-Step · 3-Step · Instant · Mini · Buy Now Pay Later",
@@ -927,7 +950,7 @@ const FIRMS = [
   split:"Up to 100%",
   dd:"No consistency rules",
   plat:"Web, desktop and mobile",
-  deal:"<b>UNLUCKY</b>: 30% off (plans not stated); <b>BRIGHTFUTURES</b>: futures offer, 40% off (homepage Nov 9; the RALLY codes and Autumn Promo are gone; check at checkout).",
+  deal:"<b>UNLUCKY</b>: 30% off (plans not stated). <b>BRIGHTFUTURES</b>: 40% off futures. Confirm at checkout.",
   note:"No X link on their site."},
  {n:"FTUK", m:["cfd"], w:"https://ftuk.com", x:X("FTUK","none"),
   plans:"Flex Challenge · Instant Funding",
@@ -963,7 +986,7 @@ const FIRMS = [
   split:"90%, 100% with add-on",
   dd:"$2,000 on the featured futures plan",
   plat:"Listed on site",
-  deal:"<b>HONOR</b>: Veterans Day Sale, 25% off plus 150% refund, \"limited time\" (replaces HALLOWEEN; , check at checkout).",
+  deal:"<b>HONOR</b>: Veterans Day Sale, 25% off plus a 150% refund, limited time. Confirm at checkout.",
   note:"aquafutures.io redirects to AquaFunded's futures page. No X link on their site."},
  {n:"E8 Markets", m:["cfd","futures"], w:"https://e8markets.com", x:X("E8 Markets","none"),
   plans:"E8 One · E8 Pro",
@@ -972,7 +995,7 @@ const FIRMS = [
   split:"80%",
   dd:"6% max",
   plat:"MT5, TradeLocker, cTrader, Match-Trader, E8 Terminal",
-  deal:"<b>E8</b>: homepage now reads \"Save $73 with code E8 on first order\" with 15% / 25% off tags (was 30% off; check at checkout).",
+  deal:"<b>E8</b>: save $73 on a first order (15% to 25% off, depending on the plan). Confirm at checkout.",
   note:"Rebranded around \"SimFi\", multi-asset including futures and crypto. No X link on their site."},
  {n:"Top One Trader", m:["cfd"], w:"https://www.toponetrader.com", x:X("TopOneTrader","site"),
   plans:"One-Step Flash · Two-Step Pro · Nova · Instant Funding · Instant Prime",
@@ -981,7 +1004,7 @@ const FIRMS = [
   split:"Up to 90% to 100% (firm's claim)",
   dd:"7% (plan shown)",
   plat:"MT5, Match-Trader, TradeLocker",
-  deal:"<b>BLACKFRIDAY</b> (\"Black November\"): up to 80% off, plus buy one get one free on Nova (no end date shown). Code <b>SUMMER</b> also shown: up to 60% off 2-Step Plus. Bundle offer: 75% off a 50K Instant Funded account when you buy 3 (Nov 7; , check at checkout).",
+  deal:"<b>BLACKFRIDAY</b> (Black November): up to 80% off, plus buy one get one free on Nova (no end date shown). Code SUMMER: up to 60% off 2-Step Plus. Bundle: 75% off a 50K Instant Funded account when you buy 3. Confirm at checkout.",
   note:"Sister brand of Top One Futures (listed under futures). Firm says payouts average 30 minutes."},
  {n:"Funded Trader Markets", m:["cfd"], w:"https://fundedtradermarkets.com", x:X("FTMarketslive","site"),
   plans:"Launchpad (1-step) · 2 Step · Instant Funding · 1 Step Nitro",
@@ -990,7 +1013,7 @@ const FIRMS = [
   split:"Up to 90% on the first $10K (evaluations); up to 80% instant (firm's claim)",
   dd:"Nitro: 6% max, 4% daily (type not stated); 10% target",
   plat:"MT5, cTrader, TradeLocker, Match-Trader",
-  deal:"<b>Up to 75% off</b> 1 Step Nitro on the homepage, no code shown, no end date (75% on small sizes; 100K is 60% off).",
+  deal:"<b>Up to 75% off</b> 1 Step Nitro, no code (75% on small sizes, 60% on 100K; no end date shown).",
   note:"Forex, indices, commodities and crypto. On-demand payouts (firm's claim). Added Nov 6."},
  // ---------- PERPS (perpetual futures; added Nov 2) ----------
  {n:"MyFundedPerps", m:["perps"], w:"https://myfundedperpetuals.com", x:X("MyFundedPerps","none"),
@@ -1000,7 +1023,7 @@ const FIRMS = [
   split:"Up to 90%",
   dd:"5% static max drawdown, 3% daily loss limit (plan shown)",
   plat:"Own web terminal",
-  deal:"<b>ELITE</b>: 25% off your first two purchases, then 20% off every purchase after. The SPEED sale ended as scheduled (~midnight Nov 5 ET).",
+  deal:"<b>ELITE</b>: 25% off your first two purchases, then 20% off every purchase after.",
   note:"Crypto perps across hundreds of markets. One payout request per funded account per day; Elite accounts have no daily limit."},
  {n:"Propr", m:["perps"], w:"https://www.propr.xyz", x:X("proprxyz","site"),
   plans:"Classic, Turbo and Pro challenges (1-step and 2-step)",
@@ -1027,7 +1050,7 @@ const FIRMS = [
   split:"80%, 90% or 100%, chosen at checkout",
   dd:"4% to 14% customizable, trails on closed profits; daily loss 3% to 9.2%",
   plat:"E8 Terminal (Hyperliquid data)",
-  deal:"Code <b>E8</b>: \"Save $244\" on a first order, which is 50% off the $488 100K perps list ( Nov 8, confirm at checkout).",
+  deal:"<b>E8</b>: save $244 on a first order, which is 50% off the $488 100K perps account. Confirm at checkout.",
   note:"Perps arm of E8 Markets (CFD side listed separately). First payout after 3 calendar days, then on demand."},
  {n:"FTM Perps", m:["perps"], w:"https://www.ftmperps.com", x:X("FTMarketslive","site"),
   plans:"1-Step Infinity and 1-Step Infinity Plus (Funded Trader Markets' 24/7 perps program, \"FTM ∞\")",
@@ -1036,7 +1059,7 @@ const FIRMS = [
   split:"80%, 85% from reward 5, 90% from reward 6",
   dd:"3% daily; max loss 3% static (Infinity) or 5% static (Plus); 9% target, no time limit",
   plat:"FTM Terminal (prices from Hyperliquid, Binance, Bybit, OKX)",
-  deal:"<b>50% off</b> 1-Step Infinity on the homepage, no code or end date shown.",
+  deal:"<b>50% off</b> 1-Step Infinity, no code or end date shown.",
   note:"293 markets 24/7: crypto, stocks, commodities, indices, FX. BTC/ETH up to 8x. Payouts any day from $50, no consistency rule, news trading allowed. 0.03% crypto commission per side, no swap. New in Nov 2026; added Nov 6."},
  {n:"Kraken Prop", m:["perps"], w:"https://www.kraken.com/pro/prop", x:X("krakenfx","site"),
   plans:"Starter, Intermediate, Advanced evaluations, inside Kraken Pro",
@@ -1081,7 +1104,7 @@ const FIRMS = [
   split:"100%",
   dd:"Core 3% end-of-day trailing; Pro 4% static; Max 5% static",
   plat:"Nexus",
-  deal:"<b>BOGO</b>: buy one, get one free (homepage).",
+  deal:"<b>BOGO</b>: buy one, get one free.",
   note:"134 perp markets 24/7: 52 crypto, 58 stocks, 10 forex, 8 commodities, 6 indices. Up to 40x by market. On-demand payouts, 4 per funded account. Launched October 2026."},
  {n:"FFOne Perps", m:["perps"], w:"https://www.fundedfuturesfamily.com/ffone-perps-trutik/", x:X("fundedfamily","site"),
   plans:"Build-your-own evaluation (beta), from Funded Futures Family",
@@ -1090,7 +1113,7 @@ const FIRMS = [
   split:"80%, 90% with add-on",
   dd:"Fees and funding count against drawdown; daily loss limit closes the account",
   plat:"TruTik",
-  deal:"Page shows 40% off evaluations, from $15, no code ( Nov 7, check at checkout).",
+  deal:"40% off evaluations, from $15, no code. Confirm at checkout.",
   note:"Beta. One payout a day, $100 minimum, $10,000 gross per user per month. Up to 10x BTC/ETH, 5x other perps."},
  {n:"Traders Launch Crypto", m:["perps"], w:"https://traderslaunch.com/crypto", x:X("traderslaunch","site"),
   plans:"One-step Crypto 5K · 10K · 20K evaluations (Traders Launch)",
@@ -1138,7 +1161,7 @@ const FIRMS = [
   deal:"",
   note:"Tradeify's site says Tradeify 247 is \"morphing\" into Tradeify Perps; sign up for a beta key for early access. Rules not published yet."}
 ];
-const FIRMAFF = {"alpha-futures": "https://app.alpha-futures.com/signup/prop_desk030313/", "fundednext-futures": "https://fundednext.com/?fpr=PROPDESK", "fundednext": "https://fundednext.com/?fpr=PROPDESK", "top-one-futures": "https://toponefutures.com/?linkId=lp_707970&sourceId=propdesk&tenantId=toponefutures", "bulenox": "https://bulenox.com/member/aff/go/propdesk", "e8-markets": "https://e8markets.com/d/propdesk", "e8-perpetuals": "https://e8markets.com/d/propdesk", "the5ers": "https://www.the5ers.com/?afmc=1hjt", "fxify": "https://trader.fxify.com/purchasechallenge?affiliateId=8886", "vest-markets": "https://next.vestmarkets.com/r/7ppropdesknews", "daytraders-com": "https://daytraders.com/go/yi0-Bjf7PwTngK?c=propdesk", "blusky-trading": "https://trader.blusky.pro/sign-up?referral_id=propdesk", "elite-trader-funding": "https://elitetraderfunding.app/evaluations?ref=propdesk", "phidias-propfirm": "https://member.phidiaspropfirm.com/aff/go/propdesk", "futureselite": "https://app.futureselite.com?aff=AFF9422625", "brightfunded": "https://brightfunded.com/a/v71GplcUSoedvkx8QW172Q", "funded-trader-markets": "https://fundedtradermarkets.com/ref/propdesk", "ftmo": "https://join.ftmo.com/NbILwFjwmuUeLWaSvIUu", "ftmo-futures": "https://join.ftmo.com/NbILwFjwmuUeLWaSvIUu", "leeloo-trading": "https://members.leelootrading.com/amember/aff/go/propdesk", "propshoptrader": "https://propshoptraderdashboard.propaccount.com/challenges?affiliateId=propdesk", "for-traders": "https://app.fortraders.com/trading/new-challenge?affiliateCode=UEOVK4YDPR", "instant-funding": "https://instantfunding.com/?partner=8977", "aquafunded": "https://www.aquafunded.com/?afmc=11d4", "maven-trading": "https://maventrading.com?ref=nzu3zme", "thinkcapital": "https://checkout.thinkcapital.com/checkout?refcode=PROPDESK", "funded-trading-plus": "https://partners.fundedtradingplus.com/click?campaign_id=7&ref_id=810", "blue-guardian": "https://blueguardian.com/?afmc=PROPDESK", "funded-futures-network": "https://app.fundedfuturesnetwork.com/?ref=PDESK", "ffn-perps": "https://ffnperps.com/?ref=PDESK"};
+const FIRMAFF = {"alpha-futures": "https://app.alpha-futures.com/signup/prop_desk030313/", "fundednext-futures": "https://fundednext.com/?fpr=PROPDESK", "fundednext": "https://fundednext.com/?fpr=PROPDESK", "top-one-futures": "https://toponefutures.com/?linkId=lp_707970&sourceId=propdesk&tenantId=toponefutures", "bulenox": "https://bulenox.com/member/aff/go/propdesk", "e8-markets": "https://e8markets.com/d/propdesk", "e8-perpetuals": "https://e8markets.com/d/propdesk", "the5ers": "https://www.the5ers.com/?afmc=1hjt", "fxify": "https://trader.fxify.com/purchasechallenge?affiliateId=8886", "vest-markets": "https://next.vestmarkets.com/r/7ppropdesknews", "daytraders-com": "https://daytraders.com/go/yi0-Bjf7PwTngK?c=propdesk", "blusky-trading": "https://trader.blusky.pro/sign-up?referral_id=propdesk", "elite-trader-funding": "https://elitetraderfunding.app/evaluations?ref=propdesk", "phidias-propfirm": "https://member.phidiaspropfirm.com/aff/go/propdesk", "futureselite": "https://app.futureselite.com?aff=AFF9422625", "brightfunded": "https://brightfunded.com/a/v71GplcUSoedvkx8QW172Q", "funded-trader-markets": "https://fundedtradermarkets.com/ref/propdesk", "ftmo": "https://join.ftmo.com/NbILwFjwmuUeLWaSvIUu", "ftmo-futures": "https://join.ftmo.com/NbILwFjwmuUeLWaSvIUu", "leeloo-trading": "https://members.leelootrading.com/amember/aff/go/propdesk", "propshoptrader": "https://propshoptraderdashboard.propaccount.com/challenges?affiliateId=propdesk", "for-traders": "https://app.fortraders.com/trading/new-challenge?affiliateCode=UEOVK4YDPR", "instant-funding": "https://instantfunding.com/?partner=8977", "aquafunded": "https://www.aquafunded.com/?afmc=11d4", "maven-trading": "https://maventrading.com?ref=nzu3zme", "thinkcapital": "https://checkout.thinkcapital.com/checkout?refcode=PROPDESK", "funded-trading-plus": "https://partners.fundedtradingplus.com/click?campaign_id=7&ref_id=810", "blue-guardian": "https://blueguardian.com/?afmc=PROPDESK", "funded-futures-network": "https://app.fundedfuturesnetwork.com/?ref=PDESK", "ffn-perps": "https://ffnperps.com/?ref=PDESK", "audacity-capital": "https://trade.audacity.capital/user-auth/register?referral_code=50b514", "city-traders-imperium": "https://app.citytradersimperium.com/user-auth/register?referral_code=92f45c", "lark-funding": "https://dashboard.larkfunding.com/challenges?affiliateId=PROPDESK", "lux-trading-firm": "https://luxtradingfirm.com/?ref=1210"};
 const LOGOS = {"alpha-capital": ["Alpha Capital", 0], "alpha-futures": ["Alpha Futures", 1], "apex-trader-funding": ["Apex Trader Funding", 2], "aquafunded": ["AquaFunded", 3], "atlas-funded": ["Atlas Funded", 4], "audacity-capital": ["Audacity Capital", 5], "blue-guardian": ["Blue Guardian", 6], "blueberry-futures": ["Blueberry Futures", 7], "blusky-trading": ["BluSky Trading", 8], "breakout": ["Breakout", 9], "brightfunded": ["BrightFunded", 10], "bulenox": ["Bulenox", 11], "city-traders-imperium": ["City Traders Imperium", 12], "crypto-fund-trader": ["Crypto Fund Trader", 13], "daytraders-com": ["DayTraders.com", 14], "dna-funded": ["DNA Funded", 15], "e8-markets": ["E8 Markets", 16], "earn2trade": ["Earn2Trade", 17], "elite-trader-funding": ["Elite Trader Funding", 18], "ffn-perps": ["FFN Perps", 19], "fintokei": ["Fintokei", 20], "for-traders": ["For Traders", 21], "ftmo": ["FTMO", 22], "ftuk": ["FTUK", 23], "funded-futures-family": ["Funded Futures Family", 24], "funded-futures-network": ["Funded Futures Network", 25], "funded-trading-plus": ["Funded Trading Plus", 26], "fundednext": ["FundedNext", 27], "fundednext-futures": ["FundedNext Futures", 28], "funding-traders": ["Funding Traders", 29], "fundingpips": ["FundingPips", 30], "futureselite": ["FuturesElite", 31], "fxify": ["FXIFY", 32], "goat-funded-futures": ["Goat Funded Futures", 33], "goat-funded-trader": ["Goat Funded Trader", 34], "hola-prime": ["Hola Prime", 35], "hypernova": ["Hypernova", 36], "hyperpnl": ["HyperPNL", 37], "hyrotrader": ["HyroTrader", 38], "instant-funding": ["Instant Funding", 39], "iq-capital": ["IQ Capital", 40], "kraken-prop": ["Kraken Prop", 41], "lark-funding": ["Lark Funding", 42], "leeloo-trading": ["Leeloo Trading", 43], "legends-trading": ["Legends Trading", 44], "lucid-trading": ["Lucid Trading", 45], "lux-trading-firm": ["Lux Trading Firm", 46], "maven-trading": ["Maven Trading", 47], "myfundedfutures-mffu": ["MyFundedFutures (MFFU)", 48], "myfundedperps": ["MyFundedPerps", 49], "oneup-trader": ["OneUp Trader", 50], "phidias-propfirm": ["Phidias Propfirm", 51], "pipfarm": ["PipFarm", 52], "propr": ["Propr", 53], "propshoptrader": ["PropShopTrader", 54], "purdia-capital": ["Purdia Capital", 55], "qt-funded-quant-tekel": ["QT Funded (Quant Tekel)", 56], "take-profit-trader": ["Take Profit Trader", 57], "the-futures-desk": ["The Futures Desk", 58], "the-trading-pit": ["The Trading Pit", 59], "the5ers": ["The5ers", 60], "thinkcapital": ["ThinkCapital", 61], "top-one-futures": ["Top One Futures", 62], "top-one-trader": ["Top One Trader", 63], "topstep": ["Topstep", 64], "tradeday": ["TradeDay", 65], "tradeify": ["Tradeify", 66], "traders-launch": ["Traders Launch", 67], "uprofit": ["UProfit", 68], "vanta-trading": ["Vanta Trading", 69], "vest-markets": ["Vest Markets", 70], "ftmo-futures": ["FTMO Futures", 22], "e8-perpetuals": ["E8 Perpetuals", 16], "ffone-perps": ["FFOne Perps", 24], "traders-launch-crypto": ["Traders Launch Crypto", 67], "tradeify-perps": ["Tradeify Perps", 66], "_n": 71};
 // Account-size picker: prices per size read only from each firm's own text (size_prices.py), plus live-deal prices from the home page
 const SIZEP = {"topstep":{"z":["50K","100K","150K"],"p":{"50K":[["Standard","$49","per month plus $149 activation",49.0,"mo"],["No Activation Fee","$95","per month",95.0,"mo"]],"100K":[["Standard","$99","per month plus $149 activation",99.0,"mo"],["No Activation Fee","$149","per month",149.0,"mo"]],"150K":[["Standard","$199","per month plus $149 activation",199.0,"mo"],["No Activation Fee","$229","per month",229.0,"mo"]]}},"apex-trader-funding":{"z":["25K","50K","100K","150K"],"p":{"25K":[["Intraday Trail","$167","one-time, plus $89 activation when you pass",167.0,"once"],["EOD Trail","$490","one-time, plus $109 activation when you pass",490.0,"once"],["No Activation Fee Intraday","$690","one-time, no activation fee",690.0,"once"],["No Activation Fee EOD","$1,090","one-time, no activation fee",1090.0,"once"]],"50K":[["Intraday Trail","$249","one-time, plus $99 activation when you pass",249.0,"once"],["EOD Trail","$590","one-time, plus $129 activation when you pass",590.0,"once"],["No Activation Fee Intraday","$799","one-time, no activation fee",799.0,"once"],["No Activation Fee EOD","$1,190","one-time, no activation fee",1190.0,"once"]],"100K":[["Intraday Trail","$790","one-time, plus $129 activation when you pass",790.0,"once"],["EOD Trail","$1,190","one-time, plus $139 activation when you pass",1190.0,"once"],["No Activation Fee Intraday","$999","one-time, no activation fee",999.0,"once"],["No Activation Fee EOD","$1,590","one-time, no activation fee",1590.0,"once"]],"150K":[["Intraday Trail","$1,190","one-time, plus $149 activation when you pass",1190.0,"once"],["EOD Trail","$2,190","one-time, plus $159 activation when you pass",2190.0,"once"],["No Activation Fee Intraday","$1,890","one-time, no activation fee",1890.0,"once"],["No Activation Fee EOD","$2,490","one-time, no activation fee",2490.0,"once"]]},"k":"Nov 9"},"tradeify":{"z":["25K","50K","100K","150K","300K"],"p":{"25K":[["Select","$109","one-time, no activation fee",109.0,"once"]],"50K":[["Select","$165","one-time, no activation fee",165.0,"once"]],"100K":[["Select","$265","one-time, no activation fee",265.0,"once"]],"150K":[["Select","$369","one-time, no activation fee",369.0,"once"]]},"k":"Nov 9"},"lucid-trading":{"z":["25K","50K","100K","150K"],"p":{"25K":[["LucidPro","$108","one-time, no activation fee",108.0,"once"],["LucidFlex","$65","one-time, no activation fee",65.0,"once"],["LucidDaily","$72","one-time, intraday evaluation drawdown (end-of-day costs more)",72.0,"once"],["LucidDirect","$329","one-time, no evaluation",329.0,"once"]],"50K":[["LucidPro","$172","one-time, no activation fee",172.0,"once"],["LucidFlex","$115","one-time, no activation fee",115.0,"once"],["LucidDaily","$94","one-time, intraday evaluation drawdown (end-of-day costs more)",94.0,"once"],["LucidDirect","$515","one-time, no evaluation",515.0,"once"]],"100K":[["LucidPro","$272","one-time, no activation fee",272.0,"once"],["LucidFlex","$215","one-time, no activation fee",215.0,"once"],["LucidDaily","$158","one-time, intraday evaluation drawdown (end-of-day costs more)",158.0,"once"],["LucidDirect","$700","one-time, no evaluation",700.0,"once"]],"150K":[["LucidPro","$365","one-time, no activation fee",365.0,"once"],["LucidFlex","$323","one-time, no activation fee",323.0,"once"],["LucidDaily","$229","one-time, intraday evaluation drawdown (end-of-day costs more)",229.0,"once"],["LucidDirect","$836","one-time, no evaluation",836.0,"once"]]},"k":"Nov 9"},"myfundedfutures-mffu":{"z":["25K","50K","100K","150K"],"p":{"25K":[["Builder","$105","one-time, no activation fee",105.0,"once"],["Rapid","$145","one-time, no activation fee",145.0,"once"],["Rapid EOD","$145","one-time, no activation fee",145.0,"once"]],"50K":[["Builder","$153","one-time, no activation fee",153.0,"once"],["Rapid","$209","one-time, no activation fee",209.0,"once"],["Rapid EOD","$225","one-time, no activation fee",225.0,"once"],["Pro","$265","one-time, no activation fee",265.0,"once"]],"100K":[["Builder","$282","one-time, no activation fee",282.0,"once"],["Rapid","$356","one-time, no activation fee",356.0,"once"],["Pro","$401","one-time, no activation fee",401.0,"once"]],"150K":[["Builder","$398","one-time, no activation fee",398.0,"once"],["Rapid","$463","one-time, no activation fee",463.0,"once"],["Pro","$557","one-time, no activation fee",557.0,"once"]]},"k":"Nov 9"},"take-profit-trader":{"z":["25K","50K","75K","100K","150K"],"p":{"25K":[["","$150","per month",150.0,"mo"]],"50K":[["","$170","per month",170.0,"mo"]],"75K":[["","$245","per month",245.0,"mo"]],"100K":[["","$330","per month",330.0,"mo"]],"150K":[["","$360","per month",360.0,"mo"]]}},"alpha-futures":{"z":["50K","100K","150K"],"p":{"50K":[["Standard","$129","per month list",129.0,"mo"]],"100K":[["Standard","$239","per month list",239.0,"mo"]],"150K":[["Standard","$349","per month list",349.0,"mo"]]}},"fundednext-futures":{"z":["25K","50K","100K","150K"],"p":{"50K":[["Flex","$141.99","one-time",141.99,"once"],["Rapid Pro","$299.99","one-time",299.99,"once"],["Direct","$283.99","one-time",283.99,"once"]],"100K":[["Flex","$273.99","one-time",273.99,"once"],["Rapid Pro","$483.99","one-time",483.99,"once"]],"150K":[["Flex","$490.99","one-time",490.99,"once"]],"25K":[["Rapid Pro","$125.99","one-time",125.99,"once"]]},"k":"Nov 9"},"earn2trade":{"z":["25K","50K","100K","200K"],"p":{"25K":[["Trader Career Path","$150","per month",150.0,"mo"]],"50K":[["Trader Career Path","$190","per month",190.0,"mo"],["Gauntlet Mini from","$170","per month (other sizes at checkout)",170.0,"mo"]],"100K":[["Trader Career Path","$350","per month",350.0,"mo"]]},"k":"Nov 4"},"elite-trader-funding":{"r":[10.0,150.0],"p":{"50K":[["1 Step","$207","every 30 days; activation $87/month or $177 once",207.0,"mo"],["Direct to Funded","$747","one-time, no activation fee",747.0,"once"],["Static","$497","every 30 days; activation $87/month or $177 once",497.0,"mo"],["End of Day","$347","every 30 days; activation $87/month or $177 once",347.0,"mo"]],"100K":[["1 Step","$257","every 30 days; activation $87/month or $247 once",257.0,"mo"],["Direct to Funded","$997","one-time, no activation fee",997.0,"once"],["Diamond Hands","$397","every 30 days; activation $87/month or $307 once",397.0,"mo"],["End of Day","$487","every 30 days; activation $87/month or $257 once",487.0,"mo"]],"150K":[["1 Step","$347","every 30 days; activation $87/month or $247 once",347.0,"mo"]],"10K":[["Direct to Funded (Mini Inferno)","$357","one-time, no activation fee",357.0,"once"],["Static","$147","every 30 days; activation $87/month or $177 once",147.0,"mo"],["Fast Track EOD","$57","one-time; activation $87/month",57.0,"once"],["Fast Track Static","$77","one-time; activation $87/month",77.0,"once"]],"25K":[["Static","$277","every 30 days; activation $87/month or $177 once",277.0,"mo"]]},"z":["10K","25K","50K","100K","150K"],"k":"Nov 9"},"top-one-futures":{"z":["25K","50K","100K","150K"],"p":{"25K":[["Evals","$178","(before code)",178.0,""]],"50K":[["Evals","$218","(before code)",218.0,""]],"100K":[["Evals","$398","(before code)",398.0,""]],"150K":[["Evals","$549","(before code)",549.0,""]]}},"tradeday":{"z":["25K","50K","100K","150K"],"p":{"25K":[["Quick Pay","$100","per month, no activation fee",100.0,"mo"]],"50K":[["Quick Pay","$131","per month, no activation fee",131.0,"mo"]],"100K":[["Quick Pay","$240","per month, no activation fee",240.0,"mo"]],"150K":[["Quick Pay","$360","per month, no activation fee",360.0,"mo"]]},"k":"Nov 9"},"phidias-propfirm":{"z":["25K","50K","100K","150K"]},"funded-futures-network":{"z":["25K","50K","100K","150K","250K"],"p":{"25K":[["Sale price","$44.40","one-time",44.4,"once"]],"50K":[["Sale price","$53.40","one-time",53.4,"once"]],"100K":[["Sale price","$104.40","one-time",104.4,"once"]],"150K":[["Sale price","$122.40","one-time",122.4,"once"]],"250K":[["Sale price","$197.40","one-time",197.4,"once"]]}},"leeloo-trading":{"r":[25.0,300.0],"p":{"25K":[["Aspire","$250","per month",250.0,"mo"]],"50K":[["Launch","$280","per month",280.0,"mo"]],"100K":[["Climb","$320","per month",320.0,"mo"]],"150K":[["Cruise","$405","per month",405.0,"mo"]],"250K":[["Burst","$725","per month",725.0,"mo"]],"300K":[["Explode","$850","per month",850.0,"mo"]]},"z":["25K","50K","100K","150K","250K","300K"],"k":"Nov 9"},"goat-funded-futures":{"z":["25K","50K","100K","150K"],"p":{"25K":[["","$178","one-time (before code)",178.0,"once"]],"50K":[["","$238","one-time (before code)",238.0,"once"]],"100K":[["","$378","one-time (before code)",378.0,"once"]],"150K":[["","$538","one-time (before code)",538.0,"once"]]}},"oneup-trader":{"z":["25K","50K","100K","150K","250K"],"p":{"25K":[["","$65","per month",65.0,"mo"]],"50K":[["","$75","per month",75.0,"mo"]],"100K":[["","$150","per month",150.0,"mo"]],"150K":[["","$175","per month",175.0,"mo"]],"250K":[["","$325","per month",325.0,"mo"]]}},"uprofit":{"z":["10K","50K","100K","150K"],"p":{"10K":[["DAY 2.0 per month","$49","",49.0,"mo"],["homepage sale prices","$29",". Offered as Day Soft or Day Flex",29.0,""]],"50K":[["DAY 2.0 per month","$130","",130.0,"mo"],["homepage sale prices","$78",". Offered as Day Soft or Day Flex",78.0,""]],"100K":[["DAY 2.0 per month","$193","",193.0,"mo"],["homepage sale prices","$116",". Offered as Day Soft or Day Flex",116.0,""]],"150K":[["DAY 2.0 per month","$327","list",327.0,"mo"],["homepage sale prices","$196",". Offered as Day Soft or Day Flex",196.0,""]]}},"daytraders-com":{"z":["25K","50K","100K","150K","300K"],"p":{"25K":[["EOD","$80","one-time, plus $5 activation",80.0,"once"],["Intraday Trail","$55","one-time, plus $5 activation",55.0,"once"],["Static","$40","one-time, plus $5 activation",40.0,"once"]],"50K":[["EOD","$105","one-time, plus $5 activation",105.0,"once"],["Intraday Trail","$70","one-time, plus $5 activation",70.0,"once"],["Static","$50","one-time, plus $5 activation",50.0,"once"]],"150K":[["EOD","$225","one-time, plus $5 activation",225.0,"once"],["Intraday Trail","$100","one-time, plus $5 activation",100.0,"once"],["Static","$90","one-time, plus $5 activation",90.0,"once"]],"300K":[["EOD","$400","one-time, plus $5 activation",400.0,"once"],["Intraday Trail","$140","one-time, plus $5 activation",140.0,"once"]],"100K":[["Static","$75","one-time, plus $5 activation",75.0,"once"]]},"k":"Nov 9"},"purdia-capital":{"z":["25K","50K","100K","150K"],"p":{"25K":[["Instant Funded","$349","one-time",349.0,"once"]],"50K":[["Instant Funded","$549","one-time",549.0,"once"],["EOD Evaluation","$179","per month, plus $130 activation when you pass",179.0,"mo"]],"100K":[["Pioneer (instant)","$849","one-time",849.0,"once"],["Static Instant Funded","$1,499","one-time",1499.0,"once"],["EOD Evaluation","$299","per month, plus $130 activation when you pass",299.0,"mo"],["Pro Evaluation","$199","per month, plus $130 activation when you pass",199.0,"mo"]],"150K":[["Static Instant Funded","$2,299","one-time",2299.0,"once"]]},"k":"Nov 9"},"ftmo-futures":{"z":["50K","100K","150K"],"p":{"50K":[["From","$119","per month (plan shown)",119.0,"mo"]],"100K":[["From","$169","per month (plan shown)",169.0,"mo"]],"150K":[["From","$229","per month (plan shown)",229.0,"mo"]]}},"legends-trading":{"z":["25K","50K","100K","150K"],"p":{"25K":[["Elite","$119","no activation fee",119.0,""]],"50K":[["Elite","$151","no activation fee",151.0,""],["Apprentice","$59","plus $99 activation",59.0,""]],"100K":[["Elite","$227","no activation fee",227.0,""],["Apprentice","$107","plus $129 activation",107.0,""]],"150K":[["Elite","$347","no activation fee",347.0,""],["Apprentice","$138","plus $149 activation",138.0,""]]}},"blusky-trading":{"z":["3.5K","25K","50K","100K","150K","200K","300K"],"p":{"3.5K":[["Instant Funding","$749","one-time",749.0,"once"]],"25K":[["Propel","$150","per 30 days",150.0,"mo"]],"50K":[["Launch","$59","per 30 days, plus $99 when you pass",59.0,"mo"],["Propel","$160","per 30 days",160.0,"mo"],["Orbit","$199","one-time",199.0,"once"],["Instant Funding","$599","one-time",599.0,"once"]],"100K":[["Launch","$69","per 30 days, plus $149 when you pass",69.0,"mo"],["Propel","$220","per 30 days",220.0,"mo"],["Orbit","$299","one-time",299.0,"once"]],"150K":[["Propel (static)","$170","per 30 days",170.0,"mo"],["Orbit","$419","one-time",419.0,"once"]],"200K":[["Launch (static)","$79","per 30 days, plus $179 when you pass",79.0,"mo"],["Propel (static)","$270","per 30 days",270.0,"mo"],["Orbit (static)","$419","one-time",419.0,"once"]],"300K":[["Propel (static)","$320","per 30 days",320.0,"mo"]]},"k":"Nov 9"},"traders-launch":{"z":["25K","50K","100K","200K","300K"],"p":{"100K":[["Premium from","$99","one-time (60% or 80% split)",99.0,"once"],["Static, 60% split","$479","one-time",479.0,"once"],["Static, 80% split","$599","one-time",599.0,"once"],["Static, 90% split","$679","one-time",679.0,"once"]],"200K":[["Premium from","$199","one-time (60% or 80% split)",199.0,"once"]],"300K":[["Premium from","$399","one-time (60% or 80% split)",399.0,"once"]],"25K":[["Static, 60% split","$119","one-time",119.0,"once"],["Static, 80% split","$149","one-time",149.0,"once"],["Static, 90% split","$169","one-time",169.0,"once"]],"50K":[["Static, 60% split","$239","one-time",239.0,"once"],["Static, 80% split","$299","one-time",299.0,"once"],["Static, 90% split","$339","one-time",339.0,"once"]]},"k":"Nov 4"},"futureselite":{"z":["25K","50K","100K","150K"],"p":{"25K":[["","$99","one-time",99.0,"once"]],"50K":[["","$160","one-time",160.0,"once"]],"100K":[["","$306","one-time",306.0,"once"]],"150K":[["","$368","one-time",368.0,"once"]]}},"funded-futures-family":{"z":["2K","25K","50K","100K","150K"]},"propshoptrader":{"z":["25K","50K","100K","150K"],"p":{"25K":[["Flex","$79","one-time, on Tickblaze (Rithmic costs more)",79.0,"once"],["Pro","$109","one-time, on Tickblaze (Rithmic costs more)",109.0,"once"],["Direct","$329","one-time, on Tickblaze (Rithmic costs more)",329.0,"once"]],"50K":[["Flex","$139","one-time, on Tickblaze (Rithmic costs more)",139.0,"once"],["Pro","$169","one-time, on Tickblaze (Rithmic costs more)",169.0,"once"],["Direct","$515","one-time, on Tickblaze (Rithmic costs more)",515.0,"once"]],"100K":[["Flex","$259","one-time, on Tickblaze (Rithmic costs more)",259.0,"once"],["Pro","$269","one-time, on Tickblaze (Rithmic costs more)",269.0,"once"],["Direct","$700","one-time, on Tickblaze (Rithmic costs more)",700.0,"once"]],"150K":[["Flex","$375","one-time, on Tickblaze (Rithmic costs more)",375.0,"once"],["Pro","$365","one-time, on Tickblaze (Rithmic costs more)",365.0,"once"],["Direct","$836","one-time, on Tickblaze (Rithmic costs more)",836.0,"once"]]},"k":"Nov 4"},"blueberry-futures":{"z":["25K","50K","100K","150K"],"p":{"25K":[["Ascent","$139","per month",139.0,"mo"],["Accelerated","$110.40","per month",110.4,"mo"]],"50K":[["Ascent","$245","per month",245.0,"mo"],["Accelerated","$184","per month",184.0,"mo"]],"100K":[["Ascent","$368","per month",368.0,"mo"],["Accelerated","$276","per month",276.0,"mo"]],"150K":[["Ascent","$607","per month",607.0,"mo"],["Accelerated","$454","per month",454.0,"mo"]]},"k":"Nov 9"},"ftmo":{"z":["10K","25K","50K","100K","200K"],"p":{"10K":[["From","€89","one-time, refundable",89.0,"once"]],"25K":[["From","€250","one-time, refundable",250.0,"once"]],"50K":[["From","€345","one-time, refundable",345.0,"once"]],"100K":[["From","€439","one-time, refundable",439.0,"once"]],"200K":[["From","€1,080","one-time, refundable",1080.0,"once"]]}},"fundingpips":{"z":["5K","10K","25K","50K","100K"],"p":{"5K":[["2-Step Flex","$35","",35.0,""],["2-Step Standard","$39","",39.0,""],["2-Step Pro","$29","",29.0,""]],"10K":[["2-Step Flex","$64","",64.0,""]],"25K":[["2-Step Flex","$175","",175.0,""]],"50K":[["2-Step Flex","$299","",299.0,""]],"100K":[["2-Step Flex","$555","",555.0,""]]},"k":"Nov 9"},"alpha-capital":{"z":["2.5K","5K","10K","25K","50K","100K","200K"],"p":{"2.5K":[["","$30","one-time",30.0,"once"]],"5K":[["","$67","one-time",67.0,"once"]],"10K":[["","$97","one-time",97.0,"once"]],"25K":[["","$197","one-time",197.0,"once"]],"50K":[["","$257","one-time",257.0,"once"]],"100K":[["","$457","one-time",457.0,"once"]],"200K":[["","$897","one-time",897.0,"once"]]}},"blue-guardian":{"z":["25K","50K","100K","150K"],"p":{"25K":[["Futures Standard","$154","",154.0,""],["Futures Express","$86","",86.0,""]],"50K":[["Futures Standard","$209","",209.0,""],["Futures Express","$130","",130.0,""]],"100K":[["Futures Standard","$330","",330.0,""],["Futures Express","$205","",205.0,""]],"150K":[["Futures Standard","$424","",424.0,""],["Futures Express","$320","",320.0,""]]},"k":"Nov 9"},"fxify":{"r":[5.0,400.0],"p":{"5K":[["One Phase","$59","",59.0,""],["Two Phase","$59","",59.0,""],["Three Phase","$39","",39.0,""]],"10K":[["One Phase","$89","",89.0,""],["Two Phase","$89","",89.0,""],["Three Phase","$59","",59.0,""]],"15K":[["One Phase","$119","",119.0,""],["Two Phase","$119","",119.0,""],["Three Phase","$79","",79.0,""]],"25K":[["One Phase","$199","",199.0,""],["Two Phase","$199","",199.0,""],["Three Phase","$149","",149.0,""]],"50K":[["One Phase","$379","",379.0,""],["Two Phase","$379","",379.0,""],["Three Phase","$249","",249.0,""]],"100K":[["One Phase","$549","",549.0,""],["Two Phase","$549","",549.0,""],["Three Phase","$399","",399.0,""]],"200K":[["One Phase","$1,049","",1049.0,""],["Two Phase","$1,049","",1049.0,""],["Three Phase","$799","",799.0,""]],"400K":[["One Phase","$2,950","",2950.0,""],["Two Phase","$2,950","",2950.0,""],["Three Phase","$1,599","",1599.0,""]]},"z":["5K","10K","15K","25K","50K","100K","200K","400K"],"k":"Nov 4"},"goat-funded-trader":{"r":[1.0,400.0],"p":{"1K":[["From","$15","",15.0,""]],"400K":[["From","$1,499","",1499.0,""]]}},"hola-prime":{"z":["5K","10K","25K","50K","100K","200K"]},"audacity-capital":{"z":["5K","10K","25K","50K","100K","200K"],"p":{"5K":[["List","$49","",49.0,""]],"10K":[["List","$79","",79.0,""]],"25K":[["List","$195","",195.0,""]],"50K":[["List","$329","",329.0,""]],"100K":[["List","$549","",549.0,""]],"200K":[["List","$1,049","",1049.0,""]]}},"city-traders-imperium":{"r":[2.5,100.0],"p":{"2.5K":[["1-Step","$29","one-time",29.0,"once"],["2-Step","$39","one-time",39.0,"once"],["Straight to Funded","$79","one-time",79.0,"once"]],"5K":[["1-Step","$49","one-time",49.0,"once"],["2-Step","$59","one-time",59.0,"once"],["Straight to Funded","$139","one-time",139.0,"once"],["Fully Funded","$229","one-time",229.0,"once"]],"10K":[["1-Step","$79","one-time",79.0,"once"],["2-Step","$99","one-time",99.0,"once"],["Straight to Funded","$259","one-time",259.0,"once"],["Fully Funded","$399","one-time",399.0,"once"]],"25K":[["1-Step","$159","one-time",159.0,"once"],["2-Step","$199","one-time",199.0,"once"]],"50K":[["1-Step","$299","one-time",299.0,"once"],["2-Step","$329","one-time",329.0,"once"]],"100K":[["1-Step","$449","one-time",449.0,"once"],["2-Step","$549","one-time",549.0,"once"]],"20K":[["Straight to Funded","$449","one-time",449.0,"once"],["Fully Funded","$999","one-time",999.0,"once"]],"40K":[["Straight to Funded","$849","one-time",849.0,"once"],["Fully Funded","$1,999","one-time",1999.0,"once"]],"80K":[["Straight to Funded","$1,599","one-time",1599.0,"once"],["Fully Funded","$3,999","one-time",3999.0,"once"]]},"z":["2.5K","5K","10K","20K","25K","40K","50K","80K","100K"],"k":"Nov 9"},"fintokei":{"r":[5.0,400.0],"p":{"5K":[["StartTrader","$34","one-time",34.0,"once"],["SwiftTrader","$44","one-time",44.0,"once"],["ProTrader","$49","one-time",49.0,"once"],["ProTrader Swing","$69","one-time",69.0,"once"]],"10K":[["SwiftTrader","$89","one-time",89.0,"once"],["ProTrader","$99","one-time",99.0,"once"],["ProTrader Swing","$119","one-time",119.0,"once"]],"20K":[["SwiftTrader","$144","one-time",144.0,"once"],["ProTrader","$159","one-time",159.0,"once"],["ProTrader Swing","$199","one-time",199.0,"once"]],"50K":[["SwiftTrader","$299","one-time",299.0,"once"],["ProTrader","$329","one-time",329.0,"once"],["ProTrader Swing","$419","one-time",419.0,"once"]],"100K":[["SwiftTrader","$499","one-time",499.0,"once"],["ProTrader","$549","one-time",549.0,"once"],["ProTrader Swing","$679","one-time",679.0,"once"]],"200K":[["SwiftTrader","$1,099","one-time",1099.0,"once"],["ProTrader","$1,249","one-time",1249.0,"once"],["ProTrader Swing","$1,499","one-time",1499.0,"once"]],"400K":[["ProTrader","$2,599","one-time",2599.0,"once"]]},"z":["5K","10K","20K","50K","100K","200K","400K"],"k":"Nov 9"},"thinkcapital":{"z":["2.5K","5K","10K","25K","50K","100K","200K"],"p":{"5K":[["Lightning or Dual Step from","$59","",59.0,""]]}},"lux-trading-firm":{"r":[10.0,1000.0],"p":{"10K":[["From","£85","",85.0,""]],"100K":[["","£299","",299.0,""]]}},"atlas-funded":{"z":["5K","10K","25K","50K","100K","200K"],"p":{"5K":[["","$31","",31.0,""]],"200K":[["","$434","",434.0,""]]}},"lark-funding":{"r":[5.0,200.0],"p":{"10K":[["Instant","$400","one-time",400.0,"once"],["1-Step","$200","one-time",200.0,"once"],["1-Step Max","$99","one-time",99.0,"once"],["3-Step","$105","one-time",105.0,"once"]]},"z":["10K"],"k":"Nov 9"},"funded-trading-plus":{"z":["10K","25K","50K","100K","200K"],"p":{"100K":[["1-Step Express","$549","one-time",549.0,"once"]]},"k":"Nov 9"},"maven-trading":{"r":[2.0,100.0],"p":{"5K":[["Standard 1-Step","$19","one-time",19.0,"once"],["Standard 2-Step","$22","one-time",22.0,"once"],["Standard 3-Step","$17","one-time",17.0,"once"]],"10K":[["Standard 1-Step","$37","one-time",37.0,"once"],["Standard 2-Step","$44","one-time",44.0,"once"],["Standard 3-Step","$38","one-time",38.0,"once"]],"20K":[["Standard 1-Step","$68","one-time",68.0,"once"],["Standard 2-Step","$88","one-time",88.0,"once"],["Standard 3-Step","$76","one-time",76.0,"once"]],"50K":[["Standard 1-Step","$170","one-time",170.0,"once"],["Standard 2-Step","$220","one-time",220.0,"once"],["Standard 3-Step","$190","one-time",190.0,"once"]],"100K":[["Standard 1-Step","$380","one-time",380.0,"once"],["Standard 2-Step","$440","one-time",440.0,"once"],["Standard 3-Step","$299","one-time",299.0,"once"]]},"z":["5K","10K","20K","50K","100K"],"k":"Nov 9"},"brightfunded":{"r":[5.0,200.0]},"ftuk":{"r":[5.0,200.0]},"funding-traders":{"r":[5.0,400.0],"p":{"10K":[["Instant","$179","one-time",179.0,"once"],["2-Step Pro10","$150","one-time",150.0,"once"],["2-Step Pro6","$79","one-time",79.0,"once"],["1-Step","$109","one-time",109.0,"once"]],"25K":[["Instant","$319","one-time",319.0,"once"],["2-Step Pro10","$290","one-time",290.0,"once"],["2-Step Pro6","$159","one-time",159.0,"once"],["1-Step","$229","one-time",229.0,"once"]],"50K":[["Instant","$479","one-time",479.0,"once"],["2-Step Pro10","$430","one-time",430.0,"once"],["2-Step Pro6","$259","one-time",259.0,"once"],["1-Step","$329","one-time",329.0,"once"]],"100K":[["Instant","$749","one-time",749.0,"once"],["2-Step Pro10","$750","one-time",750.0,"once"],["2-Step Pro6","$459","one-time",459.0,"once"],["1-Step","$589","one-time",589.0,"once"]],"200K":[["Instant","$1,349","one-time",1349.0,"once"],["2-Step Pro10","$1,250","one-time",1250.0,"once"],["2-Step Pro6","$799","one-time",799.0,"once"],["1-Step","$999","one-time",999.0,"once"]],"400K":[["Instant","$2,349","one-time",2349.0,"once"]],"5K":[["2-Step Pro10","$90","one-time",90.0,"once"],["2-Step Pro6","$49","one-time",49.0,"once"],["1-Step","$59","one-time",59.0,"once"]]},"z":["5K","10K","25K","50K","100K","200K","400K"],"k":"Nov 4"},"qt-funded-quant-tekel":{"r":[5.0,200.0]},"aquafunded":{"r":[2.5,400.0]},"e8-markets":{"r":[5.0,500.0]},"top-one-trader":{"r":[5.0,1000.0],"p":{"5K":[["Instant Funding","$19","",19.0,""]]}},"funded-trader-markets":{"r":[5.0,300.0],"p":{"5K":[["1 Step Nitro on sale","$20","",20.0,""]],"25K":[["1 Step Nitro on sale","$59","",59.0,""]],"50K":[["1 Step Nitro on sale","$120","",120.0,""]],"100K":[["1 Step Nitro on sale","$249","",249.0,""]],"300K":[["1 Step Nitro on sale","$649","(list)",649.0,""]]}},"myfundedperps":{"z":["5K","10K","25K","50K"],"p":{"5K":[["Elite","$49","one-time",49.0,"once"]],"10K":[["Elite","$95","one-time",95.0,"once"]],"25K":[["Elite","$249","one-time",249.0,"once"]],"50K":[["Elite","$495","one-time",495.0,"once"]]},"k":"Nov 9"},"propr":{"z":["5K","10K","25K","50K","100K","200K"],"p":{"25K":[["1-Step Classic","$275","one-time",275.0,"once"],["1-Step Turbo","$125","one-time",125.0,"once"],["1-Step Pro","$185","one-time",185.0,"once"]]},"k":"Nov 9"},"e8-perpetuals":{"r":[5.0,500.0],"p":{"100K":[["","$488","list (perps option shown)",488.0,""]]}},"kraken-prop":{"z":["5K","10K","25K","50K","100K","200K"],"p":{"5K":[["1-Step, 6% drawdown","$45","one-time",45.0,"once"],["1-Step, 5% drawdown","$33","one-time",33.0,"once"],["1-Step, 3% drawdown","$20","one-time",20.0,"once"]],"10K":[["1-Step, 6% drawdown","$85","one-time",85.0,"once"],["1-Step, 5% drawdown","$65","one-time",65.0,"once"],["1-Step, 3% drawdown","$40","one-time",40.0,"once"]],"25K":[["1-Step, 6% drawdown","$215","one-time",215.0,"once"],["1-Step, 5% drawdown","$150","one-time",150.0,"once"],["1-Step, 3% drawdown","$95","one-time",95.0,"once"]],"50K":[["1-Step, 6% drawdown","$400","one-time",400.0,"once"],["1-Step, 5% drawdown","$280","one-time",280.0,"once"],["1-Step, 3% drawdown","$180","one-time",180.0,"once"]],"100K":[["1-Step, 6% drawdown","$800","one-time",800.0,"once"],["1-Step, 5% drawdown","$545","one-time",545.0,"once"],["1-Step, 3% drawdown","$330","one-time",330.0,"once"]],"200K":[["1-Step, 5% drawdown","$1,090","one-time",1090.0,"once"],["1-Step, 3% drawdown","$660","one-time",660.0,"once"]]},"k":"Nov 9"},"breakout":{"z":["5K","10K","25K","50K","100K","200K"],"p":{"5K":[["1-Step Classic","$45","one-time",45.0,"once"],["1-Step Pro","$33","one-time",33.0,"once"],["1-Step Turbo","$20","one-time",20.0,"once"]],"10K":[["1-Step Classic","$85","one-time",85.0,"once"],["1-Step Pro","$65","one-time",65.0,"once"],["1-Step Turbo","$40","one-time",40.0,"once"]],"25K":[["1-Step Classic","$215","one-time",215.0,"once"],["1-Step Pro","$150","one-time",150.0,"once"],["1-Step Turbo","$95","one-time",95.0,"once"]],"50K":[["1-Step Classic","$400","one-time",400.0,"once"],["1-Step Pro","$280","one-time",280.0,"once"],["1-Step Turbo","$180","one-time",180.0,"once"]],"100K":[["1-Step Classic","$800","one-time",800.0,"once"],["1-Step Pro","$545","one-time",545.0,"once"],["1-Step Turbo","$330","one-time",330.0,"once"]],"200K":[["1-Step Pro","$1,090","one-time",1090.0,"once"],["1-Step Turbo","$660","one-time",660.0,"once"]]},"k":"Nov 9"},"crypto-fund-trader":{"z":["5K","10K","25K","50K","100K","200K"],"p":{"5K":[["Evaluation","$58","one-time",58.0,"once"],["Accelerated","$40","one-time",40.0,"once"],["Ascend Evaluation","$45","one-time",45.0,"once"],["Instant","$240","one-time",240.0,"once"]],"10K":[["Evaluation","$110","one-time",110.0,"once"],["Accelerated","$80","one-time",80.0,"once"],["Ascend Evaluation","$90","one-time",90.0,"once"],["Instant","$475","one-time",475.0,"once"]],"25K":[["Evaluation","$240","one-time",240.0,"once"],["Accelerated","$219","one-time",219.0,"once"],["Ascend Evaluation","$225","one-time",225.0,"once"]],"50K":[["Evaluation","$389","one-time",389.0,"once"],["Accelerated","$369","one-time",369.0,"once"],["Ascend Evaluation","$450","one-time",450.0,"once"]],"100K":[["Evaluation","$660","one-time",660.0,"once"],["Accelerated","$619","one-time",619.0,"once"],["Ascend Evaluation","$899","one-time",899.0,"once"]],"200K":[["Evaluation","$1,250","one-time",1250.0,"once"],["Accelerated","$1,199","one-time",1199.0,"once"],["Ascend Evaluation","$1,798","one-time",1798.0,"once"]]},"k":"Nov 9"},"ffn-perps":{"z":["10K","25K","50K","100K"],"p":{"10K":[["Core","$35","",35.0,""]],"25K":[["Core","$69","",69.0,""]],"50K":[["Core","$119","",119.0,""]],"100K":[["Core","$199","",199.0,""]]}},"ffone-perps":{"z":["5K","10K","25K","50K"]},"traders-launch-crypto":{"z":["5K","10K","20K"],"p":{"5K":[["","$20","one-time",20.0,"once"]],"10K":[["","$69","one-time",69.0,"once"]],"20K":[["","$199","one-time",199.0,"once"]]}},"vanta-trading":{"z":["5K","10K","25K","50K","100K"],"p":{"5K":[["Classic Starter","$33","Trader",33.0,""]],"100K":[["Classic Starter","$549","Expert",549.0,""],["Classic Starter","$1,099","",1099.0,""],["Instant Funded","$2,999","(list",2999.0,""]],"25K":[["Instant Funded","$750","",750.0,""]],"50K":[["Instant Funded","$1,500","",1500.0,""]]}},"hypernova":{"r":[25.0,200.0],"p":{"25K":[["Tight Risk","$120","one-time",120.0,"once"],["Low Risk","$275","one-time",275.0,"once"],["Medium Risk","$365","one-time",365.0,"once"]]},"z":["25K"],"k":"Nov 9"},"hyperpnl":{"z":["5K","10K","25K"],"p":{"5K":[["","$42","",42.0,""]],"10K":[["","$86","",86.0,""]],"25K":[["","$215","",215.0,""]]}},"instant-funding":{"p":{"5K":[["Instant Funding PRO","$239","",239.0,""],["Instant Funding Lite","$191","",191.0,""],["IF Micro PRO","$53","",53.0,""],["One-Phase PRO","$44","",44.0,""],["Two-Phase","$48","",48.0,""]],"10K":[["Instant Funding PRO","$459","",459.0,""],["Instant Funding Lite","$367","",367.0,""],["IF Micro PRO","$109","",109.0,""],["One-Phase PRO","$127","",127.0,""],["Two-Phase","$89","",89.0,""]],"20K":[["Instant Funding PRO","$899","",899.0,""],["Instant Funding Lite","$719","",719.0,""]],"40K":[["Instant Funding PRO","$1,849","",1849.0,""],["Instant Funding Lite","$1,479","",1479.0,""]],"80K":[["Instant Funding PRO","$3,699","",3699.0,""],["Instant Funding Lite","$2,959","",2959.0,""]],"25K":[["IF Micro PRO","$234","",234.0,""],["One-Phase PRO","$205","",205.0,""],["Two-Phase","$163","",163.0,""]],"50K":[["IF Micro PRO","$439","",439.0,""],["One-Phase PRO","$424","",424.0,""],["Two-Phase","$296","",296.0,""]],"100K":[["IF Micro PRO","$813","",813.0,""],["One-Phase PRO","$746","",746.0,""],["Two-Phase","$539","",539.0,""]],"200K":[["One-Phase PRO","$1,379","",1379.0,""],["Two-Phase","$1,078","",1078.0,""]]},"z":["5K","10K","20K","25K","40K","50K","80K","100K","200K"],"k":"Nov 9"},"hyrotrader":{"p":{"5K":[["Zero-Step","$89","one-time",89.0,"once"],["One-Step","$69","one-time",69.0,"once"],["Two-Step","$59","one-time",59.0,"once"]],"10K":[["Zero-Step","$169","one-time",169.0,"once"],["One-Step","$129","one-time",129.0,"once"],["Two-Step","$119","one-time",119.0,"once"]],"25K":[["Zero-Step","$379","one-time",379.0,"once"],["One-Step","$299","one-time",299.0,"once"],["Two-Step","$249","one-time",249.0,"once"]],"50K":[["Zero-Step","$629","one-time",629.0,"once"],["One-Step","$499","one-time",499.0,"once"],["Two-Step","$379","one-time",379.0,"once"]],"100K":[["Zero-Step","$949","one-time",949.0,"once"],["One-Step","$749","one-time",749.0,"once"],["Two-Step","$579","one-time",579.0,"once"]],"200K":[["One-Step","$1,299","one-time",1299.0,"once"],["Two-Step","$969","one-time",969.0,"once"]]},"z":["5K","10K","25K","50K","100K","200K"],"k":"Nov 4"},"_chips":["5K","10K","25K","50K","100K","150K","200K"]};
@@ -1286,6 +1309,18 @@ function pdLine(f){
   return `<div class="deal pd"><span class="dk">Prop Desk code</span><b>${esc(x.c)}</b>${what ? ": " + esc(what) : ""}. <i>Affiliate code · we earn a commission if you buy.</i>${g.p ? ` <a href="${g.p}">Every code →</a>` : ""}</div>`;
 }
 function card(f){
+  let h = card_r3(f);
+  try {
+    const x = saleOf(f), pr = pPrice(f), sp = pSplit(f), dd = pDD(f);
+    const t = (l, o, g) => `<div${g ? ' class="gold"' : ""}><b>${l}</b><span class="v${o.mu ? " mu" : ""}">${o.v}</span>${o.s ? `<span class="s">${o.s}</span>` : ""}</div>`;
+    const sale = x ? {v: esc(x.t), s: (x.c ? `<code>${esc(x.c)}</code>` : "") + (x.a ? ` <span class="aff">Affiliate code</span>` : "")} : {v: "No sale", mu: 1};
+    const k = `<div class="r3k">${t("Price · " + LZ(), pr)}${t("Split", sp)}${t("Drawdown", dd)}${t(x ? "Live deal" : "Sale", sale, !!x)}</div>`;
+    if (h.indexOf("<dl>") > 0 && h.indexOf('<a class="more"') > 0)
+      h = h.replace("<dl>", k + '<details class="r3more"><summary>Full details: price by size, plans, sale</summary><dl>').replace('<a class="more"', '</details><a class="more"');
+  } catch (e) {}
+  return h;
+}
+function card_r3(f){
   const x = xLink(f.x);
   const host = f.w.replace(/^https?:\/\/(www\.)?/,"").replace(/\/$/,"");
   const tags = f.m.map(m => `<span class="tag">${m === "cfd" ? "CFD/FX" : m === "perps" ? "Perps" : "Futures"}</span>`).join("");
