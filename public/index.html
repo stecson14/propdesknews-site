@@ -557,6 +557,15 @@ footer{font:400 12px Inter,system-ui,sans-serif;letter-spacing:.03em}
 .fgrid{gap:10px!important;border:0!important}
 </style>
 <style>/* type floor */a.gl,.st dt,.tags .tag,.tags label.cmp,.deal .dk,.item p.src,.src a,.top .badge,span.pill,.ddt i,.links .affl,.chips .chip,button.gl,.f label,main dt,.sizes button,.codebox .affl,.deal p.tag,.fp p.src,.t small,.crow p.acct,main th,small.af,.nc em,.tool .aff,.do b,.trustline span,.price .bill,.pdnum .lb,.sale .lbl,.card label,.hk .k,.hk .ck,.hsoon .lb,.ticker .lb,.sizebar .lbl,.rrb b,.pop span,span.n{font-size:12px!important}</style><link rel="alternate" type="application/rss+xml" title="Prop Desk News" href="/news/feed.xml"><script type="application/ld+json" data-seo>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://propdesknews.com/#org","name":"Prop Desk","url":"https://propdesknews.com/","logo":{"@type":"ImageObject","url":"https://propdesknews.com/icons/icon-512.png","width":512,"height":512},"email":"hello@propdesknews.com","slogan":"Trade the market, not the fine print.","description":"Veteran-owned prop firm news and deals desk.","sameAs":["https://x.com/PropDeskNews"]},{"@type":"WebSite","@id":"https://propdesknews.com/#website","url":"https://propdesknews.com/","name":"Prop Desk","publisher":{"@id":"https://propdesknews.com/#org"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://propdesknews.com/firms/?q={search_term_string}"},"query-input":"required name=search_term_string"}}]}</script>
+<style data-ux5>
+header.top .lead{max-width:34ch}
+.hlong{margin:18px 0 0;color:#9B9B9B;font-size:15px;line-height:1.6;max-width:62ch}
+.hdisc{margin:0;padding:10px 20px;font:12px Inter,system-ui,sans-serif;letter-spacing:.02em;color:#9B9B9B;border-bottom:1px solid #222222}
+.hc .aft{display:inline-block;margin-left:6px;white-space:nowrap;font:600 10px var(--mono,ui-monospace),monospace;letter-spacing:.1em;text-transform:uppercase;color:#9B9B9B;border:1px solid #2E2E2E;border-radius:9999px;padding:2px 7px;vertical-align:3px}
+.hc small a.st{white-space:nowrap}
+.hc .cb .copyopen{background:#F2C14E;color:#0A0A0A;border:0;border-radius:9999px;padding:8px 14px;font:600 12.5px Inter,system-ui,sans-serif;letter-spacing:.02em;cursor:pointer;white-space:nowrap}
+.hc .cb .copyopen:hover,.hc .cb .copyopen:focus-visible{background:#FFFFFF}
+</style>
 </head>
 <body>
 <nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/icons/avatar-52.jpg" alt="" width="26" height="26"><span>Prop Desk</span></a><a href="/#deals" aria-current="page">Deals</a><a href="/news/">News</a><a href="/firms/">Directory</a><a href="/compare/">Compare</a><a href="/tools/">Tools</a><button class="sb" type="button" aria-label="Search the site (press /)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span><kbd>/</kbd></button><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
@@ -565,7 +574,7 @@ footer{font:400 12px Inter,system-ui,sans-serif;letter-spacing:.03em}
   <div class="intro">
     <p class="kicker"><i aria-hidden="true"></i>Prop firm codes, true costs and rules for futures traders</p>
     <h1>Trade the market, <em>not the fine print.</em></h1>
-    <p class="lead">Buying or renewing a prop firm evaluation? We read every firm's pricing and rules pages every morning, so you know what an evaluation really costs, which rules will bite, and which code is live today.</p>
+    <p class="lead">Every prop firm promo code, checked at checkout every morning.</p>
     <nav class="pil" aria-label="What Prop Desk does">
       <a href="/deals/"><span class="n">01 · Today's codes</span><b>Today's prop firm discount codes <span aria-hidden="true">→</span></b><span class="d">Before and after price, checked at checkout. Codes that pay us are labelled.</span></a>
       <a href="/true-cost-index/"><span class="n">02 · True cost</span><b>True cost of every evaluation <span aria-hidden="true">→</span></b><span class="d">Eval plus activation fee, compared at one account size.</span></a>
@@ -577,10 +586,12 @@ footer{font:400 12px Inter,system-ui,sans-serif;letter-spacing:.03em}
   <div class="side">
     <section class="hcodes" id="hcodes" aria-labelledby="hc-t">
       <div class="hk"><span class="k" id="hc-t">Codes live today</span><span class="ck" id="hc-ck"></span><a href="/deals/">All codes →</a></div>
+      <p class="hdisc">Affiliate codes · we earn a commission if you buy</p>
       <div id="hc-list"></div><div class="hsoon" id="hsoon" hidden></div>
       <p class="hfoot">These are Prop Desk affiliate codes, each matching or beating the firm's own public code. Sorted by what you save, never by what a firm pays us. Every live code, public ones too, is on the <a href="/deals/">Deals page</a>.</p>
       <noscript><p class="hfoot">Turn on JavaScript to copy codes, or see every code on the <a href="/deals/">Deals page</a>.</p></noscript>
     </section>
+    <p class="hlong">Buying or renewing a prop firm evaluation? We read every firm's pricing and rules pages every morning, so you know what an evaluation really costs, which rules will bite, and which code is live today.</p>
     <div class="hero" id="hero" hidden></div>
     <div class="why" id="why" hidden></div>
   </div>
@@ -654,7 +665,7 @@ const HCODES = [
     if(h.deal){var d=(typeof DEALS!=="undefined"?DEALS:[]).filter(function(x){return x.firm===h.deal&&x.aff&&x.code===h.code})[0];if(!d)return null;r.save=d.save;r.url=d.url}
     if(h.until&&today>h.until)return null;return r}).filter(Boolean);
   rows.sort(function(a,b){return (a.last-b.last)||(pct(b.save)-pct(a.save))});
-  L.innerHTML=rows.map(function(r){return '<div class="hc"><div><span class="nm"><a href="'+esc(r.page)+'">'+esc(r.f)+'</a></span><span class="sv">'+esc(r.save)+'</span><small>'+esc(r.what)+' · <a href="'+esc(r.url)+'" target="_blank" rel="sponsored noopener" style="color:#BDBDBD">Open '+esc(r.f)+' ↗</a></small><small class="af">Affiliate code · we earn a commission if you buy</small></div><div class="cb"><code>'+esc(r.code)+'</code><button type="button" class="copyonly" data-c="'+esc(r.code)+'" aria-label="Copy '+esc(r.code)+'">Copy</button></div></div>'}).join("");
+  L.innerHTML=rows.map(function(r){return '<div class="hc"><div><span class="nm"><a href="'+esc(r.page)+'">'+esc(r.f)+'</a></span><span class="sv">'+esc(r.save)+'</span><small>'+esc(r.what)+' · <a href="'+esc(r.url)+'" target="_blank" rel="sponsored noopener" class="st" aria-label="Open '+esc(r.f)+' site (affiliate)" style="color:#BDBDBD">Site ↗</a> <span class="aft">Affiliate</span></small></div><div class="cb"><code>'+esc(r.code)+'</code><button type="button" class="copyopen" data-c="'+esc(r.code)+'" data-u="'+esc(r.url)+'" data-f="'+esc(r.f)+'" aria-label="Copy '+esc(r.code)+' and open '+esc(r.f)+'">Copy + open ↗</button></div></div>'}).join("");
   if(!rows.length)document.getElementById("hcodes").hidden=true;
 })();
 </script>
@@ -841,6 +852,13 @@ DEALS.forEach(function(d){if(!d.code)return;var t=null,lab="";
  else return;out.push({t:t,h:'<span><b>'+esc(d.code)+'</b><a href="'+esc(d.page||"/deals/")+'">'+esc(d.firm)+'</a> · '+esc(lab)+'</span>'})});
 if(!out.length)return;out.sort(function(a,b){return a.t-b.t});
 E.innerHTML='<span class="lb">Ending soon</span>'+out.slice(0,3).map(function(o){return o.h}).join("");E.hidden=false})();
+</script>
+<script data-ux5>
+document.addEventListener("click",function(e){var b=e.target.closest(".copyopen");if(!b)return;
+var c=b.dataset.c,u=b.dataset.u,f=b.dataset.f,t=document.getElementById("toast");
+function say(m){if(!t)return;t.textContent=m;t.classList.add("on");clearTimeout(say.k);say.k=setTimeout(function(){t.classList.remove("on")},2600)}
+try{navigator.clipboard.writeText(c).then(function(){say(c+" copied. Paste it at checkout on "+f+".")},function(){say("Your code is "+c+". Enter it at checkout.")})}catch(x){say("Your code is "+c+". Enter it at checkout.")}
+if(u)window.open(u,"_blank","noopener");});
 </script>
 </body>
 </html>
