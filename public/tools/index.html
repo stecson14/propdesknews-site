@@ -241,6 +241,11 @@ footer{letter-spacing:.03em}
 .mart a.mgo{flex:none;display:inline-flex;align-items:center;gap:8px;border:1px solid #F2C14E;color:#fff!important;border-radius:999px;padding:10px 16px;font:600 14px Inter,system-ui,sans-serif;text-decoration:none!important}
 .mart a.mgo:hover,.mart a.mgo:focus-visible{background:#221E12}
 @media(max-width:640px){.mart figcaption{padding:14px 16px}.mart strong{font-size:19px}.mart a.mgo{width:100%;justify-content:center;box-sizing:border-box}}
+/* split (Nov 11, Tecson: dead space on the right): art keeps the left, caption fills the empty right side on wide screens; phones crop to the art */
+.mart.split{position:relative;container-type:inline-size;width:100%;box-sizing:border-box}
+@media(min-width:761px){.mart.split figcaption{position:absolute;top:0;right:0;bottom:0;width:39%;flex-direction:column;align-items:flex-start;justify-content:center;gap:22px;padding:24px 4cqw 24px 0;border-top:0}
+.mart.split .k{color:#B8C0D4;margin-bottom:10px}.mart.split strong{font-size:clamp(21px,3cqw,32px);line-height:1.15}.mart.split a.mgo{font-size:clamp(13px,1.35cqw,14px);text-wrap:balance}}
+@media(max-width:760px){.mart.split img{aspect-ratio:720/672;object-fit:cover;object-position:left center}}
 </style>
 </head>
 <body>
@@ -347,7 +352,7 @@ footer{letter-spacing:.03em}
       <p class="secnote">Tick size and value per contract. A point is the whole number move; a tick is the smallest move. Confirm margins and limits with your firm; these are exchange specs, not firm rules.</p>
       <div class="tscroll"><table id="specs-table"><thead><tr><th>Contract</th><th>Market</th><th>Tick size</th><th>Tick value</th><th>Point value</th></tr></thead><tbody></tbody></table></div>
     </section>
-  <figure class="mart" data-menuart><img loading="lazy" decoding="async" src="/og/menu/menu-tools.webp?v=7b6befd7" srcset="/og/menu/menu-tools-s.webp?v=08ff6ac9 640w, /og/menu/menu-tools.webp?v=7b6befd7 1200w" sizes="(min-width: 1100px) 1060px, 100vw" width="1200" height="672" alt="The Prop Desk mascot at a workbench with wrenches and gauges, tuning trading tools"><figcaption><div><span class="k">Tools</span><strong>Calculators that do the fine-print math for you</strong></div><a class="mgo" href="/drawdown/">Try the Drawdown Lab →</a></figcaption></figure></div>
+  <figure class="mart split" data-menuart><img loading="lazy" decoding="async" src="/og/menu/menu-tools.webp?v=7b6befd7" srcset="/og/menu/menu-tools-s.webp?v=08ff6ac9 640w, /og/menu/menu-tools.webp?v=7b6befd7 1200w" sizes="(min-width: 1100px) 1060px, (max-width: 760px) 167vw, 100vw" width="1200" height="672" alt="The Prop Desk mascot at a workbench with wrenches and gauges, tuning trading tools"><figcaption><div><span class="k">Tools</span><strong>Calculators that do the fine-print math for you</strong></div><a class="mgo" href="/drawdown/">Try the Drawdown Lab →</a></figcaption></figure></div>
 </main>
 
 <footer>
