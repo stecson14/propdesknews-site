@@ -358,16 +358,90 @@ dialog.alrt::backdrop{background:rgba(0,0,0,.7)}
 .alrt .fine a{color:#C8C8C8}
 .alrt .err{color:#E07A6B;font-size:13px}
 </style>
-</head>
+<style data-vd>
+.vread{border:1px solid #3A3220;background:linear-gradient(180deg,#19150B,#121008);border-radius:16px;padding:20px;display:grid;gap:14px}
+.vread .vey{font:600 11.5px 'IBM Plex Mono',ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:#F2C14E;margin:0}
+.vread .vlede{margin:0;font:500 21px/1.35 'Playfair Display',Georgia,serif;color:#F4F1EA;text-wrap:balance}
+.vread .vlede em{font-style:normal;color:#F2C14E}
+.vps{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.vps>div{border-radius:12px;padding:14px;display:grid;gap:8px;align-content:start}
+.vps .vpick{background:#13241A;border:1px solid #24432F}.vps .vskip{background:#2A1E10;border:1px solid #4A3518}
+.vps h3{margin:0;font:600 11.5px 'IBM Plex Mono',ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase}
+.vps .vpick h3{color:#7FC79A}.vps .vskip h3{color:#E8A35A}
+.vps ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:14px;line-height:1.5;color:#D6D2C8}
+.vps li{display:grid;grid-template-columns:14px 1fr;gap:8px}
+.vps li::before{content:"";width:8px;height:8px;border-radius:50%;margin-top:7px}
+.vps .vpick li::before{background:#7FC79A}.vps .vskip li::before{background:#E8A35A}
+.vps b{color:#FFFFFF}
+.vtiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.vtile{background:#141414;border:1px solid #2A2A2A;border-radius:12px;padding:12px 14px;display:grid;gap:3px;align-content:start}
+.vtile .k{font:600 10.5px 'IBM Plex Mono',ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:#8A8A8A;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.vtile .v{font:600 16px/1.3 Inter,system-ui,sans-serif;color:#FFFFFF}
+.vtile .n{font-size:12.5px;color:#A6A39B;line-height:1.4}
+.vchip{font:600 9.5px 'IBM Plex Mono',ui-monospace,monospace;letter-spacing:.08em;padding:2px 7px;border-radius:999px;white-space:nowrap}
+.vchip.good{color:#7FC79A;background:#13241A;border:1px solid #24432F}
+.vchip.watch{color:#E8A35A;background:#2A1E10;border:1px solid #4A3518}
+.vread .vsrc{margin:0;font-size:12.5px;color:#8A8A8A}
+.vread .vsrc a{color:#C8C8C8}
+.vbars{display:grid;gap:8px;margin-top:6px}
+.vbars .r{display:grid;grid-template-columns:minmax(0,170px) 1fr 80px;gap:12px;align-items:center;font-size:13px;color:#C8C8C8}
+.vbars .t{height:12px;border-radius:999px;background:#242424;overflow:hidden}
+.vbars .t span{display:block;height:100%;border-radius:999px}
+.vbars b{text-align:right;color:#FFFFFF;font-variant-numeric:tabular-nums}
+details.vfold>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 12px}
+details.vfold>summary .vlast{grid-column:1;font-size:13px;color:#A6A39B;line-height:1.45}
+.vread .vdate{margin:-8px 0 0;font-size:12.5px;color:#8A8A8A}
+details.vfold>summary::-webkit-details-marker{display:none}
+details.vfold>summary h2{margin:0}
+details.vfold>summary::after{content:"+";font:500 22px Inter,system-ui,sans-serif;color:#8A8A8A;grid-column:2;grid-row:1/span 2}
+details.vfold[open]>summary::after{content:"\2212"}
+details.vfold[open]>summary{margin-bottom:14px}
+.vrail{display:none}
+@media (max-width:700px){.vps{grid-template-columns:1fr}.vtiles{grid-template-columns:1fr 1fr}.vread .vlede{font-size:19px}.vbars .r{grid-template-columns:96px 1fr 66px;font-size:12px}}
+@media (min-width:761px) and (max-width:1099px){.actbar.on{display:flex}}
+@media (min-width:1100px){
+ .vlay{display:grid;grid-template-columns:minmax(0,1fr) 340px;column-gap:28px;max-width:1180px;margin:0 auto;padding-right:max(16px,env(safe-area-inset-right,0px))}
+ .vlay>header,.vlay>main{grid-column:1;min-width:0}
+ .vlay>.vrail{display:block;grid-column:2;grid-row:1/span 2}
+ .vrail-in{position:sticky;top:20px;margin-top:30px;display:grid;gap:12px}
+ .act.vhas .act-l,.act.vhas .act-b{display:none}
+ .act.vhas .r3c{margin-top:0;padding-top:0;border-top:0}
+ .act.vhas.vnone{display:none}
+}
+.vdeal{border:1px solid #5A4A20;background:linear-gradient(180deg,#1F1A0D,#141108);border-radius:18px;padding:18px;display:grid;gap:12px}
+.vdeal .vrow{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.vlive{display:inline-flex;align-items:center;gap:7px;font:600 10.5px 'IBM Plex Mono',ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:#7FC79A}
+.vlive::before{content:"";width:7px;height:7px;border-radius:50%;background:#7FC79A}
+.vlive.off{color:#A6A39B}.vlive.off::before{background:#5A5A5A}
+.vaff{font:600 10px 'IBM Plex Mono',ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:#A6A39B;border:1px solid #2E2E2E;border-radius:999px;padding:2px 8px}
+.vticket{border:1.5px dashed #8A6A2A;border-radius:12px;padding:12px;text-align:center;font:600 22px 'IBM Plex Mono',ui-monospace,monospace;letter-spacing:.12em;color:#F2C14E;background:#120F07;overflow-wrap:anywhere}
+.vprice{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.vprice .now{font:500 38px/1 'Playfair Display',Georgia,serif;color:#FFFFFF}
+.vprice s{color:#8A8A8A;font-size:16px}
+.vsave{font-size:13px;color:#7FC79A;margin-top:-4px}
+.voffer{font:600 18px/1.3 Inter,system-ui,sans-serif;color:#FFFFFF}
+.vgo{display:flex;justify-content:center;align-items:center;gap:8px;border-radius:999px;background:#F2C14E;color:#0A0A0A!important;text-decoration:none!important;font:700 15px Inter,system-ui,sans-serif;padding:13px 16px;text-align:center;transition:background .15s}
+.vgo:hover,.vgo:focus-visible{background:#FFD36B}
+.vgo.done{background:#7FC79A}
+.vgo2{display:block;text-align:center;border-radius:999px;border:1px solid #3A3A3A;color:#FFFFFF!important;text-decoration:none!important;font:600 14px Inter,system-ui,sans-serif;padding:10px 14px}
+.vgo2:hover,.vgo2:focus-visible{border-color:#F2C14E}
+.vdisc{margin:0;font-size:11.5px;color:#8A8A8A;line-height:1.45}
+.vtrust{display:grid;gap:8px;background:#141414;border:1px solid #2A2A2A;border-radius:14px;padding:12px 14px}
+.vtrust p{margin:0;display:grid;grid-template-columns:18px 1fr;gap:8px;font-size:12.5px;color:#CFCBC1;align-items:start}
+.vtrust svg{width:16px;height:16px;stroke:#F2C14E;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+.vtrust a{color:#CFCBC1}
+.vbell{appearance:none;background:none;border:0;color:#F2C14E;font:500 13px Inter,system-ui,sans-serif;cursor:pointer;padding:4px}
+@media (prefers-reduced-motion:reduce){.vgo{transition:none}}
+</style></head>
 <body>
 <nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/icons/avatar-52.jpg" alt="" width="26" height="26"><span>Prop Desk</span></a><a href="/#deals">Deals</a><a href="/news/">News</a><a href="/firms/" aria-current="page">Directory</a><a href="/compare/">Compare</a><a href="/tools/">Tools</a><button class="sb" type="button" aria-label="Search the site (press /)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span><kbd>/</kbd></button><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
-<header class="mast">
+<div class="vlay"><header class="mast">
   <div class="wrap">
     <nav class="bc" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/firms/">Firms</a><span aria-hidden="true">/</span><span aria-current="page">QT Funded (Quant Tekel)</span></nav>
     <div class="kicker">Prop firm profile · last verified Tue Nov 10, 2026</div>
     <h1>QT Funded (Quant Tekel)</h1>
     <p class="fline"><span>CFD / forex</span> <span class="sep">·</span> <a class="lk" href="https://qtfunded.com" target="_blank" rel="noopener">qtfunded.com ↗</a> <span class="sep">·</span> <button type="button" class="hstar" data-star="qt-funded-quant-tekel" aria-pressed="false">☆ Save</button> <span class="sep">·</span> <button type="button" class="halert" aria-haspopup="dialog" aria-controls="alrt" data-alerts>Alert me</button></p>
-  <div class="act" id="act" data-act><div class="act-l"><code>TREAT</code><span><b>60% off</b><small>Firm&#x27;s public code · checked Nov 10</small></span></div><div class="act-b"><button type="button" class="cp" data-code="TREAT">Copy code</button><a class="go" href="https://qtfunded.com" target="_blank" rel="noopener">Open site ↗</a></div></div>
+  <div class="act vhas vnone" id="act" data-act><div class="act-l"><code>TREAT</code><span><b>60% off</b><small>Firm&#x27;s public code · checked Nov 10</small></span></div><div class="act-b"><button type="button" class="cp" data-code="TREAT">Copy code</button><a class="go" href="https://qtfunded.com" target="_blank" rel="noopener">Open site ↗</a></div></div>
   <p class="meta byl" data-trust>By <a href="/about/staff/">Prop Desk Staff</a> · Checked Nov 10, 2026 against QT Funded (Quant Tekel)&#x27;s own pages · <a href="/editorial-standards/">How we check</a></p>
   </div>
 </header>
@@ -391,7 +465,7 @@ dialog.alrt::backdrop{background:rgba(0,0,0,.7)}
   <p class="empty">No confirmed changes logged for QT Funded (Quant Tekel) yet. The log starts Oct 30, 2026.</p>
 </section>
 <a class="cta" href="/#deals">See all live deals and their fine print →</a>
-</div></main>
+</div></main><aside class="vrail" aria-label="Deal for QT Funded (Quant Tekel)"><div class="vrail-in"><div class="vdeal"><div class="vrow"><span class="vlive">Live deal · checked Nov 10</span></div><div class="vticket">TREAT</div><div class="voffer">60% off</div><a class="vgo" href="https://qtfunded.com" target="_blank" rel="noopener" data-code="TREAT">Copy TREAT and open ↗</a><a class="vgo2" href="/compare/#qt-funded-quant-tekel">Compare with another firm</a></div><div class="vtrust"><p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span>Read from QT Funded (Quant Tekel)&#x27;s own pages, Nov 10</span></p><p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v10H4z"/><path d="M8 12h8"/></svg><span>Every code on Prop Desk is labeled as affiliate</span></p><p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/></svg><span>Veteran-owned · <a href="/editorial-standards/">How we check</a></span></p></div><button type="button" class="vbell">Alert me if this deal changes</button></div></aside></div>
 <footer>
   <div class="wrap">
     <p>Every fact above was read from QT Funded (Quant Tekel)'s own website, X account or email, last checked Tue Nov 10, 2026. Prices and rules change often; the firm's own page is the final word. Profit splits and "up to" numbers are the firm's claims. Some links on Prop Desk may be affiliate links, and every affiliate code is labeled as one. Education, not financial advice.</p>
@@ -438,5 +512,14 @@ d.querySelectorAll(".x").forEach(x=>x.addEventListener("click",()=>d.close()));
 d.addEventListener("click",e=>{if(e.target===d)d.close()});
 f.addEventListener("submit",e=>{if(!f.querySelector('input[name="tags[]"]:checked')){e.preventDefault();err.hidden=false;return}
 setTimeout(()=>{f.hidden=true;done.hidden=false},400)});})();</script>
-</body>
+<script data-vd>(()=>{
+const copy=(c,cb)=>{try{navigator.clipboard.writeText(c).then(cb,cb)}catch(e){cb()}};
+const act=document.getElementById("act");const cp=act&&act.querySelector(".cp[data-code]");const code=cp?cp.dataset.code:"";
+document.querySelectorAll("#act a.go,#actbar a.go").forEach(a=>{if(code)a.addEventListener("click",()=>copy(code,()=>{}))});
+document.querySelectorAll("a.vgo[data-code]").forEach(a=>{const t=a.textContent;a.addEventListener("click",()=>copy(a.dataset.code,()=>{a.classList.add("done");a.textContent="\u2713 Copied "+a.dataset.code+", opening";setTimeout(()=>{a.classList.remove("done");a.textContent=t},2400)}))});
+document.querySelectorAll(".vbell").forEach(b=>b.addEventListener("click",()=>{const h=document.querySelector(".halert");if(h)h.click()}));
+const openTo=id=>{const d=document.getElementById(id);if(d&&d.tagName==="DETAILS")d.open=true};
+if(location.hash)openTo(location.hash.slice(1));
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener("click",()=>openTo(a.getAttribute("href").slice(1))));
+})();</script></body>
 </html>
