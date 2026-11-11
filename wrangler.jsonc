@@ -1,5 +1,8 @@
 {
   "name": "royal-cake-32b7",
   "compatibility_date": "2026-10-01",
-  "assets": { "directory": "./public", "not_found_handling": "404-page" }
+  // Worker runs only for /go/* (click links); everything else is static assets from ./public.
+  "main": "worker.js",
+  "assets": { "directory": "./public", "binding": "ASSETS", "not_found_handling": "404-page", "run_worker_first": ["/go/*"] },
+  "analytics_engine_datasets": [{ "binding": "CLICKS", "dataset": "pd_clicks" }]
 }

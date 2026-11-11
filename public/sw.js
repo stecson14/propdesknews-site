@@ -2,7 +2,7 @@
    never sees a stale deal or rule. Offline, the last copy seen is served (the page shows an
    "offline" banner), or /offline/ for pages never visited. VER is stamped by build_site.py so
    each publish starts a fresh cache. */
-var V = 'pd-20261111-2148';
+var V = 'pd-20261111-2200';
 var OFF = '/offline/';
 self.addEventListener('install', function (e) {
   e.waitUntil(caches.open(V).then(function (c) { return c.addAll([OFF]); }).then(function () { return self.skipWaiting(); }));
@@ -17,7 +17,8 @@ self.addEventListener('fetch', function (e) {
   if (r.method !== 'GET') return;
   var u = new URL(r.url);
   if (u.origin !== self.location.origin) return;          // fonts, TradingView, firm sites: untouched
-  if (u.pathname.indexOf('/og/') === 0) return;            // share cards are for other apps, not the cache
+  if (u.pathname.indexOf('/og/') === 0) return;
+  if (u.pathname.indexOf('/go/') === 0) return;            // our click links: straight to the network, never cached            // share cards are for other apps, not the cache
   e.respondWith(fetch(r).then(function (res) {
     if (res && res.ok && res.type === 'basic') {
       var copy = res.clone();
