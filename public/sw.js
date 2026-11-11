@@ -2,7 +2,7 @@
    never sees a stale deal or rule. Offline, the last copy seen is served (the page shows an
    "offline" banner), or /offline/ for pages never visited. VER is stamped by build_site.py so
    each publish starts a fresh cache. */
-var V = 'pd-20261111-2030';
+var V = 'pd-20261111-2037';
 var OFF = '/offline/';
 self.addEventListener('install', function (e) {
   e.waitUntil(caches.open(V).then(function (c) { return c.addAll([OFF]); }).then(function () { return self.skipWaiting(); }));
