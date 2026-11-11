@@ -337,6 +337,7 @@ table.slt{width:100%;border-collapse:collapse;font-size:13.5px}
 .slt caption{caption-side:top}
 .slt tbody tr:last-child td,.slt tbody tr:last-child th{border-bottom:0}
 .slt tr.pick{background:#16130B}
+.slt tr[hidden]{display:none!important}
 .slt .cmpc{width:30px;padding-right:0;display:none}.sl.on .slt .cmpc{display:table-cell}
 .slpk{appearance:none;width:20px;height:20px;border-radius:6px;border:1.5px solid #555;background:#0C0C0C;cursor:pointer;display:grid;place-items:center;color:#0A0A0A;font:700 12px Inter,system-ui,sans-serif;padding:0}
 .slpk[aria-pressed="true"]{background:var(--g);border-color:var(--g)}.slpk[aria-pressed="true"]::after{content:"✓"}
@@ -405,7 +406,7 @@ table.slcx{border-collapse:collapse;width:100%;font-size:13px;min-width:480px}
 @media (max-width:760px){
 .sl{width:auto;margin-inline:0}
 .slctl{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding-inline:16px}.slctl::-webkit-scrollbar{display:none}
-.slseg{flex-wrap:nowrap}.slsort{margin-left:0}
+.slseg,.slm{flex-wrap:nowrap}.slsort{margin-left:0}
 .sl .tw{background:none;border:0;overflow:visible}
 table.slt,.slt tbody{display:block}.slt thead{display:none}
 .slt tr{display:grid;grid-template-columns:1fr 1fr;gap:8px 10px;border:1px solid #262626;background:#111;border-radius:12px;padding:12px;margin-bottom:8px;position:relative}
