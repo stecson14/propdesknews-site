@@ -12,3 +12,6 @@
   Cache-Control: public, max-age=3600
 /logos/*
   Cache-Control: public, max-age=604800
+/go/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store

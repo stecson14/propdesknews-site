@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /go/
 Allow: /
 Sitemap: https://propdesknews.com/sitemap.xml
 Sitemap: https://propdesknews.com/news-sitemap.xml
