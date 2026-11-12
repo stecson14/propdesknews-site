@@ -1,0 +1,25 @@
+# Prop Desk
+
+> Prop Desk (propdesknews.com) is a futures-first news and rules desk for prop firm traders. Every rule, price and payout fact is checked against each firm's own website, help center or official channels and dated. Affiliate codes are labeled; Prop Desk earns a commission on those.
+
+## Start here
+
+- [Trading platforms](https://propdesknews.com/platforms/): which prop firms support which trading platforms.
+- [Payouts](https://propdesknews.com/payouts/): prop firm payouts matched to public blockchain transactions, a floor rather than a total.
+- [True Cost Index](https://propdesknews.com/true-cost-index/): what it costs to get funded at each firm, evaluation plus activation fees.
+- [Graveyard](https://propdesknews.com/graveyard/): prop firms that have shut down or paused, with sources.
+- [Rules compared](https://propdesknews.com/rules/): hedging, KYC, news trading and account limits across firms.
+- [Compare](https://propdesknews.com/compare/): two firms side by side.
+- [Deals](https://propdesknews.com/deals/): current firm-published and affiliate discount codes, with the fine print.
+
+## Guides
+
+- [Guides](https://propdesknews.com/guides/): all Prop Desk guides.
+- [Best trading journal for prop firms](https://propdesknews.com/guides/best-trading-journal-for-prop-firms/)
+- [Trade copiers for prop firms](https://propdesknews.com/guides/trade-copiers-for-prop-firms/)
+- [Your first prop firm challenge](https://propdesknews.com/guides/first-prop-firm-challenge/)
+
+## About
+
+- [How Prop Desk checks facts](https://propdesknews.com/about/staff/): sources, what counts as confirmed, corrections and affiliate policy.
+- [Steven T., founder and editor](https://propdesknews.com/about/steven-t/): Army veteran, former engineer and futures trader.
