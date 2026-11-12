@@ -385,7 +385,9 @@ function po(){
 }
 $('po-plans').addEventListener('click',ev=>{const b=ev.target.closest('[data-i]');if(!b)return;press($('po-plans'),b);poPlan=+b.dataset.i;if(poPlan>=0){const p=PP[poPlan];$('po-qmin').value=p.q;$('po-qd').value=p.d;$('po-need').value=p.need}po()});
 ['po-wpw','po-win','po-loss','po-qmin','po-qd','po-need'].forEach(id=>$(id).addEventListener('input',()=>{if(['po-qmin','po-qd','po-need'].includes(id)){poPlan=-1;press($('po-plans'),$('po-plans').querySelector('[data-i="-1"]'))}po()}));
-press($('po-plans'),$('po-plans').querySelector('[data-i="0"]'));po();
+/* Arriving from a firm page (Nov 12 2026): #f=<slug> opens on that firm's rules, or on "My own rules" when we have not loaded them. */
+(function(){const f=new URLSearchParams(location.hash.slice(1)).get('f');const i=f?PS.indexOf(f):0;
+  const b=$('po-plans').querySelector('[data-i="'+(i>=0?i:-1)+'"]');if(f)b.click();else{press($('po-plans'),b);po()}})();
 
 })();</script><script data-pdc-x>(function(){
 const root=document.querySelector('.pdc.tool');if(!root)return;
