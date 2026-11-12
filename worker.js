@@ -17,8 +17,10 @@ export default {
       let from = url.searchParams.get('from') || '';
       if (!from.startsWith('/')) from = '';
       if (!from) try { const r = new URL(req.headers.get('referer') || ''); if (r.hostname.endsWith('propdesknews.com')) from = r.pathname; } catch (e) {}
+      // ?placement=<button> (Nov 12): which button on the page, e.g. challenges_row. Letters, digits, _ and - only.
+      const place = (url.searchParams.get('placement') || '').replace(/[^a-z0-9_-]/gi, '').slice(0, 40);
       try {
-        env.CLICKS.writeDataPoint({ indexes: [m[1]], blobs: [m[1], from.slice(0, 200), (req.cf && req.cf.country) || ''], doubles: [1] });
+        env.CLICKS.writeDataPoint({ indexes: [m[1]], blobs: [m[1], from.slice(0, 200), (req.cf && req.cf.country) || '', place], doubles: [1] });
       } catch (e) {}
     }
     return new Response(null, { status: 302, headers: { Location: to, 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex, nofollow' } });
