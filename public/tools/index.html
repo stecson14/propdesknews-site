@@ -277,7 +277,7 @@ footer{letter-spacing:.03em}
   <div class="wrap">
     <div class="kicker">Tools · checked Wed Nov 11, 2026</div>
     <h1>The trader's toolbox</h1>
-    <p class="lede">Four calculators that answer the questions the sales page doesn't, then the platforms, charting, journal and calendar tools funded traders actually use, with how many of the 78 firms in the directory support each one.</p>
+    <p class="lede">Six calculators that answer the questions the sales page doesn't, then the platforms, charting, journal and calendar tools funded traders actually use, with how many of the 78 firms in the directory support each one.</p>
   </div>
 </header>
 
@@ -287,64 +287,8 @@ footer{letter-spacing:.03em}
   <div class="wrap">
     <section id="calculators">
       <h2>Calculators <small>free, nothing stored</small></h2>
-      <p class="secnote">Type your own numbers. Nothing here is advice; it is arithmetic you should do before you buy.</p><nav id="tjump" aria-label="Jump to a calculator"><a href="#truecost">True cost</a><a href="#size">Contracts</a><a href="#runway">Runway</a><a href="#payout">Days to payout</a><a href="#consistency">Consistency</a><a href="#pass-odds">Pass odds</a></nav>
+      <p class="secnote">Type your own numbers. Nothing here is advice; it is arithmetic you should do before you buy.</p><nav id="tjump" aria-label="Jump to a calculator"><a href="#consistency">Consistency</a><a href="#pass-odds">Pass odds</a><a href="#truecost">True cost</a><a href="#runway">Runway</a><a href="#payout">Days to payout</a><a href="#size">Position size</a></nav>
       <div class="grid">
-
-        <div class="calc" id="truecost">
-          <h3><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16v12H4z"/><path d="M4 11h16"/><path d="M8 15h3"/></svg></span>True cost of an eval</h3>
-          <p class="q">What you actually pay to reach a first payout attempt: eval, renewals, resets and activation.</p>
-          <div class="f">
-            <label class="w">Start from a live deal<select id="tc-deal"><option value="">Type my own numbers</option><option value="0|25K">Apex 25K: $17.70 with SAVENOW, monthly</option><option value="0|50K">Apex 50K: $19.70 with SAVENOW, monthly</option><option value="0|100K">Apex 100K: $39.70 with SAVENOW, monthly</option><option value="0|150K">Apex 150K: $59.70 with SAVENOW, monthly</option><option value="1|25K">Tradeify 25K: $76 with NOV</option><option value="1|50K">Tradeify 50K: $116 with NOV</option><option value="1|100K">Tradeify 100K: $186 with NOV</option><option value="1|150K">Tradeify 150K: $258 with NOV</option><option value="2|25K">Lucid 25K: $75.60 with VAULT</option><option value="2|50K">Lucid 50K: $120.40 with VAULT</option><option value="2|100K">Lucid 100K: $190.40 with VAULT</option><option value="2|150K">Lucid 150K: $255.50 with VAULT</option><option value="3|50K">IQ Capital 50K: $36.75 with PROPDESK</option><option value="3|100K">IQ Capital 100K: $71.25 with PROPDESK</option><option value="4|50K">FundedNext Futures 50K: $74.99 with PROPDESK</option><option value="4|100K">FundedNext Futures 100K: $144.99 with PROPDESK</option><option value="4|150K">FundedNext Futures 150K: $259.99 with PROPDESK</option><option value="5|50K">MyFundedFutures 50K: $125 with CLUB</option></select></label>
-            <label>Eval price (with code)<span class="uw pre"><input id="tc-price" type="number" min="0" step="0.01" inputmode="decimal" placeholder="e.g. 116"><span class="u">$</span></span></label>
-            <label>Billing<select id="tc-bill"><option value="one">One-time</option><option value="monthly">Monthly</option></select></label>
-            <label>Months until you pass<span class="uw suf"><input id="tc-months" type="number" min="1" step="1" inputmode="numeric" value="1"><span class="u">months</span></span></label>
-            <label>Resets you expect<span class="uw suf"><input id="tc-resets" type="number" min="0" step="1" inputmode="numeric" value="1"><span class="u">resets</span></span></label>
-            <label>Reset fee<span class="uw pre"><input id="tc-reset" type="number" min="0" step="0.01" inputmode="decimal" placeholder="from the firm's page"><span class="u">$</span></span></label>
-            <label>Activation fee<span class="uw pre"><input id="tc-act" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0 if none"><span class="u">$</span></span></label>
-          </div>
-          <div class="out" id="tc-out"></div>
-          <p class="hint">Reset and activation fees are on each firm's own page; our <a href="/firms/">profiles</a> list them where the firm states them. Codes often don't apply to resets.</p>
-        </div>
-
-        <div class="calc" id="size">
-          <h3><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19V9"/><path d="M12 19V5"/><path d="M19 19v-7"/></svg></span>Contracts per trade</h3>
-          <p class="q">How many contracts you can hold for a given stop without betting more than you planned.</p>
-          <div class="f">
-            <label class="w">Contract<select id="sz-c"></select></label>
-            <label>Risk on this trade<span class="uw pre"><input id="sz-risk" type="number" min="0" step="1" inputmode="decimal" value="500"><span class="u">$</span></span></label>
-            <label>Stop size<span class="uw suf"><input id="sz-stop" type="number" min="0" step="0.01" inputmode="decimal" value="8"><span class="u">points</span></span></label>
-            <label class="w">Stop unit<span class="seg" role="group" aria-label="Stop unit"><button type="button" data-u="points" aria-pressed="true">Points</button><button type="button" data-u="ticks" aria-pressed="false">Ticks</button></span></label>
-          </div>
-          <div class="out" id="sz-out"></div>
-          <p class="hint">Check the firm's contract limit for your account size; micros usually count as a fraction of a mini.</p>
-        </div>
-
-        <div class="calc" id="runway">
-          <h3><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6c4 0 5 5 9 5s5 6 9 6"/><path d="M3 20h18"/></svg></span>Drawdown runway</h3>
-          <p class="q">How many bad days the account can take, and how much you must make to pass.</p>
-          <div class="f">
-            <label>Max drawdown<span class="uw pre"><input id="rw-dd" type="number" min="0" step="1" inputmode="decimal" value="2000"><span class="u">$</span></span></label>
-            <label>Profit target<span class="uw pre"><input id="rw-target" type="number" min="0" step="1" inputmode="decimal" value="3000"><span class="u">$</span></span></label>
-            <label>Average losing day<span class="uw pre"><input id="rw-loss" type="number" min="0" step="1" inputmode="decimal" value="400"><span class="u">$</span></span></label>
-            <label>Daily loss limit (if any)<span class="uw pre"><input id="rw-daily" type="number" min="0" step="1" inputmode="decimal" placeholder="none"><span class="u">$</span></span></label>
-          </div>
-          <div class="out" id="rw-out"></div>
-          <p class="hint">Trailing drawdowns move the line up as you profit, so the runway shrinks after a good day. <a href="/drawdown/">Watch the three types move in the Drawdown Lab</a>, or read the <a href="/glossary/#drawdown">glossary</a>.</p>
-        </div>
-
-        <div class="calc" id="payout">
-          <h3><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span>Days to first payout</h3>
-          <p class="q">At your pace, how long until you can ask for money.</p>
-          <div class="f">
-            <label>Profit per trading day<span class="uw pre"><input id="po-day" type="number" min="0" step="1" inputmode="decimal" value="200"><span class="u">$</span></span></label>
-            <label>Qualifying day minimum<span class="uw pre"><input id="po-qmin" type="number" min="0" step="1" inputmode="decimal" value="150"><span class="u">$</span></span></label>
-            <label>Qualifying days required<span class="uw suf"><input id="po-qdays" type="number" min="0" step="1" inputmode="numeric" value="5"><span class="u">days</span></span></label>
-            <label>Minimum payout<span class="uw pre"><input id="po-min" type="number" min="0" step="1" inputmode="decimal" value="500"><span class="u">$</span></span></label>
-            <label class="w">Buffer or safety net to clear first<span class="uw pre"><input id="po-buf" type="number" min="0" step="1" inputmode="decimal" placeholder="0 if none"><span class="u">$</span></span></label>
-          </div>
-          <div class="out" id="po-out"></div>
-          <p class="hint">Add the firm's payout cycle (weekly, every 14 days) on top. A <a href="/glossary/#consistency-rule">consistency rule</a> can hold a payout even when the numbers work.</p>
-        </div>
 
         <div class="calc" id="consistency">
           <h3><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M7 20v-6"/><path d="M12 20V8"/><path d="M17 20v-4"/></svg></span>Consistency rule</h3>
@@ -360,6 +304,33 @@ footer{letter-spacing:.03em}
           <p class="hint">Plays your numbers through 1,000 evaluations with a static, end-of-day or intraday trailing drawdown. A simulation of your inputs, not a firm's pass rate.</p>
         </div>
 
+        <div class="calc" id="truecost" data-toolcards>
+          <h3><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16v12H4z"/><path d="M4 11h16"/><path d="M8 15h3"/></svg></span>True cost of an eval</h3>
+          <p class="q">What you actually pay to reach a first payout attempt: eval, renewals, resets and activation.</p>
+          <p><div class="prev"><svg viewBox="0 0 300 90" aria-hidden="true"><text x="0" y="14" text-anchor="start" fill="#9B9B9B" font-size="10" font-family="Inter">list price</text><rect x="0" y="20" width="70" height="18" rx="4" fill="#5A4A20"/><text x="0" y="58" text-anchor="start" fill="#F2C14E" font-size="10" font-family="Inter">true cost</text><rect x="0" y="64" width="70" height="18" rx="4" fill="#F2C14E"/><rect x="73" y="64" width="70" height="18" rx="4" fill="#F2C14E"/><rect x="146" y="64" width="55" height="18" rx="4" fill="#E07A6B"/><rect x="204" y="64" width="90" height="18" rx="4" fill="#F2C14E"/><text x="108" y="58" text-anchor="middle" fill="#9B9B9B" font-size="10" font-family="Inter">renewal</text><text x="173" y="58" text-anchor="middle" fill="#9B9B9B" font-size="10" font-family="Inter">reset</text><text x="249" y="58" text-anchor="middle" fill="#9B9B9B" font-size="10" font-family="Inter">activation</text></svg></div><a class="dealgo" href="/tools/true-cost-calculator/">Open the true cost calculator →</a></p>
+          <p class="hint">Start from a live deal or type your own numbers. Codes often don&#x27;t apply to resets.</p>
+        </div>
+
+        <div class="calc" id="runway" data-toolcards>
+          <h3><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6c4 0 5 5 9 5s5 6 9 6"/><path d="M3 20h18"/></svg></span>Drawdown runway</h3>
+          <p class="q">How many bad days the account can take, and how much you must make to pass.</p>
+          <p><div class="prev"><svg viewBox="0 0 300 90" aria-hidden="true"><line x1="0" y1="80" x2="300" y2="80" stroke="#E07A6B" stroke-dasharray="4 4"/><text x="0" y="76" text-anchor="start" fill="#9B9B9B" font-size="10" font-family="Inter">drawdown floor</text><polyline points="0,30 30,38 60,34 90,48 120,44 150,58 180,54 210,66 240,62 270,72" fill="none" stroke="#F2C14E" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><text x="0" y="14" text-anchor="start" fill="#F2C14E" font-size="10" font-family="Inter">5 bad days left</text></svg></div><a class="dealgo" href="/tools/drawdown-runway-calculator/">Open the drawdown calculator →</a></p>
+          <p class="hint">Trailing drawdowns move the line up as you profit, so the runway shrinks after a good day.</p>
+        </div>
+
+        <div class="calc" id="payout" data-toolcards>
+          <h3><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span>Days to first payout</h3>
+          <p class="q">At your pace, how long until you can ask for money.</p>
+          <p><div class="prev"><svg viewBox="0 0 300 90" aria-hidden="true"><rect x="2" y="6" width="30" height="20" rx="4" fill="#F2C14E"/><rect x="40" y="6" width="30" height="20" rx="4" fill="#F2C14E"/><rect x="78" y="6" width="30" height="20" rx="4" fill="#F2C14E"/><rect x="116" y="6" width="30" height="20" rx="4" fill="#F2C14E"/><rect x="154" y="6" width="30" height="20" rx="4" fill="#F2C14E"/><rect x="192" y="6" width="30" height="20" rx="4" fill="#F2C14E"/><rect x="230" y="6" width="30" height="20" rx="4" fill="#F2C14E"/><rect x="2" y="32" width="30" height="20" rx="4" fill="#F2C14E"/><rect x="40" y="32" width="30" height="20" rx="4" fill="#F2C14E"/><rect x="78" y="32" width="30" height="20" rx="4" fill="#F2C14E"/><rect x="116" y="32" width="30" height="20" rx="4" fill="#F2C14E"/><rect x="154" y="32" width="30" height="20" rx="4" fill="#F4F4F2"/><rect x="192" y="32" width="30" height="20" rx="4" fill="#5A4A20"/><rect x="230" y="32" width="30" height="20" rx="4" fill="#5A4A20"/><text x="0" y="78" text-anchor="start" fill="#F2C14E" font-size="10" font-family="Inter">day 12: you can ask for a payout</text></svg></div><a class="dealgo" href="/tools/days-to-payout-calculator/">Open the payout calculator →</a></p>
+          <p class="hint">Counts the minimum payout, qualifying days and any buffer. Add the firm&#x27;s payout cycle on top.</p>
+        </div>
+
+        <div class="calc" id="size" data-toolcards>
+          <h3><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19V9"/><path d="M12 19V5"/><path d="M19 19v-7"/></svg></span>Position size</h3>
+          <p class="q">How many contracts you can hold for a given stop without betting more than you planned.</p>
+          <p><div class="prev"><svg viewBox="0 0 300 90" aria-hidden="true"><text x="0" y="14" text-anchor="start" fill="#9B9B9B" font-size="10" font-family="Inter">risk $200 · stop 25 pts</text><rect x="0" y="30" width="38" height="38" rx="8" fill="#F2C14E"/><rect x="46" y="30" width="38" height="38" rx="8" fill="#F2C14E"/><rect x="92" y="30" width="38" height="38" rx="8" fill="#F2C14E"/><rect x="138" y="30" width="38" height="38" rx="8" fill="#F2C14E"/><rect x="184" y="30" width="38" height="38" rx="8" fill="none" stroke="#5A4A20" stroke-dasharray="4 4"/><rect x="230" y="30" width="38" height="38" rx="8" fill="none" stroke="#5A4A20" stroke-dasharray="4 4"/><text x="0" y="86" text-anchor="start" fill="#F2C14E" font-size="10" font-family="Inter">4 MNQ</text><text x="296" y="86" text-anchor="end" fill="#9B9B9B" font-size="10" font-family="Inter">over your risk</text></svg></div><a class="dealgo" href="/tools/position-size-calculator/">Open the position size calculator →</a></p>
+          <p class="hint">ES, MES, NQ, MNQ, CL, GC and more, with CME tick values. The firm&#x27;s contract limit still applies.</p>
+        </div>
       </div>
     </section>
 
@@ -402,87 +373,6 @@ const $ = id => document.getElementById(id);
 const money = n => (n < 0 ? "-" : "") + "$" + Math.abs(n).toLocaleString("en-US", {minimumFractionDigits: Math.abs(n) % 1 ? 2 : 0, maximumFractionDigits: 2});
 const num = id => { const v = parseFloat($(id).value); return isNaN(v) ? null : v; };
 const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-
-// True cost
-function trueCost(){
-  const price = num("tc-price"), bill = $("tc-bill").value, months = Math.max(1, num("tc-months") || 1), resets = Math.max(0, num("tc-resets") || 0), rfee = num("tc-reset"), act = num("tc-act") || 0;
-  const o = $("tc-out");
-  if (price == null) { o.innerHTML = '<div class="big"><small>True cost</small>Enter an eval price</div>'; return; }
-  const renew = bill === "monthly" ? price * (months - 1) : 0;
-  const resetCost = rfee == null ? null : resets * rfee;
-  const total = price + renew + (resetCost || 0) + act;
-  o.innerHTML = `<div class="big"><small>True cost to a first payout attempt</small>${money(total)}${resetCost == null && resets > 0 ? " + resets" : ""}</div><ul>` +
-    `<li><span>Eval price</span><span>${money(price)}</span></li>` +
-    (bill === "monthly" ? `<li><span>Renewals (${months - 1} more month${months - 1 === 1 ? "" : "s"})</span><span>${money(renew)}</span></li>` : "") +
-    (resets > 0 ? `<li><span>${resets} reset${resets === 1 ? "" : "s"}${rfee == null ? " (fee not entered)" : " × " + money(rfee)}</span><span>${resetCost == null ? "?" : money(resetCost)}</span></li>` : "") +
-    (act > 0 ? `<li><span>Activation fee</span><span>${money(act)}</span></li>` : "") +
-    `<li><span><b>Hidden cost above the sticker price</b></span><span><b>${money(total - price)}</b></span></li></ul>` +
-    (bill === "monthly" && months === 1 ? '<p class="warn">Monthly billing: if it takes you more than a month, add a renewal per extra month above.</p>' : "");
-}
-(function(){
-  const sel = $("tc-deal");
-  sel.addEventListener("change", () => {
-    const [i, size] = sel.value.split("|"); const d = CALC_DEALS[+i]; if (!d) { trueCost(); return; }
-    $("tc-price").value = d.prices[size][1]; $("tc-bill").value = d.billing === "monthly" ? "monthly" : "one"; trueCost();
-  });
-  ["tc-price","tc-bill","tc-months","tc-resets","tc-reset","tc-act"].forEach(id => $(id).addEventListener("input", trueCost));
-  trueCost();
-})();
-
-// Contracts per trade
-let unit = "points";
-(function(){
-  const c = $("sz-c"); c.innerHTML = SPECS.map((s, i) => `<option value="${i}">${s[0]} · ${esc(s[1])}</option>`).join("");
-  document.querySelectorAll('#size .seg button').forEach(b => b.addEventListener("click", () => { unit = b.dataset.u; document.querySelectorAll('#size .seg button').forEach(x => x.setAttribute("aria-pressed", x === b)); sizeCalc(); }));
-  ["sz-c","sz-risk","sz-stop"].forEach(id => $(id).addEventListener("input", sizeCalc));
-})();
-function sizeCalc(){
-  const s = SPECS[+$("sz-c").value], risk = num("sz-risk"), stop = num("sz-stop"), o = $("sz-out");
-  const tickVal = s[3], pointVal = s[3] / s[2];
-  if (!risk || !stop) { o.innerHTML = `<div class="big"><small>${s[0]}</small>${money(tickVal)} per tick · ${money(pointVal)} per point</div>`; return; }
-  const ticks = unit === "ticks" ? stop : stop / s[2];
-  const perContract = ticks * tickVal;
-  const n = Math.floor(risk / perContract);
-  o.innerHTML = `<div class="big"><small>${s[0]} · stop of ${stop} ${unit} (${Math.round(ticks)} ticks)</small>${n} contract${n === 1 ? "" : "s"}</div><ul>` +
-    `<li><span>Risk per contract at that stop</span><span>${money(perContract)}</span></li>` +
-    `<li><span>Actual risk with ${n} contract${n === 1 ? "" : "s"}</span><span>${money(n * perContract)}</span></li>` +
-    `<li><span>1 tick / 1 point</span><span>${money(tickVal)} / ${money(pointVal)}</span></li></ul>` +
-    (n === 0 ? '<p class="warn">One contract already risks more than you planned. Tighten the stop, trade the micro, or raise the risk.</p>' : "");
-}
-sizeCalc();
-
-// Drawdown runway
-function runway(){
-  const dd = num("rw-dd"), target = num("rw-target"), loss = num("rw-loss"), daily = num("rw-daily"), o = $("rw-out");
-  if (!dd) { o.innerHTML = '<div class="big"><small>Runway</small>Enter the drawdown</div>'; return; }
-  const worst = daily && daily < dd ? daily : null;
-  const days = loss ? Math.floor(dd / loss) : null;
-  const worstDays = worst ? Math.ceil(dd / worst) : null;
-  const ratio = target ? (target / dd) : null;
-  o.innerHTML = `<div class="big"><small>Average losing days before breach</small>${days == null ? "–" : days}</div><ul>` +
-    (worstDays ? `<li><span>Max-loss days at the ${money(worst)} daily limit</span><span>${worstDays}</span></li>` : "") +
-    (ratio ? `<li><span>Target ÷ drawdown</span><span>${ratio.toFixed(2)}×</span></li>` : "") +
-    (ratio ? `<li><span>Profit needed per $1 of risk allowed</span><span>${money(ratio)}</span></li>` : "") + `</ul>` +
-    (ratio && ratio >= 1.5 ? '<p class="warn">A target above 1.5× the drawdown means one full drawdown of losses needs more than one and a half drawdowns of wins to recover and pass.</p>' : "");
-}
-["rw-dd","rw-target","rw-loss","rw-daily"].forEach(id => $(id).addEventListener("input", runway)); runway();
-
-// Days to first payout
-function payout(){
-  const day = num("po-day"), qmin = num("po-qmin") || 0, qdays = num("po-qdays") || 0, min = num("po-min") || 0, buf = num("po-buf") || 0, o = $("po-out");
-  if (!day) { o.innerHTML = '<div class="big"><small>Days to first payout</small>Enter a daily profit</div>'; return; }
-  const counts = day >= qmin;
-  const needed = min + buf;
-  const byMoney = Math.ceil(needed / day);
-  const byDays = counts ? qdays : Infinity;
-  const days = Math.max(byMoney, byDays);
-  o.innerHTML = `<div class="big"><small>Trading days to a first payout request</small>${isFinite(days) ? days : "–"}</div><ul>` +
-    `<li><span>Days to reach ${money(needed)}${buf ? " (minimum + buffer)" : " minimum"}</span><span>${byMoney}</span></li>` +
-    `<li><span>Qualifying days required</span><span>${qdays}${counts ? "" : " (your days don't qualify)"}</span></li>` +
-    `<li><span>Profit at request</span><span>${isFinite(days) ? money(days * day) : "–"}</span></li></ul>` +
-    (!counts ? `<p class="warn">Your daily goal is under the ${money(qmin)} qualifying minimum, so none of those days count. Raise the goal or plan more days.</p>` : "");
-}
-["po-day","po-qmin","po-qdays","po-min","po-buf"].forEach(id => $(id).addEventListener("input", payout)); payout();
 
 // Specs table
 $("specs-table").querySelector("tbody").innerHTML = SPECS.map(s => `<tr><td><b>${s[0]}</b></td><td>${esc(s[1])}</td><td class="n">${s[2]}</td><td class="n">${money(s[3])}</td><td class="n">${money(s[3] / s[2])}</td></tr>`).join("");
