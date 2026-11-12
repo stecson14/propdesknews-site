@@ -13,8 +13,10 @@ export default {
     if (!to) return env.ASSETS.fetch(req);
     const ua = req.headers.get('user-agent') || '';
     if (req.method === 'GET' && env.CLICKS && !BOT.test(ua)) {
-      let from = '';
-      try { const r = new URL(req.headers.get('referer') || ''); if (r.hostname.endsWith('propdesknews.com')) from = r.pathname; } catch (e) {}
+      // ?from=<page path> is added to every /go/ link at build time (sandclock_go.py); Referer is the fallback.
+      let from = url.searchParams.get('from') || '';
+      if (!from.startsWith('/')) from = '';
+      if (!from) try { const r = new URL(req.headers.get('referer') || ''); if (r.hostname.endsWith('propdesknews.com')) from = r.pathname; } catch (e) {}
       try {
         env.CLICKS.writeDataPoint({ indexes: [m[1]], blobs: [m[1], from.slice(0, 200), (req.cf && req.cf.country) || ''], doubles: [1] });
       } catch (e) {}
