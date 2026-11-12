@@ -411,13 +411,18 @@ table.px:not(.slt) tbody tr:hover td,table.px:not(.slt) tbody tr:hover th{backgr
 table.px:not(.slt) tbody th[scope=row]{font:600 14.5px var(--body,Inter,system-ui,sans-serif);letter-spacing:0;text-transform:none;color:var(--text,#fff);white-space:normal;min-width:120px}
 table.px:not(.slt) tbody th[scope=row] a{color:inherit;text-decoration:underline;text-decoration-color:var(--mustard);text-decoration-thickness:2px;text-underline-offset:4px}
 table.px.txt:not(.slt) td{font-size:14.5px;line-height:1.55}
-table.px:not(.slt) td a:not([class]){color:var(--mustard);text-underline-offset:3px}table.px:not(.slt) tbody th[scope=row]>a:first-child{font-size:14.5px}table.px:not(.slt) caption{caption-side:top;text-align:left;font:500 13px var(--body,inherit);color:var(--muted);padding:0 0 8px}
+table.px:not(.slt) td a:not([class]){color:var(--mustard);text-underline-offset:3px}table.px:not(.slt) tbody th[scope=row]>a:first-child{font-size:14.5px}table.px td.best{color:var(--mustard);font-weight:700}table.px td.best::after{content:attr(data-b);display:inline-block;margin-left:8px;font:700 9.5px var(--mono,ui-monospace,monospace);letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:999px;border:1px solid var(--mustard);vertical-align:2px}table.px:not(.slt) caption{caption-side:top;text-align:left;font:500 13px var(--body,inherit);color:var(--muted);padding:0 0 8px}
 @media (max-width:640px){table.px:not(.slt){font-size:13.5px}table.px:not(.slt) thead th{font-size:10.5px;padding:9px 8px}table.px:not(.slt) td,table.px:not(.slt) tbody th{padding:10px 8px}table.px.txt:not(.slt) td{font-size:14px}}
 table.px.wordy,table.px.wordy tbody,table.px.wordy tr{display:block;width:100%}
 table.px.wordy thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-table.px.wordy tr{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 22px;padding:16px 18px 18px;margin:0 0 12px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--line) 22%,transparent)}
+table.px.wordy tr{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;padding:16px 18px 18px;margin:0 0 12px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--line) 22%,transparent)}
 table.px.wordy tbody tr:nth-child(n) td,table.px.wordy tbody tr:nth-child(n) th{background:none;border:0;padding:0}
 table.px.wordy tbody tr:hover{border-color:var(--mustard)}
+table.px.wordy tr{background:linear-gradient(135deg,color-mix(in srgb,var(--mustard) 9%,transparent),transparent 42%),color-mix(in srgb,var(--line) 22%,transparent);border-left:3px solid var(--mustard)}
+table.px.wordy .wt{display:flex;align-items:center;gap:12px}
+table.px.wordy .wt a{text-decoration:none!important;color:inherit}table.px.wordy .wt a:hover{color:var(--mustard)}
+table.px.wordy .lg{flex:none;width:34px;height:34px;border-radius:9px;background-color:#fff;background-repeat:no-repeat;box-shadow:0 0 0 1px var(--line)}
+table.px.wordy .lg0{display:inline-flex;align-items:center;justify-content:center;background:var(--line);color:var(--mustard);font:700 15px var(--body,inherit)}
 table.px.wordy .wt{flex:1 1 220px;font:600 17px var(--body,Inter,system-ui,sans-serif)!important;min-width:0}
 table.px.wordy .wk{flex:0 0 auto;font:600 16px var(--body,inherit);display:block;text-align:right}table.px.wordy .wk a{color:var(--mustard)}
 table.px.wordy .wk::before,table.px.wordy .wl::before{content:attr(data-l);font:600 10.5px var(--mono,ui-monospace,monospace);letter-spacing:.07em;text-transform:uppercase;color:var(--mustard);display:block}
