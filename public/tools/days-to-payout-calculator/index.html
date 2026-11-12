@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<title>How Long Until Your First Prop Firm Payout? (Calculator)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Free calculator: at your daily profit, how many trading days until you can request a first prop firm payout, counting the minimum payout, qualifying days and any buffer.">
+<meta property="og:site_name" content="Prop Desk"><meta property="og:url" content="https://propdesknews.com/tools/days-to-payout-calculator/"><meta property="og:title" content="How Long Until Your First Prop Firm Payout? (Calculator)">
+<meta property="og:description" content="Free calculator: at your daily profit, how many trading days until you can request a first prop firm payout, counting the minimum payout, qualifying days and any buffer.">
+<meta property="og:image" content="https://propdesknews.com/og/tools.png?v=dc0b2b57">
+<meta name="twitter:image" content="https://propdesknews.com/og/tools.png?v=dc0b2b57"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@PropDeskNews">
+<link rel="canonical" href="https://propdesknews.com/tools/days-to-payout-calculator/">
+<link rel="icon" href="/icons/icon-48.png" type="image/png" sizes="48x48">
+<link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/playfair-400.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Inter";font-style:normal;font-weight:400 600;font-display:swap;src:url(/fonts/inter-var.woff2) format("woff2")}
+@font-face{font-family:"Playfair Display";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/playfair-400.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:400 600;font-display:swap;src:url(/fonts/ibmplexsans-var.woff2) format("woff2")}
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:500 700;font-display:swap;src:url(/fonts/fraunces-var.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/ibmplexmono-400.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/ibmplexmono-500.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/ibmplexmono-600.woff2) format("woff2")}
+</style>
+<script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/og/*"}},{"not":{"selector_matches":"a[href*=\"#\"]"}}]},"eagerness":"moderate"}],"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/og/*"}}]},"eagerness":"moderate"}]}</script>
+<style>@media (prefers-reduced-motion:no-preference){@view-transition{navigation:auto}::view-transition-old(root){animation:150ms ease-out both pd-vt-out}::view-transition-new(root){animation:220ms ease-out both pd-vt-in}@keyframes pd-vt-out{to{opacity:0}}@keyframes pd-vt-in{from{opacity:0;transform:translateY(8px)}}.sitenav{view-transition-name:pd-nav}.tabbar{view-transition-name:pd-tabbar}}</style>
+<style>
+:root{--bg:#F3F0E6;--surface:#FFFDF7;--ink:#171717;--muted:#5A6275;--line:#D9D3C2;--navy:#171717;--cream:#FFFFFF;--mustard:#B7832A;--mustard-soft:#F3E3BF;--ok:#2F7A4F;--ok-soft:#DCEFE2;--display:Inter,system-ui,sans-serif;--body:Inter,system-ui,sans-serif;--mono:Inter,system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A0A0A;--surface:#171717;--ink:#FFFFFF;--muted:#9B9B9B;--line:#222222;--navy:#0A0A0A;--mustard:#F2C14E;--mustard-soft:#221E12;--ok:#7CC79A;--ok-soft:#1F3A2B;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0A0A0A;--surface:#171717;--ink:#FFFFFF;--muted:#9B9B9B;--line:#222222;--navy:#0A0A0A;--mustard:#F2C14E;--mustard-soft:#221E12;--ok:#7CC79A;--ok-soft:#1F3A2B;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+.wrap{max-width:1060px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.sitenav{background:#171717;border-bottom:1px solid #2E2E2E;font-family:Inter,system-ui,sans-serif;font-size:13px}
+.sitenav .in{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:6px 18px;flex-wrap:wrap}
+.sitenav a{color:#C8C8C8;text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
+.sitenav a:hover{color:#FFFFFF}
+.sitenav a[aria-current="page"]{color:#FFFFFF;border-bottom-color:#F2C14E}
+.sitenav .brand{font-family:Inter,system-ui,sans-serif;font-weight:600;font-size:17px;color:#FFFFFF;margin-right:auto;display:inline-flex;align-items:center;gap:8px;border:0}
+@media (max-width:700px){.sitenav .xl{display:none}}
+@media (max-width:480px){.sitenav .in{gap:6px 12px;padding:10px 12px}.sitenav a{font-size:12.5px}.sitenav .brand{font-size:16px}}
+.sitenav .brand img{width:26px;height:26px;border-radius:50%;border:1px solid #F2C14E}
+.sitenav .sb{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1px solid #2E2E2E;color:#C8C8C8;border-radius:999px;padding:4px 10px;font:inherit;font-size:12.5px;cursor:pointer;line-height:1}.sitenav .sb:hover{color:#FFFFFF;border-color:#F2C14E}.sitenav .sb kbd{font:11px Inter,system-ui,sans-serif;border:1px solid #2E2E2E;border-radius:4px;padding:1px 4px;color:#9B9B9B}@media (max-width:900px){.sitenav .sb kbd{display:none}}@media (max-width:760px){.sitenav .sb span{display:none}.sitenav .sb{padding:5px 7px}}@media (max-width:640px){.sitenav .sb{border-color:transparent}}
+@media (max-width:400px){.sitenav .in{gap:6px 8px;padding:9px 10px}.sitenav a{font-size:12px}.sitenav .brand{font-size:15px;gap:6px}}
+@media (max-width:560px){.sitenav .brand span{display:none}.sitenav .brand{gap:0}}
+
+header.mast{background:var(--navy);color:#FFFFFF}
+header.mast .wrap{padding-block:30px 24px;display:grid;gap:10px}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#F2C14E}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,5vw,52px);line-height:1.05;margin:0;text-wrap:balance}
+.lede{max-width:66ch;color:#C8C8C8;margin:0}
+.jump{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.jump .wrap{padding-block:10px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+@media (min-width:760px){.jump .wrap{flex-wrap:wrap;overflow:visible}}
+.jump .wrap::-webkit-scrollbar{display:none}
+.jump a{flex:none;font:500 12px var(--mono);color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 11px;background:var(--surface);white-space:nowrap}
+.jump a:hover{border-color:var(--mustard);color:var(--mustard)}
+.jump a.hasdeal{border-color:var(--mustard)}.jump a b{font-weight:700;color:var(--navy);background:var(--mustard);border-radius:999px;padding:1px 7px;margin-left:4px}
+main .wrap{padding-block:22px 60px;display:grid;gap:40px}
+section h2{font-family:var(--display);font-weight:500;font-size:28px;margin:0 0 4px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+section h2 small{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.secnote{color:var(--muted);margin:0 0 16px;max-width:72ch;font-size:14px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(100%,440px),1fr))}
+.grid>*,.tools>*{min-width:0}
+main .wrap>section{min-width:0;max-width:100%}
+.calc,.tool{contain:inline-size}
+.calc{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:grid;gap:12px;align-content:start}
+.calc h3{font-family:var(--display);font-weight:700;font-size:21px;margin:0;line-height:1.2}
+.calc .q{margin:0;color:var(--muted);font-size:13.5px}
+.f{display:grid;gap:10px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.f label{display:grid;gap:4px;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);min-width:0}
+.f label.w{grid-column:1/-1}
+.f input,.f select{font:500 15px var(--body);padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:100%;max-width:100%;min-width:0;text-overflow:ellipsis}
+.f input:focus-visible,.f select:focus-visible,.seg button:focus-visible,a:focus-visible{outline:2px solid var(--mustard);outline-offset:2px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--bg);width:max-content}
+.seg button{font:500 12px var(--mono);padding:7px 12px;border:0;background:transparent;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.out{background:var(--mustard-soft);border:1px solid var(--mustard);border-radius:10px;padding:12px 14px;display:grid;gap:4px}
+.out .big{font-family:var(--display);font-weight:700;font-size:30px;line-height:1.05}
+.out .big small{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
+.out ul{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:3px;font-size:13.5px}
+.out li{display:flex;justify-content:space-between;gap:10px}
+.out li span:last-child{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.out .warn{font-size:13px;color:var(--muted);margin:4px 0 0}
+.hint{font-size:12.5px;color:var(--muted);margin:0}
+.hint a{color:var(--mustard);text-decoration:none}
+.tools{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+.tool{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:6px;align-content:start}
+.tool h3{font-family:var(--display);font-weight:700;font-size:19px;margin:0;line-height:1.2}
+.tool h3 a{color:inherit;text-decoration:none;border-bottom:2px solid var(--mustard)}
+.tool p{margin:0;font-size:14px}
+.tool .free{font:500 12px var(--mono);color:var(--ok)}
+.tool .sup{font:500 12px var(--mono);color:var(--mustard);text-decoration:none}
+.tool .aff{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 6px;justify-self:start;max-width:100%;white-space:normal}
+.tool .code{font:600 13px var(--mono);background:var(--mustard-soft);border-radius:6px;padding:4px 8px;justify-self:start}
+.tool.deal{border-color:var(--mustard);box-shadow:inset 3px 0 0 var(--mustard)}
+.tool .dealb{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin:0 0 2px}
+.tool .dealb b{font:700 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;background:var(--mustard);color:var(--navy);border-radius:999px;padding:4px 10px}
+.tool .dealb span{font:500 12px var(--mono);color:var(--mustard)}
+.tool .dealgo{justify-self:start;font:600 13px var(--mono);color:var(--navy);background:var(--mustard);border-radius:8px;padding:9px 14px;text-decoration:none;margin-top:4px}
+.tool .dealgo:hover{filter:brightness(1.08)}.tool .dealgo:focus-visible{outline:2px solid var(--cream);outline-offset:2px}
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line)}
+th{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.tscroll{overflow-x:auto}
+footer .wrap{padding-block:0 40px;color:var(--muted);font-size:13px;display:grid;gap:6px}
+footer p{max-width:80ch;margin:0}
+footer a{color:inherit}
+@media (max-width:420px){.f{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* app shell: on phones the top links give way to a bottom tab bar; on desktop a floating dock slides in after the top nav scrolls away (app.js) */
+.tabbar{display:none}.moresheet{display:none}
+@media (max-width:760px){.tabbar .dk{display:none}}
+@media (min-width:761px){
+body{padding-bottom:88px}
+.tabbar{display:flex;align-items:center;gap:2px;position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:8;padding:5px;border-radius:999px;background:rgba(10,10,10,.88);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid #2E2E2E;box-shadow:0 14px 40px -14px rgba(0,0,0,.7);transform:translate(-50%,150%);opacity:0;transition:transform .28s cubic-bezier(.2,.8,.2,1),opacity .2s;pointer-events:none}
+.tabbar.show{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+.tabbar .mb{display:none}
+.tabbar a,.tabbar button{display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border-radius:999px;font:500 12.5px Inter,system-ui,sans-serif;color:#C8C8C8;text-decoration:none;background:none;border:0;cursor:pointer;white-space:nowrap}
+.tabbar a:hover,.tabbar button:hover{background:#1D1D1D;color:#FFFFFF}
+.tabbar a:focus-visible,.tabbar button:focus-visible{outline:2px solid #F2C14E;outline-offset:1px}
+.tabbar .on{color:#171717;background:#F2C14E}
+.tabbar svg{width:15px;height:15px}
+}
+@media (prefers-reduced-motion:reduce){.tabbar{transition:none}}
+@media (max-width:760px){
+.sitenav .in>a:not(.brand){display:none}
+.sitenav .brand span{display:inline!important}.sitenav .brand{gap:8px!important}
+body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+.tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:8;background:#171717;border-top:1px solid #2E2E2E;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px))}
+.tabbar a,.tabbar button{display:flex;flex-direction:column;align-items:center;gap:3px;font:500 10.5px Inter,system-ui,sans-serif;letter-spacing:.04em;color:#9B9B9B;text-decoration:none;background:none;border:0;padding:4px 0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.tabbar svg{width:22px;height:22px}
+.tabbar .on{color:#F2C14E}
+.moresheet{position:fixed;inset:0;z-index:7;background:rgba(0,0,0,.6);display:flex;align-items:flex-end;justify-content:center}
+.moresheet[hidden]{display:none}
+.moresheet .in{background:#171717;color:#FFFFFF;width:100%;max-width:560px;border-radius:16px 16px 0 0;border:1px solid #2E2E2E;border-bottom:0;padding:14px 16px calc(76px + env(safe-area-inset-bottom,0px));display:grid;gap:0;max-height:82vh;overflow:auto}
+.moresheet .k{font:600 11px Inter,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#F2C14E;margin:4px 0 6px}
+.moresheet a,.moresheet button{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#FFFFFF;text-decoration:none;font:500 15px Inter,system-ui,sans-serif;padding:11px 2px;border:0;border-bottom:1px solid #222222;background:none;text-align:left;cursor:pointer;width:100%}
+.moresheet a small,.moresheet button small{font:12px Inter,system-ui,sans-serif;color:#9B9B9B;text-align:right}
+.moresheet button.inst{color:#F2C14E}
+.moresheet .ios{font-size:13.5px;color:#C8C8C8;margin:10px 0 0;line-height:1.5}
+.moresheet .ios b{color:#FFFFFF}
+.tray{bottom:calc(62px + env(safe-area-inset-bottom,0px))!important}
+body.hastray{padding-bottom:calc(160px + env(safe-area-inset-bottom,0px))!important}
+}
+</style>
+<script src="/search.js" defer></script>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Prop Desk">
+<meta name="mobile-web-app-capable" content="yes">
+<script src="/app.js" defer></script>
+<noscript><style>@media (max-width:760px){.sitenav .in>a:not(.brand){display:inline!important}.tabbar [data-tab="more"]{display:none}}</style></noscript>
+
+<style>
+/* Sandclock+ inner (staging): matte black, Inter UI, serif page titles, pill shapes, gold only on codes, savings and sale tags */
+:root,:root[data-theme="dark"]{--bg:#0A0A0A;--surface:#171717;--ink:#FFFFFF;--muted:#9B9B9B;--line:#222222;--navy:#0A0A0A;--mustard:#F2C14E;--mustard-soft:#221E12;
+ --display:Inter,system-ui,sans-serif;--body:Inter,system-ui,sans-serif;--mono:Inter,system-ui,sans-serif;--codefont:"IBM Plex Mono",ui-monospace,monospace;color-scheme:dark}
+body{background:#0A0A0A;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
+h1{font-family:"Playfair Display",Georgia,serif!important;font-weight:400!important;letter-spacing:.005em!important;line-height:1.08}
+main h2{font-family:"Playfair Display",Georgia,serif;font-weight:400;letter-spacing:.005em;line-height:1.15}
+h2,h3{letter-spacing:.01em}
+code,kbd,.code,.codebox .code,.frow .sale code,.cb code{font-family:var(--codefont)!important}
+.codebox .code,.frow .sale code,.cb code,.go code{text-transform:uppercase}
+.bc a,.bfl a,.cmphint a,.crumb a,.facts a,.fallback a,.hint a,.lede a,.meta2 a,.note2 a,.prose a,.faq a,.rrbar a,.rule a,.step a,.tldr a,.toc a,.v.go a,.live .foot a,footer .trust a,.rrbar button{color:#FFFFFF!important;text-decoration:underline;text-decoration-color:#3A3A3A;text-underline-offset:3px}
+.card .top a.name:hover,.cmp:hover,.gl:hover,.item p a:hover,.jump a:hover,.lbl .gl:hover,.lst h3 a:hover,.name a:hover,.rrt a:hover,.sugg a:hover,table.tci a:hover{color:#FFFFFF!important}
+.kicker,.ghero.banner .k,.k,.item time,.tl time,.tldr .ch2,.calc .ch,.calc .no,.crow .acct,.faq summary::after,.rrs summary,.moresheet .k,.moresheet button.inst,.sizes .lbl,.step .n,.q .n,.atsz .h,.hours b,.how .eod b,.step .do b,.term .two b,.who h3,.answers button b,#cout .k2,table.qa .qsrc,table.hlt td.tot i,.more,.tool .sup,.tag.t1{color:#9B9B9B!important}
+.sitenav{background:#0A0A0A!important;border-bottom-color:#1A1A1A!important;letter-spacing:.04em}
+.sitenav a{color:#FFFFFF}
+.sitenav .brand{font-weight:500}
+.sitenav .brand img{border-color:#2E2E2E!important}
+.tabbar .on{color:#0A0A0A!important;background:#FFFFFF!important}
+@media (max-width:760px){.tabbar .on{background:none!important;color:#FFFFFF!important}.tabbar{background:#0A0A0A!important}}
+.copy,.lk2,.lk,.btn,.go,.cta,.sb,.chip,.copyonly,.tm-btn{border-radius:9999px!important}
+.copy{background:#F2C14E;color:#0A0A0A}
+.lk2{border-color:#2E2E2E!important}
+.codebox .code{border:1px solid #F2C14E!important;border-radius:9999px!important;background:transparent!important}
+footer{letter-spacing:.03em}
+.flatline path,.flatline polyline,.flatline line{stroke:#2E2E2E!important}
+.frow{padding:14px 16px;transition:background-color .15s}
+.frow:hover{background:rgba(255,255,255,.03)!important}
+.frow b{font-weight:500;letter-spacing:.02em}
+.frow.hd{background:transparent!important;font:500 11px Inter,system-ui,sans-serif!important;letter-spacing:.14em;color:#6B6B6B!important}
+.frow .sale{gap:6px!important;max-width:150px!important}
+.frow .sale b{background:none!important;box-shadow:none!important;color:#F2C14E!important;font:600 14px/1.2 Inter,system-ui,sans-serif!important;padding:0!important;border-radius:0!important;letter-spacing:.02em!important}
+.frow .sale b::before{display:none!important}
+.frow .sale code{font:600 11.5px var(--codefont)!important;color:#FFFFFF!important;background:#171717;border:1px solid #2E2E2E!important;border-radius:9999px!important;padding:3px 10px!important;letter-spacing:.06em}
+.frow .sale i{font:400 10.5px/1.35 Inter,system-ui,sans-serif!important;text-transform:none!important;letter-spacing:.02em!important;color:#6B6B6B!important;text-align:right}
+.frow .sale.no{border:0!important;padding:0!important;color:#5A5A5A!important;font:400 12.5px Inter,system-ui,sans-serif!important;letter-spacing:.02em}
+.sizes button[aria-pressed="true"]{background:#FFFFFF!important;border-color:#FFFFFF!important;color:#0A0A0A!important}
+</style>
+<style>/* type floor */a.gl,.st dt,.tags .tag,.tags label.cmp,.deal .dk,.item p.src,.src a,.top .badge,span.pill,.ddt i,.links .affl,.chips .chip,button.gl,.f label,main dt,.sizes button,.codebox .affl,.deal p.tag,.fp p.src,.t small,.crow p.acct,main th,small.af,.nc em,.tool .aff,.do b,.trustline span,.price .bill,.pdnum .lb,.sale .lbl,.card label,.hk .k,.hk .ck,.hsoon .lb,.ticker .lb,.sizebar .lbl,.rrb b,.pop span,span.n{font-size:12px!important}</style><link rel="alternate" type="application/rss+xml" title="Prop Desk News" href="/news/feed.xml"><style data-r4>
+.calc h3{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.calc .ex{white-space:nowrap}
+.calc h3 .ic{width:30px;height:30px;border-radius:8px;border:1px solid #3A3220;background:#1A160C;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.calc h3 .ic svg{width:16px;height:16px;stroke:#F2C14E;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.calc .ex{margin-left:auto;font:600 10.5px 'IBM Plex Mono',ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:#9B9B9B;border:1px solid #2E2E2E;border-radius:999px;padding:3px 8px}
+.uw{position:relative;display:block}.uw input{width:100%;box-sizing:border-box}
+.uw.pre input{padding-left:26px}.uw.suf input{padding-right:52px}
+.uw .u{position:absolute;top:50%;transform:translateY(-50%);font:500 14px Inter,system-ui,sans-serif;color:#7A7A7A;pointer-events:none}
+.uw.pre .u{left:12px}.uw.suf .u{right:12px}
+.viz{margin-top:10px;display:grid;gap:8px}
+.viz .bar{display:flex;height:14px;border-radius:999px;overflow:hidden;background:#2A2416}
+.viz .bar span{display:block;height:100%}
+.viz .lg{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:#C8C8C8}
+.viz .lg i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px;vertical-align:0}
+.viz .meter{position:relative;height:14px;border-radius:999px;background:#2A2416;overflow:hidden}
+.viz .meter b{position:absolute;inset:0 auto 0 0;background:#F2C14E;border-radius:999px}
+.viz .scale{display:flex;justify-content:space-between;font:500 11.5px 'IBM Plex Mono',monospace;color:#9B9B9B}
+.viz .blocks{display:flex;gap:6px;flex-wrap:wrap}
+.viz .blocks span{width:30px;height:30px;border-radius:7px;background:#3A1E1A;border:1px solid #6B2E26;display:flex;align-items:center;justify-content:center;font:600 11px 'IBM Plex Mono',monospace;color:#E07A6B}
+.viz .blocks span.end{background:none;border:1px dashed #6B2E26;color:#9B9B9B;width:auto;padding:0 8px}
+.viz .two{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;align-items:center;font-size:12.5px;color:#C8C8C8}
+.viz .two .t{height:10px;border-radius:999px}
+.viz .dots{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.viz .dots span{width:22px;height:22px;border-radius:50%;border:1px solid #5A4A20;background:#F2C14E;color:#0A0A0A;font:600 10.5px 'IBM Plex Mono',monospace;display:flex;align-items:center;justify-content:center}
+.viz .dots span.q{background:#2A2416;color:#F2C14E}
+.viz .dots em{font-style:normal;font-size:12.5px;color:#F2C14E;margin-left:4px}
+.calc .dealgo{display:inline-flex;align-items:center;gap:8px;background:#F2C14E;color:#0A0A0A!important;text-decoration:none!important;border-radius:999px;padding:10px 18px;font:600 14.5px Inter,system-ui,sans-serif;align-self:flex-start}
+.calc .dealgo:hover,.calc .dealgo:focus-visible{background:#FFFFFF}
+.calc .prev{border:1px solid #2A2A2A;border-radius:12px;background:#121212;padding:14px;margin:4px 0 12px}
+.calc .prev svg{display:block;width:100%;height:auto}
+
+#tjump{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+#tjump a{background:#0A0A0A;border:1px solid #2E2E2E;border-radius:999px;padding:7px 14px;font:500 13.5px Inter,system-ui,sans-serif;color:#C8C8C8;text-decoration:none;white-space:nowrap}
+#tjump a:hover,#tjump a:focus-visible{border-color:#F2C14E;color:#F2C14E}
+.calc{scroll-margin-top:70px}
+@media (max-width:760px){#tjump{position:sticky;top:0;z-index:30;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px 16px;padding:10px 16px;background:#0A0A0A;border-bottom:1px solid #222}#tjump::-webkit-scrollbar{display:none}}</style><style data-menuart>
+.mart{margin:36px auto 8px;max-width:1060px;border:1px solid #222;border-radius:14px;overflow:hidden;background:#0F0F0F}
+.mart img{display:block;width:100%;height:auto;aspect-ratio:1200/672}
+.mart figcaption{display:flex;align-items:center;justify-content:space-between;gap:12px 20px;flex-wrap:wrap;padding:16px 20px;border-top:1px solid #222}
+.mart .k{display:block;font:600 11.5px Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#9B9B9B;margin-bottom:4px}
+.mart strong{display:block;font:400 22px/1.2 "Playfair Display",Georgia,serif;color:#fff;text-wrap:balance}
+.mart a.mgo{flex:none;display:inline-flex;align-items:center;gap:8px;border:1px solid #F2C14E;color:#fff!important;border-radius:999px;padding:10px 16px;font:600 14px Inter,system-ui,sans-serif;text-decoration:none!important}
+.mart a.mgo:hover,.mart a.mgo:focus-visible{background:#221E12}
+@media(max-width:640px){.mart figcaption{padding:14px 16px}.mart strong{font-size:19px}.mart a.mgo{width:100%;justify-content:center;box-sizing:border-box}}
+/* split (Nov 11: dead space on the right): art keeps the left, caption fills the empty right side on wide screens; phones crop to the art */
+.mart.split{position:relative;container-type:inline-size;width:100%;box-sizing:border-box}
+@media(min-width:761px){.mart.split figcaption{position:absolute;top:0;right:0;bottom:0;width:39%;flex-direction:column;align-items:flex-start;justify-content:center;gap:22px;padding:24px 4cqw 24px 0;border-top:0}
+.mart.split .k{color:#B8C0D4;margin-bottom:10px}.mart.split strong{font-size:clamp(21px,3cqw,32px);line-height:1.15}.mart.split a.mgo{font-size:clamp(13px,1.35cqw,14px);text-wrap:balance}}
+@media(max-width:760px){.mart.split img{aspect-ratio:720/672;object-fit:cover;object-position:left center}}
+</style>
+<style data-alerts-wide>
+.aw{max-width:1100px;margin:40px auto 8px;padding:0 16px;box-sizing:border-box}
+.aw .bx{background:#111;border:1px solid #2E2E2E;border-left:3px solid #F2C14E;border-radius:14px;padding:22px 22px 18px;color:#F4F4F2;font:15px/1.55 Inter,system-ui,sans-serif}
+.aw .ttl{font:400 24px/1.2 'Playfair Display',Georgia,serif;margin:0 0 6px;color:#F4F4F2}.aw .ttl strong{font-weight:400}
+.aw p{margin:0;color:#A3A3A3}
+.aw .fl{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 12px;padding:0;border:0}
+.aw .fl legend{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.aw .fl label{display:inline-flex;align-items:center;gap:8px;border:1px solid #2E2E2E;border-radius:999px;padding:7px 12px;cursor:pointer;font-size:14px;color:#E6E6E6}
+.aw .fl label:has(input:checked){border-color:#F2C14E;color:#FFF}
+.aw input[type=checkbox]{accent-color:#F2C14E;width:16px;height:16px;margin:0}
+.aw .dl{display:flex;align-items:center;gap:8px;font-size:14px;color:#C8C8C8;margin-bottom:12px;cursor:pointer}
+.aw .row{display:flex;gap:10px;flex-wrap:wrap}
+.aw input[type=email]{flex:1 1 220px;min-width:0;background:#0A0A0A;border:1px solid #2E2E2E;border-radius:999px;color:#F4F4F2;padding:11px 16px;font:16px Inter,system-ui,sans-serif}
+.aw input[type=email]:focus{outline:2px solid #F2C14E;outline-offset:1px}
+.aw .go{background:#F2C14E;color:#0A0A0A;border:0;border-radius:999px;padding:11px 20px;font:600 15px Inter,system-ui,sans-serif;cursor:pointer}
+.aw .go:hover,.aw .go:focus-visible{background:#FFF}
+.aw .fine{font-size:13px;margin-top:10px}
+.aw .fine a{color:#C8C8C8}
+.aw .err{color:#E07A6B;font-size:13px;margin-top:8px}
+.aw .done{color:#E6E6E6}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://propdesknews.com/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://propdesknews.com/tools/"}, {"@type": "ListItem", "position": 3, "name": "Days to payout calculator", "item": "https://propdesknews.com/tools/days-to-payout-calculator/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How long does it take to get a first payout from a prop firm?", "acceptedAnswer": {"@type": "Answer", "text": "At $250 a day toward a $500 minimum plus a $1,000 buffer, you need 6 trading days of profit. If the firm also needs 5 qualifying days, the money is the slower part, so the answer is 6 days, plus the firm’s payout cycle."}}, {"@type": "Question", "name": "What is a qualifying day?", "acceptedAnswer": {"@type": "Answer", "text": "A day that meets the firm’s minimum profit, for example $150 or more. Days below the minimum don’t count toward the number of days the firm requires before a payout."}}, {"@type": "Question", "name": "Why add a buffer?", "acceptedAnswer": {"@type": "Answer", "text": "Some firms require a balance above the starting balance before a payout, and every payout moves you closer to the drawdown. The buffer is the extra profit you plan to leave in the account."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "How long until your first prop firm payout? Calculator", "url": "https://propdesknews.com/tools/days-to-payout-calculator/", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "publisher": {"@id": "https://propdesknews.com/#org"}}</script><style data-toolpage>.tp-one{max-width:760px}.tp-one .calc{margin:0}.tp-ans{font:400 17px/1.6 Inter,system-ui,sans-serif;color:#E6E6E6;margin:0 0 10px}.tp-near{color:#BDBDBD;margin:0 0 22px}.tp-near a,.tp-src a,.tp-sec p a{color:#F2C14E}.tp-sec{margin:34px 0 0}.tp-sec p{color:#C8C8C8;line-height:1.6}.tp-faq details{border-bottom:1px solid #2E2E2E;padding:14px 0}.tp-faq summary{cursor:pointer;font-weight:600;color:#fff}.tp-faq p{margin:10px 0 0;color:#C8C8C8;line-height:1.6}.tp-src{color:#9B9B9B;font-size:13.5px;margin-top:18px}.tp-links{display:flex;flex-wrap:wrap;gap:8px}.tp-links a{border:1px solid #2E2E2E;border-radius:999px;padding:8px 14px;color:#E6E6E6;text-decoration:none;font-size:14px}.tp-links a:hover{border-color:#F2C14E}.bc{font-size:13px;color:#9B9B9B;margin:0 0 10px;display:flex;gap:8px;flex-wrap:wrap}.bc a{color:#BDBDBD}</style>
+</head>
+<body>
+<nav class="sitenav" aria-label="Site"><div class="in"><a class="brand" href="/"><img src="/icons/avatar-52.jpg" alt="" width="26" height="26"><span>Prop Desk</span></a><a href="/#deals">Deals</a><a href="/news/">News</a><a href="/firms/">Directory</a><a href="/compare/">Compare</a><a href="/tools/" aria-current="page">Tools</a><button class="sb" type="button" aria-label="Search the site (press /)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span><kbd>/</kbd></button><a class="xl" href="https://x.com/PropDeskNews">@PropDeskNews ↗</a></div></nav>
+
+<header class="mast">
+  <div class="wrap">
+    <nav class="bc" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/tools/">Tools</a><span aria-hidden="true">/</span><span aria-current="page">Days to payout calculator</span></nav>
+    <div class="kicker">Free · nothing stored</div>
+    <h1>How long until your first prop firm payout? Calculator</h1>
+  </div>
+</header>
+<main>
+  <div class="wrap"><div class="tp-one">
+<p class="tp-ans">You can request a first payout once you have both the firm’s minimum payout (plus any buffer) and its required number of qualifying days, whichever takes longer.</p><p class="tp-near">For how long the evaluation itself usually takes, read <a href="/guides/how-long-to-pass-prop-firm/">how long it takes to pass a prop firm</a>.</p>
+<div class="calc" id="payout">
+          <h3><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span>Days to first payout</h3>
+          <p class="q">At your pace, how long until you can ask for money.</p>
+          <div class="f">
+            <label>Profit per trading day<span class="uw pre"><input id="po-day" type="number" min="0" step="1" inputmode="decimal" value="200"><span class="u">$</span></span></label>
+            <label>Qualifying day minimum<span class="uw pre"><input id="po-qmin" type="number" min="0" step="1" inputmode="decimal" value="150"><span class="u">$</span></span></label>
+            <label>Qualifying days required<span class="uw suf"><input id="po-qdays" type="number" min="0" step="1" inputmode="numeric" value="5"><span class="u">days</span></span></label>
+            <label>Minimum payout<span class="uw pre"><input id="po-min" type="number" min="0" step="1" inputmode="decimal" value="500"><span class="u">$</span></span></label>
+            <label class="w">Buffer or safety net to clear first<span class="uw pre"><input id="po-buf" type="number" min="0" step="1" inputmode="decimal" placeholder="0 if none"><span class="u">$</span></span></label>
+          </div>
+          <div class="out" id="po-out"><div class="big"><small>Trading days to a first payout request</small>5</div><ul><li><span>Days to reach $500 minimum</span><span>3</span></li><li><span>Qualifying days required</span><span>5</span></li><li><span>Profit at request</span><span>$1,000</span></li></ul></div>
+          <p class="hint">Add the firm's payout cycle (weekly, every 14 days) on top. A <a href="/glossary/#consistency-rule">consistency rule</a> can hold a payout even when the numbers work.</p>
+        </div>
+<section class="tp-sec"><h2>How it works</h2><p>Type your profit per trading day, the firm’s qualifying-day minimum and how many qualifying days it requires, then its minimum payout. Add a buffer if you plan to leave profit in the account.</p><p>The result is the number of trading days to a first payout request, and whether the money or the qualifying days are the slower part. Add the firm’s payout cycle on top.</p></section>
+<section class="tp-sec tp-faq"><h2>Questions</h2><details><summary>How long does it take to get a first payout from a prop firm?</summary><p>At $250 a day toward a $500 minimum plus a $1,000 buffer, you need 6 trading days of profit. If the firm also needs 5 qualifying days, the money is the slower part, so the answer is 6 days, plus the firm’s payout cycle.</p></details><details><summary>What is a qualifying day?</summary><p>A day that meets the firm’s minimum profit, for example $150 or more. Days below the minimum don’t count toward the number of days the firm requires before a payout.</p></details><details><summary>Why add a buffer?</summary><p>Some firms require a balance above the starting balance before a payout, and every payout moves you closer to the drawdown. The buffer is the extra profit you plan to leave in the account.</p></details></section>
+<section class="tp-sec"><h2>How we checked</h2><p class="tp-src">The math is checked by Prop Desk on Nov 12, 2026. Minimum payouts, qualifying days and payout cycles come from each firm’s own payout policy; our <a href="/payouts/">payouts hub</a> and <a href="/rules/">rules pages</a> link and date them. Edited by <a href="/about/steven-t/">Steven T.</a></p></section>
+<section class="tp-sec"><h2>Keep reading</h2><div class="tp-links"><a href="/guides/how-long-to-pass-prop-firm/">How long it takes to pass a prop firm</a><a href="/tools/consistency-calculator/">Consistency rule calculator</a><a href="/payouts/">Payouts hub</a><a href="/tools/">All calculators and tools</a></div></section>
+  </div></div>
+</main>
+
+<aside class="aw" aria-labelledby="aw-t" data-alerts-wide><div class="bx"><p class="ttl" id="aw-t"><strong>Get an email when these firms change their rules</strong></p><p>One short email per change, confirmed on the firm&#x27;s own site. Untick any you don&#x27;t trade.</p><form method="post" action="https://app.kit.com/forms/10172463/subscriptions" target="aw-f"><fieldset class="fl"><legend>Firms</legend><label><input type="checkbox" name="tags[]" value="25694786" data-d="25694787" checked>IQ Capital</label><label><input type="checkbox" name="tags[]" value="25694812" data-d="25694813" checked>Phidias Prop Firm</label><label><input type="checkbox" name="tags[]" value="25694761" data-d="25694762" checked>FundedNext Futures</label><label><input type="checkbox" name="tags[]" value="25694700" data-d="25694701" checked>Blue Guardian Futures and CFD</label><label><input type="checkbox" name="tags[]" value="25694755" data-d="25694756" checked>Funded Trader Markets</label><label><input type="checkbox" name="tags[]" value="25694842" data-d="25694843" checked>Topstep</label></fieldset><label class="dl"><input type="checkbox">Also tell me about new codes and sales at these firms</label><div class="row"><label for="aw-e" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email</label><input id="aw-e" type="email" name="email_address" required autocomplete="email" placeholder="you@example.com"><button type="submit" class="go">Send me alerts</button></div><p class="err" hidden>Pick at least one firm.</p><p class="fine">We email you a confirm link first. One-click unsubscribe. <a href="/privacy/#alerts">Privacy</a></p></form><p class="done" hidden>Almost done. Check your inbox and tap the confirm link (look in spam or promotions if it isn&#x27;t there).</p></div></aside><iframe name="aw-f" title="Sign-up" hidden></iframe>
+<footer>
+  <div class="wrap">
+    <p>Links marked &quot;Affiliate link&quot; are Prop Desk affiliate links: if you buy through one, Prop Desk may earn a commission at no extra cost to you. Everything else here is a plain link. Calculators run in your browser and store nothing. Contract specs are exchange figures and can change; margins and contract limits are set by each firm. Prop firm evaluations are simulated trading products. Education, not financial advice.</p>
+    <p><a href="/">propdesknews.com</a> · <a href="/firms/">Directory</a> · <a href="/compare/">Compare</a> · <a href="/glossary/">Glossary</a> · <a href="/start/">Start here</a> · <a href="/finder/">Find my firm</a> · <a href="/calendar/">Calendar</a> · <a href="/news/">Rule changes &amp; news</a></p>
+      <style>.soc{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0}.soc .sl{font:600 11px var(--mono,ui-monospace,monospace);letter-spacing:.08em;text-transform:uppercase;color:var(--muted,#9B9B9B);margin-right:4px}.soc a{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:8px 13px;border:1px solid var(--line,#2E2E2E);border-radius:999px;color:var(--ink,#fff)!important;text-decoration:none!important;font:500 13px var(--body,Inter,system-ui,sans-serif);background:var(--surface,#171717)}.soc a:hover{border-color:var(--mustard,#F2C14E)}.soc a:focus-visible{outline:2px solid var(--mustard,#F2C14E);outline-offset:2px}.soc svg{width:16px;height:16px;flex:none}.soc.c{justify-content:center}</style><div class="soc" data-soc="1"><span class="sl">Follow Prop Desk</span><a href="https://x.com/PropDeskNews" rel="me noopener" target="_blank" aria-label="Prop Desk on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>@PropDeskNews</a><a href="https://www.youtube.com/@PropDeskNews" rel="me noopener" target="_blank" aria-label="Prop Desk on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor"/></svg>YouTube</a><a href="https://www.instagram.com/propdesknews/" rel="me noopener" target="_blank" aria-label="Prop Desk on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></svg>Instagram</a><a href="https://www.tiktok.com/@propdesknews" rel="me noopener" target="_blank" aria-label="Prop Desk on TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 3v11.2a3.3 3.3 0 1 1-3.3-3.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M13.5 3c.4 2.6 2.2 4.3 5 4.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>TikTok</a></div><p class="trust">Veteran-owned · <a href="/about/">About Prop Desk</a> · <a href="/partners/">Partners</a> · <a href="/editorial-standards/">How we check</a> · <a href="/affiliate-disclosure/">Affiliate disclosure</a> · <a href="/privacy/">Privacy</a> · <a href="mailto:hello@propdesknews.com">Corrections</a></p>
+  </div>
+</footer>
+
+
+<nav class="tabbar" aria-label="Quick navigation">
+<a href="/#deals" data-tab="deals"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg><span>Deals</span></a>
+<a href="/finder/" data-tab="finder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.6"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><span>Find</span></a>
+<a href="/firms/" data-tab="firms"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg><span>Firms</span></a>
+<a href="/news/" data-tab="news"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8.5h10M7 12h10M7 15.5h6"/></svg><span>News</span></a>
+<a href="/compare/" data-tab="compare" class="dk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="7.5" height="16" rx="1.5"/><rect x="13.5" y="4" width="7.5" height="16" rx="1.5"/></svg><span>Compare</span></a>
+<a href="/tools/" data-tab="tools" class="dk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h3M13 11h3M8 15h3M13 15h3"/></svg><span>Tools</span></a>
+<button type="button" data-tab="search" class="dk" data-search><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span></button>
+<button type="button" data-tab="more" class="mb" aria-expanded="false" aria-controls="moresheet"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg><span>More</span></button>
+</nav>
+<div class="moresheet" id="moresheet" hidden role="dialog" aria-modal="true" aria-label="More"><div class="in">
+<div class="k">More</div>
+<a href="/compare/">Compare firms <small>side by side</small></a>
+<a href="/tools/">Tools and calculators <small>true cost, sizing</small></a>
+<a href="/glossary/">Glossary <small>fine print, decoded</small></a>
+<a href="/drawdown/">Drawdown Lab <small>watch the line move</small></a>
+<a href="/start/">Start here <small>how an eval works</small></a>
+<a href="/calendar/">News calendar <small>red folders, ET</small></a>
+<button type="button" data-search>Search the site <small>firms, codes, terms</small></button>
+<a href="https://x.com/PropDeskNews">@PropDeskNews on X <small>↗</small></a>
+<a href="mailto:hello@propdesknews.com">Email the desk <small>hello@</small></a>
+<button type="button" class="inst" id="pd-install" hidden>Install Prop Desk as an app <small>free, 1 tap</small></button>
+<p class="ios" id="pd-ios" hidden>Want this as an app? Tap <b>Share</b> in Safari, then <b>Add to Home Screen</b>. You get an icon and full-screen Prop Desk.</p>
+</div></div>
+<script data-alerts-wide>(()=>{const w=document.querySelector(".aw");if(!w)return;const f=w.querySelector("form"),err=w.querySelector(".err"),done=w.querySelector(".done"),dl=w.querySelector(".dl input");
+f.addEventListener("submit",e=>{f.querySelectorAll("input[data-x]").forEach(x=>x.remove());const on=[...f.querySelectorAll(".fl input:checked")];
+if(!on.length){e.preventDefault();err.hidden=false;return}err.hidden=true;
+if(dl&&dl.checked)on.forEach(c=>{const h=document.createElement("input");h.type="hidden";h.name="tags[]";h.value=c.dataset.d;h.setAttribute("data-x","");f.appendChild(h)});
+setTimeout(()=>{f.hidden=true;done.hidden=false},400)});})();</script>
+<script>
+const CALC_DEALS = [{"firm": "Apex", "code": "SAVENOW", "billing": "monthly", "prices": {"25K": [177, 17.7], "50K": [197, 19.7], "100K": [397, 39.7], "150K": [597, 59.7]}}, {"firm": "Tradeify", "code": "NOV", "billing": "one-time", "prices": {"25K": [109, 76], "50K": [165, 116], "100K": [265, 186], "150K": [369, 258]}}, {"firm": "Lucid", "code": "VAULT", "billing": "", "prices": {"25K": [108, 75.6], "50K": [172, 120.4], "100K": [272, 190.4], "150K": [365, 255.5]}}, {"firm": "IQ Capital", "code": "PROPDESK", "billing": "one-time", "prices": {"50K": [245, 36.75], "100K": [475, 71.25]}}, {"firm": "FundedNext Futures", "code": "PROPDESK", "billing": "one-time", "prices": {"50K": [141.99, 74.99], "100K": [273.99, 144.99], "150K": [490.99, 259.99]}}, {"firm": "MyFundedFutures", "code": "CLUB", "billing": "one-time", "prices": {"50K": [209, 125]}}];
+const SPECS = [
+  ["ES","E-mini S&P 500",0.25,12.5],["MES","Micro E-mini S&P 500",0.25,1.25],
+  ["NQ","E-mini Nasdaq-100",0.25,5],["MNQ","Micro E-mini Nasdaq-100",0.25,0.5],
+  ["YM","E-mini Dow",1,5],["MYM","Micro E-mini Dow",1,0.5],
+  ["RTY","E-mini Russell 2000",0.1,5],["M2K","Micro E-mini Russell 2000",0.1,0.5],
+  ["CL","Crude oil",0.01,10],["MCL","Micro crude oil",0.01,1],
+  ["GC","Gold",0.1,10],["MGC","Micro gold",0.1,1],
+  ["SI","Silver",0.005,25],["NG","Natural gas",0.001,10],
+  ["6E","Euro FX",0.00005,6.25],["ZB","30-year T-bond",0.03125,31.25],["ZN","10-year T-note",0.015625,15.625]
+];
+const $ = id => document.getElementById(id);
+const money = n => (n < 0 ? "-" : "") + "$" + Math.abs(n).toLocaleString("en-US", {minimumFractionDigits: Math.abs(n) % 1 ? 2 : 0, maximumFractionDigits: 2});
+const num = id => { const v = parseFloat($(id).value); return isNaN(v) ? null : v; };
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+// Days to first payout
+function payout(){
+  const day = num("po-day"), qmin = num("po-qmin") || 0, qdays = num("po-qdays") || 0, min = num("po-min") || 0, buf = num("po-buf") || 0, o = $("po-out");
+  if (!day) { o.innerHTML = '<div class="big"><small>Days to first payout</small>Enter a daily profit</div>'; return; }
+  const counts = day >= qmin;
+  const needed = min + buf;
+  const byMoney = Math.ceil(needed / day);
+  const byDays = counts ? qdays : Infinity;
+  const days = Math.max(byMoney, byDays);
+  o.innerHTML = `<div class="big"><small>Trading days to a first payout request</small>${isFinite(days) ? days : "–"}</div><ul>` +
+    `<li><span>Days to reach ${money(needed)}${buf ? " (minimum + buffer)" : " minimum"}</span><span>${byMoney}</span></li>` +
+    `<li><span>Qualifying days required</span><span>${qdays}${counts ? "" : " (your days don't qualify)"}</span></li>` +
+    `<li><span>Profit at request</span><span>${isFinite(days) ? money(days * day) : "–"}</span></li></ul>` +
+    (!counts ? `<p class="warn">Your daily goal is under the ${money(qmin)} qualifying minimum, so none of those days count. Raise the goal or plan more days.</p>` : "");
+}
+["po-day","po-qmin","po-qdays","po-min","po-buf"].forEach(id => $(id).addEventListener("input", payout)); payout();
+
+</script><script data-r4>(()=>{
+const $=id=>document.getElementById(id), num=id=>{const v=parseFloat(($(id)||{}).value);return isFinite(v)?v:0};
+const money=v=>'$'+(Math.round(v*100)/100).toLocaleString('en-US',{maximumFractionDigits:2});
+(function(){const d=$('tc-deal');if(d&&!$('tc-price').value){const EX=[["FundedNext Futures 50K", "$74.99"], ["IQ Capital 50K", ""]];let op=null,ok=false;for(const e of EX){op=[...d.options].find(o=>o.text.startsWith(e[0]+':'));if(op){ok=!!e[1]&&op.text.includes(e[1]);break}}if(!op)return;d.value=op.value;d.dispatchEvent(new Event('change',{bubbles:true}));$('tc-resets').value=0;$('tc-resets').dispatchEvent(new Event('input',{bubbles:true}));
+ const h=document.querySelector('#truecost h3');if(h)h.insertAdjacentHTML('beforeend','<span class="ex">Example'+(ok?' · checked Nov 11':'')+'</span>')}})();
+const tc=$('truecost');if(tc)['input','change'].forEach(t=>tc.addEventListener(t,e=>{if(e.isTrusted){const x=tc.querySelector('h3 .ex');if(x)x.remove()}}));
+function viz(out,html){let v=out.parentNode.querySelector(':scope > .viz');if(!v){v=document.createElement('div');v.className='viz';out.appendChild(v)}v.innerHTML=html}
+function draw(){
+ // true cost
+ {const o=$('tc-out');if(o){const m=$('tc-bill').value==='monthly'?Math.max(1,num('tc-months')):1;const e=num('tc-price')*m,r=num('tc-resets')*num('tc-reset'),a=num('tc-act'),t=e+r+a;
+  if(t>0){const seg=[[e,'#F2C14E','Eval'+(m>1?' x'+m+' months':'')],[r,'#C98A2E','Resets'],[a,'#8A6A2A','Activation']].filter(x=>x[0]>0);
+   viz(o,'<div class="bar">'+seg.map(x=>'<span style="width:'+(x[0]/t*100)+'%;background:'+x[1]+'"></span>').join('')+'</div><div class="lg">'+seg.map(x=>'<span><i style="background:'+x[1]+'"></i>'+x[2]+' '+money(x[0])+'</span>').join('')+'</div>')}}}
+ // size
+ {const o=$('sz-out');if(o){const txt=o.textContent;const rp=(txt.match(/Risk per contract at that stop\s*\$([\d,.]+)/)||[])[1];const bg=o.querySelector('.big');const n=bg?parseInt((bg.textContent.match(/(\d+)\s*contracts?\s*$/)||[])[1])||0:0;const risk=num('sz-risk');
+  if(rp&&risk>0){const per=parseFloat(rp.replace(/,/g,''));const used=Math.min(1,n*per/risk);viz(o,'<div class="meter"><b style="width:'+(used*100)+'%"></b></div><div class="scale"><span>'+n+' x '+money(per)+' = '+money(n*per)+' used</span><span>'+money(risk)+' allowed</span></div>')}}}
+ // runway
+ {const o=$('rw-out');if(o){const dd=num('rw-dd'),tg=num('rw-target'),l=num('rw-loss');if(dd>0&&l>0){const n=Math.floor(dd/l);const show=Math.min(n,10);
+  const mx=Math.max(dd,tg);viz(o,'<div class="blocks">'+Array.from({length:show},(_,i)=>'<span>'+(i+1)+'</span>').join('')+(n>show?'<span class="end">+'+(n-show)+' more</span>':'')+'<span class="end">breach</span></div><div class="two"><span>Drawdown '+money(dd)+'</span><span class="t" style="width:'+(dd/mx*100)+'%;background:#E07A6B"></span><span>Target '+money(tg)+'</span><span class="t" style="width:'+(tg/mx*100)+'%;background:#F2C14E"></span></div>')}}}
+ // payout
+ {const o=$('po-out');if(o){const bg=o.querySelector('.big');const D=bg?parseInt((bg.textContent.match(/(\d+)\s*$/)||[])[1])||0:0;const q=num('po-qdays');if(D>0&&D<=40){
+  viz(o,'<div class="dots">'+Array.from({length:D},(_,i)=>'<span class="'+(i<q?'':'q')+'">'+(i+1)+'</span>').join('')+'<em>request payout</em></div>')}}}
+}
+['tc-out','sz-out','rw-out','po-out'].forEach(id=>{const o=$(id);if(o)new MutationObserver(()=>{if(!o.querySelector('.viz'))draw()}).observe(o,{childList:true})});
+document.addEventListener('input',()=>setTimeout(draw,0));document.addEventListener('change',()=>setTimeout(draw,0));setTimeout(draw,50);
+
+})();</script>
+</body>
+</html>
