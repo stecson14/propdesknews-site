@@ -522,5 +522,5 @@ const dock=()=>{let h=0;document.querySelectorAll("nav,.tabbar,[class*=dock]").f
 dock();addEventListener("resize",dock);
 if(bar&&"IntersectionObserver"in window){new IntersectionObserver(es=>es.forEach(x=>{const past=!x.isIntersecting&&x.boundingClientRect.top<0;bar.classList.toggle("on",past);bar.setAttribute("aria-hidden",past?"false":"true");bar.querySelectorAll("a").forEach(a=>a.tabIndex=past?0:-1)})).observe(T)}
 draw()})();</script>
-</body>
+<script data-clear-js>(function(){function f(){document.querySelectorAll(".card,.tw").forEach(function(b){var t=b.querySelector(":scope>table");if(!t)return;var s=b.scrollWidth>b.clientWidth+1;if(s&&!b.hasAttribute("data-sx")&&!b.hasAttribute("role")){b.setAttribute("data-sx","");b.tabIndex=0;b.setAttribute("role","region");var c=t.querySelector("caption"),h=b.closest("section");h=h&&h.querySelector("h2,h3");b.setAttribute("aria-label",((c&&c.textContent)||(h&&h.textContent)||"Table").trim()+" (scrolls sideways)")}else if(!s&&b.hasAttribute("data-sx")){["data-sx","tabindex","role","aria-label"].forEach(function(a){b.removeAttribute(a)})}})}f();var k;addEventListener("resize",function(){clearTimeout(k);k=setTimeout(f,200)})})();</script></body>
 </html>

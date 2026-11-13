@@ -426,5 +426,5 @@ f.addEventListener("submit",e=>{f.querySelectorAll("input[data-x]").forEach(x=>x
 if(!on.length){e.preventDefault();err.hidden=false;return}err.hidden=true;
 if(dl&&dl.checked)on.forEach(c=>{const h=document.createElement("input");h.type="hidden";h.name="tags[]";h.value=c.dataset.d;h.setAttribute("data-x","");f.appendChild(h)});
 setTimeout(()=>{f.hidden=true;done.hidden=false},400)});})();</script>
-</body>
+<script data-clear-js>(function(){function f(){document.querySelectorAll(".card,.tw").forEach(function(b){var t=b.querySelector(":scope>table");if(!t)return;var s=b.scrollWidth>b.clientWidth+1;if(s&&!b.hasAttribute("data-sx")&&!b.hasAttribute("role")){b.setAttribute("data-sx","");b.tabIndex=0;b.setAttribute("role","region");var c=t.querySelector("caption"),h=b.closest("section");h=h&&h.querySelector("h2,h3");b.setAttribute("aria-label",((c&&c.textContent)||(h&&h.textContent)||"Table").trim()+" (scrolls sideways)")}else if(!s&&b.hasAttribute("data-sx")){["data-sx","tabindex","role","aria-label"].forEach(function(a){b.removeAttribute(a)})}})}f();var k;addEventListener("resize",function(){clearTimeout(k);k=setTimeout(f,200)})})();</script></body>
 </html>
