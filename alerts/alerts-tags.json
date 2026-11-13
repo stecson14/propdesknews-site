@@ -1,0 +1,317 @@
+{
+ "_how": "Kit tag ids per firm slug (rules = confirmed rule changes, deals = new codes and sales). Made by alerts_setup.py; public ids, no secrets.",
+ "firms": {
+  "alpha-capital": {
+   "deals": 25694689,
+   "rules": 25694688
+  },
+  "alpha-futures": {
+   "deals": 25694691,
+   "rules": 25694690
+  },
+  "apex-trader-funding": {
+   "deals": 25694693,
+   "rules": 25694692
+  },
+  "aquafunded": {
+   "deals": 25694695,
+   "rules": 25694694
+  },
+  "atlas-funded": {
+   "deals": 25694697,
+   "rules": 25694696
+  },
+  "audacity-capital": {
+   "deals": 25694699,
+   "rules": 25694698
+  },
+  "blue-guardian": {
+   "deals": 25694701,
+   "rules": 25694700
+  },
+  "blueberry-futures": {
+   "deals": 25694704,
+   "rules": 25694703
+  },
+  "blusky-trading": {
+   "deals": 25694707,
+   "rules": 25694706
+  },
+  "breakout": {
+   "deals": 25694712,
+   "rules": 25694709
+  },
+  "brightfunded": {
+   "deals": 25694714,
+   "rules": 25694713
+  },
+  "bulenox": {
+   "deals": 25694716,
+   "rules": 25694715
+  },
+  "city-traders-imperium": {
+   "deals": 25694718,
+   "rules": 25694717
+  },
+  "crypto-fund-trader": {
+   "deals": 25694720,
+   "rules": 25694719
+  },
+  "daytraders-com": {
+   "deals": 25694722,
+   "rules": 25694721
+  },
+  "dna-funded": {
+   "deals": 25694724,
+   "rules": 25694723
+  },
+  "e8-markets": {
+   "deals": 25694726,
+   "rules": 25694725
+  },
+  "e8-perpetuals": {
+   "deals": 25694728,
+   "rules": 25694727
+  },
+  "earn2trade": {
+   "deals": 25694731,
+   "rules": 25694729
+  },
+  "elite-trader-funding": {
+   "deals": 25694733,
+   "rules": 25694732
+  },
+  "ffn-perps": {
+   "deals": 25694736,
+   "rules": 25694734
+  },
+  "ffone-perps": {
+   "deals": 25694738,
+   "rules": 25694737
+  },
+  "fintokei": {
+   "deals": 25694740,
+   "rules": 25694739
+  },
+  "for-traders": {
+   "deals": 25694742,
+   "rules": 25694741
+  },
+  "ftm-perps": {
+   "deals": 25694744,
+   "rules": 25694743
+  },
+  "ftmo": {
+   "deals": 25694746,
+   "rules": 25694745
+  },
+  "ftmo-futures": {
+   "deals": 25694748,
+   "rules": 25694747
+  },
+  "ftuk": {
+   "deals": 25694750,
+   "rules": 25694749
+  },
+  "funded-futures-family": {
+   "deals": 25694752,
+   "rules": 25694751
+  },
+  "funded-futures-network": {
+   "deals": 25694754,
+   "rules": 25694753
+  },
+  "funded-trader-markets": {
+   "deals": 25694756,
+   "rules": 25694755
+  },
+  "funded-trading-plus": {
+   "deals": 25694758,
+   "rules": 25694757
+  },
+  "fundednext": {
+   "deals": 25694760,
+   "rules": 25694759
+  },
+  "fundednext-futures": {
+   "deals": 25694762,
+   "rules": 25694761
+  },
+  "funding-traders": {
+   "deals": 25694764,
+   "rules": 25694763
+  },
+  "fundingpips": {
+   "deals": 25694766,
+   "rules": 25694765
+  },
+  "futureselite": {
+   "deals": 25694768,
+   "rules": 25694767
+  },
+  "fxify": {
+   "deals": 25694771,
+   "rules": 25694769
+  },
+  "goat-funded-futures": {
+   "deals": 25694773,
+   "rules": 25694772
+  },
+  "goat-funded-trader": {
+   "deals": 25694775,
+   "rules": 25694774
+  },
+  "hola-prime": {
+   "deals": 25694777,
+   "rules": 25694776
+  },
+  "hypernova": {
+   "deals": 25694779,
+   "rules": 25694778
+  },
+  "hyperpnl": {
+   "deals": 25694781,
+   "rules": 25694780
+  },
+  "hyrotrader": {
+   "deals": 25694783,
+   "rules": 25694782
+  },
+  "instant-funding": {
+   "deals": 25694785,
+   "rules": 25694784
+  },
+  "iq-capital": {
+   "deals": 25694787,
+   "rules": 25694786
+  },
+  "kraken-prop": {
+   "deals": 25694789,
+   "rules": 25694788
+  },
+  "lark-funding": {
+   "deals": 25694791,
+   "rules": 25694790
+  },
+  "leeloo-trading": {
+   "deals": 25694793,
+   "rules": 25694792
+  },
+  "legends-trading": {
+   "deals": 25694795,
+   "rules": 25694794
+  },
+  "lucid-trading": {
+   "deals": 25694798,
+   "rules": 25694797
+  },
+  "lux-trading-firm": {
+   "deals": 25694800,
+   "rules": 25694799
+  },
+  "maven-trading": {
+   "deals": 25694803,
+   "rules": 25694801
+  },
+  "myfundedfutures-mffu": {
+   "deals": 25694807,
+   "rules": 25694804
+  },
+  "myfundedperps": {
+   "deals": 25694809,
+   "rules": 25694808
+  },
+  "oneup-trader": {
+   "deals": 25694811,
+   "rules": 25694810
+  },
+  "phidias-propfirm": {
+   "deals": 25694813,
+   "rules": 25694812
+  },
+  "pipfarm": {
+   "deals": 25694815,
+   "rules": 25694814
+  },
+  "propr": {
+   "deals": 25694817,
+   "rules": 25694816
+  },
+  "propshoptrader": {
+   "deals": 25694820,
+   "rules": 25694818
+  },
+  "purdia-capital": {
+   "deals": 25694823,
+   "rules": 25694822
+  },
+  "qt-funded-quant-tekel": {
+   "deals": 25694825,
+   "rules": 25694824
+  },
+  "take-profit-trader": {
+   "deals": 25694827,
+   "rules": 25694826
+  },
+  "the-futures-desk": {
+   "deals": 25694829,
+   "rules": 25694828
+  },
+  "the-trading-pit": {
+   "deals": 25694831,
+   "rules": 25694830
+  },
+  "the5ers": {
+   "deals": 25694833,
+   "rules": 25694832
+  },
+  "thinkcapital": {
+   "deals": 25694835,
+   "rules": 25694834
+  },
+  "top-one-futures": {
+   "deals": 25694839,
+   "rules": 25694836
+  },
+  "top-one-trader": {
+   "deals": 25694841,
+   "rules": 25694840
+  },
+  "topstep": {
+   "deals": 25694843,
+   "rules": 25694842
+  },
+  "tradeday": {
+   "deals": 25694845,
+   "rules": 25694844
+  },
+  "tradeify": {
+   "deals": 25694847,
+   "rules": 25694846
+  },
+  "tradeify-perps": {
+   "deals": 25694849,
+   "rules": 25694848
+  },
+  "traders-launch": {
+   "deals": 25694851,
+   "rules": 25694850
+  },
+  "traders-launch-crypto": {
+   "deals": 25694853,
+   "rules": 25694852
+  },
+  "uprofit": {
+   "deals": 25694855,
+   "rules": 25694854
+  },
+  "vanta-trading": {
+   "deals": 25694857,
+   "rules": 25694856
+  },
+  "vest-markets": {
+   "deals": 25694859,
+   "rules": 25694858
+  }
+ }
+}

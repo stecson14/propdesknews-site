@@ -1,0 +1,46 @@
+# Sends the per-firm alert emails through Kit after each site update.
+# Off until alerts/alerts-send.on exists in the repo. Needs the repo secret KIT_API_KEY.
+# alerts/alerts_send.py only sends items not yet in alerts/alerts-state.json, then this job commits the updated state.
+name: Email alerts
+
+on:
+  push:
+    branches: [main]
+    paths: ['public/news/**', 'public/firms/**']
+  workflow_dispatch:
+
+concurrency:
+  group: email-alerts
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check switch
+        id: sw
+        run: |
+          if [ -f alerts/alerts-send.on ]; then echo "on=1" >> "$GITHUB_OUTPUT"; else echo "Alerts are switched off (no alerts/alerts-send.on). Dry run only."; fi
+      - name: Dry run (what would be sent)
+        run: python3 alerts/alerts_send.py public
+      - name: Wait for the site to finish deploying
+        if: steps.sw.outputs.on == '1'
+        run: sleep 180
+      - name: Send through Kit
+        if: steps.sw.outputs.on == '1'
+        env:
+          KIT_API_KEY: ${{ secrets.KIT_API_KEY }}
+        run: python3 alerts/alerts_send.py public --send
+      - name: Save what was sent
+        if: steps.sw.outputs.on == '1'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
+          git add alerts/alerts-state.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Email alerts: record sent items"
+          for i in 1 2 3; do git pull --rebase -q origin main && git push -q origin HEAD:main && break; sleep 5; done
