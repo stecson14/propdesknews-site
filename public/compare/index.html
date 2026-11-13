@@ -1102,7 +1102,7 @@ function render(){
   rows.push(["Sale on the firm's site", cell(f => f.deal ? (CLP(f, "deal") || f.deal) : `<span style="color:var(--muted)">No sale shown</span>`, "sale")]);
   rows.push([gl("Plans","evaluation"), cell(txt("plans"))]);
   rows.push(["Platforms", cell(txt("plat"))]);
-  if (fs.some(f => f && f.note)) rows.push(["Notes", cell(f => f.note ? (CLP(f, "note") || esc(f.note)) : `<span style="color:var(--muted)">—</span>`)]);
+  if (fs.some(f => f && f.note)) rows.push(["Notes", cell(f => f.note ? (CLP(f, "note") || esc(f.note)) : "")]);
   rows.push(["", cell(f => `<a href="/firms/${f.s}/">Full profile: rules, sale, confirmed changes →</a><a href="${esc(FIRMAFF[f.s] || f.w)}" target="_blank" rel="${FIRMAFF[f.s] ? "sponsored nofollow noopener" : "noopener"}">Open ${esc(f.n)} ↗${FIRMAFF[f.s] ? " (affiliate link)" : ""}</a>`, "go")]);
   if (!sel.length) rows.length = 1;
   document.getElementById("rows").innerHTML = rows.map(([lab, cells]) => `<div class="row">${lab ? `<div class="lbl">${lab}</div>` : ""}<div class="vals">${cells}</div></div>`).join("");
