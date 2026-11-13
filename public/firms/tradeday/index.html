@@ -637,7 +637,7 @@ h+='<div class="pk-bar"><div class="pk-ends"><span class="ml">−'+usd(ml)+'<sma
 +'<div class="pk-tr" role="img" aria-label="Fail at '+usd(k-ml)+', start at '+usd(k)+', pass at '+usd(k+t)+'"><i class="r" style="width:'+pos.toFixed(1)+'%"></i><i class="g" style="width:'+(100-pos).toFixed(1)+'%"></i><em style="left:calc('+pos.toFixed(1)+'% - 1px)"></em></div>'
 +'<div class="pk-ax"><span>Fail at '+usd(k-ml)+'</span><span>Start '+usd(k)+'</span><span>Pass at '+usd(k+t)+'</span></div></div>';
 var fx=[];if(x.dl)fx.push('Daily loss limit <b>'+esc(x.dl)+'</b>');if(act)fx.push(esc(act));if(fx.length)h+='<p class="pk-fx"><span>'+fx.join('</span><span>')+'</span></p>';}
-else h+='<p class="pk-no">'+(act?esc(act)+'. ':'')+'We haven\'t read the target and max loss for this exact account on '+esc(f.n)+'\'s own pages yet. <a href="/firms/'+slug+'/'+(f.r?'rules/':'')+'">'+(f.r?'See the full rules':'See the firm page')+'</a></p>';
+else h+='<p class="pk-no">'+(act?esc(act)+'. ':'')+'We haven\'t read the target and max loss for this exact account on '+esc(f.n)+(/s$/.test(f.n)?'\'':'\'s')+' own pages yet. <a href="/firms/'+slug+'/'+(f.r?'rules/':'')+'">'+(f.r?'See the full rules':'See the firm page')+'</a></p>';
 O.innerHTML=h;}
 S.addEventListener("click",function(e){var b=e.target.closest("button[data-v]");if(b){if(b.parentNode.hasAttribute("data-pl"))st.pl=b.dataset.v;else st.z=b.dataset.v;draw();return}
 var a=e.target.closest(".pk-go");if(a&&a.dataset.code){try{navigator.clipboard&&navigator.clipboard.writeText(a.dataset.code).catch(function(){})}catch(x){}var t=a.textContent;a.textContent="Code copied";setTimeout(function(){a.textContent=t},2000);}});
