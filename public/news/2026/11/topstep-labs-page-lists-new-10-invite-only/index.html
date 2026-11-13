@@ -351,6 +351,9 @@ dl.kv .pg span.rl{font:600 11px var(--mono,ui-monospace,monospace);letter-spacin
 dl.kv .pg span.c{color:var(--mustard);font-weight:700}
 dl.kv .pg span.l{border-bottom:0}
 dl.kv .cd{display:flex;align-items:flex-start;gap:12px}dl.kv .cd .code{flex:none}dl.kv .cd .deal{flex:1;min-width:0;padding-top:3px}dl.kv .code{font:700 13px var(--mono,ui-monospace,monospace);letter-spacing:.04em;padding:4px 10px;border-radius:8px;border:1px dashed var(--line);color:var(--text,#E6E6E6)}dl.kv .code.ours{border-color:var(--mustard);color:var(--mustard);background:color-mix(in srgb,var(--mustard) 10%,transparent)}dl.kv .deal{font-size:14.5px}dl.kv .pn{display:block;font-size:13px;color:var(--muted);margin-top:4px}
+@media (max-width:640px){table.px:not(.wordy) td[data-lt]{min-width:200px}}
+@media (min-width:641px){table.px.wordy[data-cards] tr{display:grid;grid-template-columns:minmax(170px,1fr) 2fr minmax(170px,1fr);align-items:start;gap:6px 28px}table.px.wordy[data-cards] .wl{border-top:0!important;padding-top:0!important}table.px.wordy[data-cards] .wt{align-self:center}}
+@media (max-width:370px){table.px:not(.slt):not(.wordy) thead th,table.px:not(.slt):not(.wordy) td,table.px:not(.slt):not(.wordy) tbody th{padding-left:6px;padding-right:6px}}
 @media (max-width:640px){table.px.wordy tr{padding:14px 14px 16px}table.px.wordy .wk{text-align:left}table.px.wordy .wl.wh{flex-basis:100%}dl.kv .r{grid-template-columns:1fr;gap:4px;padding:12px 2px}dl.kv dt{padding-top:0}dl.kv .pg{grid-template-columns:auto repeat(var(--n),minmax(0,1fr))}dl.kv .pg span{padding:7px 6px;font-size:13px}}
 </style></head>
 <body>
