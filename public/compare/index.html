@@ -1167,7 +1167,7 @@ const sizes=t=>{const m=String(t||"").match(/\$?\d+(?:\.\d+)?\s*[Kk]\b/g);return
 function mark(){const box=document.getElementById("rows");if(!box)return;let note=document.getElementById("r2note");
 const fs=(typeof sel!=="undefined"?sel:[]).map(s=>BY[s]).filter(Boolean);
 if(fs.length<2){if(note)note.hidden=true;return}
-if(!note){note=document.createElement("p");note.id="r2note";note.className="r2note";note.innerHTML='<b>Best</b> marks are plain data, not a ranking. Live code: the biggest discount from a code live on Prop Desk. Split: the highest trader profit split. Most sizes: the most account sizes on offer. Ties get no mark. Price, drawdown and rules depend on how you trade, so they stay unmarked. Data checked Nov 12, 2026.';box.parentNode.insertBefore(note,box)}note.hidden=false;
+if(!note){note=document.createElement("p");note.id="r2note";note.className="r2note";note.innerHTML='<b>Best</b> marks are plain data, not a ranking. Live code: the biggest discount from a code live on Prop Desk. Split: the highest trader profit split. Most sizes: the most account sizes on offer. Ties get no mark. Price, drawdown and rules depend on how you trade, so they stay unmarked. Data checked Nov 13, 2026.';box.parentNode.insertBefore(note,box)}note.hidden=false;
 const rule={"Live code on Prop Desk":f=>{const d=typeof liveDeal==="function"?liveDeal(f.s):null;return d?pct(d.save):null},"Split":f=>split(f.split),"Sizes":f=>sizes(f.sizes)};
 const lab={"Sizes":"Most sizes"};
 box.querySelectorAll(".row").forEach(r=>{const l=r.querySelector(".lbl");if(!l)return;const k=Object.keys(rule).find(x=>l.textContent.trim().startsWith(x));if(!k)return;
