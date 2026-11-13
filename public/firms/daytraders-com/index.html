@@ -334,6 +334,7 @@ footer{letter-spacing:.03em}
 .fline .affs{font-size:12px;color:#9B9B9B}
 .fline a.lk{background:none!important;border:0!important;padding:0!important;border-radius:0!important;font:inherit!important;color:#FFFFFF!important;display:inline!important}
 .fline .nw{white-space:nowrap}
+@media (max-width:520px){.fline .nw{white-space:normal;overflow-wrap:anywhere}}
 .fline .hstar{background:none;border:0;padding:0;color:#F2C14E;font:inherit;cursor:pointer}
 </style>
 <style data-alerts>
@@ -372,7 +373,7 @@ dialog.alrt::backdrop{background:rgba(0,0,0,.7)}
 @media (max-width:640px){.act .r3c .row{grid-template-columns:1fr}}
 </style>
 <style data-vd>
-.vread{border:1px solid #3A3220;background:linear-gradient(180deg,#19150B,#121008);border-radius:16px;padding:20px;display:grid;gap:14px}
+.vread{border:1px solid #3A3220;background:linear-gradient(180deg,#19150B,#121008);border-radius:16px;padding:20px;display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
 .vread .vey{font:600 11.5px 'IBM Plex Mono',ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:#F2C14E;margin:0}
 .vread .vlede{margin:0;font:500 21px/1.35 'Playfair Display',Georgia,serif;color:#F4F1EA;text-wrap:balance}
 .vread .vlede em{font-style:normal;color:#F2C14E}
@@ -410,7 +411,7 @@ details.vfold>summary::after{content:"+";font:500 22px Inter,system-ui,sans-seri
 details.vfold[open]>summary::after{content:"\2212"}
 details.vfold[open]>summary{margin-bottom:14px}
 .vrail{display:none}
-@media (max-width:700px){.vps{grid-template-columns:1fr}.vtiles{grid-template-columns:1fr 1fr}.vread .vlede{font-size:19px}.vbars .r{grid-template-columns:96px 1fr 66px;font-size:12px}}
+@media (max-width:700px){.vps{grid-template-columns:minmax(0,1fr)}.vtiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.vtile{min-width:0}.vtile .k{flex-wrap:wrap;gap:4px 8px}.vread .vlede{font-size:19px}.vbars .r{grid-template-columns:96px 1fr 66px;font-size:12px}}
 @media (min-width:761px) and (max-width:1099px){.actbar.on{display:flex}}
 @media (min-width:1100px){
  .vlay{display:grid;grid-template-columns:minmax(0,1fr) 340px;column-gap:28px;max-width:1180px;margin:0 auto;padding-right:max(16px,env(safe-area-inset-right,0px))}
@@ -484,7 +485,7 @@ table.px:not(.slt) tbody th[scope=row] a{color:inherit;text-decoration:underline
 table.px.txt:not(.slt) td{font-size:14.5px;line-height:1.55}
 table.px:not(.slt) td a:not([class]){color:var(--mustard);text-underline-offset:3px}table.px:not(.slt) tbody th[scope=row]>a:first-child{font-size:14.5px}table.px td.best{color:var(--mustard);font-weight:700}table.px td.best::after{content:attr(data-b);display:inline-block;margin-left:8px;font:700 9.5px var(--mono,ui-monospace,monospace);letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:999px;border:1px solid var(--mustard);vertical-align:2px}table.px:not(.slt) caption{caption-side:top;text-align:left;font:500 13px var(--body,inherit);color:var(--muted);padding:0 0 8px}
 @media (max-width:640px){table.px:not(.slt){font-size:13.5px}table.px:not(.slt) thead th{font-size:10.5px;padding:9px 8px}table.px:not(.slt) td,table.px:not(.slt) tbody th{padding:10px 8px}table.px.txt:not(.slt) td{font-size:14px}}
-table.px.wordy,table.px.wordy tbody,table.px.wordy tr{display:block;width:100%}
+table.px.wordy,table.px.wordy tbody,table.px.wordy tr{display:block;width:100%}table.px.wordy{min-width:0!important}.card:has(>table.px:not(.wordy)){overflow-x:auto}
 table.px.wordy thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 table.px.wordy tr{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;padding:16px 18px 18px;margin:0 0 12px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--line) 22%,transparent)}
 table.px.wordy tbody tr:nth-child(n) td,table.px.wordy tbody tr:nth-child(n) th{background:none;border:0;padding:0}
