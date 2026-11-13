@@ -431,5 +431,5 @@ f.addEventListener("submit",e=>{f.querySelectorAll("input[data-x]").forEach(x=>x
 if(!on.length){e.preventDefault();err.hidden=false;return}err.hidden=true;
 if(dl&&dl.checked)on.forEach(c=>{const h=document.createElement("input");h.type="hidden";h.name="tags[]";h.value=c.dataset.d;h.setAttribute("data-x","");f.appendChild(h)});
 setTimeout(()=>{f.hidden=true;done.hidden=false},400)});})();</script>
-</body>
+<script data-gofrom>(function(){var P=location.pathname.replace(/[^a-zA-Z0-9\/_.-]/g,"");function fx(u){if(typeof u!=="string")return u;var m=u.match(/^((?:https?:\/\/(?:www\.)?propdesknews\.com)?\/go\/[a-z0-9-]+\/?)(\?[^#]*)?(#.*)?$/);if(!m)return u;var q=m[2]||"";if(/[?&]from=/.test(q))return u;return m[1]+(q.length>1?q+"&":"?")+"from="+P+(m[3]||"")}var o=window.open;window.open=function(u){var a=[].slice.call(arguments);a[0]=fx(u);return o.apply(window,a)};function h(e){var t=e.target,a=t&&t.closest&&t.closest("a[href]");if(!a)return;var v=a.getAttribute("href"),n=fx(v);if(n!==v)a.setAttribute("href",n)}["pointerdown","mousedown","touchstart","click","auxclick","contextmenu","keydown","focusin"].forEach(function(k){document.addEventListener(k,h,true)})})();</script></body>
 </html>
