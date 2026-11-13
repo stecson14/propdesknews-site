@@ -630,14 +630,15 @@ zs.sort(function(a,b){return parseFloat(a)-parseFloat(b)});if(zs.indexOf(st.z)<0
 S.querySelector("[data-pl]").innerHTML=pls.map(function(p){return '<button type="button" data-v="'+esc(p)+'" aria-pressed="'+(p===st.pl)+'">'+esc(p)+'</button>'}).join("");
 S.querySelector("[data-z]").innerHTML=zs.map(function(z){return '<button type="button" data-v="'+z+'" aria-pressed="'+(z===st.z)+'">'+z+'</button>'}).join("");}
 function draw(){chips();var r=find();if(!r)return;var cp=r.cp,bill=r.b==="mo"?"per month":r.b==="once"?"one-time":"",h='<div class="pk-pr">';
-h+=cp?'<b>'+usd(cp.v)+'</b> <s>'+usd(r.v)+'</s><span>'+bill+' with '+esc(cp.c)+' · '+(cp.how==="checked"?"checked at checkout":"our math, "+cp.p+"% off")+'</span>':'<b class="plain">'+usd(r.v)+'</b><span>'+bill+' · list price</span>';
+h+=cp?'<b>'+usd(cp.v)+'</b> <s>'+usd(r.v)+'</s><span>'+bill+' with '+esc(cp.c)+' · '+(cp.how==="checked"?"checked at checkout":"our math, "+(cp.up?"up to ":"")+cp.p+"% off")+'</span>':'<b class="plain">'+usd(r.v)+'</b><span>'+bill+' · list price</span>';
 h+='</div>';var act="";if(r.ac===0)act="No activation fee";else if(r.ac)act="Plus "+usd(r.ac)+" activation, so "+usd((cp?cp.v:r.v)+r.ac)+" to get funded";
 var x=r.f||{},k=r.k*1000,t=num(x.t),ml=num(x.ml);
-if(t&&ml&&x.fs==="f"){var pos=ml*100/(ml+t);
+if(t&&ml&&x.fs==="f"&&!x.tx){var pos=ml*100/(ml+t);
 h+='<div class="pk-bar"><div class="pk-ends"><span class="ml">−'+usd(ml)+'<small>Max loss'+(x.dd?' · '+esc(x.dd.toLowerCase()):'')+'</small></span><span class="tg">+'+usd(t)+'<small>Profit target</small></span></div>'
 +'<div class="pk-tr" role="img" aria-label="Fail at '+usd(k-ml)+', start at '+usd(k)+', pass at '+usd(k+t)+'"><i class="r" style="width:'+pos.toFixed(1)+'%"></i><i class="g" style="width:'+(100-pos).toFixed(1)+'%"></i><em style="left:calc('+pos.toFixed(1)+'% - 1px)"></em></div>'
 +'<div class="pk-ax"><span>Fail at '+usd(k-ml)+'</span><span>Start '+usd(k)+'</span><span>Pass at '+usd(k+t)+'</span></div></div>';
 var fx=[];if(x.dl)fx.push('Daily loss limit <b>'+esc(x.dl)+'</b>');if(act)fx.push(esc(act));if(fx.length)h+='<p class="pk-fx"><span>'+fx.join('</span><span>')+'</span></p>';}
+else if(x.tx){var fx2=['Profit target <b>'+esc(x.t||'None')+'</b>','Max loss <b>'+esc(x.ml||'')+'</b>'+(x.dd?' · '+esc(x.dd.toLowerCase()):''),'Daily loss limit <b>'+esc(x.dl||'None')+'</b>'];if(act)fx2.push(esc(act));h+='<p class="pk-fx"><span>'+fx2.join('</span><span>')+'</span></p>';}
 else h+='<p class="pk-no">'+(act?esc(act)+'. ':'')+'We haven\'t read the target and max loss for this exact account on '+esc(f.n)+(/s$/.test(f.n)?'\'':'\'s')+' own pages yet. <a href="/firms/'+slug+'/'+(f.r?'rules/':'')+'">'+(f.r?'See the full rules':'See the firm page')+'</a></p>';
 O.innerHTML=h;}
 S.addEventListener("click",function(e){var b=e.target.closest("button[data-v]");if(b){if(b.parentNode.hasAttribute("data-pl"))st.pl=b.dataset.v;else st.z=b.dataset.v;draw();return}
