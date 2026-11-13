@@ -19,8 +19,12 @@ export default {
       if (!from) try { const r = new URL(req.headers.get('referer') || ''); if (r.hostname.endsWith('propdesknews.com')) from = r.pathname; } catch (e) {}
       // ?placement=<button> (Nov 12): which button on the page, e.g. challenges_row. Letters, digits, _ and - only.
       const place = (url.searchParams.get('placement') || '').replace(/[^a-z0-9_-]/gi, '').slice(0, 40);
+      // Off-site source (Nov 13): ?src=<name> on links we post elsewhere (youtube, instagram, x), since apps often
+      // send no Referer; otherwise the Referer's host when the click did not come from our own pages.
+      let src = (url.searchParams.get('src') || '').toLowerCase().replace(/[^a-z0-9_.-]/g, '').slice(0, 40);
+      if (!src && !from) try { const r = new URL(req.headers.get('referer') || ''); if (!r.hostname.endsWith('propdesknews.com')) src = r.hostname.toLowerCase().replace(/^www\./, '').slice(0, 60); } catch (e) {}
       try {
-        env.CLICKS.writeDataPoint({ indexes: [m[1]], blobs: [m[1], from.slice(0, 200), (req.cf && req.cf.country) || '', place], doubles: [1] });
+        env.CLICKS.writeDataPoint({ indexes: [m[1]], blobs: [m[1], from.slice(0, 200), (req.cf && req.cf.country) || '', place, src], doubles: [1] });
       } catch (e) {}
     }
     return new Response(null, { status: 302, headers: { Location: to, 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex, nofollow' } });
