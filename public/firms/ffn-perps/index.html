@@ -501,7 +501,7 @@ dl.kv .cd{display:flex;align-items:flex-start;gap:12px}dl.kv .cd .code{flex:none
 .pk-pr s{color:#8A8A8A;font-size:15px}.pk-pr span{color:#C8C8C8;font-size:14px}
 .pk-bar{display:flex;flex-direction:column;gap:6px}
 .pk-ends{display:flex;justify-content:space-between;gap:12px;font:600 14px Inter,system-ui,sans-serif}
-.pk-ends .ml{color:#F07167}.pk-ends .tg{color:#4ADE80;text-align:right}.pk-ends .tg.nt{color:var(--muted,#9AA0A6);font-size:13px;align-self:end}
+.pk-ends .ml{color:#F07167}.pk-ends .tg{color:#4ADE80;text-align:right}.pk-nt{margin:8px 0 0;font-size:13px;line-height:1.5;color:var(--muted,#9AA0A6)}.pk-nt a{color:inherit;text-decoration:underline}.pk-ends .tg.nt{color:var(--muted,#9AA0A6);font-size:13px;align-self:end}
 .pk-ends small{display:block;font-weight:400;font-size:12px;color:#9B9B9B;letter-spacing:.02em}
 .pk-tr{position:relative;display:flex;height:10px;border-radius:999px;overflow:hidden;background:#222}
 .pk-tr i{display:block;height:100%}.pk-tr .r{background:linear-gradient(90deg,#7F1D1D,#F07167)}.pk-tr .g{background:linear-gradient(90deg,#4ADE80,#166534)}
@@ -630,7 +630,7 @@ h+='<div class="pk-bar"><div class="pk-ends"><span class="ml">−'+usd(ml)+'<sma
 var fx=[];if(x.t2)fx.push('Phase 2 target <b>'+esc(x.t2)+'</b>');if(x.dl)fx.push('Daily loss limit <b>'+esc(x.dl)+'</b>');if(act)fx.push(esc(act));if(fx.length)h+='<p class="pk-fx"><span>'+fx.join('</span><span>')+'</span></p>';}
 else if(x.tx){var fx2=['Profit target <b>'+esc(x.t||'None')+'</b>','Max loss <b>'+esc(x.ml||'')+'</b>'+(x.dd?' · '+esc(x.dd.toLowerCase()):''),'Daily loss limit <b>'+esc(x.dl||'None')+'</b>'];if(act)fx2.push(esc(act));h+='<p class="pk-fx"><span>'+fx2.join('</span><span>')+'</span></p>';}
 else h+='<p class="pk-no">'+(act?esc(act)+'. ':'')+'We haven\'t read the target and max loss for this exact account on '+esc(f.n)+(/s$/.test(f.n)?'\'':'\'s')+' own pages yet. <a href="/firms/'+slug+'/'+(f.r?'rules/':'')+'">'+(f.r?'See the full rules':'See the firm page')+'</a></p>';
-O.innerHTML=h;}
+if(x.nt)h+='<p class="pk-nt">'+x.nt+'</p>';O.innerHTML=h;}
 S.addEventListener("click",function(e){var b=e.target.closest("button[data-v]");if(b){if(b.parentNode.hasAttribute("data-pl"))st.pl=b.dataset.v;else st.z=b.dataset.v;draw();return}
 var a=e.target.closest(".pk-go");if(a&&a.dataset.code){try{navigator.clipboard&&navigator.clipboard.writeText(a.dataset.code).catch(function(){})}catch(x){}var t=a.textContent;a.textContent="Code copied";setTimeout(function(){a.textContent=t},2000);}});
 draw();})();</script></body>
